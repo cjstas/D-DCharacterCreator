@@ -1,4 +1,4 @@
-package edu.bsu.cs222.finalproject.veiw;
+package edu.bsu.cs222.finalproject.view;
 
 import javafx.scene.layout.*;
 
