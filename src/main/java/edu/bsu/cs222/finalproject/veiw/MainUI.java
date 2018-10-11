@@ -20,9 +20,10 @@ public class MainUI extends Application {
     public void start(Stage primaryStage) {
         Button to35eBuilder = new Button("Build A 3.5 Character");
         Button to5eBuilder = new Button("Build a 5e Character");
+        Button toNPCCreation = new Button("Random Character");
         to5eBuilder.setOnAction(e -> primaryStage.setScene(setScene("5")));
         to35eBuilder.setOnAction(e->primaryStage.setScene(setScene("3.5")));
-        Scene root = new Scene(new VBox(to35eBuilder, to5eBuilder));
+        Scene root = new Scene(new VBox(to35eBuilder, to5eBuilder, toNPCCreation));
         primaryStage.setScene(root);
         primaryStage.show();
     }

@@ -21,7 +21,8 @@ public class CharacterSheets {
     }
 
     private static Pane sheet5e() {
-
-        return null;
+        Pane sheet5e = new BorderPane();
+        BorderPane stats = new BorderPane();
+        return sheet5e;
     }
 }
