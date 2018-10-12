@@ -9,27 +9,29 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MainUI extends Application {
-
     public static void main(String[] args){
         launch(args);
     }
 
     @Override
-    public void start(Stage PrimaryStage) {
-        Scene root = setScene();
-        PrimaryStage.setScene(root);
-        PrimaryStage.show();
+    public void start(Stage primaryStage) {
+        Button to35eBuilder = new Button("Build A 3.5 Character");
+        Button to5eBuilder = new Button("Build a 5e Character");
+        Button toNPCCreation = new Button("Random Character");
+        to5eBuilder.setOnAction(e -> primaryStage.setScene(setScene("5")));
+        to35eBuilder.setOnAction(e->primaryStage.setScene(setScene("3.5")));
+        Scene root = new Scene(new VBox(to35eBuilder, to5eBuilder, toNPCCreation));
+        primaryStage.setScene(root);
+        primaryStage.show();
     }
 
-    private Scene setScene() {
+    private Scene setScene(String sheet) {
         BorderPane mainLayout = new BorderPane();
         HBox menuBox = setMenuBox();
         VBox optionsBox = setOptionBox();
         mainLayout.setTop(menuBox);
         mainLayout.setLeft(optionsBox);
-
-
-
+        mainLayout.setCenter(CharacterSheets.setSheet(sheet));
         return new Scene(mainLayout);
     }
 
