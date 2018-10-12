@@ -9,9 +9,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MainUI extends Application {
-
-
-
     public static void main(String[] args){
         launch(args);
     }
