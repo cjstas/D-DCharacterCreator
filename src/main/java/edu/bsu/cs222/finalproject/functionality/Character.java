@@ -1,4 +1,4 @@
-package edu.bsu.cs222.finalproject.view;
+package edu.bsu.cs222.finalproject.functionality;
 
 public class Character {
 
