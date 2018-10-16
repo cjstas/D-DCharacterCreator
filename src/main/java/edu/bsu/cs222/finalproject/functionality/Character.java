@@ -18,8 +18,10 @@ public abstract class Character implements CharacterInterface {
     private String classT;
     private boolean inspiration;
     private int pb;
-    private int ac;
+    private int ac = 10;
     private int initiative;
+    private String bg;
+    private String sTrait;
 
     public Character(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha){
         charName = cName;
@@ -52,6 +54,14 @@ public abstract class Character implements CharacterInterface {
 
     public void setLevel(int totalLevel) {
         lvl=totalLevel;
+    }
+
+    public String getBackground() {
+        return bg;
+    }
+
+    public void setBackground(String background) {
+        bg=background;
     }
 
     public String getClassType() {
@@ -138,6 +148,8 @@ public abstract class Character implements CharacterInterface {
             case 20:
                 pb=6;
                 break;
+            default:
+                break;
         }
     }
 
@@ -145,8 +157,8 @@ public abstract class Character implements CharacterInterface {
         return ac;
     }
 
-    public void setAC(int ac) {
-        ac=ac;
+    public void setAC(int armour) {
+        ac=ac+getMod(dexterity)+armour;
     }
 
     public int getInitiative() {
@@ -155,6 +167,69 @@ public abstract class Character implements CharacterInterface {
 
     public void setInitiative(int dex) {
         initiative=getMod(dex);
+    }
+
+    public String getSpecialTrait() {
+        return sTrait;
+    }
+
+    public void setSpecialTrait(String background,int number) {
+        switch (background.toLowerCase()){
+            case "acolyte":
+                break;
+            case "charlatan":
+                switch (number){
+                    case 1:
+                        sTrait="I cheat at games of chance.";
+                        break;
+                    case 2:
+                        sTrait="I shave coins or forge documents";
+                        break;
+                    case 3:
+                        sTrait="I insinuate myself into people's lives to prey on their weakness and secure their fortunes";
+                        break;
+                    case 4:
+                        sTrait="I put on new identities like clothes";
+                        break;
+                    case 5:
+                        sTrait="I run sleight-of-hand cons on street corners.";
+                        break;
+                    case 6:
+                        sTrait="I convince people that worthless junk is worth their hard-earned money";
+                        break;
+                    default:
+                        break;
+                }
+            case "criminal":
+                switch (number){
+                    case 1:
+                        sTrait="Blackmailer";
+                        break;
+                    case 2:
+                        sTrait="Burglar";
+                        break;
+                    case 3:
+                        sTrait="Enforcer";
+                        break;
+                    case 4:
+                        sTrait="Fence";
+                        break;
+                    case 5:
+                        sTrait="Highway robber";
+                        break;
+                    case 6:
+                        sTrait="Hired killer";
+                        break;
+                    case 7:
+                        sTrait="Pickpocket";
+                        break;
+                    case 8:
+                        sTrait="Smuggler";
+                        break;
+                    default:
+                        break;
+                }
+        }
     }
 
 
@@ -222,6 +297,8 @@ public abstract class Character implements CharacterInterface {
                 break;
             case 30:
                 modifier=10;
+                break;
+            default:
                 break;
         }
         return modifier;

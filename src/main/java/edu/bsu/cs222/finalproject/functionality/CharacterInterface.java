@@ -11,6 +11,10 @@ public interface CharacterInterface {
 
     void setLevel(int totalLevel);
 
+    String getBackground();
+
+    void setBackground(String background);
+
     String getClassType();
 
     void setClassType(String classType);
@@ -41,7 +45,7 @@ public interface CharacterInterface {
 
     int getAC();
 
-    void setAC(int ac);
+    void setAC(int armour);
 
     int getInitiative();
 
@@ -50,6 +54,10 @@ public interface CharacterInterface {
     int getSpeed();
 
     void setSpeed(int speed);
+
+    String getSpecialTrait();
+
+    void setSpecialTrait(String background, int number);
 
     String getPersonalityTrait();
 
