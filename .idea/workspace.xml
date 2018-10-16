@@ -126,12 +126,17 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="cstas &lt;c.stasz@outlook.com&gt;" />
+        <option value="Christopher Staszewski &lt;c.stasz@outlook.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/DiceRoll.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/DiceRoll.java" />
         <option value="$PROJECT_DIR$/src/Tests/edu/bsu/cs222/finalproject/functionality/DiceRollTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java" />
@@ -147,10 +152,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="164" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="width" value="1612" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -195,6 +200,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="finalproject" type="462c0819:PsiDirectoryNode" />
+              <item name="functionality" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TeamF222.3New" type="b2602c69:ProjectViewProjectNode" />
@@ -218,13 +224,8 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539720867778" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="edu.bsu.cs222.finalproject.functionality" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -285,24 +286,41 @@
       <created>1539214331995</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1539214331995</updated>
+      <updated>1539451756290</updated>
     </task>
-    <task id="LOCAL-00001" summary="initial commit to aron branch">
-      <created>1539214419698</created>
+    <task id="LOCAL-00001" summary="+DiceRoll.java has been Tested with DiceRollTests.java&#10;+Spell.java has been made&#10;    +String name&#10;    +private ArrayList&lt;String&gt; usableBy&#10;    +int spellslot&#10;    +public void isUseableBy(String user)&#10;+SpellTests&#10;    +Added a large amount of tests for 2 spells with diffrent classes&#10;    ~Changed original plan so that spellslot is public and can be compared on the fly and not within the class (might want to change back, but probably not)&#10;~~~Changed jdk version to 10 so that we are consistent and hopefully avoid problems with workspace.xml&#10;~~~Cleaned code so that it worked better and looked nicer">
+      <created>1539456016941</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1539214419698</updated>
+      <updated>1539456016941</updated>
     </task>
-    <task id="LOCAL-00002" summary="addition of stats and name">
-      <created>1539295000537</created>
+    <task id="LOCAL-00002" summary="+DiceRoll.java has been Tested with DiceRollTests.java&#10;+Spell.java has been made&#10;    +String name&#10;    +private ArrayList&lt;String&gt; usableBy&#10;    +int spellslot&#10;    +public void isUseableBy(String user)&#10;+SpellTests&#10;    +Added a large amount of tests for 2 spells with diffrent classes&#10;    ~Changed original plan so that spellslot is public and can be compared on the fly and not within the class (might want to change back, but probably not)&#10;~~~Changed jdk version to 10 so that we are consistent and hopefully avoid problems with workspace.xml&#10;~~~Cleaned code so that it worked better and looked nicer">
+      <created>1539456025910</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1539295000537</updated>
+      <updated>1539456025910</updated>
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="All_in_TeamF222_3New - 2018.10.13 at 13h 36m 40s.xml">
+      <configuration name="All in TeamF222.3New" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_TeamF222_3New - 2018.10.13 at 13h 39m 02s.xml">
+      <configuration name="All in TeamF222.3New" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_TeamF222_3New - 2018.10.13 at 13h 40m 14s.xml">
+      <configuration name="All in TeamF222.3New" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_TeamF222_3New - 2018.10.13 at 14h 02m 37s.xml">
+      <configuration name="All in TeamF222.3New" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_TeamF222_3New - 2018.10.13 at 14h 39m 20s.xml">
+      <configuration name="All in TeamF222.3New" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -338,18 +356,24 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="+DiceRoll.java has been Tested with DiceRollTests.java&#10;+Spell.java has been made&#10;    +String name&#10;    +private ArrayList&lt;String&gt; usableBy&#10;    +int spellslot&#10;    +public void isUseableBy(String user)&#10;+SpellTests&#10;    +Added a large amount of tests for 2 spells with diffrent classes&#10;    ~Changed original plan so that spellslot is public and can be compared on the fly and not within the class (might want to change back, but probably not)&#10;~~~Changed jdk version to 10 so that we are consistent and hopefully avoid problems with workspace.xml" />
+    <MESSAGE value="+DiceRoll.java has been Tested with DiceRollTests.java&#10;+Spell.java has been made&#10;    +String name&#10;    +private ArrayList&lt;String&gt; usableBy&#10;    +int spellslot&#10;    +public void isUseableBy(String user)&#10;+SpellTests&#10;    +Added a large amount of tests for 2 spells with diffrent classes&#10;    ~Changed original plan so that spellslot is public and can be compared on the fly and not within the class (might want to change back, but probably not)&#10;~~~Changed jdk version to 10 so that we are consistent and hopefully avoid problems with workspace.xml&#10;~~~Cleaned code so that it worked better and looked nicer" />
+    <MESSAGE value="+ListMaker file&#10;    +Function to return 3.5 spells&#10;        +Cantrips" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ListMaker file&#10;    +Function to return 3.5 spells&#10;        +Cantrips" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/InfoHolding.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="323">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Spell.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -466,6 +490,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Maven: junit:junit:4.12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
