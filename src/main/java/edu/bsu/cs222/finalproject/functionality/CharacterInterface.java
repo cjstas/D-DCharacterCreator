@@ -37,7 +37,7 @@ public interface CharacterInterface {
 
     int getProficiencyBonus();
 
-    void setProficiencyBonus(int proficiencyBonus);
+    void setProficiencyBonus();
 
     int getAC();
 
@@ -45,7 +45,7 @@ public interface CharacterInterface {
 
     int getInitiative();
 
-    void setInitiative(int initiative);
+    void setInitiative(int dex);
 
     int getSpeed();
 
