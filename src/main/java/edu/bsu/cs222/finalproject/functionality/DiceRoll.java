@@ -5,7 +5,7 @@ import java.util.Random;
 public class DiceRoll {
     private Random random = new Random();
 
-    private int D100() {
+    int D100() {
         return random.nextInt(100)+1;
     }
 
