@@ -1,5 +1,8 @@
 package edu.bsu.cs222.finalproject.functionality;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class Character implements CharacterInterface {
 
     private String alignment;
@@ -22,6 +25,70 @@ public abstract class Character implements CharacterInterface {
     private int initiative;
     private String bg;
     private String sTrait;
+
+    private static final Map<Integer, Integer> modMap = createModMap();
+    private static Map<Integer, Integer> createModMap() {
+        Map<Integer, Integer> myMap = new HashMap<>();
+        myMap.put(1, -5);
+        myMap.put(2, -4);
+        myMap.put(3,-4);
+        myMap.put(4,-3);
+        myMap.put(5,-3);
+        myMap.put(6,-2);
+        myMap.put(7,-2);
+        myMap.put(8,-1);
+        myMap.put(9,-1);
+        myMap.put(10,0);
+        myMap.put(11,0);
+        myMap.put(12,1);
+        myMap.put(13,1);
+        myMap.put(14,2);
+        myMap.put(15,2);
+        myMap.put(16,3);
+        myMap.put(17,3);
+        myMap.put(18,4);
+        myMap.put(19,4);
+        myMap.put(20,5);
+        myMap.put(21,5);
+        myMap.put(22,6);
+        myMap.put(23,6);
+        myMap.put(24,7);
+        myMap.put(25,7);
+        myMap.put(26,8);
+        myMap.put(27,8);
+        myMap.put(28,9);
+        myMap.put(29,9);
+        myMap.put(30,10);
+        return myMap;
+    }
+    
+    private static final Map<Integer, Integer> pbMap = createPBMap();
+    private static Map<Integer, Integer> createPBMap() {
+        Map<Integer, Integer> myMap = new HashMap<>();
+        myMap.put(1,2);
+        myMap.put(2,2);
+        myMap.put(3,2);
+        myMap.put(4,2);
+        myMap.put(5,3);
+        myMap.put(6,3);
+        myMap.put(7,3);
+        myMap.put(8,3);
+        myMap.put(9,4);
+        myMap.put(10,4);
+        myMap.put(11,4);
+        myMap.put(12,4);
+        myMap.put(13,5);
+        myMap.put(14,5);
+        myMap.put(15,5);
+        myMap.put(16,5);
+        myMap.put(17,6);
+        myMap.put(18,6);
+        myMap.put(19,6);
+        myMap.put(20,6);
+        return myMap;
+    }
+
+
 
     public Character(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha){
         charName = cName;
@@ -116,41 +183,8 @@ public abstract class Character implements CharacterInterface {
         return pb;
     }
 
-    public void setProficiencyBonus() {
-        switch (lvl){
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-                pb=2;
-                break;
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-                pb=3;
-                break;
-            case 9:
-            case 10:
-            case 11:
-            case 12:
-                pb=4;
-                break;
-            case 13:
-            case 14:
-            case 15:
-            case 16:
-                pb=5;
-                break;
-            case 17:
-            case 18:
-            case 19:
-            case 20:
-                pb=6;
-                break;
-            default:
-                break;
-        }
+    public void setProficiencyBonus(int proficiencyBonus) {
+        pb= this.pbMap.get(proficiencyBonus);
     }
 
     public int getAC() {
@@ -229,78 +263,79 @@ public abstract class Character implements CharacterInterface {
                     default:
                         break;
                 }
+            case "entertainer":
+                switch (number){
+                    case 1:
+                        sTrait="Actor";
+                        break;
+                    case 2:
+                        sTrait="Dancer";
+                        break;
+                    case 3:
+                        sTrait="Fire-eater";
+                        break;
+                    case 4:
+                        sTrait="Jester";
+                        break;
+                    case 5:
+                        sTrait="Juggler";
+                        break;
+                    case 6:
+                        sTrait="Instrumentalist";
+                        break;
+                    case 7:
+                        sTrait="Poet";
+                        break;
+                    case 8:
+                        sTrait="Singer";
+                        break;
+                    case 9:
+                        sTrait="Storyteller";
+                        break;
+                    case 10:
+                        sTrait="Tumbler";
+                        break;
+                    default:
+                        break;
+                }
+            case "folk hero":
+                switch (number) {
+                    case 1:
+                        sTrait = "I stood up to a tyrant's agents";
+                        break;
+                    case 2:
+                        sTrait = "I saved people during a nature disaster";
+                        break;
+                    case 3:
+                        sTrait = "I stood alone against a terrible monster.";
+                        break;
+                    case 4:
+                        sTrait = "I stole a corrupt merchant to help the poor.";
+                        break;
+                    case 5:
+                        sTrait = "I led a militia to fight off and invading army.";
+                        break;
+                    case 6:
+                        sTrait = "I broke into a tyrant's castle and stole weapons to arm the people";
+                        break;
+                    case 7:
+                        sTrait = "I trained the peasantry to use farm implements as weapon against a tyrant's soldiers";
+                        break;
+                    case 8:
+                        sTrait = "A lord rescinded an unpopular decree after I led a symbolic act of protest against it.";
+                        break;
+                    case 9:
+                        sTrait = "A celestial, fey, or similar creature gave me a blessing or revealed my secret origin.";
+                        break;
+                    case 10:
+                        sTrait = "Recruited into a lord's army, I rose to leadership and was commended for my heroism";
+                    default:
+                        break;
+                }
         }
     }
 
-
-    public int getMod(int stat){
-        int modifier = 0;
-        switch (stat){
-            case 1:
-                modifier=(-5);
-                break;
-            case 2:
-            case 3:
-                modifier=(-4);
-                break;
-            case 4:
-            case 5:
-                modifier=(-3);
-                break;
-            case 6:
-            case 7:
-                modifier=(-2);
-                break;
-            case 8:
-            case 9:
-                modifier=(-1);
-                break;
-            case 10:
-            case 11:
-                modifier=0;
-                break;
-            case 12:
-            case 13:
-                modifier=1;
-                break;
-            case 14:
-            case 15:
-                modifier=2;
-                break;
-            case 16:
-            case 17:
-                modifier=3;
-                break;
-            case 18:
-            case 19:
-                modifier=4;
-                break;
-            case 20:
-            case 21:
-                modifier=5;
-                break;
-            case 22:
-            case 23:
-                modifier=6;
-                break;
-            case 24:
-            case 25:
-                modifier=7;
-                break;
-            case 26:
-            case 27:
-                modifier=8;
-                break;
-            case 28:
-            case 29:
-                modifier=9;
-                break;
-            case 30:
-                modifier=10;
-                break;
-            default:
-                break;
-        }
-        return modifier;
+    public Integer getMod(int stat){
+        return this.modMap.get(stat);
     }
 }
