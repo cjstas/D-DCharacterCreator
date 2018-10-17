@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class ListMaker {
 
-    public ArrayList<Spell> returnSpellsArrayList5e() {
+    private ArrayList<Spell> returnSpellsArrayList5e() {
         //Cantrips
             ArrayList<String> Acid_SplashList = new ArrayList<>(); Acid_SplashList.add("Wizard"); Acid_SplashList.add("Sorcerer");
         Spell Acid_Splash = new Spell("Acid Splash", Acid_SplashList, 0);
@@ -103,4 +103,23 @@ public class ListMaker {
         };
         return new ArrayList<>(Arrays.asList(SpellsArray));
     }
+
+    public ArrayList<ArrayList<Spell>> returnClassArrays() {
+        ArrayList<Spell> AllSpells = returnSpellsArrayList5e();
+        ArrayList<Spell> WizardSpells = new ArrayList<>();
+        ArrayList<ArrayList<Spell>> returnArray = new ArrayList<>();
+
+        for(Spell spell : AllSpells) {
+            for(String name : spell.useableBy) {
+                if(name.equals("Wizard")) {
+                    WizardSpells.add(spell);
+                }
+            }
+        }
+
+        return null;
+    }
+
+
+
 }
