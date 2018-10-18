@@ -305,7 +305,7 @@ public abstract class Character implements CharacterInterface {
     }
 
     public void setProficiencyBonus(int proficiencyBonus) {
-        pb= this.pbMap.get(proficiencyBonus);
+        pb= pbMap.get(proficiencyBonus);
     }
 
     public int getAC() {
@@ -340,6 +340,46 @@ public abstract class Character implements CharacterInterface {
     }
 
     private Integer getMod(int stat){
-        return this.modMap.get(stat);
+        return modMap.get(stat);
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public int getConstitution() {
+        return constitution;
+    }
+
+    public void setConstitution(int constitution) {
+        this.constitution = constitution;
+    }
+
+    public int getInteligence() {
+        return inteligence;
+    }
+
+    public void setInteligence(int inteligence) {
+        this.inteligence = inteligence;
+    }
+
+    public int getWisdom() {
+        return wisdom;
+    }
+
+    public void setWisdom(int wisdom) {
+        this.wisdom = wisdom;
+    }
+
+    public int getCharisma() {
+        return charisma;
+    }
+
+    public void setCharisma(int charisma) {
+        this.charisma = charisma;
     }
 }
