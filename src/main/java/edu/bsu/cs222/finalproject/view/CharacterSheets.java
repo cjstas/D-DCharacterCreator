@@ -2,7 +2,6 @@ package edu.bsu.cs222.finalproject.view;
 
 import edu.bsu.cs222.finalproject.functionality.Character;
 import javafx.application.Application;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -12,14 +11,19 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 /*
-this is a mess because of just the sheer amount of things on the page
-after it is all done in this manner it will be refactored for readability and usage in the
- */
+    this is a mess because of just the sheer amount of things on the page
+    after it is all done in this manner it will be refactored for readability and usage in the
+*/
 
 
 public class CharacterSheets extends Application {
 
-    Character player;
+    private Character player;
+    private TextField str, dex, cons, intel, wis, cha, passWis,
+            strMod, dexMod, consMod, intelMod, wisMod, chaMod,
+            strSav, dexSav, consSav, intelSav, wisSav, chaSav,
+            insp, profBonus, AC,init, speed, hitMax, currHP, tempHP, HD, DS, atkWeapons, pp, gp, sp, cp, equip;
+    private TextArea languages, pers, ideal, bon, flaw, featAndTraits;
 
 
     public Pane setSheet(String sheet) {
@@ -38,31 +42,89 @@ public class CharacterSheets extends Application {
 
     private Pane sheet5e() {
         Pane sheet5e = new BorderPane();
-        TextField str = new TextField(), dex = new TextField(), cons = new TextField(), intel = new TextField(), wis = new TextField(), cha = new TextField(), passWis = new TextField();
-        TextArea languages = new TextArea();
-        TextField strMod = new TextField(), dexMod = new TextField(), consMod = new TextField(), intelMod = new TextField(), wisMod = new TextField(), chaMod = new TextField();
-        TextField strSav = new TextField(), dexSav = new TextField(), consSav = new TextField(), intelSav = new TextField(), wisSav = new TextField(), chaSav = new TextField();
-        Label AC, init, speed, hitmax, currHP, tempHP, HD, DS, atkWeapons, pp, gp, cp, equip;
-        Label pers, ideal, bon, flaw, featAtraits;
-        TextField insp = new TextField(), profBonus = new TextField();
-        VBox money = new VBox();
-        VBox stats = new VBox(new Label("str"),str,new Label("str modifier"),strMod,new Label("dex"),dex,new Label("dex modifier"),dexMod,new Label("con"),cons, new Label("Con modifier"),consMod,new Label("int"),intel, new Label("int modifier"),intelMod, new Label("wis"),wis,new Label("wis modifier"),wisMod,new Label("cha"),cha,new Label("cha modifier"),chaMod);
-        VBox skills = new VBox(new HBox(insp,new Label("Inspiration")), new HBox(profBonus,new Label("Proficiency Bonus")),
-                new VBox(
-                        new HBox(strSav, new Label("strength")),
+         str = new TextField();
+         dex = new TextField();
+         cons = new TextField();
+         intel = new TextField();
+         wis = new TextField();
+         cha = new TextField();
+         passWis = new TextField();
+         strMod = new TextField();
+         dexMod = new TextField();
+         consMod = new TextField();
+         intelMod = new TextField();
+         wisMod = new TextField();
+         chaMod = new TextField();
+         strSav = new TextField();
+         dexSav = new TextField();
+         consSav = new TextField();
+         intelSav = new TextField();
+         wisSav = new TextField();
+         chaSav = new TextField();
+         insp = new TextField();
+         profBonus = new TextField();
+         AC = new TextField();
+         init = new TextField();
+         speed = new TextField();
+         hitMax = new TextField();
+         currHP = new TextField();
+         tempHP = new TextField();
+         HD = new TextField();
+         DS = new TextField();
+         atkWeapons = new TextField();
+         pp = new TextField();
+         gp = new TextField();
+         sp = new TextField();
+         cp = new TextField();
+         equip = new TextField();
+        languages = new TextArea();
+        pers = new TextArea();
+        ideal = new TextArea();
+        bon = new TextArea();
+        flaw = new TextArea();
+        featAndTraits = new TextArea();
+        VBox stats = new VBox(
+                new Label("str"),str,new Label("str modifier"),strMod,
+                new Label("dex"),dex,new Label("dex modifier"),dexMod,
+                new Label("con"),cons, new Label("Con modifier"),consMod,
+                new Label("int"),intel, new Label("int modifier"),intelMod,
+                new Label("wis"),wis,new Label("wis modifier"),wisMod,
+                new Label("cha"),cha,new Label("cha modifier"),chaMod);
+        VBox skills = new VBox(
+                new HBox(insp,new Label("Inspiration")),
+                new HBox(profBonus,new Label("Proficiency Bonus")),
+                new VBox(new HBox(strSav, new Label("strength")),
                         new HBox(dexSav, new Label("dexterity")),
                         new HBox(consSav, new Label("constitution")),
                         new HBox(intelSav, new Label("intelligence")),
                         new HBox(wisSav, new Label("wisdom")),
                         new HBox(chaSav, new Label("charisma")),
                         new HBox(new Label("Saving Throws"))),
-            skillBox());
-
-        HBox topRight = new HBox(stats, skills);
-        HBox ACbox, HDbox,equipment;
-        VBox right = new VBox(topRight,new HBox(new Label("passive Wis"),passWis),new Label("languages"),languages);
-        VBox center = new VBox();
-        VBox left = new VBox();
+                skillBox());
+        HBox topLeft = new HBox(stats, skills);
+        VBox left = new VBox(
+                topLeft,
+                new HBox(new Label("passive Wis"),passWis),
+                        new Label("languages"),languages);
+        VBox center = new VBox(
+                new HBox(
+                        new VBox(new Label("Armor Class "), AC),
+                        new VBox(new Label("Initiative"),init),
+                        new VBox(new Label(" Speed"),speed)),
+                new Label("max HP"), hitMax,
+                new Label("current HP"),currHP,
+                new Label("temp HP"), tempHP,
+                new HBox(new VBox(new Label("hit die"),HD),
+                        new VBox(new Label("Death Saves"), DS)),
+                atkWeapons,
+                new HBox(new VBox(new HBox(new Label("pp"),pp),new HBox(new Label("gp"),gp),new HBox(new Label("sp"),sp),new HBox(new Label("cp"),cp)),equip));
+        VBox right = new VBox(
+                new Label("Personality"), pers,
+                new Label("Ideals"), ideal,
+                new Label("Bonds"), bon,
+                new Label("Flaws"), flaw,
+                new Label("Feature and Traits"), featAndTraits
+        );
         ((BorderPane) sheet5e).setRight(right);
         ((BorderPane) sheet5e).setCenter(center);
         ((BorderPane) sheet5e).setLeft(left);
@@ -70,28 +132,71 @@ public class CharacterSheets extends Application {
     }
 
     private VBox skillBox() {
+
+        RadioButton acr = new RadioButton(),
+                aniHand = new RadioButton(),
+                arcan = new RadioButton(),
+                athl = new RadioButton(),
+                dec = new RadioButton(),
+                hist = new RadioButton(),
+                ins = new RadioButton(),
+                intim = new RadioButton(),
+                inves = new RadioButton(),
+                med = new RadioButton(),
+                nat = new RadioButton(),
+                percep = new RadioButton(),
+                perform = new RadioButton(),
+                pers = new RadioButton(),
+                relg = new RadioButton(),
+                sliOfHand = new RadioButton(),
+                steal = new RadioButton(),
+                surv = new RadioButton();
+
+        TextField acrF = new TextField(),
+                aniHandF = new TextField(),
+                arcanF = new TextField(),
+                athlF = new TextField(),
+                decF = new TextField(),
+                histF = new TextField(),
+                insF = new TextField(),
+                intimF = new TextField(),
+                invesF = new TextField(),
+                medF = new TextField(),
+                natF = new TextField(),
+                percepF = new TextField(),
+                performF = new TextField(),
+                persF = new TextField(),
+                relgF = new TextField(),
+                sliOfHandF = new TextField(),
+                stealF = new TextField(),
+                survF = new TextField();
+        setUpTextFeilds();
         VBox skillBox = new VBox(
-                new HBox(new RadioButton(),new TextField(),new Label("Acrobatics(dex)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Animal Handling(wis)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Arcana(int)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Athletics(str)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Deception(cha)")),
-                new HBox(new RadioButton(),new TextField(),new Label("History(int)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Insight(wis)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Intimidation(cha)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Investigation(int)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Medicine(wis)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Nature(int)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Perception(wis)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Performance(cha)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Persuasion(cha)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Religion(int)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Sleight of hand(dex)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Stealth(dex)")),
-                new HBox(new RadioButton(),new TextField(),new Label("Survival(wis)"))
+                new HBox( acr, acrF, new Label("Acrobatics(dex)")),
+                new HBox(aniHand, aniHandF, new Label("Animal Handling(wis)")),
+                new HBox(arcan, arcanF, new Label("Arcana(int)")),
+                new HBox(athl, athlF, new Label("Athletics(str)")),
+                new HBox(dec, decF, new Label("Deception(cha)")),
+                new HBox(hist, histF,new Label("History(int)")),
+                new HBox(ins, insF, new Label("Insight(wis)")),
+                new HBox(intim, intimF, new Label("Intimidation(cha)")),
+                new HBox(inves, invesF, new Label("Investigation(int)")),
+                new HBox(med, medF, new Label("Medicine(wis)")),
+                new HBox(nat, natF, new Label("Nature(int)")),
+                new HBox(percep, percepF, new Label("Perception(wis)")),
+                new HBox(perform, performF, new Label("Performance(cha)")),
+                new HBox(pers, persF, new Label("Persuasion(cha)")),
+                new HBox(relg, relgF, new Label("Religion(int)")),
+                new HBox(sliOfHand, sliOfHandF, new Label("Sleight of hand(dex)")),
+                new HBox(steal, stealF, new Label("Stealth(dex)")),
+                new HBox(surv, survF, new Label("Survival(wis)"))
         );
 
         return skillBox;
+    }
+
+    private void setUpTextFeilds() {
+
     }
 
     public void updateSheet(Character player, String sheetNumber){
@@ -100,7 +205,24 @@ public class CharacterSheets extends Application {
     }
 
     private void populateSheet(String sheetNumber) {
+        if("5".equals(sheetNumber)){
+            str.setText(""+player.getStats());
+            dex.setText(""+player.getStats());
+            cons.setText(""+player.getStats());
+            intel.setText(""+player.getStats());
+            wis.setText(""+player.getStats());
+            cha.setText(""+player.getStats());
 
+            strMod.setText(""+player.getMod(player.getStats()));
+            dexMod.setText(""+player.getMod(player.getStats()));
+            consMod.setText(""+player.getMod(player.getStats()));
+            intelMod.setText(""+player.getMod(player.getStats()));
+            wisMod.setText(""+player.getMod(player.getStats()));
+            chaMod.setText(""+player.getMod(player.getStats()));
+
+        }else{
+
+        }
     }
 
     public static void main(String[] args){
