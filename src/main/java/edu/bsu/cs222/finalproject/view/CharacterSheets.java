@@ -23,8 +23,8 @@ public class CharacterSheets extends Application {
     private TextField str, dex, cons, intel, wis, cha, passWis,
             strMod, dexMod, consMod, intelMod, wisMod, chaMod,
             strSav, dexSav, consSav, intelSav, wisSav, chaSav,
-            insp, profBonus, AC,init, speed, hitMax, currHP, tempHP, HD, DS, atkWeapons, pp, gp, sp, cp, equip;
-    private TextArea languages, pers, ideal, bon, flaw, featAndTraits;
+            insp, profBonus, AC,init, speed, hitMax, currHP, tempHP, HD, DS, pp, gp, sp, cp;
+    private TextArea languages, pers, ideal, bon, flaw, featAndTraits, equip,atkWeapons;
 
 
     public Pane setSheet(String sheet) {
@@ -72,18 +72,39 @@ public class CharacterSheets extends Application {
          tempHP = new TextField();
          HD = new TextField();
          DS = new TextField();
-         atkWeapons = new TextField();
          pp = new TextField();
          gp = new TextField();
          sp = new TextField();
          cp = new TextField();
-         equip = new TextField();
+        atkWeapons = new TextArea();
+        atkWeapons.setWrapText(true);
+        atkWeapons.setPrefRowCount(20);
+        atkWeapons.setPrefRowCount(4);
+        equip = new TextArea();
         languages = new TextArea();
+        languages.setWrapText(true);
+        languages.setPrefColumnCount(20);
+        languages.setPrefRowCount(4);
         pers = new TextArea();
+        pers.setWrapText(true);
+        pers.setPrefColumnCount(20);
+        pers.setPrefRowCount(4);
         ideal = new TextArea();
+        ideal.setWrapText(true);
+        ideal.setPrefColumnCount(20);
+        ideal.setPrefRowCount(4);
         bon = new TextArea();
+        bon.setWrapText(true);
+        bon.setPrefColumnCount(20);
+        bon.setPrefRowCount(4);
         flaw = new TextArea();
+        flaw.setWrapText(true);
+        flaw.setPrefColumnCount(20);
+        flaw.setPrefRowCount(4);
         featAndTraits = new TextArea();
+        featAndTraits.setWrapText(true);
+        featAndTraits.setPrefColumnCount(20);
+        featAndTraits.setPrefRowCount(4);
         VBox stats = new VBox(
                 new Label("str"),str,new Label("str modifier"),strMod,
                 new Label("dex"),dex,new Label("dex modifier"),dexMod,
@@ -105,8 +126,7 @@ public class CharacterSheets extends Application {
         HBox topLeft = new HBox(stats, skills);
         VBox left = new VBox(
                 topLeft,
-                new HBox(new Label("passive Wis"),passWis),
-                        new Label("languages"),languages);
+                new HBox(new Label("passive Wis"),passWis));
         VBox center = new VBox(
                 new HBox(
                         new VBox(new Label("Armor Class "), AC),
@@ -117,8 +137,9 @@ public class CharacterSheets extends Application {
                 new Label("temp HP"), tempHP,
                 new HBox(new VBox(new Label("hit die"),HD),
                         new VBox(new Label("Death Saves"), DS)),
-                atkWeapons,
-                new HBox(new VBox(new HBox(new Label("pp"),pp),new HBox(new Label("gp"),gp),new HBox(new Label("sp"),sp),new HBox(new Label("cp"),cp)),equip));
+                new Label("Spell attacks/weapons"),atkWeapons,
+                new HBox(new VBox(new Label(" "),new HBox(new Label("pp"),pp),new HBox(new Label("gp"),gp),new HBox(new Label("sp"),sp),new HBox(new Label("cp"),cp)),new VBox(new Label("equipment"),equip)),
+                new Label("Languages"),languages);
         VBox right = new VBox(
                 new Label("Personality"), pers,
                 new Label("Ideals"), ideal,
@@ -171,6 +192,24 @@ public class CharacterSheets extends Application {
                 sliOfHandF = new TextField(),
                 stealF = new TextField(),
                 survF = new TextField();
+        acrF.setPrefColumnCount(4);
+        aniHandF.setPrefColumnCount(4);
+        arcanF.setPrefColumnCount(4);
+        athlF.setPrefColumnCount(4);
+        decF.setPrefColumnCount(4);
+        histF.setPrefColumnCount(4);
+        insF.setPrefColumnCount(4);
+        intimF.setPrefColumnCount(4);
+        invesF.setPrefColumnCount(4);
+        medF.setPrefColumnCount(4);
+        natF.setPrefColumnCount(4);
+        percepF.setPrefColumnCount(4);
+        performF.setPrefColumnCount(4);
+        persF.setPrefColumnCount(4);
+        relgF.setPrefColumnCount(4);
+        sliOfHandF.setPrefColumnCount(4);
+        stealF.setPrefColumnCount(4);
+        survF.setPrefColumnCount(4);
         setUpTextFeilds();
         VBox skillBox = new VBox(
                 new HBox( acr, acrF, new Label("Acrobatics(dex)")),
@@ -226,12 +265,10 @@ public class CharacterSheets extends Application {
         tempHP.setPrefColumnCount(10);
         HD.setPrefColumnCount(4);
         DS.setPrefColumnCount(4);
-        atkWeapons.setPrefColumnCount(4);
         pp.setPrefColumnCount(4);
         gp.setPrefColumnCount(4);
         sp.setPrefColumnCount(4);
         cp.setPrefColumnCount(4);
-        equip.setPrefColumnCount(4);
 
         str.setAlignment(Pos.CENTER);
         dex.setAlignment(Pos.CENTER);
@@ -262,12 +299,10 @@ public class CharacterSheets extends Application {
         tempHP.setAlignment(Pos.CENTER);
         HD.setAlignment(Pos.CENTER);
         DS.setAlignment(Pos.CENTER);
-        atkWeapons.setAlignment(Pos.CENTER);
         pp.setAlignment(Pos.CENTER);
         gp.setAlignment(Pos.CENTER);
         sp.setAlignment(Pos.CENTER);
         cp.setAlignment(Pos.CENTER);
-        equip.setAlignment(Pos.CENTER);
     }
 
     public void updateSheet(Character player, String sheetNumber){

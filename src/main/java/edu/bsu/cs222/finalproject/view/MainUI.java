@@ -33,8 +33,8 @@ public class MainUI extends Application {
         Button to5eBuilder = new Button("Build a 5e Character");
         Button toNPCCreation = new Button("Random Character");
         to5eBuilder.setOnAction(e -> primaryStage.setScene(setScene("5")));
-        to35eBuilder.setOnAction(e->primaryStage.setScene(setScene("3.5")));
-        toNPCCreation.setOnAction(null);
+        to35eBuilder.setOnAction(e->primaryStage.setScene(new Scene(new HBox(new Label("Sorry for the Inconvenience,\nBut the 3.5 character Sheet is under Construction\nHope Your Gaming time is fun!!")))));
+        toNPCCreation.setOnAction(e -> primaryStage.setScene(new Scene(new HBox(new Label("Sorry for the Inconvenience,\nBut the NPC Creation section is under Construction\nHappy Rolling!!")))));
         return new VBox(to35eBuilder, to5eBuilder, toNPCCreation);
     }
 
