@@ -2,6 +2,7 @@ package edu.bsu.cs222.finalproject.view;
 
 import edu.bsu.cs222.finalproject.functionality.Character;
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -196,7 +197,77 @@ public class CharacterSheets extends Application {
     }
 
     private void setUpTextFeilds() {
+        str.setPrefColumnCount(4);
+        dex.setPrefColumnCount(4);
+        cons.setPrefColumnCount(4);
+        intel.setPrefColumnCount(4);
+        wis.setPrefColumnCount(4);
+        cha.setPrefColumnCount(4);
+        passWis.setPrefColumnCount(4);
+        strMod.setPrefColumnCount(4);
+        dexMod.setPrefColumnCount(4);
+        consMod.setPrefColumnCount(4);
+        intelMod.setPrefColumnCount(4);
+        wisMod.setPrefColumnCount(4);
+        chaMod.setPrefColumnCount(4);
+        strSav.setPrefColumnCount(4);
+        dexSav.setPrefColumnCount(4);
+        consSav.setPrefColumnCount(4);
+        intelSav.setPrefColumnCount(4);
+        wisSav.setPrefColumnCount(4);
+        chaSav.setPrefColumnCount(4);
+        insp.setPrefColumnCount(4);
+        profBonus.setPrefColumnCount(4);
+        AC.setPrefColumnCount(4);
+        init.setPrefColumnCount(4);
+        speed.setPrefColumnCount(4);
+        hitMax.setPrefColumnCount(10);
+        currHP.setPrefColumnCount(10);
+        tempHP.setPrefColumnCount(10);
+        HD.setPrefColumnCount(4);
+        DS.setPrefColumnCount(4);
+        atkWeapons.setPrefColumnCount(4);
+        pp.setPrefColumnCount(4);
+        gp.setPrefColumnCount(4);
+        sp.setPrefColumnCount(4);
+        cp.setPrefColumnCount(4);
+        equip.setPrefColumnCount(4);
 
+        str.setAlignment(Pos.CENTER);
+        dex.setAlignment(Pos.CENTER);
+        cons.setAlignment(Pos.CENTER);
+        intel.setAlignment(Pos.CENTER);
+        wis.setAlignment(Pos.CENTER);
+        cha.setAlignment(Pos.CENTER);
+        passWis.setAlignment(Pos.CENTER);
+        strMod.setAlignment(Pos.CENTER);
+        dexMod.setAlignment(Pos.CENTER);
+        consMod.setAlignment(Pos.CENTER);
+        intelMod.setAlignment(Pos.CENTER);
+        wisMod.setAlignment(Pos.CENTER);
+        chaMod.setAlignment(Pos.CENTER);
+        strSav.setAlignment(Pos.CENTER);
+        dexSav.setAlignment(Pos.CENTER);
+        consSav.setAlignment(Pos.CENTER);
+        intelSav.setAlignment(Pos.CENTER);
+        wisSav.setAlignment(Pos.CENTER);
+        chaSav.setAlignment(Pos.CENTER);
+        insp.setAlignment(Pos.CENTER);
+        profBonus.setAlignment(Pos.CENTER);
+        AC.setAlignment(Pos.CENTER);
+        init.setAlignment(Pos.CENTER);
+        speed.setAlignment(Pos.CENTER);
+        hitMax.setAlignment(Pos.CENTER);
+        currHP.setAlignment(Pos.CENTER);
+        tempHP.setAlignment(Pos.CENTER);
+        HD.setAlignment(Pos.CENTER);
+        DS.setAlignment(Pos.CENTER);
+        atkWeapons.setAlignment(Pos.CENTER);
+        pp.setAlignment(Pos.CENTER);
+        gp.setAlignment(Pos.CENTER);
+        sp.setAlignment(Pos.CENTER);
+        cp.setAlignment(Pos.CENTER);
+        equip.setAlignment(Pos.CENTER);
     }
 
     public void updateSheet(Character player, String sheetNumber){
