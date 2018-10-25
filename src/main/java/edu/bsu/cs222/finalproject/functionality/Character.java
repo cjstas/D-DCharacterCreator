@@ -29,6 +29,13 @@ public abstract class Character implements CharacterInterface {
     private String sTrait;
     private List<String> language = new ArrayList<String>();
     private List<String> abilities = new ArrayList<String>();
+    private List<String> spellsFromRace = new ArrayList<String>();
+    public boolean strST;
+    private boolean dexST;
+    public boolean conST;
+    private boolean intelST;
+    private boolean wisST;
+    private boolean chaST;
 
     private static final Map<Integer, Integer> modMap = createModMap();
     private static Map<Integer, Integer> createModMap() {
@@ -107,7 +114,6 @@ public abstract class Character implements CharacterInterface {
         intelligence = intel;
         wisdom = wis;
         charisma = cha;
-
     }
 
     public String getCharacterName() {
@@ -222,9 +228,17 @@ public abstract class Character implements CharacterInterface {
         }
     }
 
-    public void setRaceBonus(String race){
+    public boolean getSavingThrow(boolean skill) {
+        return skill;
+    }
+
+    public void setSavingThrow(boolean skill){
+        skill=true;
+    }
+
+    public void setRaceBonus(String race, int mod){
         switch(race){
-            case "dwarf":
+            case "Dwarf":
                 setConstitution(getConstitution()+2);
                 setSpeed(25);
                 language.add("Common");
@@ -233,16 +247,45 @@ public abstract class Character implements CharacterInterface {
                 abilities.add("Dwarven Combat Training");
                 abilities.add("Tool Proficiency");
                 abilities.add("Stonecunning");
+                if (mod == 0){
+                    setRace("Hill Dwarf");
+                    setWisdom(getWisdom()+1);
+                    abilities.add("Dwarven Toughness");
+                } if (mod == 1){
+                    setRace("Mountain Dwarf");
+                    setStrength(getStrength()+2);
+                    abilities.add("Dwarven Armour Training");
+                }
                 break;
-            case "elf":
+            case "Elf":
                 setDexterity(getDexterity()+2);
                 setSpeed(30);
                 abilities.add("Darkvision");
                 abilities.add("Keen Senses");
                 abilities.add("Fey Ancestry");
                 abilities.add("Trance");
+                if (mod==0){
+                    setIntelligence(getIntelligence()+1);
+                    abilities.add("Elf Weapon Training");
+                    setRace("High Elf");
+                }
+                if (mod==1){
+                    setRace("Wood Elf");
+                    setWisdom(getWisdom()+1);
+                    abilities.add("Elf Weapon Proficiency");
+                    abilities.add("Fleet of Foot");
+                    setSpeed(35);
+                    abilities.add("Mask of the Wild");
+                } if(mod==2){
+                    setRace("Drow Elf");
+                    setCharisma(getCharisma()+1);
+                    abilities.add("Superior Darkvision");
+                    abilities.add("Sunlight Sensitivity");
+                    abilities.add("Drow Magic");
+                    abilities.add("Drow Weapon Training");
+                }
                 break;
-            case "halfling":
+            case "Halfling":
                 setDexterity(getDexterity()+2);
                 setSpeed(25);
                 abilities.add("Lucky");
@@ -250,8 +293,18 @@ public abstract class Character implements CharacterInterface {
                 abilities.add("Halfling Nimbleness");
                 language.add("Common");
                 language.add("Halfling");
+                if (mod==0){
+                    setRace("Lightfoot Halfling");
+                    setCharisma(getCharisma()+1);
+                    abilities.add("Naturally Stealthy");
+                }
+                if (mod==1){
+                    setRace("Stout Halfling");
+                    setConstitution(getConstitution()+1);
+                    abilities.add("Stout Resilience");
+                }
                 break;
-            case "human":
+            case "Human":
                 setStrength(getStrength()+1);
                 setDexterity(getDexterity()+1);
                 setConstitution(getConstitution()+1);
@@ -261,7 +314,7 @@ public abstract class Character implements CharacterInterface {
                 setSpeed(30);
                 language.add("Common");
                 break;
-            case "dragonborn":
+            case "Dragonborn":
                 setStrength(getStrength()+2);
                 setCharisma(getCharisma()+1);
                 setSpeed(30);
@@ -271,15 +324,27 @@ public abstract class Character implements CharacterInterface {
                 language.add("Common");
                 language.add("Draconic");
                 break;
-            case "gnome":
+            case "Gnome":
                 setIntelligence(getIntelligence()+2);
                 setSpeed(25);
                 abilities.add("Darkvision");
                 abilities.add("Gnome Cunning");
                 language.add("Common");
                 language.add("Gnomish");
+                if (mod==0){
+                    setRace("Forest Gnome");
+                    setDexterity(getDexterity()+1);
+                    abilities.add("Natural Illusionis");
+                    abilities.add("Speak with Small Beasts");
+                }
+                if (mod==1){
+                    setRace("Rock Gnome");
+                    setConstitution(getConstitution()+1);
+                    abilities.add("Artificer's Lore");
+                    abilities.add("Tinker");
+                }
                 break;
-            case  "half-elf":
+            case "Half-elf":
                 setCharisma(getCharisma()+2);
                 setSpeed(30);
                 abilities.add("Darkvision");
@@ -288,7 +353,7 @@ public abstract class Character implements CharacterInterface {
                 language.add("Common");
                 language.add("Elvish");
                 break;
-            case "half-orc":
+            case "Half-orc":
                 setStrength(getStrength()+2);
                 setConstitution(getConstitution()+1);
                 setSpeed(30);
@@ -299,7 +364,7 @@ public abstract class Character implements CharacterInterface {
                 language.add("Common");
                 language.add("Orc");
                 break;
-            case "tiefling":
+            case "Tiefling":
                 setIntelligence(getIntelligence()+1);
                 setCharisma(getCharisma()+2);
                 setSpeed(30);
@@ -362,5 +427,9 @@ public abstract class Character implements CharacterInterface {
 
     public void setCharisma(int charisma) {
         this.charisma = charisma;
+    }
+
+    public int getHealth(int health) {
+        return health;
     }
 }

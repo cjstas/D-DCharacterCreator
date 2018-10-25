@@ -83,9 +83,9 @@ public interface CharacterInterface {
 
     void setHealth(int health);
 
-    boolean getSavingThrow();
+    boolean getSavingThrow(boolean skill);
 
-    void setSavingThrow(boolean str, boolean dex, boolean con, boolean intel, boolean wis, boolean cha);
+    void setSavingThrow(boolean skill);
 
     int getDeathSaves();
 
