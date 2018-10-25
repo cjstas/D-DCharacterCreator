@@ -20,7 +20,7 @@ public class DiceRoll {
         return random.nextInt(12)+1;
     }
 
-    public static int D8() {return random.nextInt(8)+1}
+    public static int D8() {return random.nextInt(8)+1;}
 
     public static int D6() {
         return random.nextInt(6)+1;
