@@ -35,7 +35,10 @@ public class InfoHolding {
 
     public static ObservableList <String> racesArray() {
         ObservableList <String> list = FXCollections.observableArrayList();
-        String[] item = {"Dwarf", "Elf", "Hafling", "Human", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"};
+        String[] item = {"Dwarf", "Mountain Dwarf", "Hill Dwarf", "Elf", "High Elf",
+                         "Wood Elf", "Dark Elf/ Drow", "Hafling", "Stout Hafling",
+                         "Lightfoot Hafling", "Human", "Dragonborn", "Gnome",
+                         "Rock Gnome", "Forest Gnome", "Half-Elf", "Half-Orc", "Tiefling", "Homebrew"};
         for(String e: item){
             list.add(e);
         }
