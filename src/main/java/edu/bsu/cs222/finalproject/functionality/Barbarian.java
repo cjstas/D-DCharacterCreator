@@ -1,7 +1,5 @@
 package edu.bsu.cs222.finalproject.functionality;
 
-import static jdk.vm.ci.sparc.SPARC.d12;
-
 public class Barbarian extends Character {
 
     public Barbarian(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
@@ -86,7 +84,8 @@ public class Barbarian extends Character {
         health=health+12+getMod(getConstitution());
         if (level > 1){
             while  (i<= level){
-                health=health+DiceRoll.D12();
+                health=health+DiceRoll.D12()+getMod(getConstitution());
+                i++;
             }
         }
     }
@@ -97,7 +96,8 @@ public class Barbarian extends Character {
     }
 
 
-    public void setSavingThrow(boolean str, boolean dex, boolean con, boolean intel, boolean wis, boolean cha) {
+    public void setSavingThrow(boolean skill) {
+        skill=true;
     }
 
     @Override

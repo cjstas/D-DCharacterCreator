@@ -1,0 +1,27 @@
+VBox{
+
+}
+.center{
+    -fx-border-color: #000000;
+    -fx-border-radius: 16px 16px 16px 16px;
+    -fx-alignment: center;
+}
+HBox{
+    -fx-padding: 1px;
+}
+HBox.acBox{
+    -fx-alignment: top-center;
+}
+TextField{
+
+}
+TextArea{
+
+}
+RadioButtons{
+
+}
+BorderPane{
+    -fx-background-color: #ffffcc;
+    -fx-padding: 3px;
+}
