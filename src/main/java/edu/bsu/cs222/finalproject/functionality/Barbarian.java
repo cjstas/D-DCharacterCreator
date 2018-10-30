@@ -76,6 +76,11 @@ public class Barbarian extends Character {
     }
 
     @Override
+    public void setHealth(int health) {
+
+    }
+
+    @Override
     public void setHealth(int health,int level) {
         int i = 0;
         health=health+12+getMod(getConstitution());
