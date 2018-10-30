@@ -228,15 +228,8 @@ public abstract class Character implements CharacterInterface {
         }
     }
 
-<<<<<<< HEAD
-=======
-    @Override
-    public void setHealth(int health) {
-        health=health;
+    public void setHealth(int health, int level) {
     }
-
->>>>>>> master
-    public abstract void setHealth(int health, int level);
 
     public boolean getSavingThrow(boolean skill) {
         return skill;
