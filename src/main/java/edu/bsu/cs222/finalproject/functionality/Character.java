@@ -228,6 +228,8 @@ public abstract class Character implements CharacterInterface {
         }
     }
 
+    public abstract void setHealth(int health, int level);
+
     public boolean getSavingThrow(boolean skill) {
         return skill;
     }

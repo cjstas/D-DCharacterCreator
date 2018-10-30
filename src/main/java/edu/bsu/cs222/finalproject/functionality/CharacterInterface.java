@@ -81,7 +81,7 @@ public interface CharacterInterface {
 
     int getHealth();
 
-    void setHealth(int health);
+    void setHealth(int health,int level);
 
     boolean getSavingThrow(boolean skill);
 
