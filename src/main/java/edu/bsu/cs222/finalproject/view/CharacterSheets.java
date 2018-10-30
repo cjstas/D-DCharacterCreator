@@ -4,18 +4,9 @@ import edu.bsu.cs222.finalproject.functionality.Character;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
-/*
-    this is a mess because of just the sheer amount of things on the page
-    after it is all done in this manner it will be refactored for readability and usage in the
-*/
-
 
 public class CharacterSheets extends Application {
 
@@ -23,9 +14,10 @@ public class CharacterSheets extends Application {
     private TextField str, dex, cons, intel, wis, cha, passWis,
             strMod, dexMod, consMod, intelMod, wisMod, chaMod,
             strSav, dexSav, consSav, intelSav, wisSav, chaSav,
-            insp, profBonus, AC,init, speed, hitMax, currHP, tempHP, HD, DS, pp, gp, sp, cp;
+            insp, profBonus, AC,init, speed, hitMax, currHP, tempHP, HD, DS, pp, gp, sp, cp,
+            acrF,aniHandF,arcanF,athlF,decF,histF,insF,intimF,invesF,medF,natF,percepF,performF,persF,relgF,sliOfHandF,stealF,survF;
     private TextArea languages, pers, ideal, bon, flaw, featAndTraits, equip,atkWeapons;
-
+    private RadioButton acrRb, aniHandRb, arcanRb, athlRb, decRb, histRb, insRb, intimRb, invesRb, medRb, natRb, percepRb, performRb, persRb, relgRb, sliOfHandRb, stealRb, survRb;
 
     public Pane setSheet(String sheet) {
         if(sheet.equals("3.5")){
@@ -37,108 +29,33 @@ public class CharacterSheets extends Application {
 
     private Pane sheet35() {
         Pane sheet35 = new BorderPane();
-
+        sheet35.getStyleClass().add("SheetThreeFive.css");
         return sheet35;
     }
 
     private Pane sheet5e() {
         Pane sheet5e = new BorderPane();
-         str = new TextField();
-         dex = new TextField();
-         cons = new TextField();
-         intel = new TextField();
-         wis = new TextField();
-         cha = new TextField();
-         passWis = new TextField();
-         strMod = new TextField();
-         dexMod = new TextField();
-         consMod = new TextField();
-         intelMod = new TextField();
-         wisMod = new TextField();
-         chaMod = new TextField();
-         strSav = new TextField();
-         dexSav = new TextField();
-         consSav = new TextField();
-         intelSav = new TextField();
-         wisSav = new TextField();
-         chaSav = new TextField();
-         insp = new TextField();
-         profBonus = new TextField();
-         AC = new TextField();
-         init = new TextField();
-         speed = new TextField();
-         hitMax = new TextField();
-         currHP = new TextField();
-         tempHP = new TextField();
-         HD = new TextField();
-         DS = new TextField();
-         pp = new TextField();
-         gp = new TextField();
-         sp = new TextField();
-         cp = new TextField();
-        atkWeapons = new TextArea();
-        atkWeapons.setWrapText(true);
-        atkWeapons.setPrefRowCount(20);
-        atkWeapons.setPrefRowCount(4);
-        equip = new TextArea();
-        languages = new TextArea();
-        languages.setWrapText(true);
-        languages.setPrefColumnCount(20);
-        languages.setPrefRowCount(4);
-        pers = new TextArea();
-        pers.setWrapText(true);
-        pers.setPrefColumnCount(20);
-        pers.setPrefRowCount(4);
-        ideal = new TextArea();
-        ideal.setWrapText(true);
-        ideal.setPrefColumnCount(20);
-        ideal.setPrefRowCount(4);
-        bon = new TextArea();
-        bon.setWrapText(true);
-        bon.setPrefColumnCount(20);
-        bon.setPrefRowCount(4);
-        flaw = new TextArea();
-        flaw.setWrapText(true);
-        flaw.setPrefColumnCount(20);
-        flaw.setPrefRowCount(4);
-        featAndTraits = new TextArea();
-        featAndTraits.setWrapText(true);
-        featAndTraits.setPrefColumnCount(20);
-        featAndTraits.setPrefRowCount(4);
-        VBox stats = new VBox(
-                new Label("str"),str,new Label("str modifier"),strMod,
-                new Label("dex"),dex,new Label("dex modifier"),dexMod,
-                new Label("con"),cons, new Label("Con modifier"),consMod,
-                new Label("int"),intel, new Label("int modifier"),intelMod,
-                new Label("wis"),wis,new Label("wis modifier"),wisMod,
-                new Label("cha"),cha,new Label("cha modifier"),chaMod);
-        VBox skills = new VBox(
+        setUpPaneControls();
+        VBox skillsAndSaves = new VBox(
                 new HBox(insp,new Label("Inspiration")),
                 new HBox(profBonus,new Label("Proficiency Bonus")),
-                new VBox(new HBox(strSav, new Label("strength")),
-                        new HBox(dexSav, new Label("dexterity")),
-                        new HBox(consSav, new Label("constitution")),
-                        new HBox(intelSav, new Label("intelligence")),
-                        new HBox(wisSav, new Label("wisdom")),
-                        new HBox(chaSav, new Label("charisma")),
-                        new HBox(new Label("Saving Throws"))),
+                savesBox(),
                 skillBox());
-        HBox topLeft = new HBox(stats, skills);
+
+        HBox topLeft = new HBox(statsBox(), skillsAndSaves);
         VBox left = new VBox(
                 topLeft,
                 new HBox(new Label("passive Wis"),passWis));
+
         VBox center = new VBox(
-                new HBox(
-                        new VBox(new Label("Armor Class "), AC),
-                        new VBox(new Label("Initiative"),init),
-                        new VBox(new Label(" Speed"),speed)),
+                acBox(),
                 new Label("max HP"), hitMax,
                 new Label("current HP"),currHP,
                 new Label("temp HP"), tempHP,
                 new HBox(new VBox(new Label("hit die"),HD),
                         new VBox(new Label("Death Saves"), DS)),
                 new Label("Spell attacks/weapons"),atkWeapons,
-                new HBox(new VBox(new Label(" "),new HBox(new Label("pp"),pp),new HBox(new Label("gp"),gp),new HBox(new Label("sp"),sp),new HBox(new Label("cp"),cp)),new VBox(new Label("equipment"),equip)),
+                equipmentBox(),
                 new Label("Languages"),languages);
         VBox right = new VBox(
                 new Label("Personality"), pers,
@@ -153,45 +70,175 @@ public class CharacterSheets extends Application {
         return sheet5e;
     }
 
+    private VBox statsBox(){
+        str = new TextField();
+        dex = new TextField();
+        cons = new TextField();
+        intel = new TextField();
+        wis = new TextField();
+        cha = new TextField();
+        passWis = new TextField();
+        strMod = new TextField();
+        dexMod = new TextField();
+        consMod = new TextField();
+        intelMod = new TextField();
+        wisMod = new TextField();
+        chaMod = new TextField();
+
+
+        return  new VBox(
+                new Label("str"),str,new Label("str modifier"),strMod,
+                new Label("dex"),dex,new Label("dex modifier"),dexMod,
+                new Label("con"),cons, new Label("Con modifier"),consMod,
+                new Label("int"),intel, new Label("int modifier"),intelMod,
+                new Label("wis"),wis,new Label("wis modifier"),wisMod,
+                new Label("cha"),cha,new Label("cha modifier"),chaMod);
+    }
+
+    private VBox savesBox(){
+        return new VBox(new HBox(strSav, new Label("strength")),
+                new HBox(dexSav, new Label("dexterity")),
+                new HBox(consSav, new Label("constitution")),
+                new HBox(intelSav, new Label("intelligence")),
+                new HBox(wisSav, new Label("wisdom")),
+                new HBox(chaSav, new Label("charisma")));
+    }
+
     private VBox skillBox() {
+         VBox skillBox = new VBox(
+                new HBox(acrRb, acrF, new Label("Acrobatics(dex)")),
+                new HBox(aniHandRb, aniHandF, new Label("Animal Handling(wis)")),
+                new HBox(arcanRb, arcanF, new Label("Arcana(int)")),
+                new HBox(athlRb, athlF, new Label("Athletics(str)")),
+                new HBox(decRb, decF, new Label("Deception(cha)")),
+                new HBox(histRb, histF,new Label("History(int)")),
+                new HBox(insRb, insF, new Label("Insight(wis)")),
+                new HBox(intimRb, intimF, new Label("Intimidation(cha)")),
+                new HBox(invesRb, invesF, new Label("Investigation(int)")),
+                new HBox(medRb, medF, new Label("Medicine(wis)")),
+                new HBox(natRb, natF, new Label("Nature(int)")),
+                new HBox(percepRb, percepF, new Label("Perception(wis)")),
+                new HBox(performRb, performF, new Label("Performance(cha)")),
+                new HBox(persRb, persF, new Label("Persuasion(cha)")),
+                new HBox(relgRb, relgF, new Label("Religion(int)")),
+                new HBox(sliOfHandRb, sliOfHandF, new Label("Sleight of hand(dex)")),
+                new HBox(stealRb, stealF, new Label("Stealth(dex)")),
+                new HBox(survRb, survF, new Label("Survival(wis)"))
+        );
 
-        RadioButton acr = new RadioButton(),
-                aniHand = new RadioButton(),
-                arcan = new RadioButton(),
-                athl = new RadioButton(),
-                dec = new RadioButton(),
-                hist = new RadioButton(),
-                ins = new RadioButton(),
-                intim = new RadioButton(),
-                inves = new RadioButton(),
-                med = new RadioButton(),
-                nat = new RadioButton(),
-                percep = new RadioButton(),
-                perform = new RadioButton(),
-                pers = new RadioButton(),
-                relg = new RadioButton(),
-                sliOfHand = new RadioButton(),
-                steal = new RadioButton(),
-                surv = new RadioButton();
+        return skillBox;
+    }
 
-        TextField acrF = new TextField(),
-                aniHandF = new TextField(),
-                arcanF = new TextField(),
-                athlF = new TextField(),
-                decF = new TextField(),
-                histF = new TextField(),
-                insF = new TextField(),
-                intimF = new TextField(),
-                invesF = new TextField(),
-                medF = new TextField(),
-                natF = new TextField(),
-                percepF = new TextField(),
-                performF = new TextField(),
-                persF = new TextField(),
-                relgF = new TextField(),
-                sliOfHandF = new TextField(),
-                stealF = new TextField(),
-                survF = new TextField();
+    private HBox acBox(){
+        return  new HBox(
+                    new VBox(new Label("Armor\nClass "), AC),
+                    new VBox(new Label("Initiative"),init),
+                    new VBox(new Label(" Speed"),speed));
+    }
+
+    private HBox equipmentBox(){
+
+        return new HBox(
+                new VBox(new Label(" "),
+                        new HBox(new Label("pp"), pp),
+                        new HBox(new Label("gp"),gp),
+                        new HBox(new Label("sp"),sp),
+                        new HBox(new Label("cp"),cp)),
+                new VBox(new Label("equipment"),equip));
+    }
+
+    private void setUpPaneControls() {
+        acrRb = new RadioButton();
+        aniHandRb = new RadioButton();
+        arcanRb = new RadioButton();
+        athlRb = new RadioButton();
+        decRb = new RadioButton();
+        histRb = new RadioButton();
+        insRb = new RadioButton();
+        intimRb = new RadioButton();
+        invesRb = new RadioButton();
+        medRb = new RadioButton();
+        natRb = new RadioButton();
+        percepRb = new RadioButton();
+        performRb = new RadioButton();
+        persRb = new RadioButton();
+        relgRb = new RadioButton();
+        sliOfHandRb = new RadioButton();
+        stealRb = new RadioButton();
+        survRb = new RadioButton();
+
+
+        strSav = new TextField();
+        dexSav = new TextField();
+        consSav = new TextField();
+        intelSav = new TextField();
+        wisSav = new TextField();
+        chaSav = new TextField();
+        pp = new TextField();
+        gp = new TextField();
+        sp = new TextField();
+        cp = new TextField();
+        equip = new TextArea();
+        AC = new TextField();
+        init = new TextField();
+        speed = new TextField();
+        acrF = new TextField();
+        aniHandF = new TextField();
+        arcanF = new TextField();
+        athlF = new TextField();
+        decF = new TextField();
+        histF = new TextField();
+        insF = new TextField();
+        intimF = new TextField();
+        invesF = new TextField();
+        medF = new TextField();
+        natF = new TextField();
+        percepF = new TextField();
+        performF = new TextField();
+        persF = new TextField();
+        relgF = new TextField();
+        sliOfHandF = new TextField();
+        stealF = new TextField();
+        survF = new TextField();
+        insp = new TextField();
+        profBonus = new TextField();
+        hitMax = new TextField();
+        currHP = new TextField();
+        tempHP = new TextField();
+        HD = new TextField();
+        DS = new TextField();
+
+        atkWeapons = new TextArea();
+        languages = new TextArea();
+        pers = new TextArea();
+        ideal = new TextArea();
+        bon = new TextArea();
+        flaw = new TextArea();
+
+
+        atkWeapons.setWrapText(true);
+        atkWeapons.setPrefRowCount(20);
+        atkWeapons.setPrefRowCount(4);
+        languages.setWrapText(true);
+        languages.setPrefColumnCount(20);
+        languages.setPrefRowCount(4);
+        pers.setWrapText(true);
+        pers.setPrefColumnCount(20);
+        pers.setPrefRowCount(4);
+        ideal.setWrapText(true);
+        ideal.setPrefColumnCount(20);
+        ideal.setPrefRowCount(4);
+        bon.setWrapText(true);
+        bon.setPrefColumnCount(20);
+        bon.setPrefRowCount(4);
+        flaw.setWrapText(true);
+        flaw.setPrefColumnCount(20);
+        flaw.setPrefRowCount(4);
+        featAndTraits = new TextArea();
+        featAndTraits.setWrapText(true);
+        featAndTraits.setPrefColumnCount(20);
+        featAndTraits.setPrefRowCount(4);
+
         acrF.setPrefColumnCount(4);
         aniHandF.setPrefColumnCount(4);
         arcanF.setPrefColumnCount(4);
@@ -210,32 +257,6 @@ public class CharacterSheets extends Application {
         sliOfHandF.setPrefColumnCount(4);
         stealF.setPrefColumnCount(4);
         survF.setPrefColumnCount(4);
-        setUpTextFeilds();
-        VBox skillBox = new VBox(
-                new HBox( acr, acrF, new Label("Acrobatics(dex)")),
-                new HBox(aniHand, aniHandF, new Label("Animal Handling(wis)")),
-                new HBox(arcan, arcanF, new Label("Arcana(int)")),
-                new HBox(athl, athlF, new Label("Athletics(str)")),
-                new HBox(dec, decF, new Label("Deception(cha)")),
-                new HBox(hist, histF,new Label("History(int)")),
-                new HBox(ins, insF, new Label("Insight(wis)")),
-                new HBox(intim, intimF, new Label("Intimidation(cha)")),
-                new HBox(inves, invesF, new Label("Investigation(int)")),
-                new HBox(med, medF, new Label("Medicine(wis)")),
-                new HBox(nat, natF, new Label("Nature(int)")),
-                new HBox(percep, percepF, new Label("Perception(wis)")),
-                new HBox(perform, performF, new Label("Performance(cha)")),
-                new HBox(pers, persF, new Label("Persuasion(cha)")),
-                new HBox(relg, relgF, new Label("Religion(int)")),
-                new HBox(sliOfHand, sliOfHandF, new Label("Sleight of hand(dex)")),
-                new HBox(steal, stealF, new Label("Stealth(dex)")),
-                new HBox(surv, survF, new Label("Survival(wis)"))
-        );
-
-        return skillBox;
-    }
-
-    private void setUpTextFeilds() {
         str.setPrefColumnCount(4);
         dex.setPrefColumnCount(4);
         cons.setPrefColumnCount(4);
@@ -336,8 +357,11 @@ public class CharacterSheets extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setScene(new Scene(sheet5e()));
+    public void start(Stage primaryStage){ ;
+        Scene sheetVeiw = new Scene(sheet5e());
+        sheetVeiw.getStylesheets().clear();
+        sheetVeiw.getStylesheets().add("SheetFive.css");
+        primaryStage.setScene(sheetVeiw);
         primaryStage.show();
     }
 }
