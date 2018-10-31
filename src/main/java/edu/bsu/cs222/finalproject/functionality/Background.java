@@ -81,9 +81,44 @@ public class Background {
         return myMap;
     }
 
+    private static final Map<Integer, String> charlatanIdealMap = createCharlatanIdealMap();
+    private static Map<Integer, String> createCharlatanIdealMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1, "Independence: I am a free spirit no one tells me what to do. (Chaotic)");
+        myMap.put(2, "Fairness: I never target people who can't afford to lose a few coins. (Lawful)");
+        myMap.put(3, "Charity: I distribute the money I acquire to the people who really need it. (Good)");
+        myMap.put(4, "Creativity: I never run the same con twice. (Chaotic)");
+        myMap.put(5, "Friendship: Material goods come and go. Bonds of friendship last forever. (Good)");
+        myMap.put(6, "Aspiration: I'm determined to make something of myself. (Any)");
+        return myMap;
+    }
+
+    private static final Map<Integer, String> charlatanBondMap = createCharlatanBondMap();
+    private static Map<Integer, String> createCharlatanBondMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1, "I fleeced the wrong person and must work to ensure that this individual never crosses paths with me or those I care about.");
+        myMap.put(2, "I owe everything to my mentor a horrible person who's probably rotting in jail somewhere.");
+        myMap.put(3, "Somewhere out there, I have a child who doesn't know me. I'm making the world better for him or her.");
+        myMap.put(4, "I come from a noble family, and one day I'll reclaim my lands and title from those who stole them from me.");
+        myMap.put(5, "A powerful person killed someone I love. Some day soon, I'll have my revenge.");
+        myMap.put(6, "I swindled and ruined a person who didn't deserve it. I seek to atone for my misdeeds but might never be able to forgive myself");
+        return myMap;
+    }
+
+    private static final Map<Integer, String> charlatanFlawMap = createCharlatanFlawMap();
+    private static Map<Integer, String> createCharlatanFlawMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1, "I can't resist a pretty face.");
+        myMap.put(2, "I'm always in debt. I spend my ill-gotten gains on decadent luxuries faster than I bring them in.");
+        myMap.put(3, "I'm convinced that no one could ever fool me the way I fool others.");
+        myMap.put(4, "I'm too greedy for my own good. I can't resist taking a risk if there's money involved.");
+        myMap.put(5, "I can't resist swindling people who are more powerful than me.");
+        myMap.put(6, "I hate to admit it and will hate myself for it, but I'll run and preserve my own hide if the going gets tough.");
+        return myMap;
+    }
 
     private static final Map<Integer, String> criminalMap = createCriminalMap();
-    private static Map<Integer, String> createCriminalMap() {
+    private static Map<Integer, String> createCriminalMap(){
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "Blackmailer");
         myMap.put(2, "Burglar");
@@ -93,6 +128,44 @@ public class Background {
         myMap.put(6, "Hired killer");
         myMap.put(7, "Pickpocket");
         myMap.put(8, "Smuggler");
+        return myMap;
+    }
+
+    private static final Map<Integer, String> criminaPTlMap = createCriminalPTMap();
+    private static Map<Integer, String> createCriminalPTMap(){
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1, "I always have a plan for what to do when things go wrong.");
+        myMap.put(2, "I am always calm, no matter what the situation. I never raise my voice or let my emotions control me.");
+        myMap.put(3, "The first thing I do in a new place is note the locations of everything valuable, or where such things could be hidden.");
+        myMap.put(4, "I would rather make a new friend than a new enemy.");
+        myMap.put(5, "I am incredibly slow to trust. Those who seem the fairest often have the most to hide.");
+        myMap.put(6, "I don't pay attention to the risks in a situation. Never tell me the odds.");
+        myMap.put(7, "The best way to get me to do something is to tell me I can't do it.");
+        myMap.put(8, "I blow up at the slightest insult.");
+        return myMap;
+    }
+
+    private static final Map<Integer, String> criminalIdealMap = createCriminalIdealMap();
+    private static Map<Integer, String> createCriminalIdealMap(){
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1, "Honor: I don't steal from others in the trade (Lawful)");
+        myMap.put(2, "Freedom: Chains are meant to be broken, as are those who would forge them. (Chaotic)");
+        myMap.put(3, "Charity: I steal from the wealthy so that I can help people in need. (Good)");
+        myMap.put(4, "Greed: I will do whatever it takes to become wealthy. (Evil)");
+        myMap.put(5, "People: I'm loyal to my friends, not to any ideals, and everyone else can take a trip down to the Styx for all I care. (Neutral)");
+        myMap.put(6, "Redemption: There's a spark of good in everyone. (Good)");
+        return myMap;
+    }
+
+    private static final Map<Integer, String> criminalBondMap = createCriminalBondMap();
+    private static Map<Integer, String> createCriminalBondMap(){
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1, "I'm trying to pay off an old debt I owe to a generous benefactor");
+        myMap.put(2, "My ill-gotten gains go to support my family.");
+        myMap.put(3, "Something important was taken from me, and I aim to steal it back.");
+        myMap.put(4, "I will become the greatest thief that ever lived.");
+        myMap.put(5, "I'm guilty of a terrible crime. I hope I can redeem myself for it.");
+        myMap.put(6, "Someone I loved died because of a mistake I made. That will never happen again");
         return myMap;
     }
 

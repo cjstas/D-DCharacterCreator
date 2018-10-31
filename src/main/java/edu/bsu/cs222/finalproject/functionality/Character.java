@@ -27,15 +27,36 @@ public abstract class Character implements CharacterInterface {
     private int initiative;
     private String bg;
     private String sTrait;
+
     private List<String> language = new ArrayList<String>();
     private List<String> abilities = new ArrayList<String>();
     private List<String> spellsFromRace = new ArrayList<String>();
+
     public boolean strST;
     private boolean dexST;
     public boolean conST;
     private boolean intelST;
     private boolean wisST;
     private boolean chaST;
+
+    private boolean acrobatics;
+    private boolean animalHandling;
+    private boolean arcana;
+    private boolean athletics;
+    private boolean deception;
+    private boolean history;
+    private boolean insight;
+    private boolean initimidation;
+    private boolean investigation;
+    private boolean medicine;
+    private boolean nature;
+    private boolean perception;
+    private boolean performance;
+    private boolean persuation;
+    private boolean religion;
+    private boolean sleightofHand;
+    private boolean stealth;
+    private boolean survival;
 
     private static final Map<Integer, Integer> modMap = createModMap();
     private static Map<Integer, Integer> createModMap() {
@@ -236,6 +257,16 @@ public abstract class Character implements CharacterInterface {
     }
 
     public void setSavingThrow(boolean skill){
+        skill=true;
+    }
+
+    @Override
+    public boolean getSkills(boolean skill) {
+        return skill;
+    }
+
+    @Override
+    public void setSkills(boolean skill) {
         skill=true;
     }
 

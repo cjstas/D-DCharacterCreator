@@ -87,19 +87,9 @@ public interface CharacterInterface {
 
     void setSavingThrow(boolean skill);
 
-    int getDeathSaves();
+    boolean getSkills(boolean skill);
 
-    void setDeathSaves(int fail, int pass);
-
-    boolean getSkills();
-
-    void setSkills(boolean acrobatics,boolean animalHandling, boolean arcana, boolean athletics, boolean deception, boolean history, boolean insight, boolean intimidation,
-                   boolean investigation, boolean medicine, boolean nature, boolean perception, boolean performance, boolean persuasion, boolean religion, boolean sleightOfHand,
-                   boolean stealth, boolean survival);
-
-    String getWeapon();
-
-    void setWeapon(String weapon1, String weapon2, String weapon3);
+    void setSkills(boolean skill);
 
     String getLanguages();
 
@@ -107,7 +97,7 @@ public interface CharacterInterface {
 
     String getEquipment();
 
-    void setEquipment(String equipment);
+    void setEquipment();
 
     String getEquippedArmour();
 
