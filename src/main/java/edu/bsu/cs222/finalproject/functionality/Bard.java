@@ -1,8 +1,58 @@
 package edu.bsu.cs222.finalproject.functionality;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import static java.lang.Boolean.parseBoolean;
+
 public class Bard extends Character{
+
+    private List<String> equipment = new ArrayList<>();
+    private List<String> items = new ArrayList<>();
+    private List<String> classAbilities = new ArrayList<>();
+    private List<String> proficiency = new ArrayList<>();
+
     public Bard(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
+        setSavingThrow(dexST);
+        setSavingThrow(chaST);
+
+        List<String> bardSkills = new ArrayList<>();
+        bardSkills.add("acrobatics");
+        bardSkills.add("animalHandeling");
+        bardSkills.add("arcana");
+        bardSkills.add("athletics");
+        bardSkills.add("deception");
+        bardSkills.add("history");
+        bardSkills.add("insight");
+        bardSkills.add("intimidation");
+        bardSkills.add("investigation");
+        bardSkills.add("medicine");
+        bardSkills.add("nature");
+        bardSkills.add("perception");
+        bardSkills.add("persuasion");
+        bardSkills.add("religion");
+        bardSkills.add("sleightofHand");
+        bardSkills.add("stealth");
+        bardSkills.add("survival");
+
+        Random randomize = new Random();
+        String x = bardSkills.get(randomize.nextInt(bardSkills.size()));
+        setSkills(parseBoolean(x));
+        String y = bardSkills.get(randomize.nextInt(bardSkills.size()));
+        while (x.equals(y)) {
+            y = bardSkills.get(randomize.nextInt(bardSkills.size()));
+        }
+        setSkills(parseBoolean(y));
+        String z = bardSkills.get(randomize.nextInt(bardSkills.size()));
+        while (x.equals(z) || y.equals(z)){
+            z = bardSkills.get(randomize.nextInt(bardSkills.size()));
+        }
+        setSkills(parseBoolean(z));
+
+        classAbilities.add("Spellcasting");
+        classAbilities.add("Bardic Inspiration (D6)");
     }
 
     @Override

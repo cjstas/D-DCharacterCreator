@@ -13,10 +13,15 @@ public class Barbarian extends Character {
     private List<String> classAbilities = new ArrayList<>();
     private List<String> proficiency = new ArrayList<>();
 
+    public void Barbarian(){
+    }
+
     public Barbarian(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
         setSavingThrow(strST);
         setSavingThrow(conST);
+
+        boolean spellcaster = false;
 
         List<String> barbSkills =  new ArrayList<>();
         barbSkills.add("animalHandling");

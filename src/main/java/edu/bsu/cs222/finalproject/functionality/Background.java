@@ -169,6 +169,18 @@ public class Background {
         return myMap;
     }
 
+    private static final Map<Integer, String> criminalFlawMap = createCriminalFlawMap();
+    private static Map<Integer, String> createCriminalFlawMap(){
+        Map<Integer, String> myMap =  new HashMap<>();
+        myMap.put(1, "When I see something valuable, I can't think about anything but how to steal it.");
+        myMap.put(2, "When faced with a choice between money and my friends, I usually choose the money.");
+        myMap.put(3, "If there's a plan, I'llforget it. If I don't forget it. I'll ignore it.");
+        myMap.put(4, "I have a \"tell\" that reveals when I'm lying");
+        myMap.put(5, "I turn tail and run when things look bad.");
+        myMap.put(6, "An innocent person is in prison for a crime that I committed. I'm okay with that.");
+        return myMap;
+    }
+
     private static final Map<Integer, String> entertainerMap = createEntertainerMap();
     private static Map<Integer, String> createEntertainerMap() {
         Map<Integer, String> myMap = new HashMap<>();
@@ -182,6 +194,39 @@ public class Background {
         myMap.put(8, "Singer");
         myMap.put(9, "Storyteller");
         myMap.put(10, "Tumbler");
+        return myMap;
+    }
+
+    private static final Map<Integer, String> entertainerPTMap = createEntertainerPTMap();
+    private static Map<Integer, String> createEntertainerPTMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1, "I know a story relevant to almost every situation.");
+        myMap.put(2, "Whenever I come to a new place, I collect local rumors and spread gossip");
+        myMap.put(3, "I'm a hopeless romantic, always searching for that \"special someone\"");
+        myMap.put(4, "Nobody stays angry at me or around me for long, since I can defuse any amount of tension.");
+        myMap.put(5, "I love a good insult, even one directed at me.");
+        myMap.put(6, "I get bitter if I'm not the center of attention.");
+        myMap.put(7, "I'll settle for nothing less than perfection.");
+        myMap.put(8, "I change my mood or my mind as quickly as I change key in a song.");
+        return myMap;
+    }
+
+    private static final Map<Integer, String> entertainerIdealMap = createEntertainerIdealMap();
+    private static Map<Integer, String> createEntertainerIdealMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+
+        return myMap;
+    }
+
+    private static final Map<Integer, String> entertainerBondMap = createEntertainerBondMap();
+    private static Map<Integer, String> createEntertainerBondMap() {
+        Map<Integer, String> myMap =  new HashMap<>();
+        return myMap;
+    }
+
+    private static final Map<Integer, String> entertainerFlawMap = createEntertainerFlawMap();
+    private static Map<Integer, String> createEntertainerFlawMap() {
+        Map<Integer, String> myMap = new HashMap<>();
         return myMap;
     }
 
