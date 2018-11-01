@@ -12,4 +12,14 @@ public class Spell {
         this.useableBy = useableBy;
         this.spellSlotLevel = spellSlotLevel;
     }
+
+    public boolean isUseableBy(String name) {
+        boolean result = false;
+        for(String names : useableBy) {
+            if(names.equals(name)) {
+                result = true;
+            }
+        }
+        return result;
+    }
 }

@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="TeamF222.3New" />
         <module name="TeamFFinalProject" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="TeamF222.3New" target="9" />
+      <module name="TeamFFinalProject" target="9" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
