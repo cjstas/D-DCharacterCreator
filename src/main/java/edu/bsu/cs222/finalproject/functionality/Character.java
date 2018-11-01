@@ -380,7 +380,7 @@ public abstract class Character implements CharacterInterface {
         }
     }
 
-    private int getDexterity() {
+    public int getDexterity() {
         return dexterity;
     }
 

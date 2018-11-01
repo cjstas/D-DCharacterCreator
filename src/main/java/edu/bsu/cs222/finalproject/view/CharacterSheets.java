@@ -2,11 +2,12 @@ package edu.bsu.cs222.finalproject.view;
 
 import edu.bsu.cs222.finalproject.functionality.Character;
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class CharacterSheets extends Application {
 
@@ -15,8 +16,10 @@ public class CharacterSheets extends Application {
             strMod, dexMod, consMod, intelMod, wisMod, chaMod,
             strSav, dexSav, consSav, intelSav, wisSav, chaSav,
             insp, profBonus, AC,init, speed, hitMax, currHP, tempHP, HD, DS, pp, gp, sp, cp,
-            acrF,aniHandF,arcanF,athlF,decF,histF,insF,intimF,invesF,medF,natF,percepF,performF,persF,relgF,sliOfHandF,stealF,survF;
-    private TextArea languages, pers, ideal, bon, flaw, featAndTraits, equip,atkWeapons;
+            acrF,aniHandF,arcanF,athlF,decF,histF,insF,intimF,invesF,medF,natF,percepF,performF,
+            persF,relgF,sliOfHandF,stealF,survF;
+    private TextArea languages, pers, ideal, bon, flaw, featAndTraits, equip,atkWeapons,
+            cantrips, spellLv1, spellLv2, spellLv3, spellLv4, spellLv5, spellLv6, spellLv7, spellLv8, spellLv9;
     private RadioButton acrRb, aniHandRb, arcanRb, athlRb, decRb, histRb, insRb, intimRb, invesRb, medRb, natRb, percepRb, performRb, persRb, relgRb, sliOfHandRb, stealRb, survRb;
 
     public Pane setSheet(String sheet) {
@@ -168,6 +171,19 @@ public class CharacterSheets extends Application {
         survRb = new RadioButton();
 
 
+        str = new TextField();
+        dex = new TextField();
+        cons = new TextField();
+        intel = new TextField();
+        wis = new TextField();
+        cha = new TextField();
+        passWis = new TextField();
+        strMod = new TextField();
+        dexMod= new TextField();
+        consMod= new TextField();
+        intelMod= new TextField();
+        wisMod= new TextField();
+        chaMod= new TextField();
         strSav = new TextField();
         dexSav = new TextField();
         consSav = new TextField();
@@ -214,30 +230,33 @@ public class CharacterSheets extends Application {
         ideal = new TextArea();
         bon = new TextArea();
         flaw = new TextArea();
+        featAndTraits = new TextArea();
+        cantrips = new TextArea();
+        spellLv1 = new TextArea();
+        spellLv2 = new TextArea();
+        spellLv3 = new TextArea();
+        spellLv4 = new TextArea();
+        spellLv5 = new TextArea();
+        spellLv6 = new TextArea();
+        spellLv7 = new TextArea();
+        spellLv8 = new TextArea();
+        spellLv9 = new TextArea();
 
-
-        atkWeapons.setWrapText(true);
         atkWeapons.setPrefRowCount(20);
         atkWeapons.setPrefRowCount(4);
-        languages.setWrapText(true);
         languages.setPrefColumnCount(20);
         languages.setPrefRowCount(4);
-        pers.setWrapText(true);
         pers.setPrefColumnCount(20);
         pers.setPrefRowCount(4);
-        ideal.setWrapText(true);
         ideal.setPrefColumnCount(20);
         ideal.setPrefRowCount(4);
-        bon.setWrapText(true);
         bon.setPrefColumnCount(20);
         bon.setPrefRowCount(4);
-        flaw.setWrapText(true);
         flaw.setPrefColumnCount(20);
         flaw.setPrefRowCount(4);
-        featAndTraits = new TextArea();
-        featAndTraits.setWrapText(true);
         featAndTraits.setPrefColumnCount(20);
         featAndTraits.setPrefRowCount(4);
+        equip.setPrefColumnCount(20);
 
         acrF.setPrefColumnCount(4);
         aniHandF.setPrefColumnCount(4);
@@ -290,40 +309,6 @@ public class CharacterSheets extends Application {
         gp.setPrefColumnCount(4);
         sp.setPrefColumnCount(4);
         cp.setPrefColumnCount(4);
-
-        str.setAlignment(Pos.CENTER);
-        dex.setAlignment(Pos.CENTER);
-        cons.setAlignment(Pos.CENTER);
-        intel.setAlignment(Pos.CENTER);
-        wis.setAlignment(Pos.CENTER);
-        cha.setAlignment(Pos.CENTER);
-        passWis.setAlignment(Pos.CENTER);
-        strMod.setAlignment(Pos.CENTER);
-        dexMod.setAlignment(Pos.CENTER);
-        consMod.setAlignment(Pos.CENTER);
-        intelMod.setAlignment(Pos.CENTER);
-        wisMod.setAlignment(Pos.CENTER);
-        chaMod.setAlignment(Pos.CENTER);
-        strSav.setAlignment(Pos.CENTER);
-        dexSav.setAlignment(Pos.CENTER);
-        consSav.setAlignment(Pos.CENTER);
-        intelSav.setAlignment(Pos.CENTER);
-        wisSav.setAlignment(Pos.CENTER);
-        chaSav.setAlignment(Pos.CENTER);
-        insp.setAlignment(Pos.CENTER);
-        profBonus.setAlignment(Pos.CENTER);
-        AC.setAlignment(Pos.CENTER);
-        init.setAlignment(Pos.CENTER);
-        speed.setAlignment(Pos.CENTER);
-        hitMax.setAlignment(Pos.CENTER);
-        currHP.setAlignment(Pos.CENTER);
-        tempHP.setAlignment(Pos.CENTER);
-        HD.setAlignment(Pos.CENTER);
-        DS.setAlignment(Pos.CENTER);
-        pp.setAlignment(Pos.CENTER);
-        gp.setAlignment(Pos.CENTER);
-        sp.setAlignment(Pos.CENTER);
-        cp.setAlignment(Pos.CENTER);
     }
 
     public void updateSheet(Character player, String sheetNumber){
@@ -333,23 +318,50 @@ public class CharacterSheets extends Application {
 
     private void populateSheet(String sheetNumber) {
         if("5".equals(sheetNumber)){
-            str.setText(""+player.getStats());
-            dex.setText(""+player.getStats());
-            cons.setText(""+player.getStats());
-            intel.setText(""+player.getStats());
-            wis.setText(""+player.getStats());
-            cha.setText(""+player.getStats());
+            System.out.println(player.getStrength());
+            str.setText(""+player.getStrength());
+            dex.setText(""+player.getDexterity());
+            cons.setText(""+player.getConstitution());
+            intel.setText(""+player.getIntelligence());
+            wis.setText(""+player.getWisdom());
+            cha.setText(""+player.getCharisma());
 
-            strMod.setText(""+player.getMod(player.getStats()));
-            dexMod.setText(""+player.getMod(player.getStats()));
-            consMod.setText(""+player.getMod(player.getStats()));
-            intelMod.setText(""+player.getMod(player.getStats()));
-            wisMod.setText(""+player.getMod(player.getStats()));
-            chaMod.setText(""+player.getMod(player.getStats()));
+            strMod.setText(""+player.getMod(player.getStrength()));
+            dexMod.setText(""+player.getMod(player.getDexterity()));
+            consMod.setText(""+player.getMod(player.getConstitution()));
+            intelMod.setText(""+player.getMod(player.getIntelligence()));
+            wisMod.setText(""+player.getMod(player.getWisdom()));
+            chaMod.setText(""+player.getMod(player.getCharisma()));
 
         }else{
 
         }
+    }
+
+
+
+    public Scene getSpellSheet() {
+        BorderPane spellSheet = new BorderPane();
+
+        cantrips.setPrefRowCount(8);
+        spellLv1.setPrefRowCount(13);
+        spellLv2.setPrefRowCount(13);
+        spellLv3.setPrefRowCount(13);
+        spellLv4.setPrefRowCount(13);
+        spellLv5.setPrefRowCount(9);
+        spellLv6.setPrefRowCount(9);
+        spellLv7.setPrefRowCount(9);
+        spellLv8.setPrefRowCount(7);
+        spellLv9.setPrefRowCount(7);
+
+        spellSheet.setLeft(new VBox(cantrips,spellLv1,spellLv2));
+        spellSheet.setCenter(new VBox(spellLv3, spellLv4, spellLv5));
+        spellSheet.setLeft(new VBox(spellLv6, spellLv7, spellLv8, spellLv9));
+        return new Scene(spellSheet);
+    }
+
+    public ArrayList<String> toPrint(){
+        return null;
     }
 
     public static void main(String[] args){
@@ -361,6 +373,8 @@ public class CharacterSheets extends Application {
         Scene sheetVeiw = new Scene(sheet5e());
         sheetVeiw.getStylesheets().clear();
         sheetVeiw.getStylesheets().add("SheetFive.css");
+        primaryStage.setMinWidth(970);
+        primaryStage.setMaxWidth(970);
         primaryStage.setScene(sheetVeiw);
         primaryStage.show();
     }

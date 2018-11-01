@@ -73,7 +73,7 @@ public class Barbarian extends Character {
         return 0;
     }
 
-    @Override
+
     public void setHealth(int health) {
 
     }
