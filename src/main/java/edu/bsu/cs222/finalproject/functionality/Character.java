@@ -7,6 +7,7 @@ import java.util.Map;
 
 public abstract class Character implements CharacterInterface {
 
+
     public String alignment;
     public String playerName;
     public int experiencePoints;
@@ -411,7 +412,7 @@ public abstract class Character implements CharacterInterface {
         }
     }
 
-    private int getDexterity() {
+    public int getDexterity() {
         return dexterity;
     }
 

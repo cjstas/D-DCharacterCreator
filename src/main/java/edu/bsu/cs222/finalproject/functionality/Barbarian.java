@@ -188,7 +188,6 @@ public class Barbarian extends Character {
     public int getHealth() {
         return 0;
     }
-
     @Override
     public void setHealth(int health,int level) {
         int i = 0;
