@@ -4,11 +4,9 @@ import edu.bsu.cs222.finalproject.functionality.Barbarian;
 import edu.bsu.cs222.finalproject.functionality.Character;
 import edu.bsu.cs222.finalproject.functionality.DiceRoll;
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -33,9 +31,6 @@ public class MainUI extends Application {
         this.primaryStage = primaryStage;
         Scene root = new Scene(startUpScreen());
         this.primaryStage.setScene(root);
-        this.primaryStage.onCloseRequestProperty().setValue(event -> {
-            setOptionStage().close();
-        });
         this.primaryStage.show();
 
     }
@@ -138,20 +133,16 @@ public class MainUI extends Application {
                 presetup.getChildren().add(warn);
             }else {
                 initPlayer(classes.getValue());
-                player.setPlayerName(name.getText());
+                player.setCharacterName(name.getText());
                 player.setLevel(Integer.parseInt(level.getText()));
                 player.setRace(races.getValue());
                 player.setClassType(classes.getValue());
                 player.setAlignment(alignmentL_U.getValue() + " " + alignmentG_E.getValue());
                 primaryStage.setScene(setScene());
             }
-            setOptionStage().show();
             if(false/*todo code to Check Class of the Character*/){
                 editSpellSheet.setVisible(true);
             }
-
-
-
         });
 
         return presetup;
@@ -167,15 +158,14 @@ public class MainUI extends Application {
     private Scene setScene() {
         mainLayout = new BorderPane();
         this.sheets  = new CharacterSheets();
-      //  sheets.updateSheet(player, sheetNumber);
         mainLayout.setCenter(sheets.setSheet(sheetNumber));
         mainLayout.setTop(basicInfo());
+        sheets.updateSheet(player, sheetNumber);
         Scene sheetScene = new Scene(mainLayout);
+        mainLayout.setLeft(setOptionPane());
         sheetScene.getStylesheets().clear();
         sheetScene.getStylesheets().add(styleSheet);
-        this.primaryStage.setX(100);
-        this.primaryStage.setY(0);
-        this.primaryStage.setMaxWidth(970);
+        this.primaryStage.setMaxWidth(1200);
 
         return sheetScene;
     }
@@ -190,13 +180,12 @@ public class MainUI extends Application {
                 new Label("Alignment: "),new Label(player.getAlignment()));
     }
 
-    private Stage setOptionStage() {
+    private VBox setOptionPane() {
         Button randomStats = new Button("Random Stats \nRoll");
         Button eliteArray = new Button("Use elite \nArray");
         Button standardArray = new Button("Use Standard \nArray");
         Button dunceArray = new Button("Use non-elite \nArray");
         editSpellSheet = new Button("Edit Spell\nSheet");
-
         editSpellSheet.setVisible(false);
 
         editSpellSheet.setOnAction(event -> primaryStage.setScene(sheets.getSpellSheet()));
@@ -213,15 +202,8 @@ public class MainUI extends Application {
             /*code to to generate prompt to fill in using array
              */
         });
-        GridPane controlLayout = new GridPane();
-        controlLayout.setAlignment(Pos.CENTER);
-        controlLayout.addColumn(0, randomStats);
-
-        Stage controlStage = new Stage();
-        controlStage.setScene(new Scene(controlLayout));
-        controlStage.setX(20);
-        controlStage.setY(20);
-        return controlStage;
+        VBox controlLayout = new VBox(randomStats);
+        return controlLayout;
     }
 
     private void rollRandomStat() {
@@ -232,7 +214,6 @@ public class MainUI extends Application {
         player.setWisdom(statRoll());
         player.setCharisma(statRoll());
         sheets.updateSheet(player, sheetNumber);
-        mainLayout.setCenter(sheets.setSheet(sheetNumber));
     }
 
     private int statRoll() {

@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class CharacterSheets extends Application {
 
-    private Character player;
     private TextField str, dex, cons, intel, wis, cha, passWis,
             strMod, dexMod, consMod, intelMod, wisMod, chaMod,
             strSav, dexSav, consSav, intelSav, wisSav, chaSav,
@@ -74,21 +73,6 @@ public class CharacterSheets extends Application {
     }
 
     private VBox statsBox(){
-        str = new TextField();
-        dex = new TextField();
-        cons = new TextField();
-        intel = new TextField();
-        wis = new TextField();
-        cha = new TextField();
-        passWis = new TextField();
-        strMod = new TextField();
-        dexMod = new TextField();
-        consMod = new TextField();
-        intelMod = new TextField();
-        wisMod = new TextField();
-        chaMod = new TextField();
-
-
         return  new VBox(
                 new Label("str"),str,new Label("str modifier"),strMod,
                 new Label("dex"),dex,new Label("dex modifier"),dexMod,
@@ -170,7 +154,7 @@ public class CharacterSheets extends Application {
         stealRb = new RadioButton();
         survRb = new RadioButton();
 
-
+        passWis = new TextField();
         str = new TextField();
         dex = new TextField();
         cons = new TextField();
@@ -282,7 +266,6 @@ public class CharacterSheets extends Application {
         intel.setPrefColumnCount(4);
         wis.setPrefColumnCount(4);
         cha.setPrefColumnCount(4);
-        passWis.setPrefColumnCount(4);
         strMod.setPrefColumnCount(4);
         dexMod.setPrefColumnCount(4);
         consMod.setPrefColumnCount(4);
@@ -295,6 +278,7 @@ public class CharacterSheets extends Application {
         intelSav.setPrefColumnCount(4);
         wisSav.setPrefColumnCount(4);
         chaSav.setPrefColumnCount(4);
+        passWis.setPrefColumnCount(4);
         insp.setPrefColumnCount(4);
         profBonus.setPrefColumnCount(4);
         AC.setPrefColumnCount(4);
@@ -312,19 +296,17 @@ public class CharacterSheets extends Application {
     }
 
     public void updateSheet(Character player, String sheetNumber){
-        this.player = player;
-        populateSheet(sheetNumber);
+        populateSheet(sheetNumber, player);
     }
 
-    private void populateSheet(String sheetNumber) {
+    private void populateSheet(String sheetNumber, Character player) {
         if("5".equals(sheetNumber)){
-            System.out.println(player.getStrength());
-            str.setText(""+player.getStrength());
-            dex.setText(""+player.getDexterity());
-            cons.setText(""+player.getConstitution());
-            intel.setText(""+player.getIntelligence());
-            wis.setText(""+player.getWisdom());
-            cha.setText(""+player.getCharisma());
+            str.setText(player.getStrength()+"");
+            dex.setText(player.getDexterity()+" ");
+            cons.setText(player.getConstitution()+"");
+            intel.setText(player.getIntelligence()+"");
+            wis.setText(player.getWisdom()+"");
+            cha.setText(player.getCharisma()+"");
 
             strMod.setText(""+player.getMod(player.getStrength()));
             dexMod.setText(""+player.getMod(player.getDexterity()));
@@ -333,8 +315,96 @@ public class CharacterSheets extends Application {
             wisMod.setText(""+player.getMod(player.getWisdom()));
             chaMod.setText(""+player.getMod(player.getCharisma()));
 
-        }else{
+           // passWis.setText(""+(player.getMod(player.getWisdom())+10));
 
+            if(player.strST){
+                strSav.setText(strMod.getText());
+            }
+            if(player.conST){
+                dexSav.setText(dexMod.getText());
+            }
+
+            for(String ability: player.abilities){
+                switch(ability.toLowerCase()){
+                    case "acrobatics":
+                        acrRb.setSelected(true);
+                        acrF.setText(dexMod.getText());
+                        break;
+                    case "animal handling":
+                        aniHandRb.setSelected(true);
+                        acrF.setText(wisMod.getText());
+                        break;
+                    case "arcana":
+                        arcanRb.setSelected(true);
+                        arcanF.setText(intelMod.getText());
+                        break;
+                    case "athletics":
+                        athlRb.setSelected(true);
+                        athlF.setText(strMod.getText());
+                        break;
+                    case "deception":
+                        decRb.setSelected(true);
+                        decF.setText(chaMod.getText());
+                        break;
+                    case "history":
+                        histRb.setSelected(true);
+                        histF.setText(intelMod.getText());
+                        break;
+                    case "insight":
+                        insRb.setSelected(true);
+                        insF.setText(wisMod.getText());
+                        break;
+                    case "intimidation":
+                        intimRb.setSelected(true);
+                        intimF.setText(chaMod.getText());
+                        break;
+                    case "investigation":
+                        invesRb.setSelected(true);
+                        invesF.setText(intelMod.getText());
+                        break;
+                    case "medicine":
+                        medRb.setSelected(true);
+                        medF.setText(wisMod.getText());
+                        break;
+                    case "nature":
+                        natRb.setSelected(true);
+                        natF.setText(intelMod.getText());
+                        break;
+                    case "perception":
+                        percepRb.setSelected(true);
+                        percepF.setText(wisMod.getText());
+                        break;
+                    case "performance":
+                        performRb.setSelected(true);
+                        performF.setText(chaMod.getText());
+                        break;
+                    case "persuasion":
+                        persRb.setSelected(true);
+                        persF.setText(chaMod.getText());
+                        break;
+                    case "religion":
+                        relgRb.setSelected(true);
+                        relgF.setText(intelMod.getText());
+                        break;
+                    case "slight of hand":
+                        sliOfHandRb.setSelected(true);
+                        sliOfHandF.setText(dexMod.getText());
+                        break;
+                    case "stealth":
+                        stealRb.setSelected(true);
+                        stealF.setText(dexMod.getText());
+                        break;
+                    case "survival":
+                        survRb.setSelected(true);
+                        survF.setText(wisMod.getText());
+                        break;
+                }
+            }
+
+        }else{
+            /*
+            todo 3.5 variable set up
+             */
         }
     }
 

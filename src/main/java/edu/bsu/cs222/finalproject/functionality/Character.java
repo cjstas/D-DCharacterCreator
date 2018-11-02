@@ -28,7 +28,7 @@ public abstract class Character implements CharacterInterface {
     private String bg;
     private String sTrait;
     private List<String> language = new ArrayList<String>();
-    private List<String> abilities = new ArrayList<String>();
+    public List<String> abilities = new ArrayList<String>();
     private List<String> spellsFromRace = new ArrayList<String>();
     public boolean strST;
     private boolean dexST;
