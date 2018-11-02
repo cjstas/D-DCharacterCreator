@@ -7,35 +7,57 @@ import java.util.Map;
 
 public abstract class Character implements CharacterInterface {
 
-    private String alignment;
-    private String playerName;
-    private int experiencePoints;
-    private int strength;
-    private int dexterity;
-    private int constitution;
-    private int intelligence;
-    private int wisdom;
-    private int charisma;
-    private String background;
-    private String race;
-    private String charName;
-    private int lvl;
-    private String classT;
-    private boolean inspiration;
-    private int pb;
-    private int ac = 10;
-    private int initiative;
-    private String bg;
-    private String sTrait;
-    private List<String> language = new ArrayList<String>();
+
+    public String alignment;
+    public String playerName;
+    public int experiencePoints;
+    public int strength;
+    public int dexterity;
+    public int constitution;
+    public int intelligence;
+    public int wisdom;
+    public int charisma;
+    public String background;
+    public String race;
+    public String charName;
+    public int lvl;
+    public String classT;
+    public boolean inspiration;
+    public int pb;
+    public int ac = 10;
+    public int initiative;
+    public String bg;
+    public String sTrait;
+
+    public List<String> language = new ArrayList<String>();
     public List<String> abilities = new ArrayList<String>();
-    private List<String> spellsFromRace = new ArrayList<String>();
+    public List<String> spellsFromRace = new ArrayList<String>();
+
     public boolean strST;
-    private boolean dexST;
+    public boolean dexST;
     public boolean conST;
-    private boolean intelST;
-    private boolean wisST;
-    private boolean chaST;
+    public boolean intelST;
+    public boolean wisST;
+    public boolean chaST;
+
+    public boolean acrobatics;
+    public boolean animalHandling;
+    public boolean arcana;
+    public boolean athletics;
+    public boolean deception;
+    public boolean history;
+    public boolean insight;
+    public boolean initimidation;
+    public boolean investigation;
+    public boolean medicine;
+    public boolean nature;
+    public boolean perception;
+    public boolean performance;
+    public boolean persuation;
+    public boolean religion;
+    public boolean sleightofHand;
+    public boolean stealth;
+    public boolean survival;
 
     private static final Map<Integer, Integer> modMap = createModMap();
     private static Map<Integer, Integer> createModMap() {
@@ -236,6 +258,16 @@ public abstract class Character implements CharacterInterface {
     }
 
     public void setSavingThrow(boolean skill){
+        skill=true;
+    }
+
+    @Override
+    public boolean getSkills(boolean skill) {
+        return skill;
+    }
+
+    @Override
+    public void setSkills(boolean skill) {
         skill=true;
     }
 
