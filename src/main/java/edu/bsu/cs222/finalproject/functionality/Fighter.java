@@ -6,57 +6,59 @@ import java.util.Random;
 
 import static java.lang.Boolean.parseBoolean;
 
-public class Barbarian extends Character {
+public class Fighter extends Character {
 
     private List<String> equipment = new ArrayList<>();
     private List<String> items = new ArrayList<>();
 
-    public void Barbarian(){
-    }
-
-    public Barbarian(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
+    public Fighter(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
+
         setSavingThrow(strST);
         setSavingThrow(conST);
 
-        boolean spellcaster = false;
-
-        List<String> barbSkills =  new ArrayList<>();
-        barbSkills.add("animalHandling");
-        barbSkills.add("athletics");
-        barbSkills.add("intimidation");
-        barbSkills.add("nature");
-        barbSkills.add("perception");
-        barbSkills.add("survival");
+        List<String> fighterSkills = new ArrayList<>();
+        fighterSkills.add("acrobatics");
+        fighterSkills.add("animalHandeling");
+        fighterSkills.add("athletics");
+        fighterSkills.add("history");
+        fighterSkills.add("insight");
+        fighterSkills.add("intimidation");
+        fighterSkills.add("perception");
+        fighterSkills.add("survival");
 
         Random randomize = new Random();
-        String x = barbSkills.get(randomize.nextInt(barbSkills.size()));
+        String x = fighterSkills.get(randomize.nextInt(fighterSkills.size()));
         setSkills(parseBoolean(x));
-        String z = barbSkills.get(randomize.nextInt(barbSkills.size()));
-        while (x.equals(z)) {
-            z = barbSkills.get(randomize.nextInt(barbSkills.size()));
+        String y = fighterSkills.get(randomize.nextInt(fighterSkills.size()));
+        while (x.equals(y)) {
+            y = fighterSkills.get(randomize.nextInt(fighterSkills.size()));
         }
-        setSkills(parseBoolean(z));
+        setSkills(parseBoolean(y));
 
         List<String> proficiency = new ArrayList<>();
-        proficiency.add("Light Armour");
-        proficiency.add("Medium Armour");
-        proficiency.add("Shields");
-        proficiency.add("Simple Weapons");
-        proficiency.add("Martial Weapons");
+        proficiency.add("All armour");
+        proficiency.add("Shield");
+        proficiency.add("Simple weapons");
+        proficiency.add("Martial weapons");
+
+        equipment.add("Choose one: Chain Mail or Leather armour,longbow, and 20 arrows");
+        equipment.add("Choose one: A martial weapon and shield or two martial weapons");
+        equipment.add("Choose one: A light crossbow and 20 bolts or two hand axes");
+
+        items.add("Choose one: A dungeoneer's pack or an explorer's pack");
 
         List<String> classAbilities = new ArrayList<>();
-        classAbilities.add("Rage");
-        classAbilities.add("Unarmored Defense");
+
+        classAbilities.add("Fighting style");
+        classAbilities.add("Second wind");
 
         if (level>=2){
-            classAbilities.add("Reckless Attack");
-            classAbilities.add("Danger Sense");
+            classAbilities.add("Action Surge");
         }
 
         if (level>=3){
-            classAbilities.add("Primal Path: Berserker or Totem Warrior");
-            classAbilities.add("Insert lvl 3 path ability");
+            classAbilities.add("Martial Archetype");
         }
 
         if (level>=4){
@@ -65,15 +67,14 @@ public class Barbarian extends Character {
 
         if (level>=5){
             classAbilities.add("Extra Attack");
-            classAbilities.add("Fast Movement");
         }
 
         if (level>=6){
-            classAbilities.add("Primal path: 6th level ability");
+            classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
         }
 
         if (level>=7){
-            classAbilities.add("Feral Instinct");
+            classAbilities.add("Martial Archetype feature lvl 7");
         }
 
         if (level>=8){
@@ -81,15 +82,15 @@ public class Barbarian extends Character {
         }
 
         if (level>=9){
-            classAbilities.add("Brutal Critical");
+            classAbilities.add("Indomitable");
         }
 
         if (level>=10){
-            classAbilities.add("Primal path: 10th level ability");
+            classAbilities.add("Martial Archetype feature lvl 10");
         }
 
         if (level>=11){
-            classAbilities.add("Relentless Rage");
+            classAbilities.add("Extra Attack (2)");
         }
 
         if (level>=12){
@@ -97,15 +98,15 @@ public class Barbarian extends Character {
         }
 
         if (level>=13){
-            classAbilities.add("2 dice on Brutal Critical");
+            classAbilities.add("Indomitable (2)");
         }
 
         if (level>=14){
-            classAbilities.add("Primal Path: 14th level ability");
+            classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
         }
 
         if (level>=15){
-            classAbilities.add("Persistent Rage");
+            classAbilities.add("Martial Archetype feature lvl 15");
         }
 
         if (level>=16){
@@ -113,11 +114,12 @@ public class Barbarian extends Character {
         }
 
         if (level>=17){
-            classAbilities.add("3 dice on Brutal Critical");
+            classAbilities.add("Action Surge (2)");
+            classAbilities.add("Indomitable (3)");
         }
 
         if (level>=18){
-            classAbilities.add("Indomitable Might");
+            classAbilities.add("Martial Archetype lvl 18");
         }
 
         if (level>=19){
@@ -125,7 +127,7 @@ public class Barbarian extends Character {
         }
 
         if (level>=20){
-            classAbilities.add("Primal Champion");
+            classAbilities.add("Extra Attack (3)");
         }
     }
 
@@ -136,6 +138,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setSpeed(int speed) {
+
     }
 
     @Override
@@ -145,6 +148,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setPersonalityTrait(String personalityTrait) {
+
     }
 
     @Override
@@ -154,6 +158,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setIdeals(String ideals) {
+
     }
 
     @Override
@@ -173,6 +178,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setFlaws(String flaws) {
+
     }
 
     @Override
@@ -182,6 +188,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setStats(int str, int dex, int con, int intel, int wis, int cha) {
+
     }
 
     @Override
@@ -189,34 +196,15 @@ public class Barbarian extends Character {
         return 0;
     }
 
-    @Override
     public void setHealth(int health,int level) {
         int i = 0;
-        health=health+12+getMod(getConstitution());
+        health=health+10+getMod(getConstitution());
         if (level > 1){
             while  (i<= level){
-                health=health+DiceRoll.D12()+getMod(getConstitution());
+                health=health+DiceRoll.D10()+getMod(getConstitution());
                 i++;
             }
         }
-    }
-
-    public boolean getSavingThrow(boolean skill) {
-        return skill;
-    }
-
-
-    public void setSavingThrow(boolean skill) {
-        skill=true;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-    }
-
-    @Override
-    public boolean getSkills(boolean skill) {
-        return skill;
     }
 
     @Override
@@ -226,6 +214,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setLanguages(String languages) {
+
     }
 
     @Override
@@ -235,10 +224,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setEquipment() {
-        equipment.add("Greataxe or Martial melee weapon");
-        equipment.add("Two handaxes or any simple weapon");
-        equipment.add("4 Javelins");
-        items.add("Explorer's Pack");
+
     }
 
     @Override
@@ -268,12 +254,12 @@ public class Barbarian extends Character {
 
     @Override
     public int setSpellcastingAbility(int ability) {
-        return Integer.parseInt(null);
+        return 0;
     }
 
     @Override
     public int setSpellSaveDC(int dc) {
-        return Integer.parseInt(null);
+        return 0;
     }
 
     @Override

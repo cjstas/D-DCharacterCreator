@@ -235,6 +235,17 @@ public class Bard extends Character{
         return 0;
     }
 
+    public void setHealth(int health,int level) {
+        int i = 0;
+        health=health+8+getMod(getConstitution());
+        if (level > 1){
+            while  (i<= level){
+                health=health+DiceRoll.D8()+getMod(getConstitution());
+                i++;
+            }
+        }
+    }
+
     @Override
     public String getLanguages() {
         return null;
