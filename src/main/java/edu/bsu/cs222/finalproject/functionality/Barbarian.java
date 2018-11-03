@@ -10,8 +10,6 @@ public class Barbarian extends Character {
 
     private List<String> equipment = new ArrayList<>();
     private List<String> items = new ArrayList<>();
-    private List<String> classAbilities = new ArrayList<>();
-    private List<String> proficiency = new ArrayList<>();
 
     public void Barbarian(){
     }
@@ -40,12 +38,14 @@ public class Barbarian extends Character {
         }
         setSkills(parseBoolean(z));
 
+        List<String> proficiency = new ArrayList<>();
         proficiency.add("Light Armour");
         proficiency.add("Medium Armour");
         proficiency.add("Shields");
         proficiency.add("Simple Weapons");
         proficiency.add("Martial Weapons");
 
+        List<String> classAbilities = new ArrayList<>();
         classAbilities.add("Rage");
         classAbilities.add("Unarmored Defense");
 
@@ -268,18 +268,13 @@ public class Barbarian extends Character {
     }
 
     @Override
-    public void setSpellcastingAbility(int ability) {
-
+    public int setSpellcastingAbility(int ability) {
+        return Integer.parseInt(null);
     }
 
     @Override
-    public int getSpellSaveDC() {
-        return 0;
-    }
-
-    @Override
-    public void setSpellSaveDC(int dc) {
-
+    public int setSpellSaveDC(int dc) {
+        return Integer.parseInt(null);
     }
 
     @Override
@@ -289,16 +284,6 @@ public class Barbarian extends Character {
 
     @Override
     public void setSpellAttackBonus(int bonus) {
-
-    }
-
-    @Override
-    public int getSpellSlots() {
-        return 0;
-    }
-
-    @Override
-    public void setSpellSlots(int cantrip, int level1, int level2, int level3, int level4, int level5, int level6, int level7, int level8, int level9) {
 
     }
 }

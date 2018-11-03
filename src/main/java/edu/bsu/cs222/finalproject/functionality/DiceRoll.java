@@ -2,6 +2,7 @@ package edu.bsu.cs222.finalproject.functionality;
 
 import java.util.Random;
 
+@SuppressWarnings("CanBeFinal")
 public class DiceRoll {
     private static Random random = new Random();
     public static int D100() {

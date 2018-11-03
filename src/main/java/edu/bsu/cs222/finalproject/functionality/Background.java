@@ -131,7 +131,7 @@ public class Background {
         return myMap;
     }
 
-    private static final Map<Integer, String> criminaPTlMap = createCriminalPTMap();
+    private static final Map<Integer, String> criminalPTlMap = createCriminalPTMap();
     private static Map<Integer, String> createCriminalPTMap(){
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "I always have a plan for what to do when things go wrong.");

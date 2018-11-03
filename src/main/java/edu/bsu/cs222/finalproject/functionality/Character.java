@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings({"WeakerAccess", "CanBeFinal"})
 public abstract class Character implements CharacterInterface {
 
     public String alignment;
@@ -27,10 +28,12 @@ public abstract class Character implements CharacterInterface {
     public int initiative;
     public String bg;
     public String sTrait;
+    public int sa;
+    public int dc;
 
-    public List<String> language = new ArrayList<String>();
-    public List<String> abilities = new ArrayList<String>();
-    public List<String> spellsFromRace = new ArrayList<String>();
+    public List<String> language = new ArrayList<>();
+    public List<String> abilities = new ArrayList<>();
+    public List<String> spellsFromRace = new ArrayList<>();
 
     public boolean strST;
     public boolean dexST;
@@ -57,6 +60,18 @@ public abstract class Character implements CharacterInterface {
     public boolean sleightofHand;
     public boolean stealth;
     public boolean survival;
+
+    public int cantripKnown=0;
+    public int spellsKnown=0;
+    public int spellSlot1=0;
+    public int spellSlot2=0;
+    public int spellSlot3=0;
+    public int spellSlot4=0;
+    public int spellSlot5=0;
+    public int spellSlot6=0;
+    public int spellSlot7=0;
+    public int spellSlot8=0;
+    public int spellSlot9=0;
 
     private static final Map<Integer, Integer> modMap = createModMap();
     private static Map<Integer, Integer> createModMap() {
