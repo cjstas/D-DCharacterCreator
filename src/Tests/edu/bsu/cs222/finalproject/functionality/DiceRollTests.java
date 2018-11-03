@@ -1,5 +1,6 @@
 package edu.bsu.cs222.finalproject.functionality;
 
+import edu.bsu.cs222.finalproject.functionality.DiceRoll;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,27 +1,26 @@
-VBox{
-
-}
-.center{
-    -fx-border-color: #000000;
-    -fx-border-radius: 16px 16px 16px 16px;
-    -fx-alignment: center;
-}
-HBox{
-    -fx-padding: 1px;
-}
-HBox.acBox{
-    -fx-alignment: top-center;
-}
-TextField{
-
-}
-TextArea{
-
-}
-RadioButtons{
-
-}
 BorderPane{
     -fx-background-color: #ffffcc;
     -fx-padding: 3px;
+}
+VBox{
+    -fx-border-color: #000000;
+    -fx-border-radius: 10px;
+    -fx-padding: 2px;
+}
+HBox{
+    -fx-padding: 2px;
+
+}
+TextField{
+    -fx-padding: 0px;
+    -fx-alignment: center;
+    -fx-wrap-text: true;
+}
+TextArea{
+    -fx-padding: 0px;
+    -fx-wrap-text: true;
+}
+Label{
+    -fx-font-family: "Yu Gothic";
+    -fx-padding: 1px;
 }

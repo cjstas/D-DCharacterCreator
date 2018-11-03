@@ -1,5 +1,6 @@
 package edu.bsu.cs222.finalproject.functionality;
 
+import edu.bsu.cs222.finalproject.functionality.Spell;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -7,8 +8,8 @@ import java.util.ArrayList;
 
 public class SpellTests {
 
-    private ArrayList testSpell1Users = new ArrayList();
-    private ArrayList testSpell2Users = new ArrayList();
+    private ArrayList<String> testSpell1Users = new ArrayList<>();
+    private ArrayList<String> testSpell2Users = new ArrayList<>();
     private Spell testSpell1;
     private Spell testSpell2;
 
