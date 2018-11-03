@@ -218,6 +218,6 @@ public class MainUI extends Application {
 
     private int statRoll() {
         DiceRoll dr = new DiceRoll();
-        return dr.D6()+dr.D6()+dr.D6();
+        return DiceRoll.D6()+ DiceRoll.D6()+ DiceRoll.D6();
     }
 }

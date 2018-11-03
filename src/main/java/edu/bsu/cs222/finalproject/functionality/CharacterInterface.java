@@ -109,17 +109,12 @@ public interface CharacterInterface {
 
     int getSpellcastingAbility();
 
-    void setSpellcastingAbility(int ability);
+    int setSpellcastingAbility(int ability);
 
-    int getSpellSaveDC();
-
-    void setSpellSaveDC(int dc);
+    int setSpellSaveDC(int dc);
 
     int getSpellAttackBonus();
 
     void setSpellAttackBonus(int bonus);
 
-    int getSpellSlots();
-
-    void setSpellSlots(int cantrip, int level1, int level2, int level3, int level4, int level5, int level6, int level7, int level8, int level9);
 }

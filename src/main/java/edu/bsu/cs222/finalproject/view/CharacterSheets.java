@@ -439,7 +439,7 @@ public class CharacterSheets extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage){ ;
+    public void start(Stage primaryStage){
         Scene sheetVeiw = new Scene(sheet5e());
         sheetVeiw.getStylesheets().clear();
         sheetVeiw.getStylesheets().add("SheetFive.css");
