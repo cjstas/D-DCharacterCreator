@@ -1,8 +1,7 @@
 package edu.bsu.cs222.finalproject.view;
 
-import edu.bsu.cs222.finalproject.functionality.Barbarian;
+import edu.bsu.cs222.finalproject.functionality.*;
 import edu.bsu.cs222.finalproject.functionality.Character;
-import edu.bsu.cs222.finalproject.functionality.DiceRoll;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -10,6 +9,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.net.URL;
+import java.util.ArrayList;
 
 public class MainUI extends Application {
 
@@ -19,8 +21,6 @@ public class MainUI extends Application {
     private Character player;
     private Button createMultiClass, submit, buildStartSheetButton, editSpellSheet;
     private Stage primaryStage;
-
-
 
     public static void main(String[] args){
         launch(args);
@@ -128,7 +128,6 @@ public class MainUI extends Application {
         });
 
         buildStartSheetButton.setOnAction(event ->{
-            //todo implement when Character is fully functional
             if(((TextFieldCustom) name).isEmpty()|| ((TextFieldCustom) level).isEmpty()||((TextFieldCustom)age).isEmpty()){
                 presetup.getChildren().add(warn);
             }else {
@@ -140,7 +139,7 @@ public class MainUI extends Application {
                 player.setAlignment(alignmentL_U.getValue() + " " + alignmentG_E.getValue());
                 primaryStage.setScene(setScene());
             }
-            if(false/*todo code to Check Class of the Character*/){
+            if(false/*player.getSpellcastingAbility()>0*/){
                 editSpellSheet.setVisible(true);
             }
         });
@@ -152,6 +151,61 @@ public class MainUI extends Application {
         switch (classType.toLowerCase()){
             case "barbarian":
                 player = new Barbarian(null,null, 0, null,null, null, null, 0, 0,0,0,0,0,0);
+                break;
+            case "bard":
+                player = new Bard(null,null, 0, null,null, null, null, 0, 0,0,0,0,0,0);
+                break;
+            case "cleric":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "druid":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "fighter":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "monk":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "paladin":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "ranger":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "rogue":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "sorcerer":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "warlock":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "wizard":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+
         }
     }
 
@@ -160,7 +214,7 @@ public class MainUI extends Application {
         this.sheets  = new CharacterSheets();
         mainLayout.setCenter(sheets.setSheet(sheetNumber));
         mainLayout.setTop(basicInfo());
-        sheets.updateSheet(player, sheetNumber);
+        sheets.populateSheet(sheetNumber, player);
         Scene sheetScene = new Scene(mainLayout);
         mainLayout.setLeft(setOptionPane());
         sheetScene.getStylesheets().clear();
@@ -181,43 +235,94 @@ public class MainUI extends Application {
     }
 
     private VBox setOptionPane() {
-        Button randomStats = new Button("Random Stats \nRoll");
-        Button eliteArray = new Button("Use elite \nArray");
-        Button standardArray = new Button("Use Standard \nArray");
-        Button dunceArray = new Button("Use non-elite \nArray");
+        VBox controlLayout = new VBox();
+        Button randomStatsButt = new Button("Random Stats \nRoll");
+        Button eliteArrayButt = new Button("Use elite \nArray");
+        Button standardArrayButt = new Button("Use Standard \nArray");
+        Button dunceArrayButt = new Button("Use non-elite \nArray");
         editSpellSheet = new Button("Edit Spell\nSheet");
+        Button returnToCharacterSheet = new Button("Return to character sheet");
+        Button spellSearch = new Button("Spell Look Up");
+        Button ruleSearch = new Button("Basic Rules");
+        Button monsterSearch = new Button("Official Moster Search");
+        Button homeBrewSearch = new Button("Home Brew search");
+
+
+        /*todo make the array populator function properly
+        * currently - failing to initiallize the array and fill appropriate textfields
+        * working means it will out put on the sheet in the scores section*/
+        StatArrayPopulater statPop = new StatArrayPopulater();
         editSpellSheet.setVisible(false);
 
-        editSpellSheet.setOnAction(event -> primaryStage.setScene(sheets.getSpellSheet()));
-        randomStats.setOnAction(e->rollRandomStat());
-        standardArray.setOnAction(event -> {
-            /*code to to generate prompt to fill in using array
-             */
+        editSpellSheet.setOnAction(event -> {
+            mainLayout.setCenter(sheets.getSpellSheet());
+            controlLayout.getChildren().add(6, returnToCharacterSheet);
         });
-        eliteArray.setOnAction(event -> {
-            /*code to to generate prompt to fill in using array
-             */
+        randomStatsButt.setOnAction(event->{
+            int[] stats = statPop.rollRandomStat();
+            player.setStrength(stats[0]);
+            player.setDexterity(stats[1]);
+            player.setConstitution(stats[2]);
+            player.setIntelligence(stats[3]);
+            player.setWisdom(stats[4]);
+            player.setCharisma(stats[5]);
+            sheets.populateSheet(sheetNumber, player);
         });
-        dunceArray.setOnAction(event -> {
-            /*code to to generate prompt to fill in using array
-             */
+        standardArrayButt.setOnAction(event -> {
+            statPop.arrayFillPromt(InfoHolding.standardArray);
+            player.setStrength(statPop.getStatsArray()[0]);
+            player.setDexterity(statPop.getStatsArray()[1]);
+            player.setConstitution(statPop.getStatsArray()[2]);
+            player.setIntelligence(statPop.getStatsArray()[3]);
+            player.setWisdom(statPop.getStatsArray()[4]);
+            player.setCharisma(statPop.getStatsArray()[5]);
+            sheets.populateSheet(sheetNumber, player);
         });
-        VBox controlLayout = new VBox(randomStats);
+        eliteArrayButt.setOnAction(event -> {
+            statPop.arrayFillPromt(InfoHolding.eliteArray);
+            player.setStrength(statPop.getStatsArray()[0]);
+            player.setDexterity(statPop.getStatsArray()[1]);
+            player.setConstitution(statPop.getStatsArray()[2]);
+            player.setIntelligence(statPop.getStatsArray()[3]);
+            player.setWisdom(statPop.getStatsArray()[4]);
+            player.setCharisma(statPop.getStatsArray()[5]);
+            sheets.populateSheet(sheetNumber, player);
+        });
+        dunceArrayButt.setOnAction(event -> {
+            statPop.arrayFillPromt(InfoHolding.dunceArray);
+            player.setStrength(statPop.getStatsArray()[0]);
+            player.setDexterity(statPop.getStatsArray()[1]);
+            player.setConstitution(statPop.getStatsArray()[2]);
+            player.setIntelligence(statPop.getStatsArray()[3]);
+            player.setWisdom(statPop.getStatsArray()[4]);
+            player.setCharisma(statPop.getStatsArray()[5]);
+            sheets.populateSheet(sheetNumber, player);
+        });
+
+        spellSearch.setOnAction(event -> webview(URLDeterminer("spell")));
+
+        controlLayout.getChildren().addAll(new Label("Sheet Control buttons"),randomStatsButt,standardArrayButt,eliteArrayButt,dunceArrayButt,editSpellSheet);
+        controlLayout.getChildren().addAll(new Label("Searching Buttons"), spellSearch, ruleSearch, homeBrewSearch, monsterSearch);
         return controlLayout;
     }
 
-    private void rollRandomStat() {
-        player.setStrength(statRoll());
-        player.setDexterity(statRoll());
-        player.setConstitution(statRoll());
-        player.setIntelligence(statRoll());
-        player.setWisdom(statRoll());
-        player.setCharisma(statRoll());
-        sheets.updateSheet(player, sheetNumber);
+    private URL URLDeterminer(String key) {
+
+        if(sheetNumber.equals("5")){
+            switch(key){
+                case "spell":
+                case "homebrew":
+            }
+        }else{
+         switch(key){
+
+         }
+        }
+        return null;
     }
 
-    private int statRoll() {
-        DiceRoll dr = new DiceRoll();
-        return DiceRoll.D6()+ DiceRoll.D6()+ DiceRoll.D6();
+    private void webview(URL siteToDisplay) {
+
     }
+
 }
