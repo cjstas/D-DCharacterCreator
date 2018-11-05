@@ -6,162 +6,124 @@ import java.util.Random;
 
 import static java.lang.Boolean.parseBoolean;
 
-public class Bard extends Character{
+public class Cleric extends Character{
 
     private List<String> equipment = new ArrayList<>();
     private List<String> items = new ArrayList<>();
 
-    public Bard(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
+    public Cleric(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
-        setSavingThrow(dexST);
+        setSavingThrow(wisST);
         setSavingThrow(chaST);
 
-        sa=setSpellcastingAbility(cha);
-        dc=setSpellSaveDC(cha);
+        List<String> clericSkills = new ArrayList<>();
+        clericSkills.add("history");
+        clericSkills.add("insight");
+        clericSkills.add("medicine");
+        clericSkills.add("persuasion");
+        clericSkills.add("religion");
+
+        sa=setSpellcastingAbility(wis);
+        dc=setSpellSaveDC(wis);
         totalHealth=setHealth(totalHealth,level);
 
-        List<String> bardSkills = new ArrayList<>();
-        bardSkills.add("acrobatics");
-        bardSkills.add("animalHandeling");
-        bardSkills.add("arcana");
-        bardSkills.add("athletics");
-        bardSkills.add("deception");
-        bardSkills.add("history");
-        bardSkills.add("insight");
-        bardSkills.add("intimidation");
-        bardSkills.add("investigation");
-        bardSkills.add("medicine");
-        bardSkills.add("nature");
-        bardSkills.add("perception");
-        bardSkills.add("persuasion");
-        bardSkills.add("religion");
-        bardSkills.add("sleightofHand");
-        bardSkills.add("stealth");
-        bardSkills.add("survival");
-
-        sa=setSpellcastingAbility(cha);
-        dc=setSpellSaveDC(cha);
-
         Random randomize = new Random();
-        String x = bardSkills.get(randomize.nextInt(bardSkills.size()));
+        String x = clericSkills.get(randomize.nextInt(clericSkills.size()));
         setSkills(parseBoolean(x));
-        String y = bardSkills.get(randomize.nextInt(bardSkills.size()));
+        String y = clericSkills.get(randomize.nextInt(clericSkills.size()));
         while (x.equals(y)) {
-            y = bardSkills.get(randomize.nextInt(bardSkills.size()));
+            y = clericSkills.get(randomize.nextInt(clericSkills.size()));
         }
         setSkills(parseBoolean(y));
-        String z = bardSkills.get(randomize.nextInt(bardSkills.size()));
-        while (x.equals(z) || y.equals(z)){
-            z = bardSkills.get(randomize.nextInt(bardSkills.size()));
-        }
-        setSkills(parseBoolean(z));
 
         List<String> proficiency = new ArrayList<>();
         proficiency.add("Light armor");
+        proficiency.add("Medium Armour");
+        proficiency.add("Shields");
         proficiency.add("Simple weapons");
-        proficiency.add("Hand crossbows");
 
-        equipment.add("Choose one: Rapier, Longsword, Any simple weapon");
-        equipment.add("Choose one: Diplomat's pack or Entertainer's pack");
-        equipment.add("Choose one: A Lute or any other musical instrument");
-        equipment.add("Leather Armour");
-        equipment.add("Dagger");
+        equipment.add("Choose one: Mace or warhammer (if proficient in Martial weapons)");
+        equipment.add("Choose one: Scale mail, Leather armour, or chain mail (if proficient in Heavy armour)");
+        equipment.add("Choose one: a light crossbow and 20 bolts or any simple weapon");
+        equipment.add("Shield");
+        items.add("Choose one: A priest pack or an explorer pack");
+        items.add("Holy symbol");
 
         List<String> classAbilities = new ArrayList<>();
         classAbilities.add("Spellcasting");
-        classAbilities.add("Bardic Inspiration (D6)");
+        classAbilities.add("Divine domain");
 
-        cantripKnown=2;
-        spellsKnown=4;
+        cantripKnown=3;
         spellSlot1=2;
 
         if (level>=2){
-            classAbilities.add("Jack of all Trades");
-            classAbilities.add("Song of Rest (D6)");
-            spellsKnown=5;
+            classAbilities.add("Channel Divinity (1/rest)");
+            classAbilities.add("Divine domain feature lvl 2");
             spellSlot1=3;
+            cantripKnown=3;
         }
         if (level>=3){
-            classAbilities.add("Bard College: choose one");
-            classAbilities.add("Expertise");
-            spellsKnown=6;
             spellSlot1=4;
             spellSlot2=2;
         }
         if (level>=4){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
-            cantripKnown=3;
-            spellsKnown=7;
+            cantripKnown=4;
             spellSlot2=3;
         }
         if (level>=5){
-            classAbilities.add("Bardic Inspiration (D8)");
-            classAbilities.add("Font of Inspiration");
-            spellsKnown=8;
+            classAbilities.add("Destroy Undead (CR 1/2)");
             spellSlot3=2;
         }
         if (level>=6){
-            classAbilities.add("Countercharm");
-            classAbilities.add("Bard College Feature lvl 6");
-            spellsKnown=9;
+            classAbilities.set(classAbilities.indexOf("Channel Divinity (1/rest)"), "Channel Divinity (2/rest)");
+            classAbilities.add("Divine Domain Feature lvl 6");
             spellSlot3=3;
         }
         if (level>=7) {
-            spellsKnown=10;
             spellSlot4=1;
         }
         if (level>=8){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
-            spellsKnown=11;
+            classAbilities.set(classAbilities.indexOf("Destroy Undead (CR 1/2)"), "Destroy Undead (CR 1)");
+            classAbilities.add("Divine Domain Feature lvl 8");
             spellSlot4=2;
         }
         if (level>=9){
-            classAbilities.set(classAbilities.indexOf("Song of Rest (D6)"), "Song of Rest (D8)");
-            spellsKnown=12;
             spellSlot4=3;
             spellSlot5=1;
         }
         if (level>=10){
-            classAbilities.set(classAbilities.indexOf("Bardic Inspiration (D6)"), "Bardic Inspiration (D10)");
-            classAbilities.add("Expertise");
-            classAbilities.add("Magical Secrets");
-            cantripKnown=4;
-            spellsKnown=14;
+            classAbilities.add("Divine Intervention");
+            cantripKnown=5;
             spellSlot5=2;
         }
         if (level>=11) {
-            spellsKnown=15;
+            classAbilities.set(classAbilities.indexOf("Destroy Undead (CR 1)"), "Destroy Undead (CR 2");
             spellSlot6=1;
         }
         if (level>=12){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
         }
         if (level>=13){
-            classAbilities.set(classAbilities.indexOf("Song of Rest (D8)"), "Song of Rest (D10)");
-            spellsKnown=16;
             spellSlot7=1;
         }
         if (level>=14){
-            classAbilities.add("Magical Secrets");
-            classAbilities.add("Bard College feature lvl 14");
-            spellsKnown=18;
+            classAbilities.set(classAbilities.indexOf("Destroy Undead (CR 2)"), "Destroy Undead (CR 3)");
         }
         if (level>=15){
-            classAbilities.set(classAbilities.indexOf("Bardic Inspiration (D8)"), "Bardic Inspiration (D12)");
-            spellsKnown=19;
             spellSlot8=1;
         }
         if (level>=16){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
         }
         if (level>=17){
-            classAbilities.set(classAbilities.indexOf("Song of Rest (D10)"), "Song of Rest (D12)");
-            spellsKnown=20;
+            classAbilities.set(classAbilities.indexOf("Destroy Undead (CR 3)"), "Destroy Undead (CR 4)");
+            classAbilities.add("Divine Domain Feature lvl 17");
             spellSlot9=1;
         }
         if (level>=18){
-            classAbilities.add("Magical Secrets");
-            spellsKnown=22;
+            classAbilities.set(classAbilities.indexOf("Channel Divinity (2/rest)"), "Channel Divinity (3/rest)");
             spellSlot5=3;
         }
         if (level>=19){
@@ -169,7 +131,7 @@ public class Bard extends Character{
             spellSlot6=2;
         }
         if (level>=20){
-            classAbilities.add("Superior Inspiration");
+            classAbilities.set(classAbilities.indexOf("Divine Intervention"), "Improved Divine Intervention");
             spellSlot7=2;
         }
     }
@@ -298,14 +260,12 @@ public class Bard extends Character{
 
     @Override
     public int setSpellcastingAbility(int ability) {
-        int sa=getProficiencyBonus()+getMod(ability);
-        return sa;
+        return getProficiencyBonus()+getMod(ability);
     }
 
     @Override
     public int setSpellSaveDC(int dc) {
-        int ssdc=8+getProficiencyBonus()+getMod(dc);
-        return ssdc;
+        return 8+getProficiencyBonus()+getMod(dc);
     }
 
     @Override

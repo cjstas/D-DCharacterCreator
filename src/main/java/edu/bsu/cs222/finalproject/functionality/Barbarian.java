@@ -20,6 +20,7 @@ public class Barbarian extends Character {
         setSavingThrow(conST);
 
         boolean spellcaster = false;
+        totalHealth=setHealth(totalHealth,level);
 
         List<String> barbSkills =  new ArrayList<>();
         barbSkills.add("animalHandling");
@@ -190,7 +191,7 @@ public class Barbarian extends Character {
     }
 
     @Override
-    public void setHealth(int health,int level) {
+    public int setHealth(int health, int level) {
         int i = 0;
         health=health+12+getMod(getConstitution());
         if (level > 1){
@@ -199,6 +200,7 @@ public class Barbarian extends Character {
                 i++;
             }
         }
+        return health;
     }
 
     public boolean getSavingThrow(boolean skill) {

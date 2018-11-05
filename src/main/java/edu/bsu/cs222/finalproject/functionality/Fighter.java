@@ -16,6 +16,9 @@ public class Fighter extends Character {
 
         setSavingThrow(strST);
         setSavingThrow(conST);
+        sa=setSpellcastingAbility(intel);
+        dc=setSpellSaveDC(intel);
+        totalHealth=setHealth(totalHealth,level);
 
         List<String> fighterSkills = new ArrayList<>();
         fighterSkills.add("acrobatics");
@@ -59,10 +62,15 @@ public class Fighter extends Character {
 
         if (level>=3){
             classAbilities.add("Martial Archetype");
+            cantripKnown=2;
+            spellsKnown=3;
+            spellSlot1=2;
         }
 
         if (level>=4){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
+            spellsKnown=4;
+            spellSlot1=3;
         }
 
         if (level>=5){
@@ -75,10 +83,14 @@ public class Fighter extends Character {
 
         if (level>=7){
             classAbilities.add("Martial Archetype feature lvl 7");
+            spellsKnown=5;
+            spellSlot1=4;
+            spellSlot2=2;
         }
 
         if (level>=8){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
+            spellsKnown=6;
         }
 
         if (level>=9){
@@ -87,10 +99,13 @@ public class Fighter extends Character {
 
         if (level>=10){
             classAbilities.add("Martial Archetype feature lvl 10");
+            spellsKnown=7;
+            spellSlot2=3;
         }
 
         if (level>=11){
             classAbilities.add("Extra Attack (2)");
+            spellsKnown=8;
         }
 
         if (level>=12){
@@ -99,10 +114,13 @@ public class Fighter extends Character {
 
         if (level>=13){
             classAbilities.add("Indomitable (2)");
+            spellsKnown=9;
+            spellSlot3=2;
         }
 
         if (level>=14){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
+            spellsKnown=10;
         }
 
         if (level>=15){
@@ -111,6 +129,8 @@ public class Fighter extends Character {
 
         if (level>=16){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
+            spellsKnown=11;
+            spellSlot3=3;
         }
 
         if (level>=17){
@@ -124,10 +144,13 @@ public class Fighter extends Character {
 
         if (level>=19){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
+            spellsKnown=12;
+            spellSlot4=1;
         }
 
         if (level>=20){
             classAbilities.add("Extra Attack (3)");
+            spellsKnown=13;
         }
     }
 
@@ -196,7 +219,7 @@ public class Fighter extends Character {
         return 0;
     }
 
-    public void setHealth(int health,int level) {
+    public int setHealth(int health, int level) {
         int i = 0;
         health=health+10+getMod(getConstitution());
         if (level > 1){
@@ -205,6 +228,7 @@ public class Fighter extends Character {
                 i++;
             }
         }
+        return health;
     }
 
     @Override
@@ -254,12 +278,12 @@ public class Fighter extends Character {
 
     @Override
     public int setSpellcastingAbility(int ability) {
-        return 0;
+        return getProficiencyBonus() + getMod(ability);
     }
 
     @Override
     public int setSpellSaveDC(int dc) {
-        return 0;
+        return getProficiencyBonus()+getMod(dc)+8;
     }
 
     @Override

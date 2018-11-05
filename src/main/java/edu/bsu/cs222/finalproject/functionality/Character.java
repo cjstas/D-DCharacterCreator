@@ -27,6 +27,7 @@ public abstract class Character implements CharacterInterface {
     public int pb;
     public int ac = 10;
     public int initiative;
+    public int totalHealth;
     public String bg;
     public String sTrait;
     public int sa;
@@ -265,7 +266,8 @@ public abstract class Character implements CharacterInterface {
         }
     }
 
-    public void setHealth(int health, int level) {
+    public int setHealth(int health, int level) {
+        return 0;
     }
 
     public boolean getSavingThrow(boolean skill) {
@@ -284,6 +286,16 @@ public abstract class Character implements CharacterInterface {
     @Override
     public void setSkills(boolean skill) {
         skill=true;
+    }
+
+    @Override
+    public int setSpellcastingAbility(int ability) {
+        return getProficiencyBonus()+getMod(ability);
+    }
+
+    @Override
+    public int setSpellSaveDC(int dc) {
+        return 8+getProficiencyBonus()+getMod(dc);
     }
 
     public void setRaceBonus(String race, int mod){
