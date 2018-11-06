@@ -9,6 +9,7 @@ public class ListMakerTests {
 
     private ListMaker make = new ListMaker();
     private ArrayList<Spell> spells = make.returnSpellsArrayList5e();
+    private ArrayList<String> items = make.returnItemsArrayList5e();
 
     @Test
     public void testSpell0Name() {
@@ -21,7 +22,7 @@ public class ListMakerTests {
     }
 
     @Test
-    public void testSpell0UseableBy() {
+    public void testSpell0UsableBy() {
         boolean isGood = true;
         if(!spells.get(0).useableBy.contains("Wizard")) isGood = false;
         Assert.assertTrue(isGood);
@@ -38,10 +39,24 @@ public class ListMakerTests {
     }
 
     @Test
-    public void testSpell243UseableBy() {
+    public void testSpell243UsableBy() {
         boolean isGood = true;
         if(!spells.get(243).useableBy.contains("Wizard")) isGood = false;
         Assert.assertTrue(isGood);
     }
 
+    @Test
+    public void testItem0() {
+        Assert.assertTrue(items.get(0).equals("Club"));
+    }
+
+    @Test
+    public void testItem255() {
+        Assert.assertTrue(items.get(255).equals("Warship"));
+    }
+
+    @Test
+    public void testItem10() {
+        Assert.assertTrue(items.get(10).equals("Crossbow, light"));
+    }
 }
