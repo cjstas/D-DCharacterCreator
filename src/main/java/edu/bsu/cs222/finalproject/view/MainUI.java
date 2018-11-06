@@ -1,5 +1,6 @@
 package edu.bsu.cs222.finalproject.view;
 
+import edu.bsu.cs222.finalproject.functionality.Barbarian;
 import edu.bsu.cs222.finalproject.functionality.Character;
 import edu.bsu.cs222.finalproject.functionality.DiceRoll;
 import javafx.application.Application;
@@ -13,9 +14,13 @@ import javafx.stage.Stage;
 public class MainUI extends Application {
 
     private CharacterSheets sheets;
-    private  String sheetNumber;
+    private String sheetNumber, styleSheet;
     private BorderPane mainLayout;
     private Character player;
+    private Button createMultiClass, submit, buildStartSheetButton, editSpellSheet;
+    private Stage primaryStage;
+
+
 
     public static void main(String[] args){
         launch(args);
@@ -23,109 +28,196 @@ public class MainUI extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Scene root = new Scene(startUpScreen(primaryStage));
-        primaryStage.setScene(root);
-        primaryStage.show();
+        this.primaryStage = primaryStage;
+        Scene root = new Scene(startUpScreen());
+        this.primaryStage.setScene(root);
+        this.primaryStage.show();
+
     }
 
-    private VBox startUpScreen(Stage primaryStage){
+    private VBox startUpScreen(){
         Button to35eBuilder = new Button("Build A 3.5 Character");
         Button to5eBuilder = new Button("Build a 5e Character");
         Button toNPCCreation = new Button("Random Character");
-        to5eBuilder.setOnAction(e -> primaryStage.setScene(setScene("5")));
-        to35eBuilder.setOnAction(e->primaryStage.setScene(new Scene(new HBox(new Label("Sorry for the Inconvenience,\nBut the 3.5 character Sheet is under Construction\nHope Your Gaming time is fun!!")))));
-        toNPCCreation.setOnAction(e -> primaryStage.setScene(new Scene(new HBox(new Label("Sorry for the Inconvenience,\nBut the NPC Creation section is under Construction\nHappy Rolling!!")))));
+
+        to5eBuilder.setOnAction(e ->{
+            primaryStage.setScene(new Scene(presetupPane()));
+            sheetNumber = "5";
+            styleSheet = "SheetFive.css";
+        });
+        to35eBuilder.setOnAction(e->{
+            primaryStage.setScene(new Scene(new HBox(
+                                new Label("Sorry for the Inconvenience," +
+                                        "\nBut the 3.5 character Sheet is under Construction" +
+                                        "\nHope Your Gaming time is fun!!"))));
+            sheetNumber = "3.5";
+            styleSheet = "SheetTreeFive.css";
+        });
+        toNPCCreation.setOnAction(e -> primaryStage.setScene(
+                new Scene(new HBox(
+                                new Label("Sorry for the Inconvenience," +
+                                        "\nBut the NPC Creation section is under Construction" +
+                                        "\nHappy Rolling!!")))));
         return new VBox(to35eBuilder, to5eBuilder, toNPCCreation);
     }
 
-    private Scene setScene(String sheetNumber) {
-        this.sheetNumber = sheetNumber;
-        mainLayout = new BorderPane();
-        this.sheets  = new CharacterSheets();
-        HBox menuBox = setMenuBox();
-        VBox optionsBox = setOptionBox();
-        mainLayout.setTop(menuBox);
-        mainLayout.setLeft(optionsBox);
-        mainLayout.setCenter(sheets.setSheet(sheetNumber));
+    private VBox presetupPane(){
+        VBox presetup = new VBox();
 
-        return new Scene(mainLayout);
-    }
-
-    private VBox setOptionBox() {
-        Button randomStats = new Button("Random Stats \nRoll");
-        randomStats.setOnAction(e->updateRandom());
-        Button standardArray = new Button("Use Standard \nArray");
-        Button eliteArray = new Button("Use elite \nArray");
-        Button dunceArray = new Button("Use non-elite \nArray");
-        return new VBox(randomStats,standardArray,eliteArray,dunceArray);
-    }
-
-    private void updateRandom() {
-        player.setStats(statRoll(),statRoll(),statRoll(),statRoll(),statRoll(),statRoll());
-        sheets.updateSheet(player, sheetNumber);
-        mainLayout.setCenter(sheets.setSheet(sheetNumber));
-    }
-
-    private int statRoll() {
-        DiceRoll dr = new DiceRoll();
-        return dr.D6()+dr.D6()+dr.D6();
-    }
-
-    private HBox setMenuBox() {
-        HBox topInfo = new HBox();
-        Label lv2 = new Label("lvl.");
-        Label class2 = new Label("2nd Class");
-        ChoiceBox<String> classes2 = new ChoiceBox();
-        classes2.setItems(InfoHolding.classesArray());
-        TextField level2 = new TextField();
         ToggleButton isMulticlassed = new RadioButton("Multiclassed");
-        TextField name = new TextField();
+        TextField name = new TextFieldCustom();
         ChoiceBox<String> races = new ChoiceBox();
         races.setItems(InfoHolding.racesArray());
         ChoiceBox<String> classes = new ChoiceBox();
         classes.setItems(InfoHolding.classesArray());
-        TextField level = new TextField();
+        TextField level = new TextFieldCustom();
         ChoiceBox<String> alignmentG_E = new ChoiceBox();
         alignmentG_E.setItems(InfoHolding.alignmentG_EArray());
         ChoiceBox<String> alignmentL_U = new ChoiceBox();
         alignmentL_U.setItems(InfoHolding.alignmentL_UArray());
-        TextField age = new TextField();
+        TextField age = new TextFieldCustom();
         age.setPrefColumnCount(4);
-        Button saveButton = new Button("save");
-        saveButton.setOnAction(e->{
-            player.setCharacterName(name.getText());
-            player.setClassType(classes.getValue());
-            player.setLevel(Integer.parseInt(level.getText()));
-            player.setRace(races.getValue());
-            player.setAlignment(alignmentL_U.getValue().concat(" "+alignmentG_E.getValue()));
-        });
-        topInfo.getChildren().add(isMulticlassed);
-        topInfo.getChildren().add(new Label("  "));
-        topInfo.getChildren().add(new Label("name"));
-        topInfo.getChildren().add(name);
-        topInfo.getChildren().add(new Label("age"));
-        topInfo.getChildren().add(age);
-        topInfo.getChildren().add(new Label("race"));
-        topInfo.getChildren().add(races);
-        topInfo.getChildren().add(new Label("class"));
-        topInfo.getChildren().add(classes);
-        topInfo.getChildren().add(new Label("lv."));
-        topInfo.getChildren().add(level);
-        topInfo.getChildren().add(new Label("alignment"));
-        topInfo.getChildren().add(alignmentL_U);
-        topInfo.getChildren().add(alignmentG_E);
+
+        ChoiceBox<String> classes2 = new ChoiceBox();
+        classes2.setItems(InfoHolding.classesArray());
+        TextField level2 = new TextFieldCustom();
+        TextField numOfMultiClasses = new TextFieldCustom();
+        VBox multi = new VBox();
+        Label warn = new Label("Please don't leave field empty");
+        Label lv2 = new Label("lvl.");
+        Label class2 = new Label("2nd Class");
+        createMultiClass = new Button();
+        buildStartSheetButton = new Button("Build Sheet");
+        submit = new Button("submit");
+
+        presetup.getChildren().addAll(
+                new HBox(new Label("Name"), name),
+                new HBox(new Label("Age"), age),
+                new HBox(new Label("Race"), races),
+                new HBox(new Label("Class"), classes),
+                new HBox(new Label("Level"), level),
+                multi,
+                new Label("Alignment"),
+                new HBox(alignmentL_U, alignmentG_E),
+                buildStartSheetButton
+        );
+
         isMulticlassed.setOnAction(event -> {
             if(isMulticlassed.isSelected()) {
-                topInfo.getChildren().addAll(class2, classes2, lv2, level2);
+                multi.getChildren().addAll(new Label("Number of Classes"),new HBox(numOfMultiClasses, submit));
             }else{
-                if(topInfo.getChildren().contains(level2)){
-                    topInfo.getChildren().removeAll(class2, classes2, lv2, level2);
+                if(presetup.getChildren().contains(level2)){
+                    multi.getChildren().clear();
                 }
             }
         });
-        topInfo.getChildren().add(saveButton);
-        return topInfo;
+        submit.setOnAction(event-> {
+            if(!((TextFieldCustom) numOfMultiClasses).isEmpty()){
+                int numOfMC = Integer.parseInt(numOfMultiClasses.getText());
+                for(int i = 0; i< numOfMC; i++){
+                    multi.getChildren().addAll(new HBox(new Label("class"),class2),new HBox(new Label("level "),level2));
+                }
+                multi.getChildren().add(createMultiClass);
+            }else{
+                multi.getChildren().add(warn);
+            }
+        });
+        createMultiClass.setOnAction(event -> {
+            /*code that creates a multiclass character
+             */
+        });
+
+        buildStartSheetButton.setOnAction(event ->{
+            //todo implement when Character is fully functional
+            if(((TextFieldCustom) name).isEmpty()|| ((TextFieldCustom) level).isEmpty()||((TextFieldCustom)age).isEmpty()){
+                presetup.getChildren().add(warn);
+            }else {
+                initPlayer(classes.getValue());
+                player.setCharacterName(name.getText());
+                player.setLevel(Integer.parseInt(level.getText()));
+                player.setRace(races.getValue());
+                player.setClassType(classes.getValue());
+                player.setAlignment(alignmentL_U.getValue() + " " + alignmentG_E.getValue());
+                primaryStage.setScene(setScene());
+            }
+            if(false/*todo code to Check Class of the Character*/){
+                editSpellSheet.setVisible(true);
+            }
+        });
+
+        return presetup;
     }
 
+    private void initPlayer(String classType) {
+        switch (classType.toLowerCase()){
+            case "barbarian":
+                player = new Barbarian(null,null, 0, null,null, null, null, 0, 0,0,0,0,0,0);
+        }
+    }
 
+    private Scene setScene() {
+        mainLayout = new BorderPane();
+        this.sheets  = new CharacterSheets();
+        mainLayout.setCenter(sheets.setSheet(sheetNumber));
+        mainLayout.setTop(basicInfo());
+        sheets.updateSheet(player, sheetNumber);
+        Scene sheetScene = new Scene(mainLayout);
+        mainLayout.setLeft(setOptionPane());
+        sheetScene.getStylesheets().clear();
+        sheetScene.getStylesheets().add(styleSheet);
+        this.primaryStage.setMaxWidth(1200);
+
+        return sheetScene;
+    }
+
+    private HBox basicInfo() {
+        //todo make readable
+        return new HBox(new Label("Name: "),new Label(player.getCharacterName()+"  "),
+                new Label("Race: "),new Label(player.getRace()+"  "),
+                /*new Label("age "),new Label(),*/
+                new Label("Class: "),new Label(player.getClassType()+"  "),
+                new Label("Level: "),new Label(player.getLevel()+"  "),
+                new Label("Alignment: "),new Label(player.getAlignment()));
+    }
+
+    private VBox setOptionPane() {
+        Button randomStats = new Button("Random Stats \nRoll");
+        Button eliteArray = new Button("Use elite \nArray");
+        Button standardArray = new Button("Use Standard \nArray");
+        Button dunceArray = new Button("Use non-elite \nArray");
+        editSpellSheet = new Button("Edit Spell\nSheet");
+        editSpellSheet.setVisible(false);
+
+        editSpellSheet.setOnAction(event -> primaryStage.setScene(sheets.getSpellSheet()));
+        randomStats.setOnAction(e->rollRandomStat());
+        standardArray.setOnAction(event -> {
+            /*code to to generate prompt to fill in using array
+             */
+        });
+        eliteArray.setOnAction(event -> {
+            /*code to to generate prompt to fill in using array
+             */
+        });
+        dunceArray.setOnAction(event -> {
+            /*code to to generate prompt to fill in using array
+             */
+        });
+        VBox controlLayout = new VBox(randomStats);
+        return controlLayout;
+    }
+
+    private void rollRandomStat() {
+        player.setStrength(statRoll());
+        player.setDexterity(statRoll());
+        player.setConstitution(statRoll());
+        player.setIntelligence(statRoll());
+        player.setWisdom(statRoll());
+        player.setCharisma(statRoll());
+        sheets.updateSheet(player, sheetNumber);
+    }
+
+    private int statRoll() {
+        DiceRoll dr = new DiceRoll();
+        return DiceRoll.D6()+ DiceRoll.D6()+ DiceRoll.D6();
+    }
 }

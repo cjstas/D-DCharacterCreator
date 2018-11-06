@@ -11,6 +11,10 @@ public interface CharacterInterface {
 
     void setLevel(int totalLevel);
 
+    String getBackground();
+
+    void setBackground(String background);
+
     String getClassType();
 
     void setClassType(String classType);
@@ -37,11 +41,11 @@ public interface CharacterInterface {
 
     int getProficiencyBonus();
 
-    void setProficiencyBonus();
+    void setProficiencyBonus(int proficiencyBonus);
 
     int getAC();
 
-    void setAC(int ac);
+    void setAC(int armour);
 
     int getInitiative();
 
@@ -50,6 +54,10 @@ public interface CharacterInterface {
     int getSpeed();
 
     void setSpeed(int speed);
+
+    String getSpecialTrait();
+
+    void setSpecialTrait(String background, int number);
 
     String getPersonalityTrait();
 
@@ -73,25 +81,15 @@ public interface CharacterInterface {
 
     int getHealth();
 
-    void setHealth(int health);
+    int setHealth(int health, int level);
 
-    boolean getSavingThrow();
+    boolean getSavingThrow(boolean skill);
 
-    void setSavingThrow(boolean str, boolean dex, boolean con, boolean intel, boolean wis, boolean cha);
+    void setSavingThrow(boolean skill);
 
-    int getDeathSaves();
+    boolean getSkills(boolean skill);
 
-    void setDeathSaves(int fail, int pass);
-
-    boolean getSkills();
-
-    void setSkills(boolean acrobatics,boolean animalHandling, boolean arcana, boolean athletics, boolean deception, boolean history, boolean insight, boolean intimidation,
-                   boolean investigation, boolean medicine, boolean nature, boolean perception, boolean performance, boolean persuasion, boolean religion, boolean sleightOfHand,
-                   boolean stealth, boolean survival);
-
-    String getWeapon();
-
-    void setWeapon(String weapon1, String weapon2, String weapon3);
+    void setSkills(boolean skill);
 
     String getLanguages();
 
@@ -99,7 +97,7 @@ public interface CharacterInterface {
 
     String getEquipment();
 
-    void setEquipment(String equipment);
+    void setEquipment();
 
     String getEquippedArmour();
 
@@ -111,17 +109,12 @@ public interface CharacterInterface {
 
     int getSpellcastingAbility();
 
-    void setSpellcastingAbility(int ability);
+    int setSpellcastingAbility(int ability);
 
-    int getSpellSaveDC();
-
-    void setSpellSaveDC(int dc);
+    int setSpellSaveDC(int dc);
 
     int getSpellAttackBonus();
 
     void setSpellAttackBonus(int bonus);
 
-    int getSpellSlots();
-
-    void setSpellSlots(int cantrip, int level1, int level2, int level3, int level4, int level5, int level6, int level7, int level8, int level9);
 }
