@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a1f450ca-d401-4cf3-b36b-59b607118e86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/ConnectedComboBox.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/StatArrayPopulater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/StatArrayPopulater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -50,36 +50,39 @@
     <session id="1673339293">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.78" value="1" />
           <entry key="project.open.time.80" value="1" />
           <entry key="project.open.time.87" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="15" />
-          <entry key="java" value="12218" />
-          <entry key="txt" value="187" />
+          <entry key="java" value="13284" />
+          <entry key="txt" value="189" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="16" />
-          <entry key="JAVA" value="12217" />
-          <entry key="PLAIN_TEXT" value="187" />
+          <entry key="JAVA" value="13283" />
+          <entry key="PLAIN_TEXT" value="189" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="1" />
-          <entry key="java" value="16" />
+          <entry key="java" value="18" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="JAVA" value="16" />
+          <entry key="JAVA" value="18" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -93,47 +96,30 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="259" selection-start-line="259" selection-end-line="259" />
+            <state relative-caret-position="161">
+              <caret line="127" column="50" selection-start-line="127" selection-start-column="50" selection-end-line="127" selection-end-column="50" />
               <folding>
                 <element signature="method#start#0;class#MainUI#0" />
                 <element signature="method#startUpScreen#0;class#MainUI#0" />
+                <element signature="e#1277#1427#0" />
+                <element signature="e#1463#1861#0" />
+                <element signature="e#4093#4432#0" />
+                <element signature="e#4462#4952#0" />
+                <element signature="e#4992#5083#0" />
+                <element signature="e#5129#5903#0" />
                 <element signature="method#initPlayer#0;class#MainUI#0" />
                 <element signature="method#setScene#0;class#MainUI#0" />
                 <element signature="method#basicInfo#0;class#MainUI#0" />
-                <element signature="e#10148#10532#0" />
-                <element signature="e#10573#11078#0" />
-                <element signature="e#11116#11618#0" />
-                <element signature="e#11656#12158#0" />
+                <element signature="method#setOptionPane#0;class#MainUI#0" />
+                <element signature="e#10077#10133#0" />
+                <element signature="e#10036#10186#0" />
+                <element signature="e#10225#10609#0" />
+                <element signature="e#10650#10839#0" />
+                <element signature="e#10877#11062#0" />
+                <element signature="e#11100#11285#0" />
                 <element signature="method#URLDeterminer#0;class#MainUI#0" />
                 <element signature="method#webview#0;class#MainUI#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/StatArrayPopulater.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1230#1236#0" expanded="true" />
-                <element signature="e#3943#3944#0" expanded="true" />
-                <element signature="e#3963#3964#0" expanded="true" />
+                <element signature="e#13954#14052#0" />
               </folding>
             </state>
           </provider>
@@ -142,7 +128,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/CharacterSheets.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1870">
+            <state relative-caret-position="612">
               <caret line="406" column="38" selection-start-line="406" selection-start-column="38" selection-end-line="406" selection-end-column="38" />
               <folding>
                 <element signature="e#1152#1312#0" />
@@ -154,6 +140,9 @@
                 <element signature="e#5194#5427#0" />
                 <element signature="e#5433#5809#0" />
                 <element signature="e#5815#11320#0" />
+                <element signature="e#11326#15858#0" />
+                <element signature="e#15864#16572#0" />
+                <element signature="e#16719#17075#0" />
               </folding>
             </state>
           </provider>
@@ -190,8 +179,6 @@
         <option value="$PROJECT_DIR$/src/Tests/edu/bsu/cs222/finalproject/functionality/DiceRollTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/DiceRoll.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/CharacterInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Barbarian.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Background.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/InfoHolding.java" />
@@ -203,6 +190,8 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/ConnectedChoiceBox.java" />
         <option value="$PROJECT_DIR$/src/resources/SheetFive.css" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/StatArrayPopulater.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java" />
       </list>
     </option>
@@ -220,7 +209,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -231,8 +220,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -270,30 +257,6 @@
               <item name="TeamF222.3New" type="b2602c69:ProjectViewProjectNode" />
               <item name="TeamF222.3New" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="finalproject" type="462c0819:PsiDirectoryNode" />
-              <item name="functionality" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeamF222.3New" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeamF222.3New" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="finalproject" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeamF222.3New" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeamF222.3New" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeamF222.3New" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeamF222.3New" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -312,6 +275,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -320,7 +285,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541596853312" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541596980800" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -403,7 +368,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1539214331995</updated>
-      <workItem from="1541542009388" duration="6812000" />
+      <workItem from="1541542009388" duration="6974000" />
+      <workItem from="1541599283608" duration="7739000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit to aron branch">
       <created>1539214419698</created>
@@ -454,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541345117095</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="UI functionallity upgrade some stuff prepped for iteration three because of convience">
+      <created>1541596907943</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1541596907943</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -490,23 +463,22 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39635000" />
+    <option name="totallyTimeSpent" value="47536000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.14372164" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14372164" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.3295082" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -515,7 +487,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5015129" side_tool="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3295082" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3295082" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -524,6 +496,7 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14145234" />
@@ -650,13 +623,6 @@
     <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1649">
-          <caret line="131" column="16" selection-start-line="131" selection-start-column="16" selection-end-line="131" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/resources/functionality/ListMakerTests.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/CharacterInterface.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -667,13 +633,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/resources/SpellData.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/SpellData.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="226" column="51" selection-start-line="226" selection-start-column="51" selection-end-line="226" selection-end-column="51" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/edu/bsu/cs222/finalproject/functionality/ListMakerTests.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -717,13 +676,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/ConnectedComboBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="3" column="64" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/ConnectedComboBox.java" />
     <entry file="file://$PROJECT_DIR$/src/resources/SheetFive.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -731,10 +684,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/SpellData.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3706">
+          <caret line="218" column="28" selection-start-line="218" selection-start-column="28" selection-end-line="218" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/StatArrayPopulater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="73" column="36" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1765#1995#0" />
+            <element signature="e#2028#2261#0" />
+            <element signature="e#2295#2534#0" />
+            <element signature="e#2569#2808#0" />
+            <element signature="e#2841#3070#0" />
+            <element signature="e#3100#3204#0" />
+            <element signature="method#rollRandomStat#0;class#StatArrayPopulater#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="-986">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -743,7 +727,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/CharacterSheets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
+        <state relative-caret-position="612">
           <caret line="406" column="38" selection-start-line="406" selection-start-column="38" selection-end-line="406" selection-end-column="38" />
           <folding>
             <element signature="e#1152#1312#0" />
@@ -755,39 +739,39 @@
             <element signature="e#5194#5427#0" />
             <element signature="e#5433#5809#0" />
             <element signature="e#5815#11320#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/StatArrayPopulater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1230#1236#0" expanded="true" />
-            <element signature="e#3943#3944#0" expanded="true" />
-            <element signature="e#3963#3964#0" expanded="true" />
+            <element signature="e#11326#15858#0" />
+            <element signature="e#15864#16572#0" />
+            <element signature="e#16719#17075#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="259" selection-start-line="259" selection-end-line="259" />
+        <state relative-caret-position="161">
+          <caret line="127" column="50" selection-start-line="127" selection-start-column="50" selection-end-line="127" selection-end-column="50" />
           <folding>
             <element signature="method#start#0;class#MainUI#0" />
             <element signature="method#startUpScreen#0;class#MainUI#0" />
+            <element signature="e#1277#1427#0" />
+            <element signature="e#1463#1861#0" />
+            <element signature="e#4093#4432#0" />
+            <element signature="e#4462#4952#0" />
+            <element signature="e#4992#5083#0" />
+            <element signature="e#5129#5903#0" />
             <element signature="method#initPlayer#0;class#MainUI#0" />
             <element signature="method#setScene#0;class#MainUI#0" />
             <element signature="method#basicInfo#0;class#MainUI#0" />
-            <element signature="e#10148#10532#0" />
-            <element signature="e#10573#11078#0" />
-            <element signature="e#11116#11618#0" />
-            <element signature="e#11656#12158#0" />
+            <element signature="method#setOptionPane#0;class#MainUI#0" />
+            <element signature="e#10077#10133#0" />
+            <element signature="e#10036#10186#0" />
+            <element signature="e#10225#10609#0" />
+            <element signature="e#10650#10839#0" />
+            <element signature="e#10877#11062#0" />
+            <element signature="e#11100#11285#0" />
             <element signature="method#URLDeterminer#0;class#MainUI#0" />
             <element signature="method#webview#0;class#MainUI#0" />
+            <element signature="e#13954#14052#0" />
           </folding>
         </state>
       </provider>
