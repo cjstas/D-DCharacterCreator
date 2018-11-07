@@ -11,7 +11,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.ArrayList;
 
 public class MainUI extends Application {
 
@@ -139,7 +138,7 @@ public class MainUI extends Application {
                 player.setAlignment(alignmentL_U.getValue() + " " + alignmentG_E.getValue());
                 primaryStage.setScene(setScene());
             }
-            if(false/*player.getSpellcastingAbility()>0*/){
+            if(true/*player.getSpellcastingAbility()>0*/){
                 editSpellSheet.setVisible(true);
             }
         });
@@ -240,18 +239,20 @@ public class MainUI extends Application {
         Button eliteArrayButt = new Button("Use elite \nArray");
         Button standardArrayButt = new Button("Use Standard \nArray");
         Button dunceArrayButt = new Button("Use non-elite \nArray");
-        editSpellSheet = new Button("Edit Spell\nSheet");
         Button returnToCharacterSheet = new Button("Return to character sheet");
         Button spellSearch = new Button("Spell Look Up");
         Button ruleSearch = new Button("Basic Rules");
         Button monsterSearch = new Button("Official Moster Search");
         Button homeBrewSearch = new Button("Home Brew search");
+        Button generateBackground = new Button("Generate Background");
+        editSpellSheet = new Button("Edit Spell\nSheet");
+
 
 
         /*todo make the array populator function properly
         * currently - failing to initiallize the array and fill appropriate textfields
         * working means it will out put on the sheet in the scores section*/
-        StatArrayPopulater statPop = new StatArrayPopulater();
+        StatArrayPopulater statPop = new StatArrayPopulater(player);
         editSpellSheet.setVisible(false);
 
         editSpellSheet.setOnAction(event -> {
@@ -269,33 +270,18 @@ public class MainUI extends Application {
             sheets.populateSheet(sheetNumber, player);
         });
         standardArrayButt.setOnAction(event -> {
-            statPop.arrayFillPromt(InfoHolding.standardArray);
-            player.setStrength(statPop.getStatsArray()[0]);
-            player.setDexterity(statPop.getStatsArray()[1]);
-            player.setConstitution(statPop.getStatsArray()[2]);
-            player.setIntelligence(statPop.getStatsArray()[3]);
-            player.setWisdom(statPop.getStatsArray()[4]);
-            player.setCharisma(statPop.getStatsArray()[5]);
+            statPop.arrayFillPromt(InfoHolding.standardArray );
+            this.player = statPop.returnPlayer();
             sheets.populateSheet(sheetNumber, player);
         });
         eliteArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.eliteArray);
-            player.setStrength(statPop.getStatsArray()[0]);
-            player.setDexterity(statPop.getStatsArray()[1]);
-            player.setConstitution(statPop.getStatsArray()[2]);
-            player.setIntelligence(statPop.getStatsArray()[3]);
-            player.setWisdom(statPop.getStatsArray()[4]);
-            player.setCharisma(statPop.getStatsArray()[5]);
+            this.player = statPop.returnPlayer();
             sheets.populateSheet(sheetNumber, player);
         });
         dunceArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.dunceArray);
-            player.setStrength(statPop.getStatsArray()[0]);
-            player.setDexterity(statPop.getStatsArray()[1]);
-            player.setConstitution(statPop.getStatsArray()[2]);
-            player.setIntelligence(statPop.getStatsArray()[3]);
-            player.setWisdom(statPop.getStatsArray()[4]);
-            player.setCharisma(statPop.getStatsArray()[5]);
+            this.player = statPop.returnPlayer();
             sheets.populateSheet(sheetNumber, player);
         });
 

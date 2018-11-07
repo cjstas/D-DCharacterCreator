@@ -6,46 +6,32 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import java.util.ArrayList;
 
 
 public class StatArrayPopulater {
 
-    private int[] statsArray;
+    private Character emptyPlayer;
+
+    public StatArrayPopulater(Character player) {
+        this.emptyPlayer = player;
+    }
 
     public void arrayFillPromt(int[] useThisArray){
         ObservableList<Integer> listOfOptions = FXCollections.observableArrayList();
-        int[] selectedArray = new int[6];
-        Button submit = new Button("Submit");
+        Button strSubmit = new Button("submit"), dexSubmit = new Button("submit"),
+                consSubmit= new Button("submit"), intelSubmit= new Button("submit"), wisSubmit= new Button("submit"),
+                submit = new Button("Submit");
         Label str = new Label(), dex = new Label(), cons = new Label(), intel = new Label(), wis = new Label(), cha = new Label();
         ChoiceBox<Integer> strList = new ChoiceBox<Integer>(), dexList = new ChoiceBox<Integer>(), consList = new ChoiceBox<Integer>(),
                 intelList = new ChoiceBox<Integer>(), wisList = new ChoiceBox<Integer>(), chaList = new ChoiceBox<Integer>();
-        GridPane layout = new GridPane();
-        Scene scene = new Scene(layout);
         Stage stage = new Stage();
-
+        ArrayList<HBox> layouts = new ArrayList<HBox>();
         for(int integer: useThisArray){
             listOfOptions.add(integer);
         }
-
-        strList.setItems(listOfOptions);
-        dexList.setItems(listOfOptions);
-        consList.setItems(listOfOptions);
-        intelList.setItems(listOfOptions);
-        wisList.setItems(listOfOptions);
-        chaList.setItems(listOfOptions);
-
-        ConnectedComboBox conCB = new ConnectedComboBox(listOfOptions);
-        conCB.addComboBox(strList);
-        conCB.addComboBox(dexList);
-        conCB.addComboBox(consList);
-        conCB.addComboBox(intelList);
-        conCB.addComboBox(wisList);
-        conCB.addComboBox(chaList);
-
-
 
         str.setText("Strength");
         dex.setText("Dexterity");
@@ -54,30 +40,63 @@ public class StatArrayPopulater {
         wis.setText("Wisdom");
         cha.setText("Charisma");
 
+        strList.setItems(listOfOptions);
+        strSubmit.setOnAction(event ->{
+            emptyPlayer.setStrength(strList.getValue());
+            listOfOptions.remove(strList.getValue());
+            dexList.setItems(listOfOptions);
+            stage.setScene(new Scene(layouts.get(1)));
+        });
+        dexSubmit.setOnAction(event -> {
+            emptyPlayer.setDexterity(dexList.getValue());
+            listOfOptions.remove(dexList.getValue());
+            consList.setItems(listOfOptions);
+            stage.setScene(new Scene(layouts.get(2)));
+        });
+        consSubmit.setOnAction(event -> {
+            emptyPlayer.setConstitution(consList.getValue());
+            listOfOptions.remove(consList.getValue());
+            intelList.setItems(listOfOptions);
+            stage.setScene(new Scene(layouts.get(3)));
+        });
+        intelSubmit.setOnAction(event -> {
+            emptyPlayer.setIntelligence(intelList.getValue());
+            listOfOptions.remove(intelList.getValue());
+            wisList.setItems(listOfOptions);
+            stage.setScene(new Scene(layouts.get(4)));
+        });
+        wisSubmit.setOnAction(event -> {
+            emptyPlayer.setWisdom(wisList.getValue());
+            listOfOptions.remove(wisList.getValue());
+            chaList.setItems(listOfOptions);
+            stage.setScene(new Scene(layouts.get(5)));
+        });
         submit.setOnAction(event -> {
+            emptyPlayer.setCharisma(chaList.getValue());
             stage.close();
-            selectedArray[0] = strList.getValue();
-            selectedArray[1] = dexList.getValue();
-            selectedArray[2] = consList.getValue();
-            selectedArray[3] = intelList.getValue();
-            selectedArray[4] = wisList.getValue();
-            selectedArray[5] = chaList.getValue();
-            pushToStatsArray(selectedArray);
         });
 
-        layout.addColumn(0,str, dex, cons, intel, wis, cha);
-        layout.addColumn(1,strList, dexList, consList, intelList, wisList, chaList,submit);
-        scene.setFill(Color.LIGHTPINK);
-        stage.setScene(scene);
+        HBox strScene = new HBox(str, strList, strSubmit),
+                dexScene = new HBox(dex, dexList, dexSubmit),
+                consScene = new HBox(cons, consList, consSubmit),
+                intelScene = new HBox(intel, intelList, intelSubmit),
+                wisScene = new HBox(wis, wisList, wisSubmit),
+                chaScene = new HBox(cha, chaList, submit);
+
+        layouts.add(0, strScene);
+        layouts.add(1, dexScene);
+        layouts.add(2, consScene);
+        layouts.add(3, intelScene);
+        layouts.add(4,wisScene);
+        layouts.add(5,chaScene);
+
+        stage.setScene(new Scene(layouts.get(0)));
+        stage.setMinWidth(200.0);
         stage.show();
     }
 
-    private void pushToStatsArray(int[] selectedArray) {
-        statsArray = selectedArray;
-    }
-
-    public int[] getStatsArray(){
-        return statsArray;
+    public Character returnPlayer(){
+        return emptyPlayer;
     }
 
     public int[] rollRandomStat() {
