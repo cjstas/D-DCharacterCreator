@@ -1,5 +1,6 @@
 # TeamF222.3New
-release 0.2
+**release 0.2** 
+Dungeons and Dragons Character Creator
 ## Updates for release 0.2
 + can now generate stats from arrays
 + user can now search for spells, creatures, homebrew, and rules - for both 5e and 3.5
