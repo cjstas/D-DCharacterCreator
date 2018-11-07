@@ -13,7 +13,7 @@ public class ListMakerTests {
 
     @Test
     public void testSpell0Name() {
-        Assert.assertTrue(spells.get(0).name.equals("Acid Arrow"));
+        Assert.assertEquals(spells.get(0).name,"Acid Arrow");
     }
 
     @Test
@@ -23,14 +23,12 @@ public class ListMakerTests {
 
     @Test
     public void testSpell0UsableBy() {
-        boolean isGood = true;
-        if(!spells.get(0).useableBy.contains("Wizard")) isGood = false;
-        Assert.assertTrue(isGood);
+        Assert.assertEquals(spells.get(0).useableBy.contains("Wizard"),true);
     }
 
     @Test
     public void testSpell243Name() {
-        Assert.assertTrue(spells.get(243).name.equals("Resilient Sphere"));
+        Assert.assertEquals(spells.get(243).name,"Resilient Sphere");
     }
 
     @Test
@@ -40,23 +38,21 @@ public class ListMakerTests {
 
     @Test
     public void testSpell243UsableBy() {
-        boolean isGood = true;
-        if(!spells.get(243).useableBy.contains("Wizard")) isGood = false;
-        Assert.assertTrue(isGood);
+        Assert.assertEquals(spells.get(243).useableBy.contains("Wizard"), true);
     }
 
     @Test
     public void testItem0() {
-        Assert.assertTrue(items.get(0).equals("Club"));
+        Assert.assertEquals(items.get(0), "Club");
     }
 
     @Test
     public void testItem255() {
-        Assert.assertTrue(items.get(255).equals("Warship"));
+        Assert.assertEquals(items.get(255), "Warship");
     }
 
     @Test
     public void testItem10() {
-        Assert.assertTrue(items.get(10).equals("Crossbow, light"));
+        Assert.assertEquals(items.get(10), "Crossbow, light");
     }
 }
