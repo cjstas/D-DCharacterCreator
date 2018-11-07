@@ -22,7 +22,7 @@ public class ListMaker {
             e.printStackTrace();
         }
 
-        String[] SpellData = unSortedSpells.split("\n");
+        String[] SpellData = unSortedSpells.split("!");
         for(String instance: SpellData) {
             String[] SpellInstanceData = instance.split(":");
             String Name = SpellInstanceData[0];
@@ -209,8 +209,8 @@ public class ListMaker {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String[] ItemData = unSortedItems.split("\n");
-        return new ArrayList<String>(Arrays.<String>asList(ItemData));
+        String[] ItemData = unSortedItems.split("!");
+        return new ArrayList<>(Arrays.asList(ItemData));
     }
 
 }
