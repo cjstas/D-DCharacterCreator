@@ -6,127 +6,144 @@ import java.util.Random;
 
 import static java.lang.Boolean.parseBoolean;
 
-public class Barbarian extends Character {
+public class Ranger extends Character {
 
     private List<String> equipment = new ArrayList<>();
     private List<String> items = new ArrayList<>();
 
-    public void Barbarian(){
-    }
-
-    public Barbarian(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
+    public Ranger(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
+        setSavingThrow(dexST);
         setSavingThrow(strST);
-        setSavingThrow(conST);
 
-        boolean spellcaster = false;
+        sa=setSpellcastingAbility(wis);
+        dc=setSpellSaveDC(wis);
         totalHealth=setHealth(totalHealth,level);
 
-        List<String> barbSkills =  new ArrayList<>();
-        barbSkills.add("animalHandling");
-        barbSkills.add("athletics");
-        barbSkills.add("intimidation");
-        barbSkills.add("nature");
-        barbSkills.add("perception");
-        barbSkills.add("survival");
+        List<String> rangerSkills = new ArrayList<>();
+        rangerSkills.add("animalHandeling");
+        rangerSkills.add("athletics");
+        rangerSkills.add("insight");
+        rangerSkills.add("investigation");
+        rangerSkills.add("nature");
+        rangerSkills.add("perception");
+        rangerSkills.add("stealth");
+        rangerSkills.add("survival");
 
         Random randomize = new Random();
-        String x = barbSkills.get(randomize.nextInt(barbSkills.size()));
+        String x = rangerSkills.get(randomize.nextInt(rangerSkills.size()));
         setSkills(parseBoolean(x));
-        String z = barbSkills.get(randomize.nextInt(barbSkills.size()));
-        while (x.equals(z)) {
-            z = barbSkills.get(randomize.nextInt(barbSkills.size()));
+        String y = rangerSkills.get(randomize.nextInt(rangerSkills.size()));
+        while (x.equals(y)) {
+            y = rangerSkills.get(randomize.nextInt(rangerSkills.size()));
+        }
+        setSkills(parseBoolean(y));
+        String z = rangerSkills.get(randomize.nextInt(rangerSkills.size()));
+        while (x.equals(z) || y.equals(z)){
+            z = rangerSkills.get(randomize.nextInt(rangerSkills.size()));
         }
         setSkills(parseBoolean(z));
 
         List<String> proficiency = new ArrayList<>();
-        proficiency.add("Light Armour");
-        proficiency.add("Medium Armour");
+        proficiency.add("Light armor");
+        proficiency.add("Medium armor");
         proficiency.add("Shields");
-        proficiency.add("Simple Weapons");
-        proficiency.add("Martial Weapons");
+        proficiency.add("Simple weapons");
+        proficiency.add("Martial weapons");
+
+        equipment.add("Choose one: Scale mail or Leather Armor");
+        equipment.add("Choose one: two shortswords or two simple weapons");
+        equipment.add("A longbow");
+        equipment.add("20 arrows");
+        items.add("Choose one: a dungeoneer's pack or an explorer's pack");
 
         List<String> classAbilities = new ArrayList<>();
-        classAbilities.add("Rage");
-        classAbilities.add("Unarmored Defense");
+        classAbilities.add("Favored Enemy");
+        classAbilities.add("Natural Explorer");
 
         if (level>=2){
-            classAbilities.add("Reckless Attack");
-            classAbilities.add("Danger Sense");
+            classAbilities.add("Fighting Style");
+            classAbilities.add("Spellcasting");
+            spellsKnown=2;
+            spellSlot1=2;
         }
-
         if (level>=3){
-            classAbilities.add("Primal Path: Berserker or Totem Warrior");
-            classAbilities.add("Insert lvl 3 path ability");
+            classAbilities.add("Ranger Archetype");
+            classAbilities.add("Primeval Awareness");
+            spellsKnown=3;
+            spellSlot1=3;
         }
-
         if (level>=4){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
         }
-
         if (level>=5){
             classAbilities.add("Extra Attack");
-            classAbilities.add("Fast Movement");
+            spellsKnown=4;
+            spellSlot1=4;
+            spellSlot2=2;
         }
-
         if (level>=6){
-            classAbilities.add("Primal path: 6th level ability");
-        }
+            classAbilities.add("Favored Enemy improvement");
+            classAbilities.add("Natural Explorer improvement");
 
-        if (level>=7){
-            classAbilities.add("Feral Instinct");
         }
-
+        if (level>=7) {
+            classAbilities.add("Ranger Archetype feature");
+            spellsKnown=5;
+            spellSlot2=3;
+        }
         if (level>=8){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
+            classAbilities.add("Land's Stride");
         }
-
         if (level>=9){
-            classAbilities.add("Brutal Critical");
+            spellsKnown=6;
+            spellSlot3=2;
         }
-
         if (level>=10){
-            classAbilities.add("Primal path: 10th level ability");
+            classAbilities.add("Natural Explorer improvement");
+            classAbilities.add("Hide in Plain Sight");
         }
-
-        if (level>=11){
-            classAbilities.add("Relentless Rage");
+        if (level>=11) {
+            classAbilities.add("Ranger Archetype feature");
+            spellsKnown=7;
+            spellSlot3=3;
         }
-
         if (level>=12){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
         }
-
         if (level>=13){
-            classAbilities.add("2 dice on Brutal Critical");
+            classAbilities.set(classAbilities.indexOf("Song of Rest (D8)"), "Song of Rest (D10)");
+            spellsKnown=8;
+            spellSlot4=1;
         }
-
         if (level>=14){
-            classAbilities.add("Primal Path: 14th level ability");
+            classAbilities.add("Favored Enemy improvement");
+            classAbilities.add("Vanish");
         }
-
         if (level>=15){
-            classAbilities.add("Persistent Rage");
+            classAbilities.add("Ranger Archetype Feature");
+            spellsKnown=9;
+            spellSlot4=2;
         }
-
         if (level>=16){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
         }
-
         if (level>=17){
-            classAbilities.add("3 dice on Brutal Critical");
+            spellsKnown=10;
+            spellSlot4=3;
+            spellSlot5=1;
         }
-
         if (level>=18){
-            classAbilities.add("Indomitable Might");
+            classAbilities.add("Feral Senses");
         }
-
         if (level>=19){
             classAbilities.add("Ability Score Improvement: +2 total points to your ability score and no score can go over 20");
+            spellsKnown=11;
+            spellSlot5=2;
         }
-
         if (level>=20){
-            classAbilities.add("Primal Champion");
+            classAbilities.add("Foe Slayer");
         }
     }
 
@@ -137,6 +154,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setSpeed(int speed) {
+
     }
 
     @Override
@@ -146,6 +164,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setPersonalityTrait(String personalityTrait) {
+
     }
 
     @Override
@@ -155,6 +174,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setIdeals(String ideals) {
+
     }
 
     @Override
@@ -174,6 +194,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setFlaws(String flaws) {
+
     }
 
     @Override
@@ -183,6 +204,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setStats(int str, int dex, int con, int intel, int wis, int cha) {
+
     }
 
     @Override
@@ -190,35 +212,16 @@ public class Barbarian extends Character {
         return 0;
     }
 
-    @Override
     public int setHealth(int health, int level) {
         int i = 0;
-        health=health+12+getMod(getConstitution());
+        health=health+10+getMod(getConstitution());
         if (level > 1){
             while  (i<= level){
-                health=health+DiceRoll.D12()+getMod(getConstitution());
+                health=health+DiceRoll.D10()+getMod(getConstitution());
                 i++;
             }
         }
         return health;
-    }
-
-    public boolean getSavingThrow(boolean skill) {
-        return skill;
-    }
-
-
-    public void setSavingThrow(boolean skill) {
-        skill=true;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-    }
-
-    @Override
-    public boolean getSkills(boolean skill) {
-        return skill;
     }
 
     @Override
@@ -228,6 +231,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setLanguages(String languages) {
+
     }
 
     @Override
@@ -237,10 +241,7 @@ public class Barbarian extends Character {
 
     @Override
     public void setEquipment() {
-        equipment.add("Greataxe or Martial melee weapon");
-        equipment.add("Two handaxes or any simple weapon");
-        equipment.add("4 Javelins");
-        items.add("Explorer's Pack");
+
     }
 
     @Override
@@ -263,19 +264,18 @@ public class Barbarian extends Character {
 
     }
 
-    @Override
-    public int getSpellcastingAbility() {
-        return 0;
-    }
-
-    @Override
     public int setSpellcastingAbility(int ability) {
-        return Integer.parseInt(null);
+        return getProficiencyBonus()+getMod(ability);
     }
 
     @Override
     public int setSpellSaveDC(int dc) {
-        return Integer.parseInt(null);
+        return 8+getProficiencyBonus()+getMod(dc);
+    }
+
+    @Override
+    public int getSpellcastingAbility() {
+        return 0;
     }
 
     @Override
