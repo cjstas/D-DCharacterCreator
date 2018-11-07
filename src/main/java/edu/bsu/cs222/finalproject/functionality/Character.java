@@ -137,6 +137,10 @@ public abstract class Character implements CharacterInterface {
         return myMap;
     }
 
+    public Character(){
+
+    }
+
     public Character(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha){
         charName = cName;
         classT = classtype;

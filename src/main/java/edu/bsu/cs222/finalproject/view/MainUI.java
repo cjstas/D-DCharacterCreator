@@ -1,15 +1,18 @@
 package edu.bsu.cs222.finalproject.view;
 
-import edu.bsu.cs222.finalproject.functionality.Barbarian;
+import edu.bsu.cs222.finalproject.functionality.*;
 import edu.bsu.cs222.finalproject.functionality.Character;
-import edu.bsu.cs222.finalproject.functionality.DiceRoll;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class MainUI extends Application {
 
@@ -17,10 +20,8 @@ public class MainUI extends Application {
     private String sheetNumber, styleSheet;
     private BorderPane mainLayout;
     private Character player;
-    private Button createMultiClass, submit, buildStartSheetButton, editSpellSheet;
+    private Button createMultiClass, submit, buildStartSheetButton;
     private Stage primaryStage;
-
-
 
     public static void main(String[] args){
         launch(args);
@@ -46,10 +47,7 @@ public class MainUI extends Application {
             styleSheet = "SheetFive.css";
         });
         to35eBuilder.setOnAction(e->{
-            primaryStage.setScene(new Scene(new HBox(
-                                new Label("Sorry for the Inconvenience," +
-                                        "\nBut the 3.5 character Sheet is under Construction" +
-                                        "\nHope Your Gaming time is fun!!"))));
+            primaryStage.setScene(new Scene(presetupPane()));
             sheetNumber = "3.5";
             styleSheet = "SheetTreeFive.css";
         });
@@ -95,12 +93,12 @@ public class MainUI extends Application {
                 new HBox(new Label("Age"), age),
                 new HBox(new Label("Race"), races),
                 new HBox(new Label("Class"), classes),
+                new HBox(new Label("Multi-class"), isMulticlassed),
                 new HBox(new Label("Level"), level),
                 multi,
                 new Label("Alignment"),
                 new HBox(alignmentL_U, alignmentG_E),
-                buildStartSheetButton
-        );
+                buildStartSheetButton);
 
         isMulticlassed.setOnAction(event -> {
             if(isMulticlassed.isSelected()) {
@@ -128,7 +126,6 @@ public class MainUI extends Application {
         });
 
         buildStartSheetButton.setOnAction(event ->{
-            //todo implement when Character is fully functional
             if(((TextFieldCustom) name).isEmpty()|| ((TextFieldCustom) level).isEmpty()||((TextFieldCustom)age).isEmpty()){
                 presetup.getChildren().add(warn);
             }else {
@@ -140,9 +137,6 @@ public class MainUI extends Application {
                 player.setAlignment(alignmentL_U.getValue() + " " + alignmentG_E.getValue());
                 primaryStage.setScene(setScene());
             }
-            if(false/*todo code to Check Class of the Character*/){
-                editSpellSheet.setVisible(true);
-            }
         });
 
         return presetup;
@@ -152,6 +146,61 @@ public class MainUI extends Application {
         switch (classType.toLowerCase()){
             case "barbarian":
                 player = new Barbarian(null,null, 0, null,null, null, null, 0, 0,0,0,0,0,0);
+                break;
+            case "bard":
+                player = new Bard();
+                break;
+            case "cleric":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "druid":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "fighter":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "monk":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "paladin":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "ranger":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "rogue":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "sorcerer":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "warlock":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+            case "wizard":
+                /*
+                 *todo initialze when the classes are ready
+                 */
+                break;
+
         }
     }
 
@@ -160,7 +209,7 @@ public class MainUI extends Application {
         this.sheets  = new CharacterSheets();
         mainLayout.setCenter(sheets.setSheet(sheetNumber));
         mainLayout.setTop(basicInfo());
-        sheets.updateSheet(player, sheetNumber);
+        sheets.populateSheet(sheetNumber, player);
         Scene sheetScene = new Scene(mainLayout);
         mainLayout.setLeft(setOptionPane());
         sheetScene.getStylesheets().clear();
@@ -181,43 +230,128 @@ public class MainUI extends Application {
     }
 
     private VBox setOptionPane() {
-        Button randomStats = new Button("Random Stats \nRoll");
-        Button eliteArray = new Button("Use elite \nArray");
-        Button standardArray = new Button("Use Standard \nArray");
-        Button dunceArray = new Button("Use non-elite \nArray");
-        editSpellSheet = new Button("Edit Spell\nSheet");
-        editSpellSheet.setVisible(false);
+        VBox controlLayout = new VBox();
+        Button randomStatsButt = new Button("Random Stats \nRoll");
+        Button eliteArrayButt = new Button("Use elite \nArray");
+        Button standardArrayButt = new Button("Use Standard \nArray");
+        Button dunceArrayButt = new Button("Use non-elite \nArray");
+        Button returnToCharacterSheet = new Button("Return to character sheet");
+        Button spellSearch = new Button("Spell Look Up");
+        Button ruleSearch = new Button("Basic Rules");
+        Button monsterSearch = new Button("Official Moster Search");
+        Button homeBrewSearch = new Button("Home Brew search");
+        Button generateBackground = new Button("Generate Background");
+        Button editSpellSheet = new Button("Edit Spell\nSheet");
 
-        editSpellSheet.setOnAction(event -> primaryStage.setScene(sheets.getSpellSheet()));
-        randomStats.setOnAction(e->rollRandomStat());
-        standardArray.setOnAction(event -> {
-            /*code to to generate prompt to fill in using array
-             */
+
+
+        /*todo make the array populator function properly
+        * currently - failing to initiallize the array and fill appropriate textfields
+        * working means it will out put on the sheet in the scores section*/
+        StatArrayPopulater statPop = new StatArrayPopulater(player);
+
+        returnToCharacterSheet.setOnAction(event -> {
+            mainLayout.setCenter(sheets.setSheet(sheetNumber));
+            sheets.populateSheet(sheetNumber, player);
+            controlLayout.getChildren().add(6, editSpellSheet);
+            controlLayout.getChildren().remove(returnToCharacterSheet);
         });
-        eliteArray.setOnAction(event -> {
-            /*code to to generate prompt to fill in using array
-             */
+        editSpellSheet.setOnAction(event -> {
+            mainLayout.setCenter(sheets.getSpellSheet());
+            controlLayout.getChildren().add(6, returnToCharacterSheet);
+            controlLayout.getChildren().remove(editSpellSheet);
         });
-        dunceArray.setOnAction(event -> {
-            /*code to to generate prompt to fill in using array
-             */
+        randomStatsButt.setOnAction(event->{
+            int[] stats = statPop.rollRandomStat();
+            player.setStrength(stats[0]);
+            player.setDexterity(stats[1]);
+            player.setConstitution(stats[2]);
+            player.setIntelligence(stats[3]);
+            player.setWisdom(stats[4]);
+            player.setCharisma(stats[5]);
+            sheets.populateSheet(sheetNumber, player);
         });
-        VBox controlLayout = new VBox(randomStats);
+        standardArrayButt.setOnAction(event -> {
+            statPop.arrayFillPromt(InfoHolding.standardArray );
+            this.player = statPop.returnPlayer();
+            mainLayout.setCenter(sheets.setSheet(sheetNumber));
+            sheets.populateSheet(sheetNumber, player);
+        });
+        eliteArrayButt.setOnAction(event -> {
+            statPop.arrayFillPromt(InfoHolding.eliteArray);
+            this.player = statPop.returnPlayer();
+            mainLayout.setCenter(sheets.setSheet(sheetNumber));
+            sheets.populateSheet(sheetNumber, player);
+        });
+        dunceArrayButt.setOnAction(event -> {
+            statPop.arrayFillPromt(InfoHolding.dunceArray);
+            this.player = statPop.returnPlayer();
+            mainLayout.setCenter(sheets.setSheet(sheetNumber));
+            sheets.populateSheet(sheetNumber, player);
+        });
+
+        spellSearch.setOnAction(event -> webview(URLDeterminer("spell")));
+        ruleSearch.setOnAction(event -> webview(URLDeterminer("srd")));
+        homeBrewSearch.setOnAction(event -> webview(URLDeterminer("wikia")));
+        monsterSearch.setOnAction(event -> webview(URLDeterminer("monsters")));
+
+        controlLayout.getChildren().addAll(new Label("Sheet Control buttons"),randomStatsButt,standardArrayButt,eliteArrayButt,dunceArrayButt,editSpellSheet);
+        controlLayout.getChildren().addAll(new Label("Searching Buttons"), spellSearch, ruleSearch, homeBrewSearch, monsterSearch);
         return controlLayout;
     }
 
-    private void rollRandomStat() {
-        player.setStrength(statRoll());
-        player.setDexterity(statRoll());
-        player.setConstitution(statRoll());
-        player.setIntelligence(statRoll());
-        player.setWisdom(statRoll());
-        player.setCharisma(statRoll());
-        sheets.updateSheet(player, sheetNumber);
+    private String URLDeterminer(String key) {
+
+        if(sheetNumber.equals("5")){
+            switch(key){
+                case "spell":
+                    return "http://5e.d20srd.org/indexes/spells.htm";
+                case "wikia":
+                    return "https://www.dandwiki.com/wiki/5e_Homebrew";
+                case "monsters":
+                    return "https://www.dandwiki.com/wiki/5e_SRD:Monsters";
+                case "srd":
+                    return "http://5e.d20srd.org/";
+                case"selected":
+                    return "http://5e.d20srd.org/srd/spellLists/"+player.getClassType().toLowerCase()+"Spells.htm";
+            }
+        }else{
+            switch(key){
+                case "spell":
+                    return "http://www.d20srd.org/indexes/spells.htm";
+                case "wikia":
+                    return "https://www.dandwiki.com/wiki/3.5e_Homebrew";
+                case "monsters":
+                    return "https://www.dandwiki.com/wiki/SRD:Creatures";
+                case "srd":
+                    return "http://www.d20srd.org/index.htm";
+                case"selected":
+                    return "http://www.d20srd.org/srd/spellLists/"+player.getClassType().toLowerCase()+"Spells.htm";
+            }
+        }
+        return null;
     }
 
-    private int statRoll() {
-        DiceRoll dr = new DiceRoll();
-        return DiceRoll.D6()+ DiceRoll.D6()+ DiceRoll.D6();
+    private void webview(String siteToDisplay) {
+        Stage webStage = new Stage();
+        WebView webPage = new WebView();
+        Button spellByClass = new Button("sorted by Class");
+        BorderPane holder = new BorderPane();
+
+        webPage.getEngine().load(siteToDisplay);
+        holder.setCenter(webPage);
+
+        if(siteToDisplay.equals("http://5e.d20srd.org/indexes/spells.htm") || siteToDisplay.equals("http://www.d20srd.org/indexes/spells.htm")){
+            holder.setBottom(spellByClass);
+        }
+
+        spellByClass.setOnAction(event -> {
+            webview(URLDeterminer("selected"));
+            webStage.close();
+        });
+        webStage.setTitle(webPage.getEngine().getTitle());
+        webStage.setScene(new Scene(holder));
+        webStage.show();
     }
+
 }
