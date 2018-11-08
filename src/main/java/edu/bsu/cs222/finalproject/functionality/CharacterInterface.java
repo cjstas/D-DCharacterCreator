@@ -57,7 +57,7 @@ public interface CharacterInterface {
 
     String getSpecialTrait();
 
-    void setSpecialTrait(String background, int number);
+    void setBackgroundTrait(String background);
 
     String getPersonalityTrait();
 

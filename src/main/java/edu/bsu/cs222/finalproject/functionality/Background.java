@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class Background {
 
-    public static final Map<Integer, String> acolytePTMap = createAcolytePTMap();
-    public static Map<Integer, String> createAcolytePTMap() {
+    static final Map<Integer, String> acolytePTMap = createAcolytePTMap();
+    private static Map<Integer, String> createAcolytePTMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "I idolize a particular hero of my faith, and constantly refer to that person's deeds and example.");
         myMap.put(2, "I can find common ground between the fiercest of enemies, empathizing with them and always working toward peace.");
@@ -19,8 +19,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> acolyteIdealMap = createAcolyteIdealMap();
-    public static Map<Integer, String> createAcolyteIdealMap() {
+    static final Map<Integer, String> acolyteIdealMap = createAcolyteIdealMap();
+    private static Map<Integer, String> createAcolyteIdealMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "Tradition: The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)");
         myMap.put(2, "Charity: I always trt to help those in need, no matter what the personal cost. (Good)");
@@ -31,8 +31,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> acolyteBondMap = createAcolyteBondMap();
-    public static Map<Integer, String> createAcolyteBondMap() {
+    static final Map<Integer, String> acolyteBondMap = createAcolyteBondMap();
+    private static Map<Integer, String> createAcolyteBondMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "I would die to recover an ancient relic of my faith that was lost long ago.");
         myMap.put(2, "I will someday get revenge on the corrupt temple heirarchy who branded me a heretic.");
@@ -43,8 +43,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> acolyteFlawMap = createAcolyteFlawMap();
-    public static Map<Integer, String> createAcolyteFlawMap() {
+    static final Map<Integer, String> acolyteFlawMap = createAcolyteFlawMap();
+    private static Map<Integer, String> createAcolyteFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "I judge others harshly, and myself even more severely.");
         myMap.put(2, "I put too much trust in those who wield power within my temple's hierarchy");
@@ -55,8 +55,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> charlatanMap = createCharlatanMap();
-    public static Map<Integer, String> createCharlatanMap() {
+    static final Map<Integer, String> charlatanMap = createCharlatanMap();
+    private static Map<Integer, String> createCharlatanMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "I cheat at games of chance.");
         myMap.put(2, "I shave coins or forge documents");
@@ -67,8 +67,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> charlatanPTMap = createCharlatanPTMap();
-    public static Map<Integer, String> createCharlatanPTMap() {
+    static final Map<Integer, String> charlatanPTMap = createCharlatanPTMap();
+    private static Map<Integer, String> createCharlatanPTMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "I fall in and out of love easily, and am always pursuing someone.");
         myMap.put(2, "I have a joke for every occasion, especially occasions where humor is inappropriate.");
@@ -81,8 +81,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> charlatanIdealMap = createCharlatanIdealMap();
-    public static Map<Integer, String> createCharlatanIdealMap() {
+    static final Map<Integer, String> charlatanIdealMap = createCharlatanIdealMap();
+    private static Map<Integer, String> createCharlatanIdealMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "Independence: I am a free spirit no one tells me what to do. (Chaotic)");
         myMap.put(2, "Fairness: I never target people who can't afford to lose a few coins. (Lawful)");
@@ -93,8 +93,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> charlatanBondMap = createCharlatanBondMap();
-    public static Map<Integer, String> createCharlatanBondMap() {
+    static final Map<Integer, String> charlatanBondMap = createCharlatanBondMap();
+    private static Map<Integer, String> createCharlatanBondMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "I fleeced the wrong person and must work to ensure that this individual never crosses paths with me or those I care about.");
         myMap.put(2, "I owe everything to my mentor a horrible person who's probably rotting in jail somewhere.");
@@ -105,8 +105,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> charlatanFlawMap = createCharlatanFlawMap();
-    public static Map<Integer, String> createCharlatanFlawMap() {
+    static final Map<Integer, String> charlatanFlawMap = createCharlatanFlawMap();
+    private static Map<Integer, String> createCharlatanFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "I can't resist a pretty face.");
         myMap.put(2, "I'm always in debt. I spend my ill-gotten gains on decadent luxuries faster than I bring them in.");
@@ -117,8 +117,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> criminalMap = createCriminalMap();
-    public static Map<Integer, String> createCriminalMap(){
+    static final Map<Integer, String> criminalMap = createCriminalMap();
+    private static Map<Integer, String> createCriminalMap(){
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "Blackmailer");
         myMap.put(2, "Burglar");
@@ -131,8 +131,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> criminalPTlMap = createCriminalPTMap();
-    public static Map<Integer, String> createCriminalPTMap(){
+    static final Map<Integer, String> criminalPTlMap = createCriminalPTMap();
+    private static Map<Integer, String> createCriminalPTMap(){
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "I always have a plan for what to do when things go wrong.");
         myMap.put(2, "I am always calm, no matter what the situation. I never raise my voice or let my emotions control me.");
@@ -145,8 +145,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> criminalIdealMap = createCriminalIdealMap();
-    public static Map<Integer, String> createCriminalIdealMap(){
+    static final Map<Integer, String> criminalIdealMap = createCriminalIdealMap();
+    private static Map<Integer, String> createCriminalIdealMap(){
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "Honor: I don't steal from others in the trade (Lawful)");
         myMap.put(2, "Freedom: Chains are meant to be broken, as are those who would forge them. (Chaotic)");
@@ -157,8 +157,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> criminalBondMap = createCriminalBondMap();
-    public static Map<Integer, String> createCriminalBondMap(){
+    static final Map<Integer, String> criminalBondMap = createCriminalBondMap();
+    private static Map<Integer, String> createCriminalBondMap(){
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "I'm trying to pay off an old debt I owe to a generous benefactor");
         myMap.put(2, "My ill-gotten gains go to support my family.");
@@ -169,8 +169,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> criminalFlawMap = createCriminalFlawMap();
-    public static Map<Integer, String> createCriminalFlawMap(){
+    static final Map<Integer, String> criminalFlawMap = createCriminalFlawMap();
+    private static Map<Integer, String> createCriminalFlawMap(){
         Map<Integer, String> myMap =  new HashMap<>();
         myMap.put(1, "When I see something valuable, I can't think about anything but how to steal it.");
         myMap.put(2, "When faced with a choice between money and my friends, I usually choose the money.");
@@ -181,8 +181,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> entertainerMap = createEntertainerMap();
-    public static Map<Integer, String> createEntertainerMap() {
+    static final Map<Integer, String> entertainerMap = createEntertainerMap();
+    private static Map<Integer, String> createEntertainerMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "Actor");
         myMap.put(2, "Dancer");
@@ -197,8 +197,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> entertainerPTMap = createEntertainerPTMap();
-    public static Map<Integer, String> createEntertainerPTMap() {
+    static final Map<Integer, String> entertainerPTMap = createEntertainerPTMap();
+    private static Map<Integer, String> createEntertainerPTMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "I know a story relevant to almost every situation.");
         myMap.put(2, "Whenever I come to a new place, I collect local rumors and spread gossip");
@@ -211,8 +211,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> entertainerIdealMap = createEntertainerIdealMap();
-    public static Map<Integer, String> createEntertainerIdealMap() {
+    static final Map<Integer, String> entertainerIdealMap = createEntertainerIdealMap();
+    private static Map<Integer, String> createEntertainerIdealMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"Beauty: When I perform, I make the world better than it was. (Good)");
         myMap.put(2,"Tradition: The stories, legends, and songs of the past must never be forgotten, for they teach us who we are. (Lawful)");
@@ -223,8 +223,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> entertainerBondMap = createEntertainerBondMap();
-    public static Map<Integer, String> createEntertainerBondMap() {
+    static final Map<Integer, String> entertainerBondMap = createEntertainerBondMap();
+    private static Map<Integer, String> createEntertainerBondMap() {
         Map<Integer, String> myMap =  new HashMap<>();
         myMap.put(1,"My instrument is my most treasured possession, and it reminds me of someone I love.");
         myMap.put(2,"Someone stole my precious instrument, and someday I’ll get it back.");
@@ -235,8 +235,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> entertainerFlawMap = createEntertainerFlawMap();
-    public static Map<Integer, String> createEntertainerFlawMap() {
+    static final Map<Integer, String> entertainerFlawMap = createEntertainerFlawMap();
+    private static Map<Integer, String> createEntertainerFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"I’ll do anything to win fame and renown.");
         myMap.put(2,"I’m a sucker for a pretty face.");
@@ -247,8 +247,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> folkHeroMap = createFolkHeroMap();
-    public static Map<Integer, String> createFolkHeroMap() {
+    static final Map<Integer, String> folkHeroMap = createFolkHeroMap();
+    private static Map<Integer, String> createFolkHeroMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1, "I stood up to a tyrant's agents");
         myMap.put(2, "I saved people during a nature disaster");
@@ -263,8 +263,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> folkHeroPTMap = createFolkHeroPTMap();
-    public static Map<Integer, String> createFolkHeroPTMap() {
+    static final Map<Integer, String> folkHeroPTMap = createFolkHeroPTMap();
+    private static Map<Integer, String> createFolkHeroPTMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"I judge people by their actions, not their words.");
         myMap.put(2,"If someone is in trouble, I’m always ready to lend help.");
@@ -277,8 +277,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> folkHeroIdealMap = createFolkHeroIdealMap();
-    public static Map<Integer, String> createFolkHeroIdealMap() {
+    static final Map<Integer, String> folkHeroIdealMap = createFolkHeroIdealMap();
+    private static Map<Integer, String> createFolkHeroIdealMap() {
         Map<Integer, String> myMap =  new HashMap<>();
         myMap.put(1,"Respect: People deserve to be treated with dignity and respect. (Good)");
         myMap.put(2,"Fairness: No one should get preferential treatment before the law, and no one is above the law. (Lawful)");
@@ -289,8 +289,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> folkHeroBondMap = createFolkHeroBondMap();
-    public static Map<Integer, String> createFolkHeroBondMap() {
+    static final Map<Integer, String> folkHeroBondMap = createFolkHeroBondMap();
+    private static Map<Integer, String> createFolkHeroBondMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"I have a family, but I have no idea where they are. One day, I hope to see them again.");
         myMap.put(2,"I worked the land, I love the land, and I will protect the land.");
@@ -301,8 +301,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> folkHeroFlawMap = createFolkHeroFlawMap();
-    public static Map<Integer, String> createFolkHeroFlawMap() {
+    static final Map<Integer, String> folkHeroFlawMap = createFolkHeroFlawMap();
+    private static Map<Integer, String> createFolkHeroFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"The tyrant who rules my land will stop at nothing to see me killed.");
         myMap.put(2,"I’m convinced of the significance of my destiny, and blind to my shortcomings and the risk of failure.");
@@ -313,8 +313,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> guildArtisanMap = createGuildArtisanMap();
-    public static Map<Integer, String> createGuildArtisanMap() {
+    static final Map<Integer, String> guildArtisanMap = createGuildArtisanMap();
+    private static Map<Integer, String> createGuildArtisanMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"Alchemists and apothecaries");
         myMap.put(2,"Armorers, locksmiths, and finesmiths");
@@ -339,8 +339,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> guildArtisanPTMap = createGuildArtisanPTMap();
-    public static Map<Integer, String> createGuildArtisanPTMap() {
+    static final Map<Integer, String> guildArtisanPTMap = createGuildArtisanPTMap();
+    private static Map<Integer, String> createGuildArtisanPTMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"I believe that anything worth doing is worth doing right. I can’t help it— I’m a perfectionist.");
         myMap.put(2,"I’m a snob who looks down on those who can’t appreciate fine art.");
@@ -353,8 +353,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> guildArtisanIdealMap = createGuildArtisanIdealMap();
-    public static Map<Integer, String> createGuildArtisanIdealMap() {
+    static final Map<Integer, String> guildArtisanIdealMap = createGuildArtisanIdealMap();
+    private static Map<Integer, String> createGuildArtisanIdealMap() {
         Map<Integer, String> myMap =  new HashMap<>();
         myMap.put(1,"Community: It is the duty of all civilized people to strengthen the bonds of community and the security of civilization. (Lawful)");
         myMap.put(2,"Generosity: My talents were given to me so that I could use them to benefit the world. (Good)");
@@ -365,8 +365,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> guildArtisanBondMap = createGuildArtisanBondMap();
-    public static Map<Integer, String> createGuildArtisanBondMap() {
+    static final Map<Integer, String> guildArtisanBondMap = createGuildArtisanBondMap();
+    private static Map<Integer, String> createGuildArtisanBondMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"The workshop where I learned my trade is the most important place in the world to me.");
         myMap.put(2,"I created a great work for someone, and then found them unworthy to receive it. I’m still looking for someone worthy.");
@@ -377,8 +377,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> guildArtisanFlawMap = createGuildArtisanFlawMap();
-    public static Map<Integer, String> createGuildArtisanFlawMap() {
+    static final Map<Integer, String> guildArtisanFlawMap = createGuildArtisanFlawMap();
+    private static Map<Integer, String> createGuildArtisanFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"I’ll do anything to get my hands on something rare or priceless.");
         myMap.put(2,"I’m quick to assume that someone is trying to cheat me.");
@@ -389,8 +389,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> hermitMap = createHermitMap();
-    public static Map<Integer,String> createHermitMap() {
+    static final Map<Integer, String> hermitMap = createHermitMap();
+    private static Map<Integer,String> createHermitMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"I was searching for spiritual enlightenment.");
         myMap.put(2,"I was partaking of communal living in accordance with the dictates of a religious order.");
@@ -403,8 +403,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> hermitPTMap = createHermitPTMap();
-    public static Map<Integer,String> createHermitPTMap() {
+    static final Map<Integer, String> hermitPTMap = createHermitPTMap();
+    private static Map<Integer,String> createHermitPTMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"I’ve been isolated for so long that I rarely speak, preferring gestures and the occasional grunt.");
         myMap.put(2,"I am utterly serene, even in the face of disaster.");
@@ -417,8 +417,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> hermitIdealMap = createHermitIdealMap();
-    public static Map<Integer,String> createHermitIdealMap() {
+    static final Map<Integer, String> hermitIdealMap = createHermitIdealMap();
+    private static Map<Integer,String> createHermitIdealMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"Greater Good: My gifts are meant to be shared with all, not used for my own benefit. (Good)");
         myMap.put(2,"Logic: Emotions must not cloud our sense of what is right and true, or our logical thinking. (Lawful)");
@@ -429,8 +429,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> hermitBondMap = createHermitBondMap();
-    public static Map<Integer,String> createHermitBondMap() {
+    static final Map<Integer, String> hermitBondMap = createHermitBondMap();
+    private static Map<Integer,String> createHermitBondMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"Nothing is more important than the other members of my hermitage, order, or association.");
         myMap.put(2,"I entered seclusion to hide from the ones who might still be hunting me. I must someday confront them.");
@@ -441,8 +441,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> hermitFlawMap = createHermitFlawMap();
-    public static Map<Integer,String> createHermitFlawMap() {
+    static final Map<Integer, String> hermitFlawMap = createHermitFlawMap();
+    private static Map<Integer,String> createHermitFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"Now that I've returned to the world, I enjoy its delights a little too much.");
         myMap.put(2,"I harbor dark, bloodthirsty thoughts that my isolation and meditation failed to quell.");
@@ -453,8 +453,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> noblePTMap = createNoblePTMap();
-    public static Map<Integer,String> createNoblePTMap() {
+    static final Map<Integer, String> noblePTMap = createNoblePTMap();
+    private static Map<Integer,String> createNoblePTMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.");
         myMap.put(2,"The common folk love me for my kindness and generosity.");
@@ -467,8 +467,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> nobleIdealMap = createNobleIdealMap();
-    public static Map<Integer,String> createNobleIdealMap() {
+    static final Map<Integer, String> nobleIdealMap = createNobleIdealMap();
+    private static Map<Integer,String> createNobleIdealMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"Respect: Respect is due to me because of my position, but all people regardless of station deserve to be treated with dignity. (Good)");
         myMap.put(2,"Responsibility: It is my duty to respect the authority of those above me, just as those below me must respect mine. (Lawful)");
@@ -479,8 +479,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> nobleBondMap = createNobleBondMap();
-    public static Map<Integer,String> createNobleBondMap() {
+    static final Map<Integer, String> nobleBondMap = createNobleBondMap();
+    private static Map<Integer,String> createNobleBondMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"I will face any challenge to win the approval of my family.");
         myMap.put(2,"My house’s alliance with another noble family must be sustained at all costs.");
@@ -491,8 +491,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> nobleFlawMap = createNobleFlawMap();
-    public static Map<Integer,String> createNobleFlawMap() {
+    static final Map<Integer, String> nobleFlawMap = createNobleFlawMap();
+    private static Map<Integer,String> createNobleFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"I secretly believe that everyone is beneath me.");
         myMap.put(2,"I hide a truly scandalous secret that could ruin my family forever.");
@@ -503,8 +503,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> outlanderMap = createOutlanderMap();
-    public static Map<Integer,String> createOutlanderMap() {
+    static final Map<Integer, String> outlanderMap = createOutlanderMap();
+    private static Map<Integer,String> createOutlanderMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"Forester");
         myMap.put(2,"Trapper");
@@ -519,8 +519,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> outlanderPTMap = createOutlanderPTMap();
-    public static Map<Integer,String> createOutlanderPTMap() {
+    static final Map<Integer, String> outlanderPTMap = createOutlanderPTMap();
+    private static Map<Integer,String> createOutlanderPTMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"I’m driven by a wanderlust that led me away from home.");
         myMap.put(2,"I watch over my friends as if they were a litter of newborn pups.");
@@ -533,8 +533,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> outlanderIdealMap = createOutlanderIdealMap();
-    public static Map<Integer,String> createOutlanderIdealMap() {
+    static final Map<Integer, String> outlanderIdealMap = createOutlanderIdealMap();
+    private static Map<Integer,String> createOutlanderIdealMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"Change: Life is like the seasons, in constant change, and we must change with it. (Chaotic)");
         myMap.put(2,"Greater Good: It is each person’s responsibility to make the most happiness for the whole tribe. (Good)");
@@ -545,8 +545,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> outlanderBondMap = createOutlanderBondMap();
-    public static Map<Integer,String> createOutlanderBondMap() {
+    static final Map<Integer, String> outlanderBondMap = createOutlanderBondMap();
+    private static Map<Integer,String> createOutlanderBondMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"My family, clan, or tribe is the most important thing in my life, even when they are far from me.");
         myMap.put(2,"An injury to the unspoiled wilderness of my home is an injury to me.");
@@ -557,8 +557,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> outlanderFlawMap = createOutlanderFlawMap();
-    public static Map<Integer,String> createOutlanderFlawMap() {
+    static final Map<Integer, String> outlanderFlawMap = createOutlanderFlawMap();
+    private static Map<Integer,String> createOutlanderFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"I am too enamored of ale, wine, and other intoxicants.");
         myMap.put(2,"There’s no room for caution in a life lived to the fullest.");
@@ -569,8 +569,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> sageMap = createSageMap();
-    public static Map<Integer,String> createSageMap() {
+    static final Map<Integer, String> sageMap = createSageMap();
+    private static Map<Integer,String> createSageMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"Alchemist");
         myMap.put(2,"Astronomer");
@@ -583,8 +583,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> sagePTMap = createSagePTMap();
-    public static Map<Integer,String> createSagePTMap() {
+    static final Map<Integer, String> sagePTMap = createSagePTMap();
+    private static Map<Integer,String> createSagePTMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"I use polysyllabic words that convey the impression of great erudition.");
         myMap.put(2,"I've read every book in the world’s greatest libraries—or I like to boast that I have.");
@@ -597,8 +597,8 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> sageIdealMap = createSageIdealMap();
-    public static Map<Integer,String> createSageIdealMap() {
+    static final Map<Integer, String> sageIdealMap = createSageIdealMap();
+    private static Map<Integer,String> createSageIdealMap() {
         Map<Integer, String> myMap = new HashMap<>();
         myMap.put(1,"Knowledge. The path to power and self-improvement is through knowledge. (Neutral)");
         myMap.put(2,"Beauty. What is beautiful points us beyond itself toward what is true. (Good)");
@@ -609,104 +609,191 @@ public class Background {
         return myMap;
     }
 
-    public static final Map<Integer, String> sageBondMap = createSageBondMap();
-    public static Map<Integer,String> createSageBondMap() {
+    static final Map<Integer, String> sageBondMap = createSageBondMap();
+    private static Map<Integer,String> createSageBondMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"It is my duty to protect my students.");
+        myMap.put(2,"I have an ancient text that holds terrible secrets that must not fall into the wrong hands.");
+        myMap.put(3,"I work to preserve a library, university, scriptorium, or monastery.");
+        myMap.put(4,"My life’s work is a series of tomes related to a specific field of lore.");
+        myMap.put(5,"I've been searching my whole life for the answer to a certain question.");
+        myMap.put(6,"I sold my soul for knowledge. I hope to do great deeds and win it back.");
         return myMap;
     }
 
-    public static final Map<Integer, String> sageFlawMap = createSageFlawMap();
-    public static Map<Integer,String> createSageFlawMap() {
+    static final Map<Integer, String> sageFlawMap = createSageFlawMap();
+    private static Map<Integer,String> createSageFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I am easily distracted by the promise of information.\n");
+        myMap.put(2,"Most people scream and run when they see a demon. I stop and take notes on its anatomy.");
+        myMap.put(3,"Unlocking an ancient mystery is worth the price of a civilization.");
+        myMap.put(4,"I overlook obvious solutions in favor of complicated ones.");
+        myMap.put(5,"I speak without really thinking through my words, invariably insulting others.\n");
+        myMap.put(6,"I can’t keep a secret to save my life, or anyone else’s.");
         return myMap;
     }
 
-    public static final Map<Integer, String> sailorMap = createSailorMap();
-    public static Map<Integer,String> createSailorMap() {
+    static final Map<Integer, String> sailorPTMap = createSailorPTMap();
+    private static Map<Integer,String> createSailorPTMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"My friends know they can rely on me, no matter what.");
+        myMap.put(2,"I work hard so that I can play hard when the work is done.");
+        myMap.put(3,"I enjoy sailing into new ports and making new friends over a flagon of ale.");
+        myMap.put(4,"I stretch the truth for the sake of a good story.");
+        myMap.put(5,"To me, a tavern brawl is a nice way to get to know a new city.\n");
+        myMap.put(6,"I never pass up a friendly wager.");
+        myMap.put(7,"My language is as foul as an otyugh nest.");
+        myMap.put(8,"I like a job well done, especially if I can convince someone else to do it.");
         return myMap;
     }
 
-    public static final Map<Integer, String> sailorPTMap = createSailorPTMap();
-    public static Map<Integer,String> createSailorPTMap() {
+    static final Map<Integer, String> sailorIdealMap = createSailorIdealMap();
+    private static Map<Integer,String> createSailorIdealMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"Respect. The thing that keeps a ship together is mutual respect between captain and crew. (Good)");
+        myMap.put(2,"Fairness. We all do the work, so we all share in the rewards. (Lawful)");
+        myMap.put(3,"Freedom. The sea is freedom—the freedom to go anywhere and do anything. (Chaotic)");
+        myMap.put(4,"Mastery. I’m a predator, and the other ships on the sea are my prey. (Evil)");
+        myMap.put(5,"People. I’m committed to my crewmates, not to ideals. (Neutral)");
+        myMap.put(6,"Aspiration. Someday I’ll own my own ship and chart my own destiny. (Any)");
         return myMap;
     }
 
-    public static final Map<Integer, String> sailorIdealMap = createSailorIdealMap();
-    public static Map<Integer,String> createSailorIdealMap() {
+    static final Map<Integer, String> sailorBondMap = createSailorBondMap();
+    private static Map<Integer,String> createSailorBondMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I’m loyal to my captain first, everything else second.");
+        myMap.put(2,"The ship is most important—crewmates and captains come and go.");
+        myMap.put(3,"I’ll always remember my first ship.");
+        myMap.put(4,"In a harbor town, I have a paramour whose eyes nearly stole me from the sea.");
+        myMap.put(5,"I was cheated out of my fair share of the profits, and I want to get my due.");
+        myMap.put(6,"Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine.");
         return myMap;
     }
 
-    public static final Map<Integer, String> sailorBondMap = createSailorBondMap();
-    public static Map<Integer,String> createSailorBondMap() {
+    static final Map<Integer, String> sailorFlawMap = createSailorFlawMap();
+    private static Map<Integer,String> createSailorFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I follow orders, even if I think they’re wrong.");
+        myMap.put(2,"I’ll say anything to avoid having to do extra work.");
+        myMap.put(3,"Once someone questions my courage, I never back down no matter how dangerous the situation.");
+        myMap.put(4,"Once I start drinking, it’s hard for me to stop.");
+        myMap.put(5,"I can’t help but pocket loose coins and other trinkets I come across.");
+        myMap.put(6,"My pride will probably lead to my destruction.");
         return myMap;
     }
 
-    public static final Map<Integer, String> sailorFlawMap = createSailorFlawMap();
-    public static Map<Integer,String> createSailorFlawMap() {
+    static final Map<Integer, String> soldierMap = createSoliderMap();
+    private static Map<Integer,String> createSoliderMap() {
         Map<Integer, String> myMap = new HashMap<>();
-        return myMap;
-    }
-    public static final Map<Integer, String> soliderMap = createSoliderMap();
-    public static Map<Integer,String> createSoliderMap() {
-        Map<Integer, String> myMap = new HashMap<>();
-        return myMap;
-    }
-
-    public static final Map<Integer, String> soliderPTMap = createSoliderPTMap();
-    public static Map<Integer,String> createSoliderPTMap() {
-        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"Officer");
+        myMap.put(2,"Scout");
+        myMap.put(3,"Infantry");
+        myMap.put(4,"Cavalry");
+        myMap.put(5,"Healer");
+        myMap.put(6,"Quartermaster");
+        myMap.put(7,"Standard bearer");
+        myMap.put(8,"Support staff (cook, blacksmith, or the like)");
         return myMap;
     }
 
-    public static final Map<Integer, String> soliderIdealMap = createSoliderIdealMap();
-    public static Map<Integer,String> createSoliderIdealMap() {
+    static final Map<Integer, String> soldierPTMap = createSoliderPTMap();
+    private static Map<Integer,String> createSoliderPTMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I'm always polite and respectful.");
+        myMap.put(2,"I’m haunted by memories of war. I can’t get the images of violence out of my mind.");
+        myMap.put(3,"I’ve lost too many friends, and I’m slow to make new ones.");
+        myMap.put(4,"I'm full of inspiring and cautionary tales from my military experience relevant to almost every combat situation.");
+        myMap.put(5,"I can stare down a hell hound without flinching.");
+        myMap.put(6,"I enjoy being strong and like breaking things.");
+        myMap.put(7,"I have a crude sense of humor.");
+        myMap.put(8,"I face problems head-on. A simple, direct solution is the best path to success.");
         return myMap;
     }
 
-    public static final Map<Integer, String> soliderBondMap = createSoliderBondMap();
-    public static Map<Integer,String> createSoliderBondMap() {
+    static final Map<Integer, String> soldierIdealMap = createSoliderIdealMap();
+    private static Map<Integer,String> createSoliderIdealMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"Greater Good. Our lot is to lay down our lives in defense of others. (Good)");
+        myMap.put(2,"Responsibility. I do what I must and obey just authority. (Lawful)");
+        myMap.put(3,"Independence. When people follow orders blindly, they embrace a kind of tyranny. (Chaotic)");
+        myMap.put(4,"Might. In life as in war, the stronger force wins. (Evil)");
+        myMap.put(5,"Live and Let Live. Ideals aren’t worth killing over or going to war for. (Neutral)");
+        myMap.put(6,"Nation. My city, nation, or people are all that matter. (Any)");
         return myMap;
     }
 
-    public static final Map<Integer, String> soliderFlawMap = createSoliderFlawMap();
-    public static Map<Integer,String> createSoliderFlawMap() {
+    static final Map<Integer, String> soldierBondMap = createSoliderBondMap();
+    private static Map<Integer,String> createSoliderBondMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I would still lay down my life for the people I served with.");
+        myMap.put(2,"Someone saved my life on the battlefield. To this day, I will never leave a friend behind.");
+        myMap.put(3,"My honor is my life.");
+        myMap.put(4,"I’ll never forget the crushing defeat my company suffered or the enemies who dealt it.");
+        myMap.put(5,"Those who fight beside me are those worth dying for.");
+        myMap.put(6,"I fight for those who cannot fight for themselves.");
         return myMap;
     }
 
-    public static final Map<Integer, String> urchinMap = createUrchinMap();
-    public static Map<Integer,String> createUrchinMap() {
+    static final Map<Integer, String> soldierFlawMap = createSoliderFlawMap();
+    private static Map<Integer,String> createSoliderFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"The monstrous enemy we faced in battle still leaves me quivering with fear.");
+        myMap.put(2,"I have little respect for anyone who is not a proven warrior.");
+        myMap.put(3,"I made a terrible mistake in battle that cost many lives—and I would do anything to keep that mistake secret.");
+        myMap.put(4,"My hatred of my enemies is blind and unreasoning.");
+        myMap.put(5,"I obey the law, even if the law causes misery.");
+        myMap.put(6,"I’d rather eat my armor than admit when I’m wrong.");
         return myMap;
     }
 
-    public static final Map<Integer, String> urchinPTMap = createUrchinPTMap();
-    public static Map<Integer,String> createUrchinPTMap() {
+    static final Map<Integer, String> urchinPTMap = createUrchinPTMap();
+    private static Map<Integer,String> createUrchinPTMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I hide scraps of food and trinkets away in my pockets.");
+        myMap.put(2,"I ask a lot of questions.");
+        myMap.put(3,"I like to squeeze into small places where no one else can get to me.");
+        myMap.put(4,"I sleep with my back to a wall or tree, with everything I own wrapped in a bundle in my arms.");
+        myMap.put(5,"I eat like a pig and have bad manners.");
+        myMap.put(6,"I think anyone who's nice to me is hiding evil intent.");
+        myMap.put(7,"I don't like to bathe.");
+        myMap.put(8,"I bluntly say what other people are hinting at or hiding.");
         return myMap;
     }
 
-    public static final Map<Integer, String> urchinIdealMap = createUrchinIdealMap();
-    public static Map<Integer,String> createUrchinIdealMap() {
+    static final Map<Integer, String> urchinIdealMap = createUrchinIdealMap();
+    private static Map<Integer,String> createUrchinIdealMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"Respect. All people, rich or poor, deserve respect. (Good)");
+        myMap.put(2,"Community. We have to take care of each other, because no one else is going to do it. (Lawful)");
+        myMap.put(3,"Change. The low are lifted up, and the high and mighty are brought down. Change is the nature of things. (Chaotic)");
+        myMap.put(4,"Retribution. The rich need to be shown what life and death are like in the gutters. (Evil)");
+        myMap.put(5,"People. I help the people who help me—that's what keeps us alive. (Neutral)");
+        myMap.put(6,"Aspiration. I'm going to prove that I'm worthy of a better life.");
         return myMap;
     }
 
-    public static final Map<Integer, String> urchinBondMap = createUrchinBondMap();
-    public static Map<Integer,String> createUrchinBondMap() {
+    static final Map<Integer, String> urchinBondMap = createUrchinBondMap();
+    private static Map<Integer,String> createUrchinBondMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"My town or city is my home, and I'll fight to defend it.");
+        myMap.put(2,"I sponsor an orphanage to keep others from enduring what I was forced to endure.");
+        myMap.put(3,"I owe my survival to another urchin who taught me to live on the streets.");
+        myMap.put(4,"I owe a debt I can never repay to the person who took pity on me.");
+        myMap.put(5,"I escaped my life of poverty by robbing an important person, and I'm wanted for it.");
+        myMap.put(6,"No one else should have to endure the hardships I've been through.");
         return myMap;
     }
 
-    public static final Map<Integer, String> urchinFlawMap = createUrchinFlawMap();
-    public static Map<Integer,String> createUrchinFlawMap() {
+    static final Map<Integer, String> urchinFlawMap = createUrchinFlawMap();
+    private static Map<Integer,String> createUrchinFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"If I'm outnumbered, I will run away from a fight.");
+        myMap.put(2,"Gold seems like a lot of money to me, and I'll do just about anything for more of it.");
+        myMap.put(3,"I will never fully trust anyone other than myself.");
+        myMap.put(4,"I'd rather kill someone in their sleep than fight fair.");
+        myMap.put(5,"It's not stealing if I need it more than someone else.");
+        myMap.put(6,"People who can't take care of themselves get what they deserve.");
         return myMap;
     }
 }

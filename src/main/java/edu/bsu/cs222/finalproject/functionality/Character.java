@@ -27,6 +27,10 @@ public abstract class Character implements CharacterInterface {
     public int totalHealth;
     public String bg;
     public String sTrait;
+    public String personalityTrait;
+    public String bond;
+    public String ideal;
+    public String flaw;
     public int sa;
     public int dc;
 
@@ -243,14 +247,95 @@ public abstract class Character implements CharacterInterface {
         return sTrait;
     }
 
-    public void setSpecialTrait(String background,int number) {
+    public void setBackgroundTrait(String background) {
         switch (background.toLowerCase()){
             case "acolyte":
+                personalityTrait = Background.acolytePTMap.get(DiceRoll.D8());
+                ideal =  Background.acolyteIdealMap.get(DiceRoll.D6());
+                bond = Background.acolyteBondMap.get(DiceRoll.D6());
+                flaw = Background.acolyteFlawMap.get(DiceRoll.D6());
                 break;
             case "charlatan":
+                sTrait =  Background.charlatanMap.get(DiceRoll.D6());
+                personalityTrait = Background.charlatanPTMap.get(DiceRoll.D8());
+                ideal = Background.charlatanIdealMap.get(DiceRoll.D6());
+                bond = Background.charlatanBondMap.get(DiceRoll.D6());
+                flaw = Background.charlatanFlawMap.get(DiceRoll.D6());
+                break;
             case "criminal":
+                sTrait = Background.criminalMap.get(DiceRoll.D8());
+                personalityTrait = Background.criminalPTlMap.get(DiceRoll.D8());
+                ideal = Background.criminalIdealMap.get(DiceRoll.D6());
+                bond = Background.criminalBondMap.get(DiceRoll.D6());
+                flaw = Background.criminalFlawMap.get(DiceRoll.D6());
+                break;
             case "entertainer":
+                sTrait = Background.entertainerMap.get(DiceRoll.D10());
+                personalityTrait = Background.entertainerPTMap.get(DiceRoll.D8());
+                ideal = Background.entertainerIdealMap.get(DiceRoll.D6());
+                bond = Background.entertainerBondMap.get(DiceRoll.D6());
+                flaw = Background.entertainerFlawMap.get(DiceRoll.D6());
+                break;
             case "folk hero":
+                sTrait = Background.folkHeroMap.get(DiceRoll.D10());
+                personalityTrait = Background.folkHeroPTMap.get(DiceRoll.D8());
+                ideal = Background.folkHeroIdealMap.get(DiceRoll.D6());
+                bond = Background.folkHeroBondMap.get(DiceRoll.D6());
+                flaw = Background.folkHeroFlawMap.get(DiceRoll.D6());
+                break;
+            case "guild artisan":
+                sTrait = Background.guildArtisanMap.get(DiceRoll.D20());
+                personalityTrait = Background.guildArtisanPTMap.get(DiceRoll.D8());
+                ideal = Background.guildArtisanIdealMap.get(DiceRoll.D6());
+                bond = Background.guildArtisanBondMap.get(DiceRoll.D6());
+                flaw = Background.guildArtisanFlawMap.get(DiceRoll.D6());
+                break;
+            case "hermit":
+                sTrait = Background.hermitMap.get(DiceRoll.D8());
+                personalityTrait = Background.hermitPTMap.get(DiceRoll.D8());
+                ideal = Background.hermitIdealMap.get(DiceRoll.D6());
+                bond = Background.hermitBondMap.get(DiceRoll.D6());
+                flaw = Background.hermitFlawMap.get(DiceRoll.D6());
+                break;
+            case "noble":
+                personalityTrait = Background.noblePTMap.get(DiceRoll.D8());
+                ideal = Background.nobleIdealMap.get(DiceRoll.D6());
+                bond = Background.nobleBondMap.get(DiceRoll.D6());
+                flaw = Background.nobleFlawMap.get(DiceRoll.D6());
+                break;
+            case "outlander":
+                sTrait = Background.outlanderMap.get(DiceRoll.D10());
+                personalityTrait = Background.outlanderPTMap.get(DiceRoll.D8());
+                ideal = Background.outlanderIdealMap.get(DiceRoll.D6());
+                bond = Background.outlanderBondMap.get(DiceRoll.D6());
+                flaw = Background.outlanderFlawMap.get(DiceRoll.D6());
+                break;
+            case "sage":
+                sTrait = Background.sageMap.get(DiceRoll.D8());
+                personalityTrait = Background.sagePTMap.get(DiceRoll.D8());
+                ideal = Background.sageIdealMap.get(DiceRoll.D6());
+                bond = Background.sageBondMap.get(DiceRoll.D6());
+                flaw = Background.sageFlawMap.get(DiceRoll.D6());
+                break;
+            case "sailor":
+                personalityTrait = Background.sailorPTMap.get(DiceRoll.D8());
+                ideal = Background.sailorIdealMap.get(DiceRoll.D6());
+                bond = Background.sailorBondMap.get(DiceRoll.D6());
+                flaw = Background.sailorFlawMap.get(DiceRoll.D6());
+                break;
+            case "soldier":
+                sTrait = Background.soldierMap.get(DiceRoll.D8());
+                personalityTrait = Background.soldierPTMap.get(DiceRoll.D8());
+                ideal = Background.soldierIdealMap.get(DiceRoll.D6());
+                bond = Background.soldierBondMap.get(DiceRoll.D6());
+                flaw = Background.soldierFlawMap.get(DiceRoll.D6());
+                break;
+            case "urchin":
+                personalityTrait = Background.urchinPTMap.get(DiceRoll.D8());
+                ideal = Background.urchinIdealMap.get(DiceRoll.D6());
+                bond = Background.urchinBondMap.get(DiceRoll.D6());
+                flaw = Background.urchinFlawMap.get(DiceRoll.D6());
+                break;
         }
     }
 
