@@ -1,13 +1,9 @@
 package edu.bsu.cs222.finalproject.functionality;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Barbarian extends Character {
-
-    private List<String> equipment = new ArrayList<>();
-    private List<String> items = new ArrayList<>();
 
     public Barbarian() {
 
@@ -18,8 +14,8 @@ public class Barbarian extends Character {
 
     public Barbarian(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
-        setSavingThrow(strST);
-        setSavingThrow(conST);
+        strST=true;
+        conST=true;
 
         boolean spellcaster = false;
         totalHealth=setHealth(totalHealth,level);
@@ -39,14 +35,12 @@ public class Barbarian extends Character {
             knownSkills.add(skill);
         }
 
-        List<String> proficiency = new ArrayList<>();
         proficiency.add("Light Armour");
         proficiency.add("Medium Armour");
         proficiency.add("Shields");
         proficiency.add("Simple Weapons");
         proficiency.add("Martial Weapons");
 
-        List<String> classAbilities = new ArrayList<>();
         classAbilities.add("Rage");
         classAbilities.add("Unarmored Defense");
 
@@ -201,24 +195,6 @@ public class Barbarian extends Character {
             }
         }
         return health;
-    }
-
-    public boolean getSavingThrow(boolean skill) {
-        return skill;
-    }
-
-
-    public void setSavingThrow(boolean skill) {
-        skill=true;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-    }
-
-    @Override
-    public boolean getSkills(boolean skill) {
-        return skill;
     }
 
     @Override

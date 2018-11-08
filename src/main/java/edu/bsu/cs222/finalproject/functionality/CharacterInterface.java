@@ -83,14 +83,6 @@ public interface CharacterInterface {
 
     int setHealth(int health, int level);
 
-    boolean getSavingThrow(boolean skill);
-
-    void setSavingThrow(boolean skill);
-
-    boolean getSkills(boolean skill);
-
-    void setSkills(boolean skill);
-
     String getLanguages();
 
     void setLanguages(String languages);

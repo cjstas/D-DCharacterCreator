@@ -3,7 +3,7 @@ package edu.bsu.cs222.finalproject.functionality;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Background {
+class Background {
 
     static final Map<Integer, String> acolytePTMap = createAcolytePTMap();
     private static Map<Integer, String> createAcolytePTMap() {

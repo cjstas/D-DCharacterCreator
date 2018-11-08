@@ -9,8 +9,8 @@ import static java.lang.Boolean.parseBoolean;
 public class Rogue extends Character {
     public Rogue(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
-        setSavingThrow(dexST);
-        setSavingThrow(intelST);
+        dexST=true;
+        intelST=true;
 
         sa=setSpellcastingAbility(intel);
         dc=setSpellSaveDC(intel);
@@ -36,7 +36,6 @@ public class Rogue extends Character {
             knownSkills.add(skill);
         }
 
-        List<String> proficiency = new ArrayList<>();
         proficiency.add("Light Armour");
         proficiency.add("Simple Weapons");
         proficiency.add("Hand Crossbow");
@@ -45,7 +44,6 @@ public class Rogue extends Character {
         proficiency.add("Shortsword");
         proficiency.add("Thieve's Tools");
 
-        List<String> classAbilities = new ArrayList<>();
         classAbilities.add("Expertise");
         classAbilities.add("Sneak Attack");
         language.add("Thieves' Cant");
@@ -228,11 +226,6 @@ public class Rogue extends Character {
             }
         }
         return health;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-
     }
 
     @Override

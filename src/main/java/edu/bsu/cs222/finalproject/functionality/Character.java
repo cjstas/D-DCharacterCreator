@@ -40,6 +40,9 @@ public abstract class Character implements CharacterInterface {
     public List<String> spellsFromRace = new ArrayList<>();
     public List<String> equipment = new ArrayList<>();
     public List<String> items = new ArrayList<>();
+    public List<String> classAbilities = new ArrayList<>();
+    public List<String> proficiency = new ArrayList<>();
+
 
     public boolean strST;
     public boolean dexST;
@@ -341,19 +344,6 @@ public abstract class Character implements CharacterInterface {
 
     public int setHealth(int health, int level) {
         return 0;
-    }
-
-    public boolean getSavingThrow(boolean skill) {
-        return skill;
-    }
-
-    public void setSavingThrow(boolean skill){
-        skill=true;
-    }
-
-    @Override
-    public boolean getSkills(boolean skill) {
-        return skill;
     }
 
     @Override

@@ -10,8 +10,8 @@ public class Paladin extends Character {
 
     public Paladin(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
-        setSavingThrow(wisST);
-        setSavingThrow(chaST);
+        wisST=true;
+        chaST=true;
 
         sa=setSpellcastingAbility(cha);
         dc=setSpellSaveDC(cha);
@@ -35,7 +35,6 @@ public class Paladin extends Character {
             knownSkills.add(skill);
         }
 
-        List<String> proficiency = new ArrayList<>();
         proficiency.add("All Armour");
         proficiency.add("Shields");
         proficiency.add("Simple and Martial Weapons");
@@ -46,7 +45,6 @@ public class Paladin extends Character {
         items.add("A Priest's pack or an Explorer's pack");
         items.add("Holy symbol");
 
-        List<String> classAbilities = new ArrayList<>();
         classAbilities.add("Divine sense");
         classAbilities.add("Lay on Hands");
 
@@ -200,11 +198,6 @@ public class Paladin extends Character {
             }
         }
         return health;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-
     }
 
     @Override

@@ -10,8 +10,8 @@ public class Cleric extends Character{
 
     public Cleric(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
-        setSavingThrow(wisST);
-        setSavingThrow(chaST);
+        wisST=true;
+        chaST=true;
 
         ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("history");
@@ -32,7 +32,6 @@ public class Cleric extends Character{
             knownSkills.add(skill);
         }
 
-        List<String> proficiency = new ArrayList<>();
         proficiency.add("Light armor");
         proficiency.add("Medium Armour");
         proficiency.add("Shields");
@@ -45,7 +44,6 @@ public class Cleric extends Character{
         items.add("Choose one: A priest pack or an explorer pack");
         items.add("Holy symbol");
 
-        List<String> classAbilities = new ArrayList<>();
         classAbilities.add("Spellcasting");
         classAbilities.add("Divine domain");
 
@@ -211,11 +209,6 @@ public class Cleric extends Character{
             }
         }
         return health;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-
     }
 
     @Override
