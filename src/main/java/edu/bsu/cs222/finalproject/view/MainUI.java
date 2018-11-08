@@ -11,8 +11,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class MainUI extends Application {
 
@@ -53,9 +51,9 @@ public class MainUI extends Application {
         });
         toNPCCreation.setOnAction(e -> primaryStage.setScene(
                 new Scene(new HBox(
-                                new Label("Sorry for the Inconvenience," +
-                                        "\nBut the NPC Creation section is under Construction" +
-                                        "\nHappy Rolling!!")))));
+                        new Label("Sorry for the Inconvenience," +
+                                "\nBut the NPC Creation section is under Construction" +
+                                "\nHappy Rolling!!")))));
         return new VBox(to35eBuilder, to5eBuilder, toNPCCreation);
     }
 
@@ -145,60 +143,40 @@ public class MainUI extends Application {
     private void initPlayer(String classType) {
         switch (classType.toLowerCase()){
             case "barbarian":
-                player = new Barbarian(null,null, 0, null,null, null, null, 0, 0,0,0,0,0,0);
+                player = new Barbarian();
                 break;
             case "bard":
                 player = new Bard();
                 break;
             case "cleric":
-                /*
-                 *todo initialze when the classes are ready
-                 */
+                player = new Cleric();
                 break;
             case "druid":
-                /*
-                 *todo initialze when the classes are ready
-                 */
+                player = new Druid();
                 break;
             case "fighter":
-                /*
-                 *todo initialze when the classes are ready
-                 */
+                player = new Fighter();
                 break;
             case "monk":
-                /*
-                 *todo initialze when the classes are ready
-                 */
+                player = new Monk();
                 break;
             case "paladin":
-                /*
-                 *todo initialze when the classes are ready
-                 */
+                player = new Paladin();
                 break;
             case "ranger":
-                /*
-                 *todo initialze when the classes are ready
-                 */
+                player = new Ranger();
                 break;
-            case "Rogue":
-                /*
-                 *todo initialze when the classes are ready
-                 */
+            case "rogue":
+                player = new Rogue();
                 break;
             case "sorcerer":
-                /*
-                 *todo initialze when the classes are ready
-                 */
+                player = new Sourcerer();
                 break;
             case "warlock":
-                /*
-                 *todo initialze when the classes are ready
-                 */
+                player = new Warlock();
                 break;
             case "wizard":
-                /*
-                 *todo initialze when the classes are ready
-                 */
+               player = new Wizard();
                 break;
 
         }
@@ -209,7 +187,7 @@ public class MainUI extends Application {
         this.sheets  = new CharacterSheets();
         mainLayout.setCenter(sheets.setSheet(sheetNumber));
         mainLayout.setTop(basicInfo());
-        sheets.populateSheet(sheetNumber, player);
+//      sheets.populateSheet(sheetNumber, player);
         Scene sheetScene = new Scene(mainLayout);
         mainLayout.setLeft(setOptionPane());
         sheetScene.getStylesheets().clear();
@@ -246,8 +224,8 @@ public class MainUI extends Application {
 
 
         /*todo make the array populator function properly
-        * currently - failing to initiallize the array and fill appropriate textfields
-        * working means it will out put on the sheet in the scores section*/
+         * currently - failing to fill with out screen rewrite
+         * working means it will out put on the sheet in the scores section*/
         StatArrayPopulater statPop = new StatArrayPopulater(player);
 
         returnToCharacterSheet.setOnAction(event -> {
@@ -261,7 +239,8 @@ public class MainUI extends Application {
             controlLayout.getChildren().add(6, returnToCharacterSheet);
             controlLayout.getChildren().remove(editSpellSheet);
         });
-        randomStatsButt.setOnAction(event->{
+
+        randomStatsButt.setOnAction(event-> {
             int[] stats = statPop.rollRandomStat();
             player.setStrength(stats[0]);
             player.setDexterity(stats[1]);
@@ -269,24 +248,28 @@ public class MainUI extends Application {
             player.setIntelligence(stats[3]);
             player.setWisdom(stats[4]);
             player.setCharisma(stats[5]);
+            player.setRaceBonus();
             sheets.populateSheet(sheetNumber, player);
         });
         standardArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.standardArray );
             this.player = statPop.returnPlayer();
             mainLayout.setCenter(sheets.setSheet(sheetNumber));
+            player.setRaceBonus();
             sheets.populateSheet(sheetNumber, player);
         });
         eliteArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.eliteArray);
             this.player = statPop.returnPlayer();
             mainLayout.setCenter(sheets.setSheet(sheetNumber));
+            player.setRaceBonus();
             sheets.populateSheet(sheetNumber, player);
         });
         dunceArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.dunceArray);
             this.player = statPop.returnPlayer();
             mainLayout.setCenter(sheets.setSheet(sheetNumber));
+            player.setRaceBonus();
             sheets.populateSheet(sheetNumber, player);
         });
 

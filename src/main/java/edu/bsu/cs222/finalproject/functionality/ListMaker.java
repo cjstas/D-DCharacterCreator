@@ -13,7 +13,7 @@ public class ListMaker {
     public ArrayList<Spell> returnSpellsArrayList5e() {
         ArrayList<Spell> output = new ArrayList<>();
 
-        File spells = new File("src/main/resources/SpellData.txt");
+        File spells = new File("src/resources/SpellData.txt");
 
         String unSortedSpells = "";
         try {
@@ -202,7 +202,7 @@ public class ListMaker {
     }
 
     public ArrayList<String> returnItemsArrayList5e() {
-        File Items = new File("src/main/resources/ItemData.txt");
+        File Items = new File("src/resources/ItemData.txt");
         String unSortedItems = "";
         try {
             unSortedItems = new String(Files.readAllBytes(Items.toPath()));

@@ -9,6 +9,10 @@ public class Barbarian extends Character {
     private List<String> equipment = new ArrayList<>();
     private List<String> items = new ArrayList<>();
 
+    public Barbarian() {
+
+    }
+
     public void Barbarian(){
     }
 
