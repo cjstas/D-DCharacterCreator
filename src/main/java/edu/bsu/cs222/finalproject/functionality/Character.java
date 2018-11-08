@@ -36,6 +36,8 @@ public abstract class Character implements CharacterInterface {
     public List<String> language = new ArrayList<>();
     public List<String> abilities = new ArrayList<>();
     public List<String> spellsFromRace = new ArrayList<>();
+    public List<String> equipment = new ArrayList<>();
+    public List<String> items = new ArrayList<>();
 
     public boolean strST;
     public boolean dexST;

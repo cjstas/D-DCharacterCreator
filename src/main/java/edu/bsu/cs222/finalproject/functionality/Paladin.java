@@ -8,9 +8,6 @@ import static java.lang.Boolean.parseBoolean;
 
 public class Paladin extends Character {
 
-    private List<String> equipment = new ArrayList<>();
-    private List<String> items = new ArrayList<>();
-
     public Paladin(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
         setSavingThrow(wisST);

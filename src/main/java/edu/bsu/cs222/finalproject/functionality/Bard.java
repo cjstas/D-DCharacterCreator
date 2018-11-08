@@ -8,9 +8,6 @@ import static java.lang.Boolean.parseBoolean;
 
 public class Bard extends Character{
 
-    private List<String> equipment = new ArrayList<>();
-    private List<String> items = new ArrayList<>();
-
     public Bard(){
 
     }
@@ -300,14 +297,12 @@ public class Bard extends Character{
 
     @Override
     public int setSpellcastingAbility(int ability) {
-        int sa=getProficiencyBonus()+getMod(ability);
-        return sa;
+        return getProficiencyBonus()+getMod(ability);
     }
 
     @Override
     public int setSpellSaveDC(int dc) {
-        int ssdc=8+getProficiencyBonus()+getMod(dc);
-        return ssdc;
+        return 8+getProficiencyBonus()+getMod(dc);
     }
 
     @Override

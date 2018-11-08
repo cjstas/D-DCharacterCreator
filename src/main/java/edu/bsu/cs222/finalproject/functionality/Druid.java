@@ -8,9 +8,6 @@ import static java.lang.Boolean.parseBoolean;
 
 public class Druid extends Character {
 
-    private List<String> equipment = new ArrayList<>();
-    private List<String> items = new ArrayList<>();
-
     public Druid(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
 
@@ -200,6 +197,18 @@ public class Druid extends Character {
     @Override
     public int getHealth() {
         return 0;
+    }
+
+    public int setHealth(int health, int level) {
+        int i = 0;
+        health=health+8+getMod(getConstitution());
+        if (level > 1){
+            while  (i<= level){
+                health=health+DiceRoll.D8()+getMod(getConstitution());
+                i++;
+            }
+        }
+        return health;
     }
 
     @Override
