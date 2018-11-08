@@ -149,6 +149,10 @@ public class Fighter extends Character {
         }
     }
 
+    public Fighter() {
+
+    }
+
     @Override
     public int getSpeed() {
         return 0;

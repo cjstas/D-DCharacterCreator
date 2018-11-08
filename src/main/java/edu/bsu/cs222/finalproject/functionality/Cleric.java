@@ -132,6 +132,10 @@ public class Cleric extends Character{
         }
     }
 
+    public Cleric() {
+
+    }
+
     @Override
     public int getSpeed() {
         return 0;

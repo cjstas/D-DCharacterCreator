@@ -138,6 +138,10 @@ public class Sourcerer extends Character {
         }
     }
 
+    public Sourcerer() {
+
+    }
+
     @Override
     public int getSpeed() {
         return 0;

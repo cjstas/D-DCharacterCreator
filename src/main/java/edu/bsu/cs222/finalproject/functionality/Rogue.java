@@ -149,6 +149,10 @@ public class Rogue extends Character {
         }
     }
 
+    public Rogue() {
+
+    }
+
     @Override
     public int getSpeed() {
         return 0;
