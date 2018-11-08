@@ -180,7 +180,7 @@ public class MainUI extends Application {
                  *todo initialze when the classes are ready
                  */
                 break;
-            case "rogue":
+            case "Rogue":
                 /*
                  *todo initialze when the classes are ready
                  */

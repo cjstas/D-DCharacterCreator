@@ -21,39 +21,32 @@ public class Bard extends Character{
         dc=setSpellSaveDC(cha);
         totalHealth=setHealth(totalHealth,level);
 
-        List<String> bardSkills = new ArrayList<>();
-        bardSkills.add("acrobatics");
-        bardSkills.add("animalHandeling");
-        bardSkills.add("arcana");
-        bardSkills.add("athletics");
-        bardSkills.add("deception");
-        bardSkills.add("history");
-        bardSkills.add("insight");
-        bardSkills.add("intimidation");
-        bardSkills.add("investigation");
-        bardSkills.add("medicine");
-        bardSkills.add("nature");
-        bardSkills.add("perception");
-        bardSkills.add("performance");
-        bardSkills.add("persuasion");
-        bardSkills.add("religion");
-        bardSkills.add("sleightofHand");
-        bardSkills.add("stealth");
-        bardSkills.add("survival");
+        ArrayList<String> validSkills= new ArrayList<>();
+        validSkills.add("acrobatics");
+        validSkills.add("animalHandeling");
+        validSkills.add("arcana");
+        validSkills.add("athletics");
+        validSkills.add("deception");
+        validSkills.add("history");
+        validSkills.add("insight");
+        validSkills.add("intimidation");
+        validSkills.add("investigation");
+        validSkills.add("medicine");
+        validSkills.add("nature");
+        validSkills.add("perception");
+        validSkills.add("performance");
+        validSkills.add("persuasion");
+        validSkills.add("religion");
+        validSkills.add("sleightofHand");
+        validSkills.add("stealth");
+        validSkills.add("survival");
 
         Random randomize = new Random();
-        String x = bardSkills.get(randomize.nextInt(bardSkills.size()));
-        setSkills(parseBoolean(x));
-        String y = bardSkills.get(randomize.nextInt(bardSkills.size()));
-        while (x.equals(y)) {
-            y = bardSkills.get(randomize.nextInt(bardSkills.size()));
+        for (int i = 0; i < 3 ; i++) {
+            String skill = validSkills.get(randomize.nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        setSkills(parseBoolean(y));
-        String z = bardSkills.get(randomize.nextInt(bardSkills.size()));
-        while (x.equals(z) || y.equals(z)){
-            z = bardSkills.get(randomize.nextInt(bardSkills.size()));
-        }
-        setSkills(parseBoolean(z));
 
         List<String> proficiency = new ArrayList<>();
         proficiency.add("Light armor");
@@ -248,6 +241,11 @@ public class Bard extends Character{
             }
         }
         return health;
+    }
+
+    @Override
+    public void setSkills(boolean skill) {
+
     }
 
     @Override

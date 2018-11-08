@@ -17,22 +17,20 @@ public class Wizard extends Character {
         dc=setSpellSaveDC(intel);
         totalHealth=setHealth(totalHealth,level);
 
-        List<String> wizardSkills = new ArrayList<>();
-        wizardSkills.add("arcana");
-        wizardSkills.add("history");
-        wizardSkills.add("insight");
-        wizardSkills.add("investigation");
-        wizardSkills.add("medicine");
-        wizardSkills.add("religion");
+        ArrayList<String> validSkills= new ArrayList<>();
+        validSkills.add("arcana");
+        validSkills.add("history");
+        validSkills.add("insight");
+        validSkills.add("investigation");
+        validSkills.add("medicine");
+        validSkills.add("religion");
 
         Random randomize = new Random();
-        String x = wizardSkills.get(randomize.nextInt(wizardSkills.size()));
-        setSkills(parseBoolean(x));
-        String y = wizardSkills.get(randomize.nextInt(wizardSkills.size()));
-        while (x.equals(y)) {
-            y = wizardSkills.get(randomize.nextInt(wizardSkills.size()));
+        for (int i = 0; i < 2 ; i++) {
+            String skill = validSkills.get(randomize.nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        setSkills(parseBoolean(y));
 
         List<String> proficiency = new ArrayList<>();
         proficiency.add("Daggers");
@@ -199,6 +197,11 @@ public class Wizard extends Character {
             }
         }
         return health;
+    }
+
+    @Override
+    public void setSkills(boolean skill) {
+
     }
 
     @Override

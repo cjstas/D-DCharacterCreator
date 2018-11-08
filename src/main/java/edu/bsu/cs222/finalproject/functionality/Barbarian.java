@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static java.lang.Boolean.parseBoolean;
-
 public class Barbarian extends Character {
 
     private List<String> equipment = new ArrayList<>();
@@ -22,22 +20,20 @@ public class Barbarian extends Character {
         boolean spellcaster = false;
         totalHealth=setHealth(totalHealth,level);
 
-        List<String> barbSkills =  new ArrayList<>();
-        barbSkills.add("animalHandling");
-        barbSkills.add("athletics");
-        barbSkills.add("intimidation");
-        barbSkills.add("nature");
-        barbSkills.add("perception");
-        barbSkills.add("survival");
+        ArrayList<String> validSkills= new ArrayList<>();
+        validSkills.add("animalHandling");
+        validSkills.add("athletics");
+        validSkills.add("intimidation");
+        validSkills.add("nature");
+        validSkills.add("perception");
+        validSkills.add("survival");
 
         Random randomize = new Random();
-        String x = barbSkills.get(randomize.nextInt(barbSkills.size()));
-        setSkills(parseBoolean(x));
-        String z = barbSkills.get(randomize.nextInt(barbSkills.size()));
-        while (x.equals(z)) {
-            z = barbSkills.get(randomize.nextInt(barbSkills.size()));
+        for (int i = 0; i < 2 ; i++) {
+            String skill = validSkills.get(randomize.nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        setSkills(parseBoolean(z));
 
         List<String> proficiency = new ArrayList<>();
         proficiency.add("Light Armour");

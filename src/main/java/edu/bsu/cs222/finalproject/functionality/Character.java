@@ -43,24 +43,7 @@ public abstract class Character implements CharacterInterface {
     public boolean wisST;
     public boolean chaST;
 
-    public boolean acrobatics;
-    public boolean animalHandling;
-    public boolean arcana;
-    public boolean athletics;
-    public boolean deception;
-    public boolean history;
-    public boolean insight;
-    public boolean initimidation;
-    public boolean investigation;
-    public boolean medicine;
-    public boolean nature;
-    public boolean perception;
-    public boolean performance;
-    public boolean persuation;
-    public boolean religion;
-    public boolean sleightofHand;
-    public boolean stealth;
-    public boolean survival;
+    public List<String> knownSkills = new ArrayList<>();
 
     public int cantripKnown=0;
     public int spellsKnown=0;
@@ -286,11 +269,6 @@ public abstract class Character implements CharacterInterface {
     @Override
     public boolean getSkills(boolean skill) {
         return skill;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-        skill=true;
     }
 
     @Override

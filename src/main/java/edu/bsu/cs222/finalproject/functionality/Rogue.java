@@ -6,8 +6,8 @@ import java.util.Random;
 
 import static java.lang.Boolean.parseBoolean;
 
-public class rogue extends Character {
-    public rogue(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
+public class Rogue extends Character {
+    public Rogue(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
         setSavingThrow(dexST);
         setSavingThrow(intelST);
@@ -16,35 +16,24 @@ public class rogue extends Character {
         dc=setSpellSaveDC(intel);
         totalHealth=setHealth(totalHealth,level);
 
-        List<String> rogueSkills = new ArrayList<>();
-        rogueSkills.add("acrobatics");
-        rogueSkills.add("athletics");
-        rogueSkills.add("deception");
-        rogueSkills.add("insight");
-        rogueSkills.add("intimidation");
-        rogueSkills.add("investigation");
-        rogueSkills.add("perception");
-        rogueSkills.add("performance");
-        rogueSkills.add("persuasion");
-        rogueSkills.add("sleightofHand");
-        rogueSkills.add("stealth");
+        ArrayList<String> validSkills= new ArrayList<>();
+        validSkills.add("acrobatics");
+        validSkills.add("athletics");
+        validSkills.add("deception");
+        validSkills.add("insight");
+        validSkills.add("intimidation");
+        validSkills.add("investigation");
+        validSkills.add("perception");
+        validSkills.add("performance");
+        validSkills.add("persuasion");
+        validSkills.add("sleightofHand");
+        validSkills.add("stealth");
 
         Random randomize = new Random();
-        String x = rogueSkills.get(randomize.nextInt(rogueSkills.size()));
-        setSkills(parseBoolean(x));
-        String y = rogueSkills.get(randomize.nextInt(rogueSkills.size()));
-        while (x.equals(y)) {
-            y = rogueSkills.get(randomize.nextInt(rogueSkills.size()));
-        }
-        setSkills(parseBoolean(y));
-        String z = rogueSkills.get(randomize.nextInt(rogueSkills.size()));
-        while (x.equals(z) || y.equals(z)){
-            z = rogueSkills.get(randomize.nextInt(rogueSkills.size()));
-        }
-        setSkills(parseBoolean(z));
-        String zz = rogueSkills.get(randomize.nextInt(rogueSkills.size()));
-        while (z.equals(zz) || y.equals(zz) || x.equals(zz)){
-            zz = rogueSkills.get(randomize.nextInt(rogueSkills.size()));
+        for (int i = 0; i < 4 ; i++) {
+            String skill = validSkills.get(randomize.nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
 
         List<String> proficiency = new ArrayList<>();
@@ -235,6 +224,11 @@ public class rogue extends Character {
             }
         }
         return health;
+    }
+
+    @Override
+    public void setSkills(boolean skill) {
+
     }
 
     @Override
