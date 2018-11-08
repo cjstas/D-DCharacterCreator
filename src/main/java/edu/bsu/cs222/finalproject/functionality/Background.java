@@ -368,11 +368,344 @@ public class Background {
     public static final Map<Integer, String> guildArtisanBondMap = createGuildArtisanBondMap();
     public static Map<Integer, String> createGuildArtisanBondMap() {
         Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"The workshop where I learned my trade is the most important place in the world to me.");
+        myMap.put(2,"I created a great work for someone, and then found them unworthy to receive it. I’m still looking for someone worthy.");
+        myMap.put(3,"I owe my guild a great debt for forging me into the person I am today.");
+        myMap.put(4,"I pursue wealth to secure someone’s love.");
+        myMap.put(5,"One day I will return to my guild and prove that I am the greatest artisan of them all.");
+        myMap.put(6,"I will get revenge on the evil forces that destroyed my place of business and ruined my livelihood.");
         return myMap;
     }
 
     public static final Map<Integer, String> guildArtisanFlawMap = createGuildArtisanFlawMap();
     public static Map<Integer, String> createGuildArtisanFlawMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I’ll do anything to get my hands on something rare or priceless.");
+        myMap.put(2,"I’m quick to assume that someone is trying to cheat me.");
+        myMap.put(3,"No one must ever learn that I once stole money from guild coffers.");
+        myMap.put(4,"I’m never satisfied with what I have— I always want more.");
+        myMap.put(5,"I would kill to acquire a noble title.");
+        myMap.put(6,"I’m horribly jealous of anyone who can outshine my handiwork. Everywhere I go, I’m surrounded by rivals.");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> hermitMap = createHermitMap();
+    public static Map<Integer,String> createHermitMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I was searching for spiritual enlightenment.");
+        myMap.put(2,"I was partaking of communal living in accordance with the dictates of a religious order.");
+        myMap.put(3,"I was exiled for a crime I didn’t commit.");
+        myMap.put(4,"I retreated from society after a life-altering event.");
+        myMap.put(5,"I needed a quiet place to work on my art, literature, music, or manifesto.");
+        myMap.put(6,"I needed to commune with nature, far from civilization.");
+        myMap.put(7,"I was the caretaker of an ancient ruin or relic.");
+        myMap.put(8,"I was a pilgrim in search of a person, place, or relic of spiritual significance.");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> hermitPTMap = createHermitPTMap();
+    public static Map<Integer,String> createHermitPTMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I’ve been isolated for so long that I rarely speak, preferring gestures and the occasional grunt.");
+        myMap.put(2,"I am utterly serene, even in the face of disaster.");
+        myMap.put(3,"The leader of my community had something wise to say on every topic, and I am eager to share that wisdom.");
+        myMap.put(4,"I feel tremendous empathy for all who suffer.");
+        myMap.put(5,"I’m oblivious to etiquette and social expectations.");
+        myMap.put(6,"I connect everything that happens to me to a grand, cosmic plan.");
+        myMap.put(7,"I often get lost in my own thoughts and contemplation, becoming oblivious to my surroundings.");
+        myMap.put(8,"I am working on a grand philosophical theory and love sharing my ideas.");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> hermitIdealMap = createHermitIdealMap();
+    public static Map<Integer,String> createHermitIdealMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"Greater Good: My gifts are meant to be shared with all, not used for my own benefit. (Good)");
+        myMap.put(2,"Logic: Emotions must not cloud our sense of what is right and true, or our logical thinking. (Lawful)");
+        myMap.put(3,"Free Thinking: Inquiry and curiosity are the pillars of progress. (Chaotic)");
+        myMap.put(4,"Power: Solitude and contemplation are paths toward mystical or magical power. (Evil)");
+        myMap.put(5,"Live and Let Live: Meddling in the affairs of others only causes trouble. (Neutral)");
+        myMap.put(6,"Self-Knowledge: If you know yourself, there’s nothing left to know. (Any)");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> hermitBondMap = createHermitBondMap();
+    public static Map<Integer,String> createHermitBondMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"Nothing is more important than the other members of my hermitage, order, or association.");
+        myMap.put(2,"I entered seclusion to hide from the ones who might still be hunting me. I must someday confront them.");
+        myMap.put(3,"I’m still seeking the enlightenment I pursued in my seclusion, and it still eludes me.");
+        myMap.put(4,"I entered seclusion because I loved someone I could not have.");
+        myMap.put(5,"Should my discovery come to light, it could bring ruin to the world.");
+        myMap.put(6,"My isolation gave me great insight into a great evil that only I can destroy.");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> hermitFlawMap = createHermitFlawMap();
+    public static Map<Integer,String> createHermitFlawMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"Now that I've returned to the world, I enjoy its delights a little too much.");
+        myMap.put(2,"I harbor dark, bloodthirsty thoughts that my isolation and meditation failed to quell.");
+        myMap.put(3,"I am dogmatic in my thoughts and philosophy.");
+        myMap.put(4,"I let my need to win arguments overshadow friendships and harmony.");
+        myMap.put(5,"I’d risk too much to uncover a lost bit of knowledge.");
+        myMap.put(6,"I like keeping secrets and won’t share them with anyone.");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> noblePTMap = createNoblePTMap();
+    public static Map<Integer,String> createNoblePTMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.");
+        myMap.put(2,"The common folk love me for my kindness and generosity.");
+        myMap.put(3,"No one could doubt by looking at my regal bearing that I am a cut above the unwashed masses.");
+        myMap.put(4,"I take great pains to always look my best and follow the latest fashions.");
+        myMap.put(5,"I don’t like to get my hands dirty, and I won’t be caught dead in unsuitable accommodations.");
+        myMap.put(6,"Despite my noble birth, I do not place myself above other folk. We all have the same blood.");
+        myMap.put(7,"My favor, once lost, is lost forever.");
+        myMap.put(8,"If you do me an injury, I will crush you, ruin your name, and salt your fields.");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> nobleIdealMap = createNobleIdealMap();
+    public static Map<Integer,String> createNobleIdealMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"Respect: Respect is due to me because of my position, but all people regardless of station deserve to be treated with dignity. (Good)");
+        myMap.put(2,"Responsibility: It is my duty to respect the authority of those above me, just as those below me must respect mine. (Lawful)");
+        myMap.put(3,"Independence: I must prove that I can handle myself without the coddling of my family. (Chaotic)");
+        myMap.put(4,"Power: If I can attain more power, no one will tell me what to do. (Evil)");
+        myMap.put(5,"Family: Blood runs thicker than water. (Any)");
+        myMap.put(6,"Noble Obligation: It is my duty to protect and care for the people beneath me. (Good)");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> nobleBondMap = createNobleBondMap();
+    public static Map<Integer,String> createNobleBondMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I will face any challenge to win the approval of my family.");
+        myMap.put(2,"My house’s alliance with another noble family must be sustained at all costs.");
+        myMap.put(3,"Nothing is more important than the other members of my family.");
+        myMap.put(4,"I am in love with the heir of a family that my family despises.");
+        myMap.put(5,"My loyalty to my sovereign is unwavering.");
+        myMap.put(6,"The common folk must see me as a hero of the people.");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> nobleFlawMap = createNobleFlawMap();
+    public static Map<Integer,String> createNobleFlawMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I secretly believe that everyone is beneath me.");
+        myMap.put(2,"I hide a truly scandalous secret that could ruin my family forever.");
+        myMap.put(3,"I too often hear veiled insults and threats in every word addressed to me, and I’m quick to anger.");
+        myMap.put(4,"I have an insatiable desire for carnal pleasures.");
+        myMap.put(5,"In fact, the world does revolve around me.");
+        myMap.put(6,"By my words and actions, I often bring shame to my family.");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> outlanderMap = createOutlanderMap();
+    public static Map<Integer,String> createOutlanderMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"Forester");
+        myMap.put(2,"Trapper");
+        myMap.put(3,"Homesteader");
+        myMap.put(4,"Guide");
+        myMap.put(5,"Bounty hunter");
+        myMap.put(6,"Exile or outcast");
+        myMap.put(7,"Pilgrim");
+        myMap.put(8,"Tribal nomad");
+        myMap.put(9,"Hunter-gatherer");
+        myMap.put(10,"Tribal marauder");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> outlanderPTMap = createOutlanderPTMap();
+    public static Map<Integer,String> createOutlanderPTMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I’m driven by a wanderlust that led me away from home.");
+        myMap.put(2,"I watch over my friends as if they were a litter of newborn pups.");
+        myMap.put(3,"I once ran twenty-five miles without stopping to warn to my clan of an approaching orc horde. I’d do it again if I had to.");
+        myMap.put(4,"I have a lesson for every situation, drawn from observing nature.");
+        myMap.put(5,"I place no stock in wealthy or well-mannered folk. Money and manners won’t save you from a hungry owlbear.");
+        myMap.put(6,"I’m always picking things up, absently fiddling with them, and sometimes accidentally breaking them.");
+        myMap.put(7,"I feel far more comfortable around animals than people.");
+        myMap.put(8,"I was, in fact, raised by wolves.");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> outlanderIdealMap = createOutlanderIdealMap();
+    public static Map<Integer,String> createOutlanderIdealMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"Change: Life is like the seasons, in constant change, and we must change with it. (Chaotic)");
+        myMap.put(2,"Greater Good: It is each person’s responsibility to make the most happiness for the whole tribe. (Good)");
+        myMap.put(3,"Honor: If I dishonor myself, I dishonor my whole clan. (Lawful)");
+        myMap.put(4,"Might: The strongest are meant to rule. (Evil)");
+        myMap.put(5,"Nature: The natural world is more important than all the constructs of civilization. (Neutral)");
+        myMap.put(6,"Glory: I must earn glory in battle, for myself and my clan. (Any)");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> outlanderBondMap = createOutlanderBondMap();
+    public static Map<Integer,String> createOutlanderBondMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"My family, clan, or tribe is the most important thing in my life, even when they are far from me.");
+        myMap.put(2,"An injury to the unspoiled wilderness of my home is an injury to me.");
+        myMap.put(3,"I will bring terrible wrath down on the evildoers who destroyed my homeland.");
+        myMap.put(4,"I am the last of my tribe, and it is up to me to ensure their names enter legend.");
+        myMap.put(5,"I suffer awful visions of a coming disaster and will do anything to prevent it.");
+        myMap.put(6,"It is my duty to provide children to sustain my tribe.");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> outlanderFlawMap = createOutlanderFlawMap();
+    public static Map<Integer,String> createOutlanderFlawMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I am too enamored of ale, wine, and other intoxicants.");
+        myMap.put(2,"There’s no room for caution in a life lived to the fullest.");
+        myMap.put(3,"I remember every insult I’ve received and nurse a silent resentment toward anyone who’s ever wronged me.");
+        myMap.put(4,"I am slow to trust members of other races, tribes, and societies.");
+        myMap.put(5,"Violence is my answer to almost any challenge.");
+        myMap.put(6,"Don’t expect me to save those who can’t save themselves. It is nature’s way that the strong thrive and the weak perish.");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> sageMap = createSageMap();
+    public static Map<Integer,String> createSageMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"Alchemist");
+        myMap.put(2,"Astronomer");
+        myMap.put(3,"Discredited academic");
+        myMap.put(4,"Librarian");
+        myMap.put(5,"Professor");
+        myMap.put(6,"Researcher");
+        myMap.put(7,"Wizard’s apprentice");
+        myMap.put(8,"Scribe");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> sagePTMap = createSagePTMap();
+    public static Map<Integer,String> createSagePTMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"I use polysyllabic words that convey the impression of great erudition.");
+        myMap.put(2,"I've read every book in the world’s greatest libraries—or I like to boast that I have.");
+        myMap.put(3,"I'm used to helping out those who aren’t as smart as I am, and I patiently explain anything and everything to others.");
+        myMap.put(4,"There’s nothing I like more than a good mystery.");
+        myMap.put(5,"I’m willing to listen to every side of an argument before I make my own judgment.");
+        myMap.put(6,"I . . . speak . . . slowly . . . when talking . . . to idiots, . . . which . . . almost . . . everyone . . . is . . . compared . . . to me.");
+        myMap.put(7,"I am horribly, horribly awkward in social situations.");
+        myMap.put(8,"I’m convinced that people are always trying to steal my secrets.");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> sageIdealMap = createSageIdealMap();
+    public static Map<Integer,String> createSageIdealMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        myMap.put(1,"Knowledge. The path to power and self-improvement is through knowledge. (Neutral)");
+        myMap.put(2,"Beauty. What is beautiful points us beyond itself toward what is true. (Good)");
+        myMap.put(3,"Logic. Emotions must not cloud our logical thinking. (Lawful)");
+        myMap.put(4,"No Limits. Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)");
+        myMap.put(5,"Power. Knowledge is the path to power and domination. (Evil)");
+        myMap.put(6,"Self-Improvement. The goal of a life of study is the betterment of oneself. (Any)");
+        return myMap;
+    }
+
+    public static final Map<Integer, String> sageBondMap = createSageBondMap();
+    public static Map<Integer,String> createSageBondMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> sageFlawMap = createSageFlawMap();
+    public static Map<Integer,String> createSageFlawMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> sailorMap = createSailorMap();
+    public static Map<Integer,String> createSailorMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> sailorPTMap = createSailorPTMap();
+    public static Map<Integer,String> createSailorPTMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> sailorIdealMap = createSailorIdealMap();
+    public static Map<Integer,String> createSailorIdealMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> sailorBondMap = createSailorBondMap();
+    public static Map<Integer,String> createSailorBondMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> sailorFlawMap = createSailorFlawMap();
+    public static Map<Integer,String> createSailorFlawMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+    public static final Map<Integer, String> soliderMap = createSoliderMap();
+    public static Map<Integer,String> createSoliderMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> soliderPTMap = createSoliderPTMap();
+    public static Map<Integer,String> createSoliderPTMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> soliderIdealMap = createSoliderIdealMap();
+    public static Map<Integer,String> createSoliderIdealMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> soliderBondMap = createSoliderBondMap();
+    public static Map<Integer,String> createSoliderBondMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> soliderFlawMap = createSoliderFlawMap();
+    public static Map<Integer,String> createSoliderFlawMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> urchinMap = createUrchinMap();
+    public static Map<Integer,String> createUrchinMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> urchinPTMap = createUrchinPTMap();
+    public static Map<Integer,String> createUrchinPTMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> urchinIdealMap = createUrchinIdealMap();
+    public static Map<Integer,String> createUrchinIdealMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> urchinBondMap = createUrchinBondMap();
+    public static Map<Integer,String> createUrchinBondMap() {
+        Map<Integer, String> myMap = new HashMap<>();
+        return myMap;
+    }
+
+    public static final Map<Integer, String> urchinFlawMap = createUrchinFlawMap();
+    public static Map<Integer,String> createUrchinFlawMap() {
         Map<Integer, String> myMap = new HashMap<>();
         return myMap;
     }

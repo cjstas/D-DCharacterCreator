@@ -6,7 +6,7 @@ public class TextFieldCustom extends TextField {
 
     public Boolean isEmpty(){
         try{
-            String  test = getText();
+            String test = getText();
         }catch (NullPointerException e){
             return true;
         }
