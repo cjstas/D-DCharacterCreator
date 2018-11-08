@@ -33,14 +33,12 @@ public class Bard extends Character{
         bardSkills.add("medicine");
         bardSkills.add("nature");
         bardSkills.add("perception");
+        bardSkills.add("performance");
         bardSkills.add("persuasion");
         bardSkills.add("religion");
         bardSkills.add("sleightofHand");
         bardSkills.add("stealth");
         bardSkills.add("survival");
-
-        sa=setSpellcastingAbility(cha);
-        dc=setSpellSaveDC(cha);
 
         Random randomize = new Random();
         String x = bardSkills.get(randomize.nextInt(bardSkills.size()));
