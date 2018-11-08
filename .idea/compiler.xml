@@ -6,18 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TeamF222.3New" />
         <module name="TeamFFinalProject" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="TeamF222.3New" target="9" />
+      <module name="TeamFFinalProject" target="9" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="TeamF222.3New" options="" />
-      <module name="TeamFFinalProject" options="--add-modules=javafx.graphics,javafx.controls,javafx.base,jdk.internal.vm.ci --add-exports=jdk.internal.vm.ci/jdk.vm.ci.sparc=ALL-UNNAMED" />
+      <module name="TeamFFinalProject" options="--add-modules=javafx.graphics,javafx.controls,javafx.base" />
     </option>
   </component>
 </project>
