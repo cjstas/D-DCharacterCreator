@@ -122,6 +122,10 @@ public class Wizard extends Character {
         }
     }
 
+    public Wizard() {
+
+    }
+
     @Override
     public int getSpeed() {
         return 0;

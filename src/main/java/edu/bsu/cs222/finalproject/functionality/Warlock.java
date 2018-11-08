@@ -155,6 +155,10 @@ public class Warlock extends Character {
         }
     }
 
+    public Warlock() {
+
+    }
+
     @Override
     public int getSpeed() {
         return 0;

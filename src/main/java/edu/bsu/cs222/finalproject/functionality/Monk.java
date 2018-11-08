@@ -129,6 +129,10 @@ public class Monk extends Character {
         }
     }
 
+    public Monk() {
+
+    }
+
     @Override
     public int getSpeed() {
         return 0;

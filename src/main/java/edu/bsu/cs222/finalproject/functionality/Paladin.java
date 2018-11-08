@@ -121,6 +121,10 @@ public class Paladin extends Character {
         }
     }
 
+    public Paladin() {
+
+    }
+
     @Override
     public int getSpeed() {
         return 0;

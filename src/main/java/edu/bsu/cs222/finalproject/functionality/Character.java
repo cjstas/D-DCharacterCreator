@@ -29,6 +29,7 @@ public abstract class Character implements CharacterInterface {
     public String sTrait;
     public int sa;
     public int dc;
+    public int subrace;
 
     public List<String> language = new ArrayList<>();
     public List<String> abilities = new ArrayList<>();
@@ -138,8 +139,7 @@ public abstract class Character implements CharacterInterface {
         intelligence = intel;
         wisdom = wis;
         charisma = cha;
-        Random randomize = new Random();
-        setRaceBonus(r,randomize.nextInt(2));
+        setRaceBonus();
     }
 
     public String getCharacterName() {
@@ -281,8 +281,9 @@ public abstract class Character implements CharacterInterface {
         return 8+getProficiencyBonus()+getMod(dc);
     }
 
-    public void setRaceBonus(String race, int mod){
-        switch(race){
+    public void setRaceBonus(){
+        setSubrace();
+        switch(this.race){
             case "Dwarf":
                 setConstitution(getConstitution()+2);
                 setSpeed(25);
@@ -292,11 +293,11 @@ public abstract class Character implements CharacterInterface {
                 abilities.add("Dwarven Combat Training");
                 abilities.add("Tool Proficiency");
                 abilities.add("Stonecunning");
-                if (mod == 0){
+                if (subrace == 0){
                     setRace("Hill Dwarf");
                     setWisdom(getWisdom()+1);
                     abilities.add("Dwarven Toughness");
-                } if (mod == 1){
+                } if (subrace == 1){
                     setRace("Mountain Dwarf");
                     setStrength(getStrength()+2);
                     abilities.add("Dwarven Armour Training");
@@ -309,19 +310,19 @@ public abstract class Character implements CharacterInterface {
                 abilities.add("Keen Senses");
                 abilities.add("Fey Ancestry");
                 abilities.add("Trance");
-                if (mod==0){
+                if (subrace==0){
                     setIntelligence(getIntelligence()+1);
                     abilities.add("Elf Weapon Training");
                     setRace("High Elf");
                 }
-                if (mod==1){
+                if (subrace==1){
                     setRace("Wood Elf");
                     setWisdom(getWisdom()+1);
                     abilities.add("Elf Weapon Proficiency");
                     abilities.add("Fleet of Foot");
                     setSpeed(35);
                     abilities.add("Mask of the Wild");
-                } if(mod==2){
+                } if(subrace==2){
                     setRace("Drow Elf");
                     setCharisma(getCharisma()+1);
                     abilities.add("Superior Darkvision");
@@ -338,12 +339,12 @@ public abstract class Character implements CharacterInterface {
                 abilities.add("Halfling Nimbleness");
                 language.add("Common");
                 language.add("Halfling");
-                if (mod==0){
+                if (subrace==0){
                     setRace("Lightfoot Halfling");
                     setCharisma(getCharisma()+1);
                     abilities.add("Naturally Stealthy");
                 }
-                if (mod==1){
+                if (subrace==1){
                     setRace("Stout Halfling");
                     setConstitution(getConstitution()+1);
                     abilities.add("Stout Resilience");
@@ -376,13 +377,13 @@ public abstract class Character implements CharacterInterface {
                 abilities.add("Gnome Cunning");
                 language.add("Common");
                 language.add("Gnomish");
-                if (mod==0){
+                if (subrace==0){
                     setRace("Forest Gnome");
                     setDexterity(getDexterity()+1);
                     abilities.add("Natural Illusionist");
                     abilities.add("Speak with Small Beasts");
                 }
-                if (mod==1){
+                if (subrace==1){
                     setRace("Rock Gnome");
                     setConstitution(getConstitution()+1);
                     abilities.add("Artificer's Lore");
@@ -418,6 +419,71 @@ public abstract class Character implements CharacterInterface {
                 abilities.add("Infernal Legacy");
                 language.add("Common");
                 language.add("Infernal");
+                break;
+        }
+    }
+
+    private void setSubrace(){
+        switch(this.race){
+            case "Mountain Dwarf":
+                subrace = 0;
+                this.race = "Dwarf";
+                break;
+            case "Hill Dwarf":
+                subrace = 1;
+                this.race = "Dwarf";
+                break;
+            case "High Elf":
+                subrace = 0;
+                this.race = "Elf";
+                break;
+            case "Wood Elf":
+                subrace = 1;
+                this.race = "Elf";
+                break;
+            case "Dark Elf/ Drow":
+                subrace = 2;
+                this.race = "Elf";
+                break;
+            case "Stout Halfling":
+                subrace = 0;
+                this.race = "Halfling";
+                break;
+            case "Lightfoot Halfling":
+                subrace = 1;
+                this.race = "Halfing";
+                break;
+            case "Human":
+                subrace = 0;
+                this.race = "Human";
+                break;
+            case "Dragonborn":
+                subrace = 0;
+                this.race = "Dragonborn";
+                break;
+            case "Rock Gnome":
+                subrace = 0;
+                this.race = "Gnome";
+                break;
+            case "Forest Gnome":
+                subrace = 1;
+                this.race = "Gnome";
+                break;
+            case "Half-Elf":
+                subrace = 0;
+                this.race = "Half-Elf";
+                break;
+            case "Half-Orc":
+                subrace = 0;
+                this.race = "Half-Orc";
+                break;
+            case "Tiefling":
+                subrace = 0;
+                this.race = "Tiefling";
+                break;
+            case "Homebrew":
+                subrace = 0;
+                this.race = "Custom";
                 break;
         }
     }

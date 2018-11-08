@@ -132,6 +132,10 @@ public class Druid extends Character {
         }
     }
 
+    public Druid() {
+
+    }
+
     @Override
     public int getSpeed() {
         return 0;

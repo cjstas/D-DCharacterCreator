@@ -30,10 +30,8 @@ public class InfoHolding {
 
     public static ObservableList <String> classesArray() {
         ObservableList <String> list = FXCollections.observableArrayList();
-        /*
-         *todo uncomment when the classes are ready
-         */
-        String[] item = {"Barbarian", "Bard"/*, "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"*/};
+
+        String[] item = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
         for(String e: item){
             list.add(e);
         }
@@ -43,9 +41,9 @@ public class InfoHolding {
 
     public static ObservableList <String> racesArray() {
         ObservableList <String> list = FXCollections.observableArrayList();
-        String[] item = {"Dwarf", "Mountain Dwarf", "Hill Dwarf", "Elf", "High Elf",
-                         "Wood Elf", "Dark Elf/ Drow", "Hafling", "Stout Hafling",
-                         "Lightfoot Hafling", "Human", "Dragonborn", "Gnome",
+        String[] item = { "Mountain Dwarf", "Hill Dwarf",  "High Elf",
+                         "Wood Elf", "Dark Elf/ Drow", "Stout Halfling",
+                         "Lightfoot Halfling", "Human", "Dragonborn",
                          "Rock Gnome", "Forest Gnome", "Half-Elf", "Half-Orc", "Tiefling", "Homebrew"};
         for(String e: item){
             list.add(e);
