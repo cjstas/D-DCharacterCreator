@@ -10,8 +10,8 @@ public class Ranger extends Character {
 
     public Ranger(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
-        setSavingThrow(dexST);
-        setSavingThrow(strST);
+        dexST=true;
+        strST=true;
 
         sa=setSpellcastingAbility(wis);
         dc=setSpellSaveDC(wis);
@@ -34,7 +34,6 @@ public class Ranger extends Character {
             knownSkills.add(skill);
         }
 
-        List<String> proficiency = new ArrayList<>();
         proficiency.add("Light armor");
         proficiency.add("Medium armor");
         proficiency.add("Shields");
@@ -47,7 +46,6 @@ public class Ranger extends Character {
         equipment.add("20 arrows");
         items.add("Choose one: a dungeoneer's pack or an explorer's pack");
 
-        List<String> classAbilities = new ArrayList<>();
         classAbilities.add("Favored Enemy");
         classAbilities.add("Natural Explorer");
 
@@ -216,11 +214,6 @@ public class Ranger extends Character {
             }
         }
         return health;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-
     }
 
     @Override

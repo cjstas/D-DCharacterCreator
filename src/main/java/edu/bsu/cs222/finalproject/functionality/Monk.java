@@ -11,8 +11,8 @@ public class Monk extends Character {
 
     public Monk(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
-        setSavingThrow(strST);
-        setSavingThrow(dexST);
+        strST=true;
+        dexST=true;
 
         totalHealth=setHealth(totalHealth,level);
 
@@ -31,7 +31,6 @@ public class Monk extends Character {
             knownSkills.add(skill);
         }
 
-        List<String> proficiency = new ArrayList<>();
         proficiency.add("Simple Weapons");
         proficiency.add("Shortswords");
         proficiency.add("Choose one type of artisan's tool or one musical instrument");
@@ -40,7 +39,6 @@ public class Monk extends Character {
         equipment.add("10 darts");
         items.add("Choose one: Dungeoneer's pack or an Explorer's Pack");
 
-        List<String> classAbilities = new ArrayList<>();
         classAbilities.add("Unarmored Defense");
         classAbilities.add("Martial Arts");
 
@@ -208,11 +206,6 @@ public class Monk extends Character {
             }
         }
         return health;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-
     }
 
     @Override

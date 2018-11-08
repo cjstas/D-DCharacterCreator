@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static java.lang.Boolean.parseBoolean;
-
 public class Bard extends Character{
 
     public Bard(){
@@ -14,8 +12,8 @@ public class Bard extends Character{
 
     public Bard(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
-        setSavingThrow(dexST);
-        setSavingThrow(chaST);
+        dexST=true;
+        chaST=true;
 
         sa=setSpellcastingAbility(cha);
         dc=setSpellSaveDC(cha);
@@ -48,7 +46,6 @@ public class Bard extends Character{
             knownSkills.add(skill);
         }
 
-        List<String> proficiency = new ArrayList<>();
         proficiency.add("Light armor");
         proficiency.add("Simple weapons");
         proficiency.add("Hand crossbows");
@@ -241,11 +238,6 @@ public class Bard extends Character{
             }
         }
         return health;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-
     }
 
     @Override

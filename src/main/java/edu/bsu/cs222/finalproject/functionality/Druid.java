@@ -11,8 +11,8 @@ public class Druid extends Character {
     public Druid(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
 
-        setSavingThrow(wisST);
-        setSavingThrow(intelST);
+        wisST=true;
+        intelST=true;
 
         ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("animalHandeling");
@@ -35,7 +35,6 @@ public class Druid extends Character {
             knownSkills.add(skill);
         }
 
-        List<String> proficiency = new ArrayList<>();
         proficiency.add("Light armor");
         proficiency.add("Medium Armour");
         proficiency.add("Shields");
@@ -49,7 +48,6 @@ public class Druid extends Character {
         items.add("Explorer pack");
         items.add("Druid Focus");
 
-        List<String> classAbilities = new ArrayList<>();
         classAbilities.add("Spellcasting");
         classAbilities.add("Druidic");
         language.add("Druidic");
@@ -211,11 +209,6 @@ public class Druid extends Character {
             }
         }
         return health;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-
     }
 
     @Override

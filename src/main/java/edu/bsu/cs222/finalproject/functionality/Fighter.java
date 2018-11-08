@@ -11,8 +11,9 @@ public class Fighter extends Character {
     public Fighter(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
 
-        setSavingThrow(strST);
-        setSavingThrow(conST);
+        strST=true;
+        conST=true;
+
         sa=setSpellcastingAbility(intel);
         dc=setSpellSaveDC(intel);
         totalHealth=setHealth(totalHealth,level);
@@ -34,7 +35,6 @@ public class Fighter extends Character {
             knownSkills.add(skill);
         }
 
-        List<String> proficiency = new ArrayList<>();
         proficiency.add("All armour");
         proficiency.add("Shield");
         proficiency.add("Simple weapons");
@@ -45,8 +45,6 @@ public class Fighter extends Character {
         equipment.add("Choose one: A light crossbow and 20 bolts or two hand axes");
 
         items.add("Choose one: A dungeoneer's pack or an explorer's pack");
-
-        List<String> classAbilities = new ArrayList<>();
 
         classAbilities.add("Fighting style");
         classAbilities.add("Second wind");
@@ -228,11 +226,6 @@ public class Fighter extends Character {
             }
         }
         return health;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-
     }
 
     @Override

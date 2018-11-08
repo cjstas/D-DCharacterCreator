@@ -10,8 +10,8 @@ public class Wizard extends Character {
 
     public Wizard(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
-        setSavingThrow(intelST);
-        setSavingThrow(wisST);
+        intelST=true;
+        wisST=true;
 
         sa=setSpellcastingAbility(intel);
         dc=setSpellSaveDC(intel);
@@ -201,11 +201,6 @@ public class Wizard extends Character {
             }
         }
         return health;
-    }
-
-    @Override
-    public void setSkills(boolean skill) {
-
     }
 
     @Override

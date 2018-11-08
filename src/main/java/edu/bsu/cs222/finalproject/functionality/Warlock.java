@@ -1,7 +1,6 @@
 package edu.bsu.cs222.finalproject.functionality;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 
@@ -9,8 +8,8 @@ public class Warlock extends Character {
 
     public Warlock(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
         super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
-        setSavingThrow(wisST);
-        setSavingThrow(chaST);
+        wisST=true;
+        chaST=true;
 
         sa=setSpellcastingAbility(cha);
         dc=setSpellSaveDC(cha);
@@ -32,7 +31,7 @@ public class Warlock extends Character {
             knownSkills.add(skill);
         }
 
-        List<String> proficiency = new ArrayList<>();
+
         proficiency.add("Light Armor");
         proficiency.add("Simple Weapons");
 
@@ -42,8 +41,6 @@ public class Warlock extends Character {
         equipment.add("two daggers");
         items.add("a scholar's pack or a dungeoneer's pack");
         items.add("a component pouch or an arcane focus");
-
-        List<String> classAbilities = new ArrayList<>();
 
         classAbilities.add("Otherworldly Patron");
         classAbilities.add("Pact Magic");
@@ -236,10 +233,6 @@ public class Warlock extends Character {
         return health;
     }
 
-    @Override
-    public void setSkills(boolean skill) {
-
-    }
 
     @Override
     public String getLanguages() {
