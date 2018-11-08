@@ -17,24 +17,22 @@ public class Fighter extends Character {
         dc=setSpellSaveDC(intel);
         totalHealth=setHealth(totalHealth,level);
 
-        List<String> fighterSkills = new ArrayList<>();
-        fighterSkills.add("acrobatics");
-        fighterSkills.add("animalHandeling");
-        fighterSkills.add("athletics");
-        fighterSkills.add("history");
-        fighterSkills.add("insight");
-        fighterSkills.add("intimidation");
-        fighterSkills.add("perception");
-        fighterSkills.add("survival");
+        ArrayList<String> validSkills= new ArrayList<>();
+        validSkills.add("acrobatics");
+        validSkills.add("animalHandeling");
+        validSkills.add("athletics");
+        validSkills.add("history");
+        validSkills.add("insight");
+        validSkills.add("intimidation");
+        validSkills.add("perception");
+        validSkills.add("survival");
 
         Random randomize = new Random();
-        String x = fighterSkills.get(randomize.nextInt(fighterSkills.size()));
-        setSkills(parseBoolean(x));
-        String y = fighterSkills.get(randomize.nextInt(fighterSkills.size()));
-        while (x.equals(y)) {
-            y = fighterSkills.get(randomize.nextInt(fighterSkills.size()));
+        for (int i = 0; i < 2 ; i++) {
+            String skill = validSkills.get(randomize.nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        setSkills(parseBoolean(y));
 
         List<String> proficiency = new ArrayList<>();
         proficiency.add("All armour");
@@ -226,6 +224,11 @@ public class Fighter extends Character {
             }
         }
         return health;
+    }
+
+    @Override
+    public void setSkills(boolean skill) {
+
     }
 
     @Override

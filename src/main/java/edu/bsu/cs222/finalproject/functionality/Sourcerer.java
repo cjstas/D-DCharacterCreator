@@ -17,22 +17,20 @@ public class Sourcerer extends Character {
         dc=setSpellSaveDC(cha);
         totalHealth=setHealth(totalHealth,level);
 
-        List<String> sorcererSkills = new ArrayList<>();
-        sorcererSkills.add("arcana");
-        sorcererSkills.add("deception");
-        sorcererSkills.add("insight");
-        sorcererSkills.add("intimidation");
-        sorcererSkills.add("persuasion");
-        sorcererSkills.add("religion");
+        ArrayList<String> validSkills= new ArrayList<>();
+        validSkills.add("arcana");
+        validSkills.add("deception");
+        validSkills.add("insight");
+        validSkills.add("intimidation");
+        validSkills.add("persuasion");
+        validSkills.add("religion");
 
         Random randomize = new Random();
-        String x = sorcererSkills.get(randomize.nextInt(sorcererSkills.size()));
-        setSkills(parseBoolean(x));
-        String y = sorcererSkills.get(randomize.nextInt(sorcererSkills.size()));
-        while (x.equals(y)) {
-            y = sorcererSkills.get(randomize.nextInt(sorcererSkills.size()));
+        for (int i = 0; i < 2 ; i++) {
+            String skill = validSkills.get(randomize.nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        setSkills(parseBoolean(y));
 
         List<String> proficiency = new ArrayList<>();
         proficiency.add("Daggers");
@@ -215,6 +213,11 @@ public class Sourcerer extends Character {
             }
         }
         return health;
+    }
+
+    @Override
+    public void setSkills(boolean skill) {
+        
     }
 
     @Override

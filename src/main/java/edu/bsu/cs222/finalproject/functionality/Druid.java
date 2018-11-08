@@ -14,28 +14,26 @@ public class Druid extends Character {
         setSavingThrow(wisST);
         setSavingThrow(intelST);
 
-        List<String> druidSkills = new ArrayList<>();
-        druidSkills.add("animalHandeling");
-        druidSkills.add("arcana");
-        druidSkills.add("insight");
-        druidSkills.add("medicine");
-        druidSkills.add("nature");
-        druidSkills.add("perception");
-        druidSkills.add("religion");
-        druidSkills.add("survival");
+        ArrayList<String> validSkills= new ArrayList<>();
+        validSkills.add("animalHandeling");
+        validSkills.add("arcana");
+        validSkills.add("insight");
+        validSkills.add("medicine");
+        validSkills.add("nature");
+        validSkills.add("perception");
+        validSkills.add("religion");
+        validSkills.add("survival");
 
         sa=setSpellcastingAbility(wis   );
         dc=setSpellSaveDC(wis);
         totalHealth=setHealth(totalHealth,level);
 
         Random randomize = new Random();
-        String x = druidSkills.get(randomize.nextInt(druidSkills.size()));
-        setSkills(parseBoolean(x));
-        String y = druidSkills.get(randomize.nextInt(druidSkills.size()));
-        while (x.equals(y)) {
-            y = druidSkills.get(randomize.nextInt(druidSkills.size()));
+        for (int i = 0; i < 2 ; i++) {
+            String skill = validSkills.get(randomize.nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        setSkills(parseBoolean(y));
 
         List<String> proficiency = new ArrayList<>();
         proficiency.add("Light armor");
@@ -209,6 +207,11 @@ public class Druid extends Character {
             }
         }
         return health;
+    }
+
+    @Override
+    public void setSkills(boolean skill) {
+
     }
 
     @Override

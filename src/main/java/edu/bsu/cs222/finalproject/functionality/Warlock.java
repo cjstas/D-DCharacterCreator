@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static java.lang.Boolean.parseBoolean;
 
 public class Warlock extends Character {
 
@@ -17,23 +16,21 @@ public class Warlock extends Character {
         dc=setSpellSaveDC(cha);
         totalHealth=setHealth(totalHealth,level);
 
-        List<String> warlockSkills = new ArrayList<>();
-        warlockSkills.add("arcana");
-        warlockSkills.add("deception");
-        warlockSkills.add("history");
-        warlockSkills.add("intimidation");
-        warlockSkills.add("investigation");
-        warlockSkills.add("nature");
-        warlockSkills.add("religion");
+        ArrayList<String> validSkills= new ArrayList<>();
+        validSkills.add("arcana");
+        validSkills.add("deception");
+        validSkills.add("history");
+        validSkills.add("intimidation");
+        validSkills.add("investigation");
+        validSkills.add("nature");
+        validSkills.add("religion");
 
         Random randomize = new Random();
-        String x = warlockSkills.get(randomize.nextInt(warlockSkills.size()));
-        setSkills(parseBoolean(x));
-        String y = warlockSkills.get(randomize.nextInt(warlockSkills.size()));
-        while (x.equals(y)) {
-            y = warlockSkills.get(randomize.nextInt(warlockSkills.size()));
+        for (int i = 0; i < 2 ; i++) {
+            String skill = validSkills.get(randomize.nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        setSkills(parseBoolean(y));
 
         List<String> proficiency = new ArrayList<>();
         proficiency.add("Light Armor");
@@ -233,6 +230,11 @@ public class Warlock extends Character {
             }
         }
         return health;
+    }
+
+    @Override
+    public void setSkills(boolean skill) {
+
     }
 
     @Override

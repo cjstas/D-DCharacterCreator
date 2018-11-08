@@ -16,22 +16,20 @@ public class Monk extends Character {
 
         totalHealth=setHealth(totalHealth,level);
 
-        List<String> monkSkills =  new ArrayList<>();
-        monkSkills.add("acrobatics");
-        monkSkills.add("athletics");
-        monkSkills.add("history");
-        monkSkills.add("insight");
-        monkSkills.add("religion");
-        monkSkills.add("stealth");
+        ArrayList<String> validSkills= new ArrayList<>();
+        validSkills.add("acrobatics");
+        validSkills.add("athletics");
+        validSkills.add("history");
+        validSkills.add("insight");
+        validSkills.add("religion");
+        validSkills.add("stealth");
 
         Random randomize = new Random();
-        String x = monkSkills.get(randomize.nextInt(monkSkills.size()));
-        setSkills(parseBoolean(x));
-        String z = monkSkills.get(randomize.nextInt(monkSkills.size()));
-        while (x.equals(z)) {
-            z = monkSkills.get(randomize.nextInt(monkSkills.size()));
+        for (int i = 0; i < 2 ; i++) {
+            String skill = validSkills.get(randomize.nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        setSkills(parseBoolean(z));
 
         List<String> proficiency = new ArrayList<>();
         proficiency.add("Simple Weapons");
@@ -206,6 +204,11 @@ public class Monk extends Character {
             }
         }
         return health;
+    }
+
+    @Override
+    public void setSkills(boolean skill) {
+
     }
 
     @Override

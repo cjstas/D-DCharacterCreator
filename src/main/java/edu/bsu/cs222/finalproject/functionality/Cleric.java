@@ -13,25 +13,24 @@ public class Cleric extends Character{
         setSavingThrow(wisST);
         setSavingThrow(chaST);
 
-        List<String> clericSkills = new ArrayList<>();
-        clericSkills.add("history");
-        clericSkills.add("insight");
-        clericSkills.add("medicine");
-        clericSkills.add("persuasion");
-        clericSkills.add("religion");
+        ArrayList<String> validSkills= new ArrayList<>();
+        validSkills.add("history");
+        validSkills.add("insight");
+        validSkills.add("medicine");
+        validSkills.add("persuasion");
+        validSkills.add("religion");
 
         sa=setSpellcastingAbility(wis);
         dc=setSpellSaveDC(wis);
         totalHealth=setHealth(totalHealth,level);
 
+
         Random randomize = new Random();
-        String x = clericSkills.get(randomize.nextInt(clericSkills.size()));
-        setSkills(parseBoolean(x));
-        String y = clericSkills.get(randomize.nextInt(clericSkills.size()));
-        while (x.equals(y)) {
-            y = clericSkills.get(randomize.nextInt(clericSkills.size()));
+        for (int i = 0; i < 2 ; i++) {
+            String skill = validSkills.get(randomize.nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        setSkills(parseBoolean(y));
 
         List<String> proficiency = new ArrayList<>();
         proficiency.add("Light armor");
@@ -208,6 +207,11 @@ public class Cleric extends Character{
             }
         }
         return health;
+    }
+
+    @Override
+    public void setSkills(boolean skill) {
+
     }
 
     @Override

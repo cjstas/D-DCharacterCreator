@@ -17,29 +17,22 @@ public class Ranger extends Character {
         dc=setSpellSaveDC(wis);
         totalHealth=setHealth(totalHealth,level);
 
-        List<String> rangerSkills = new ArrayList<>();
-        rangerSkills.add("animalHandeling");
-        rangerSkills.add("athletics");
-        rangerSkills.add("insight");
-        rangerSkills.add("investigation");
-        rangerSkills.add("nature");
-        rangerSkills.add("perception");
-        rangerSkills.add("stealth");
-        rangerSkills.add("survival");
+        ArrayList<String> validSkills= new ArrayList<>();
+        validSkills.add("animalHandeling");
+        validSkills.add("athletics");
+        validSkills.add("insight");
+        validSkills.add("investigation");
+        validSkills.add("nature");
+        validSkills.add("perception");
+        validSkills.add("stealth");
+        validSkills.add("survival");
 
         Random randomize = new Random();
-        String x = rangerSkills.get(randomize.nextInt(rangerSkills.size()));
-        setSkills(parseBoolean(x));
-        String y = rangerSkills.get(randomize.nextInt(rangerSkills.size()));
-        while (x.equals(y)) {
-            y = rangerSkills.get(randomize.nextInt(rangerSkills.size()));
+        for (int i = 0; i < 3 ; i++) {
+            String skill = validSkills.get(randomize.nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        setSkills(parseBoolean(y));
-        String z = rangerSkills.get(randomize.nextInt(rangerSkills.size()));
-        while (x.equals(z) || y.equals(z)){
-            z = rangerSkills.get(randomize.nextInt(rangerSkills.size()));
-        }
-        setSkills(parseBoolean(z));
 
         List<String> proficiency = new ArrayList<>();
         proficiency.add("Light armor");
@@ -219,6 +212,11 @@ public class Ranger extends Character {
             }
         }
         return health;
+    }
+
+    @Override
+    public void setSkills(boolean skill) {
+
     }
 
     @Override
