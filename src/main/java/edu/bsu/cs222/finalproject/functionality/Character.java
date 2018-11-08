@@ -1,9 +1,6 @@
 package edu.bsu.cs222.finalproject.functionality;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @SuppressWarnings({"WeakerAccess", "CanBeFinal"})
 public abstract class Character implements CharacterInterface {
@@ -158,6 +155,8 @@ public abstract class Character implements CharacterInterface {
         intelligence = intel;
         wisdom = wis;
         charisma = cha;
+        Random randomize = new Random();
+        setRaceBonus(r,randomize.nextInt(2));
     }
 
     public String getCharacterName() {
@@ -402,7 +401,7 @@ public abstract class Character implements CharacterInterface {
                 if (mod==0){
                     setRace("Forest Gnome");
                     setDexterity(getDexterity()+1);
-                    abilities.add("Natural Illusionis");
+                    abilities.add("Natural Illusionist");
                     abilities.add("Speak with Small Beasts");
                 }
                 if (mod==1){
