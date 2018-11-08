@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class ListMaker {
@@ -21,7 +22,7 @@ public class ListMaker {
             e.printStackTrace();
         }
 
-        String[] SpellData = unSortedSpells.split("\n");
+        String[] SpellData = unSortedSpells.split("!");
         for(String instance: SpellData) {
             String[] SpellInstanceData = instance.split(":");
             String Name = SpellInstanceData[0];
@@ -198,6 +199,18 @@ public class ListMaker {
                 "A metal urn containing the ashes of a hero"
 
         };
+    }
+
+    public ArrayList<String> returnItemsArrayList5e() {
+        File Items = new File("src/main/resources/ItemData.txt");
+        String unSortedItems = "";
+        try {
+            unSortedItems = new String(Files.readAllBytes(Items.toPath()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String[] ItemData = unSortedItems.split("!");
+        return new ArrayList<>(Arrays.asList(ItemData));
     }
 
 }

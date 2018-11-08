@@ -295,14 +295,10 @@ public class CharacterSheets extends Application {
         cp.setPrefColumnCount(4);
     }
 
-    public void updateSheet(Character player, String sheetNumber){
-        populateSheet(sheetNumber, player);
-    }
-
-    private void populateSheet(String sheetNumber, Character player) {
+    public void populateSheet(String sheetNumber, Character player) {
         if("5".equals(sheetNumber)){
             str.setText(player.getStrength()+"");
-            dex.setText(player.getDexterity()+" ");
+            dex.setText(player.getDexterity()+"");
             cons.setText(player.getConstitution()+"");
             intel.setText(player.getIntelligence()+"");
             wis.setText(player.getWisdom()+"");
@@ -408,9 +404,7 @@ public class CharacterSheets extends Application {
         }
     }
 
-
-
-    public Scene getSpellSheet() {
+    public BorderPane getSpellSheet() {
         BorderPane spellSheet = new BorderPane();
 
         cantrips.setPrefRowCount(8);
@@ -427,7 +421,7 @@ public class CharacterSheets extends Application {
         spellSheet.setLeft(new VBox(cantrips,spellLv1,spellLv2));
         spellSheet.setCenter(new VBox(spellLv3, spellLv4, spellLv5));
         spellSheet.setLeft(new VBox(spellLv6, spellLv7, spellLv8, spellLv9));
-        return new Scene(spellSheet);
+        return spellSheet;
     }
 
     public ArrayList<String> toPrint(){

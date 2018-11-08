@@ -1,10 +1,15 @@
-package edu.bsu.cs222.finalproject.view;
+package edu.bsu.cs222.finalproject.functionality;
 
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class InfoHolding {
+
+    public static final int[] standardArray = {15,14,13,12,10,8};
+    public static final int[] eliteArray = {17,16,15,14,12,10};
+    public static final int[] dunceArray = {13,12,11,10,8,8};
+
     public static ObservableList <String> alignmentL_UArray() {
         ObservableList <String> list = FXCollections.observableArrayList();
         String[] item = {"Lawful", "Neutral", "Chaotic"};
@@ -25,7 +30,10 @@ public class InfoHolding {
 
     public static ObservableList <String> classesArray() {
         ObservableList <String> list = FXCollections.observableArrayList();
-        String[] item = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"};
+        /*
+         *todo uncomment when the classes are ready
+         */
+        String[] item = {"Barbarian", "Bard"/*, "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"*/};
         for(String e: item){
             list.add(e);
         }

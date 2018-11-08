@@ -23,4 +23,5 @@ TextArea{
 Label{
     -fx-font-family: "Yu Gothic";
     -fx-padding: 1px;
+    -fx-font-size: 12px;
 }
