@@ -5,35 +5,14 @@ import java.util.*;
 @SuppressWarnings({"WeakerAccess", "CanBeFinal"})
 public abstract class Character implements CharacterInterface {
 
+    String CharacterName, classtype, race, background, alignment, playerName;
+    int level, experience, strength, dexterity, constitution, intelligence, wisdom, charisma;
+    int speed, health, experiencePoints, proficiencyBonus, initiative, totalHealth, spellAbility, dc;
 
-    public String alignment;
-    public String playerName;
-    public int experiencePoints;
-    public int strength;
-    public int dexterity;
-    public int constitution;
-    public int intelligence;
-    public int wisdom;
-    public int charisma;
-    public String background;
-    public String race;
-    public String charName;
-    public int lvl;
-    public String classT;
     public boolean inspiration;
-    public int pb;
     public int ac = 10;
-    public int initiative;
-    public int totalHealth;
-    public String bg;
-    public String sTrait;
-    public String personalityTrait;
-    public String bond;
-    public String ideal;
-    public String flaw;
-    public int sa;
-    public int dc;
-    public int subrace;
+
+    public String bg, sTrait, personalityTrait, bond, ideal, flaw;
 
     public List<String> language = new ArrayList<>();
     public List<String> abilities = new ArrayList<>();
@@ -132,122 +111,20 @@ public abstract class Character implements CharacterInterface {
     }
 
     public Character(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha){
-        charName = cName;
-        classT = classtype;
-        lvl= level;
-        race = r;
-        background = bg;
-        alignment = align;
-        playerName =  pName;
-        experiencePoints = exp;
-        strength = str;
-        dexterity = dex;
-        constitution = con;
-        intelligence = intel;
-        wisdom = wis;
-        charisma = cha;
-        setRaceBonus();
-    }
-
-    public String getCharacterName() {
-        return charName;
-    }
-
-    public void setCharacterName(String characterName) {
-        charName=characterName;
-    }
-
-    public int getLevel() {
-        return lvl;
-    }
-
-    public void setLevel(int totalLevel) {
-        lvl=totalLevel;
-    }
-
-    public String getBackground() {
-        return bg;
-    }
-
-    public void setBackground(String background) {
-        bg=background;
-    }
-
-    public String getClassType() {
-        return classT;
-    }
-
-    public void setClassType(String classType) {
-        classT=classType;
-    }
-
-    public String getPlayerName() {
-        return playerName;
-    }
-
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
-    }
-
-    public String getRace() {
-
-        return race;
-    }
-
-    public void setRace(String race) {
+        this.CharacterName = CharacterName;
+        this.classtype = classtype;
+        this.level = level;
         this.race = race;
-    }
-
-    public String getAlignment() {
-        return alignment;
-    }
-
-    public void setAlignment(String align) {
-        alignment=align;
-    }
-
-    public int getEXP() {
-        return experiencePoints;
-    }
-
-    public void setEXP(int exp) {
-        experiencePoints = exp;
-    }
-
-    public boolean getInspiration() {
-        return inspiration;
-    }
-
-    public void setInspiration(boolean active) {
-        inspiration = active;
-    }
-
-    public int getProficiencyBonus() {
-        return pb;
-    }
-
-    public void setProficiencyBonus(int proficiencyBonus) {
-        pb= pbMap.get(proficiencyBonus);
-    }
-
-    public int getAC() {
-        return ac;
-    }
-
-    public void setAC(int armour) {
-        ac=ac+getMod(dexterity)+armour;
-    }
-
-    public int getInitiative() {
-        return initiative;
-    }
-
-    public void setInitiative(int dex) {
-        initiative=getMod(dex);
-    }
-
-    public String getSpecialTrait() {
-        return sTrait;
+        this.background = background;
+        this.alignment = allignment;
+        this.playerName=playerName;
+        this.experience = experience;
+        this.strength = strength;
+        this.dexterity = dexterity;
+        this.constitution = constitution;
+        this.intelligence = intelligence;
+        this.wisdom = wisdom;
+        this.charisma = charisma;
     }
 
     public void setBackgroundTrait(String background) {
@@ -342,22 +219,7 @@ public abstract class Character implements CharacterInterface {
         }
     }
 
-    public int setHealth(int health, int level) {
-        return 0;
-    }
-
-    @Override
-    public int setSpellcastingAbility(int ability) {
-        return getProficiencyBonus()+getMod(ability);
-    }
-
-    @Override
-    public int setSpellSaveDC(int dc) {
-        return 8+getProficiencyBonus()+getMod(dc);
-    }
-
-    public void setRaceBonus(){
-        setSubrace();
+    public void setRaceBonus(int subrace){
         switch(this.race){
             case "Dwarf":
                 setConstitution(getConstitution()+2);
@@ -561,61 +423,5 @@ public abstract class Character implements CharacterInterface {
                 this.race = "Custom";
                 break;
         }
-    }
-
-    public int getDexterity() {
-        return dexterity;
-    }
-
-    public Integer getMod(int stat){
-        return modMap.get(stat);
-    }
-
-    public int getStrength() {
-        return strength;
-    }
-
-    public void setStrength(int strength) {
-        this.strength = strength;
-    }
-
-    public void setDexterity(int dexterity) {
-        this.dexterity = dexterity;
-    }
-
-    public int getConstitution() {
-        return constitution;
-    }
-
-    public void setConstitution(int constitution) {
-        this.constitution = constitution;
-    }
-
-    public int getIntelligence() {
-        return intelligence;
-    }
-
-    public void setIntelligence(int intelligence) {
-        this.intelligence = intelligence;
-    }
-
-    public int getWisdom() {
-        return wisdom;
-    }
-
-    public void setWisdom(int wisdom) {
-        this.wisdom = wisdom;
-    }
-
-    public int getCharisma() {
-        return charisma;
-    }
-
-    public void setCharisma(int charisma) {
-        this.charisma = charisma;
-    }
-
-    public int getHealth(int health) {
-        return health;
     }
 }
