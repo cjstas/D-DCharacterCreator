@@ -11,8 +11,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
-import java.lang.Character;
-
 
 public class MainUI extends Application {
 
@@ -130,8 +128,8 @@ public class MainUI extends Application {
                 presetup.getChildren().add(warn);
             }else {
                 initPlayer(classes.getValue());
-                player.setCharacterName(name.getText());
-                player.setLevel(Integer.parseInt(level.getText()));
+                player.CharacterName=name.getText();
+                player.level=Integer.parseInt(level.getText());
                 player.setRace(races.getValue());
                 player.setClassType(classes.getValue());
                 player.setAlignment(alignmentL_U.getValue() + " " + alignmentG_E.getValue());
@@ -201,12 +199,12 @@ public class MainUI extends Application {
 
     private HBox basicInfo() {
         //todo make readable
-        return new HBox(new Label("Name: "),new Label(player.getCharacterName()+"  "),
-                new Label("Race: "),new Label(player.getRace()+"  "),
+        return new HBox(new Label("Name: "),new Label(player.CharacterName+"  "),
+                new Label("Race: "),new Label(player.race+"  "),
                 /*new Label("age "),new Label(),*/
-                new Label("Class: "),new Label(player.getClassType()+"  "),
-                new Label("Level: "),new Label(player.getLevel()+"  "),
-                new Label("Alignment: "),new Label(player.getAlignment()));
+                new Label("Class: "),new Label(player.classType+"  "),
+                new Label("Level: "),new Label(player.level+"  "),
+                new Label("Alignment: "),new Label(player.alignment));
     }
 
     private VBox setOptionPane() {
@@ -244,12 +242,12 @@ public class MainUI extends Application {
 
         randomStatsButt.setOnAction(event-> {
             int[] stats = statPop.rollRandomStat();
-            player.setStrength(stats[0]);
-            player.setDexterity(stats[1]);
-            player.setConstitution(stats[2]);
-            player.setIntelligence(stats[3]);
-            player.setWisdom(stats[4]);
-            player.setCharisma(stats[5]);
+            player.strength=stats[0];
+            player.dexterity=stats[1];
+            player.constitution=stats[2];
+            player.intelligence=stats[3];
+            player.wisdom=stats[4];
+            player.charisma=stats[5];
             player.setRaceBonus();
             sheets.populateSheet(sheetNumber, player);
         });
@@ -298,7 +296,7 @@ public class MainUI extends Application {
                 case "srd":
                     return "http://5e.d20srd.org/";
                 case"selected":
-                    return "http://5e.d20srd.org/srd/spellLists/"+player.getClassType().toLowerCase()+"Spells.htm";
+                    return "http://5e.d20srd.org/srd/spellLists/"+player.classType.toLowerCase()+"Spells.htm";
             }
         }else{
             switch(key){
@@ -311,7 +309,7 @@ public class MainUI extends Application {
                 case "srd":
                     return "http://www.d20srd.org/index.htm";
                 case"selected":
-                    return "http://www.d20srd.org/srd/spellLists/"+player.getClassType().toLowerCase()+"Spells.htm";
+                    return "http://www.d20srd.org/srd/spellLists/"+player.classType.toLowerCase()+"Spells.htm";
             }
         }
         return null;

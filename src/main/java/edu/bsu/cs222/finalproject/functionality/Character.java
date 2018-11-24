@@ -4,9 +4,28 @@ import java.util.*;
 @SuppressWarnings({"WeakerAccess", "CanBeFinal"})
 public abstract class Character implements CharacterInterface {
 
-    String CharacterName, classtype, race, background, alignment, playerName;
-    int level, experience, strength, dexterity, constitution, intelligence, wisdom, charisma;
-    int speed, health, experiencePoints, proficiencyBonus, initiative, totalHealth, spellAbility, dc;
+    public String CharacterName;
+    public String classType;
+    public String race;
+    String background;
+    public String alignment;
+    String playerName;
+    public int level;
+    int experience;
+    public int strength;
+    public int dexterity;
+    public int constitution;
+    public int intelligence;
+    public int wisdom;
+    public int charisma;
+    public int speed;
+    public int health;
+    int experiencePoints;
+    int proficiencyBonus;
+    int initiative;
+    int totalHealth;
+    int spellAbility;
+    int dc;
     int subrace;
 
     public boolean inspiration;
@@ -44,7 +63,7 @@ public abstract class Character implements CharacterInterface {
     public int spellSlot8=0;
     public int spellSlot9=0;
 
-    static final Map<Integer, Integer> modMap = createModMap();
+    public static final Map<Integer, Integer> modMap = createModMap();
     private static Map<Integer, Integer> createModMap() {
         Map<Integer, Integer> myMap = new HashMap<>();
         myMap.put(1, -5);
@@ -112,7 +131,7 @@ public abstract class Character implements CharacterInterface {
 
     public Character(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha){
         this.CharacterName = CharacterName;
-        this.classtype = classtype;
+        this.classType = classtype;
         this.level = level;
         this.race = race;
         this.background = background;

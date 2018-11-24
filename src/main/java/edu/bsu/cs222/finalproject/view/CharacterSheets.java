@@ -299,34 +299,34 @@ public class CharacterSheets extends Application {
 
     public void populateSheet(String sheetNumber, Character player) {
         if("5".equals(sheetNumber)){
-            str.setText(player.getStrength()+"");
-            dex.setText(player.getDexterity()+"");
-            cons.setText(player.getConstitution()+"");
-            intel.setText(player.getIntelligence()+"");
-            wis.setText(player.getWisdom()+"");
-            cha.setText(player.getCharisma()+"");
+            str.setText(player.strength+"");
+            dex.setText(player.dexterity+"");
+            cons.setText(player.constitution+"");
+            intel.setText(player.intelligence+"");
+            wis.setText(player.wisdom+"");
+            cha.setText(player.charisma+"");
 
-            strMod.setText(""+player.getMod(player.getStrength()));
-            dexMod.setText(""+player.getMod(player.getDexterity()));
-            consMod.setText(""+player.getMod(player.getConstitution()));
-            intelMod.setText(""+player.getMod(player.getIntelligence()));
-            wisMod.setText(""+player.getMod(player.getWisdom()));
-            chaMod.setText(""+player.getMod(player.getCharisma()));
+            strMod.setText(""+player.modMap.get(player.strength));
+            dexMod.setText(""+player.modMap.get(player.dexterity));
+            consMod.setText(""+player.modMap.get(player.constitution));
+            intelMod.setText(""+player.modMap.get(player.intelligence));
+            wisMod.setText(""+player.modMap.get(player.wisdom));
+            chaMod.setText(""+player.modMap.get(player.charisma));
 
-            passWis.setText(""+(player.getMod(player.getWisdom())+10));
+            passWis.setText(""+(player.modMap.get(player.wisdom)+10));
             if(player.strST) {
-                strSav.setText("" + (player.getMod(player.getStrength()) + 10));
+                strSav.setText("" + (player.modMap.get(player.strength) + 10));
             }
             if(player.dexST)
-                dexSav.setText(""+(player.getMod(player.getDexterity())+10));
+                dexSav.setText(""+(player.modMap.get(player.dexterity)+10));
             if(player.conST)
-                consSav.setText(""+(player.getMod(player.getConstitution())+10));
+                consSav.setText(""+(player.modMap.get(player.constitution)+10));
             if(player.wisST)
-                wisSav.setText(""+(player.getMod(player.getWisdom())+10));
+                wisSav.setText(""+(player.modMap.get(player.wisdom)+10));
             if(player.intelST)
-                intelSav.setText(""+(player.getMod(player.getIntelligence())+10));
+                intelSav.setText(""+(player.modMap.get(player.intelligence)+10));
             if(player.chaST)
-                chaSav.setText(""+(player.getMod(player.getCharisma())+10));
+                chaSav.setText(""+(player.modMap.get(player.charisma)+10));
 
 
             for(String ability: player.abilities) {
@@ -337,13 +337,12 @@ public class CharacterSheets extends Application {
                 this.languages.appendText(language.concat("\n"));
             }
 
-            AC.setText(""+player.getAC());
-            speed.setText(""+player.getSpeed());
-            currHP.setText(""+player.getHealth());
-            hitMax.setText(""+player.getHealth());
-            init.setText(""+player.getInitiative());
-            flaw.setText(player.getFlaws());
-            bon.setText(player.getBonds());
+            AC.setText(""+player.ac);
+            speed.setText(""+player.speed);
+            currHP.setText(""+player.health);
+            hitMax.setText(""+player.health);
+            flaw.setText(player.flaw);
+            bon.setText(player.bond);
 
         }else{
             /*
