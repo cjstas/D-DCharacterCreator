@@ -2,11 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1f450ca-d401-4cf3-b36b-59b607118e86" name="Default Changelist" comment="Fixed issues with compiler.xml and misc.xml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/FakeBarbarian.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/FakeCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TeamF222.3New.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TeamF222.3New.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Barbarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Barbarian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/CharacterInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/CharacterInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Cleric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Cleric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Druid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Druid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/FakeBarbarian.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/FakeCharacter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Fighter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Monk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Monk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Paladin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Paladin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Ranger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Ranger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Rogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Sourcerer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Sourcerer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Warlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Warlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,35 +33,40 @@
     <session id="511174727">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.18" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="17" />
+          <entry key="java" value="41" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="22" />
+          <entry key="JAVA" value="46" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="2" />
-          <entry key="java" value="9272" />
+          <entry key="java" value="10083" />
           <entry key="txt" value="73" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9272" />
+          <entry key="JAVA" value="10083" />
           <entry key="PLAIN_TEXT" value="75" />
         </counts>
       </usages-collector>
@@ -87,45 +106,151 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Background.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/InfoHolding.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10913">
-              <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+            <state relative-caret-position="85">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/ListMaker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Monk.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3740">
+              <caret line="224" selection-start-line="224" selection-end-line="224" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#4113#4114#0" expanded="true" />
+                <element signature="e#4140#4141#0" expanded="true" />
+                <element signature="e#4543#4544#0" expanded="true" />
+                <element signature="e#4567#4568#0" expanded="true" />
+                <element signature="e#6199#6200#0" expanded="true" />
+                <element signature="e#6223#6224#0" expanded="true" />
+                <element signature="e#6278#6279#0" expanded="true" />
+                <element signature="e#6302#6303#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/TeamF222.3New.iml">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Paladin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-772">
+              <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="20" />
+              <folding>
+                <element signature="e#4122#4123#0" expanded="true" />
+                <element signature="e#4149#4150#0" expanded="true" />
+                <element signature="e#4552#4553#0" expanded="true" />
+                <element signature="e#4576#4577#0" expanded="true" />
+                <element signature="e#5457#5458#0" expanded="true" />
+                <element signature="e#5481#5482#0" expanded="true" />
+                <element signature="e#5536#5537#0" expanded="true" />
+                <element signature="e#5560#5561#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Ranger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3808">
+              <caret line="232" selection-start-line="232" selection-end-line="232" />
+              <folding>
+                <element signature="e#4842#4843#0" expanded="true" />
+                <element signature="e#4869#4870#0" expanded="true" />
+                <element signature="e#5272#5273#0" expanded="true" />
+                <element signature="e#5296#5297#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Rogue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+              <folding>
+                <element signature="e#4628#4629#0" expanded="true" />
+                <element signature="e#4655#4656#0" expanded="true" />
+                <element signature="e#5058#5059#0" expanded="true" />
+                <element signature="e#5082#5083#0" expanded="true" />
+                <element signature="e#6714#6715#0" expanded="true" />
+                <element signature="e#6738#6739#0" expanded="true" />
+                <element signature="e#6793#6794#0" expanded="true" />
+                <element signature="e#6817#6818#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Spell.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Warlock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3237">
+              <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+              <folding>
+                <element signature="e#4787#4788#0" expanded="true" />
+                <element signature="e#4814#4815#0" expanded="true" />
+                <element signature="e#5217#5218#0" expanded="true" />
+                <element signature="e#5241#5242#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/CharacterInterface.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Wizard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+            <state relative-caret-position="1387">
+              <caret line="218" column="5" selection-start-line="218" selection-start-column="5" selection-end-line="218" selection-end-column="5" />
+              <folding>
+                <element signature="e#4192#4193#0" expanded="true" />
+                <element signature="e#4219#4220#0" expanded="true" />
+                <element signature="e#4622#4623#0" expanded="true" />
+                <element signature="e#4646#4647#0" expanded="true" />
+                <element signature="e#6278#6279#0" expanded="true" />
+                <element signature="e#6302#6303#0" expanded="true" />
+                <element signature="e#6357#6358#0" expanded="true" />
+                <element signature="e#6381#6382#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Sourcerer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="131" selection-start-line="131" selection-end-line="131" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tests/edu/bsu/cs222/finalproject/functionality/CharacterTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+            <state relative-caret-position="187">
+              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+              <folding>
+                <element signature="e#4615#4616#0" expanded="true" />
+                <element signature="e#4642#4643#0" expanded="true" />
+                <element signature="e#5045#5046#0" expanded="true" />
+                <element signature="e#5069#5070#0" expanded="true" />
+                <element signature="e#6012#6013#0" expanded="true" />
+                <element signature="e#6073#6074#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -180,19 +305,30 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/DiceRoll.java" />
         <option value="$PROJECT_DIR$/src/Tests/edu/bsu/cs222/finalproject/functionality/DiceRollTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/CharacterSheets.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/DiceRoll.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Background.java" />
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
         <option value="$PROJECT_DIR$/.idea/compiler.xml" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/FakeCharacter.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/FakeBarbarian.java" />
         <option value="$PROJECT_DIR$/src/Tests/edu/bsu/cs222/finalproject/functionality/CharacterTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Barbarian.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/CharacterImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/CharacterInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Barbarian.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Cleric.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Druid.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Fighter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Monk.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Paladin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Ranger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Rogue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Sourcerer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Warlock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Wizard.java" />
       </list>
     </option>
   </component>
@@ -203,7 +339,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="951" />
     <option name="width" value="976" />
     <option name="height" value="1047" />
@@ -250,36 +386,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeamF222.3New" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeamF222.3New" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="bsu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeamF222.3New" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeamF222.3New" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="bsu" type="462c0819:PsiDirectoryNode" />
-              <item name="cs222" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeamF222.3New" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeamF222.3New" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="bsu" type="462c0819:PsiDirectoryNode" />
-              <item name="cs222" type="462c0819:PsiDirectoryNode" />
               <item name="finalproject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -288,9 +394,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="bsu" type="462c0819:PsiDirectoryNode" />
-              <item name="cs222" type="462c0819:PsiDirectoryNode" />
               <item name="finalproject" type="462c0819:PsiDirectoryNode" />
               <item name="functionality" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -300,9 +403,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="bsu" type="462c0819:PsiDirectoryNode" />
-              <item name="cs222" type="462c0819:PsiDirectoryNode" />
               <item name="finalproject" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -324,7 +424,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542918451891" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543076300451" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -332,6 +432,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="edu.bsu.cs222.finalproject.functionality" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
       <recent name="edu.bsu.cs222.finalproject.functionality" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -350,7 +453,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in TeamFFinalProject">
+  <component name="RunManager" selected="JUnit.&lt;default&gt;">
     <configuration name="CharacterSheets" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.bsu.cs222.finalproject.view.CharacterSheets" />
       <module name="TeamF222.3New" />
@@ -377,12 +480,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in TeamFFinalProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TeamFFinalProject" />
+    <configuration name="&lt;default&gt;" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-10.0.2" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -390,11 +497,11 @@
     <list>
       <item itemvalue="Application.MainUI" />
       <item itemvalue="Application.CharacterSheets" />
-      <item itemvalue="JUnit.All in TeamFFinalProject" />
+      <item itemvalue="JUnit.&lt;default&gt;" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in TeamFFinalProject" />
+        <item itemvalue="JUnit.&lt;default&gt;" />
         <item itemvalue="Application.MainUI" />
         <item itemvalue="Application.CharacterSheets" />
       </list>
@@ -496,9 +603,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="951" y="0" width="976" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.51859957" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.5298507" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -506,7 +614,7 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32946146" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -515,14 +623,14 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32946146" />
+      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.32848233" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info anchor="right" id="Maven Projects" order="7" />
     </layout>
   </component>
@@ -548,14 +656,11 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/CharacterSheets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -563,24 +668,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/DiceRoll.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Spell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -603,22 +694,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/vcs.xml" />
     <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml" />
-    <entry file="file://$PROJECT_DIR$/.idea/modules.xml" />
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/InfoHolding.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/edu/bsu/cs222/finalproject/functionality/PromptArrayFill.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -627,27 +705,34 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/compiler.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/ListMaker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="131" selection-start-line="131" selection-end-line="131" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/TeamF222.3New.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/FakeCharacter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/CharacterSheets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1784">
-          <caret line="64" column="33" lean-forward="true" selection-start-line="51" selection-start-column="7" selection-end-line="64" selection-end-column="33" />
+        <state relative-caret-position="102">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/TextFieldCustom.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/FakeCharacter.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/CharacterImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/MainUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2142">
+          <caret line="139" column="11" selection-start-line="139" selection-start-column="11" selection-end-line="139" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -658,37 +743,239 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/FakeBarbarian.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Background.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10913">
-          <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+        <state relative-caret-position="-1122">
+          <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Druid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3996">
-          <caret line="425" column="5" selection-start-line="425" selection-start-column="5" selection-end-line="425" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Barbarian.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2091">
-          <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
+        <state relative-caret-position="2275">
+          <caret line="226" column="5" selection-start-line="226" selection-start-column="5" selection-end-line="226" selection-end-column="5" />
+          <folding>
+            <element signature="e#4533#4534#0" expanded="true" />
+            <element signature="e#4560#4561#0" expanded="true" />
+            <element signature="e#4963#4964#0" expanded="true" />
+            <element signature="e#4987#4988#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/CharacterInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+        <state relative-caret-position="595">
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Barbarian.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3383">
+          <caret line="199" column="59" lean-forward="true" selection-start-line="199" selection-start-column="30" selection-end-line="199" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3759#3760#0" expanded="true" />
+            <element signature="e#3786#3787#0" expanded="true" />
+            <element signature="e#4189#4190#0" expanded="true" />
+            <element signature="e#4213#4214#0" expanded="true" />
+            <element signature="e#4692#4693#0" expanded="true" />
+            <element signature="e#4716#4717#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5986#5987#0" expanded="true" />
+            <element signature="e#6013#6014#0" expanded="true" />
+            <element signature="e#6416#6417#0" expanded="true" />
+            <element signature="e#6440#6441#0" expanded="true" />
+            <element signature="e#6521#6522#0" expanded="true" />
+            <element signature="e#6575#6576#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Cleric.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="199" column="5" selection-start-line="199" selection-start-column="5" selection-end-line="199" selection-end-column="5" />
+          <folding>
+            <element signature="e#4994#4995#0" expanded="true" />
+            <element signature="e#5021#5022#0" expanded="true" />
+            <element signature="e#5424#5425#0" expanded="true" />
+            <element signature="e#5448#5449#0" expanded="true" />
+            <element signature="e#6422#6423#0" expanded="true" />
+            <element signature="e#6482#6483#0" expanded="true" />
+            <element signature="e#6537#6538#0" expanded="true" />
+            <element signature="e#6594#6595#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/FakeBarbarian.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1554">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6560">
+          <caret line="403" column="5" lean-forward="true" selection-start-line="403" selection-start-column="5" selection-end-line="403" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Fighter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3995">
+          <caret line="243" column="5" selection-start-line="243" selection-start-column="5" selection-end-line="243" selection-end-column="5" />
+          <folding>
+            <element signature="e#4843#4844#0" expanded="true" />
+            <element signature="e#4870#4871#0" expanded="true" />
+            <element signature="e#5273#5274#0" expanded="true" />
+            <element signature="e#5297#5298#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/InfoHolding.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/ListMaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Monk.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3740">
+          <caret line="224" selection-start-line="224" selection-end-line="224" />
+          <folding>
+            <element signature="e#4113#4114#0" expanded="true" />
+            <element signature="e#4140#4141#0" expanded="true" />
+            <element signature="e#4543#4544#0" expanded="true" />
+            <element signature="e#4567#4568#0" expanded="true" />
+            <element signature="e#6199#6200#0" expanded="true" />
+            <element signature="e#6223#6224#0" expanded="true" />
+            <element signature="e#6278#6279#0" expanded="true" />
+            <element signature="e#6302#6303#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Paladin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-772">
+          <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="20" />
+          <folding>
+            <element signature="e#4122#4123#0" expanded="true" />
+            <element signature="e#4149#4150#0" expanded="true" />
+            <element signature="e#4552#4553#0" expanded="true" />
+            <element signature="e#4576#4577#0" expanded="true" />
+            <element signature="e#5457#5458#0" expanded="true" />
+            <element signature="e#5481#5482#0" expanded="true" />
+            <element signature="e#5536#5537#0" expanded="true" />
+            <element signature="e#5560#5561#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Ranger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3808">
+          <caret line="232" selection-start-line="232" selection-end-line="232" />
+          <folding>
+            <element signature="e#4842#4843#0" expanded="true" />
+            <element signature="e#4869#4870#0" expanded="true" />
+            <element signature="e#5272#5273#0" expanded="true" />
+            <element signature="e#5296#5297#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Rogue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding>
+            <element signature="e#4628#4629#0" expanded="true" />
+            <element signature="e#4655#4656#0" expanded="true" />
+            <element signature="e#5058#5059#0" expanded="true" />
+            <element signature="e#5082#5083#0" expanded="true" />
+            <element signature="e#6714#6715#0" expanded="true" />
+            <element signature="e#6738#6739#0" expanded="true" />
+            <element signature="e#6793#6794#0" expanded="true" />
+            <element signature="e#6817#6818#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Sourcerer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding>
+            <element signature="e#4615#4616#0" expanded="true" />
+            <element signature="e#4642#4643#0" expanded="true" />
+            <element signature="e#5045#5046#0" expanded="true" />
+            <element signature="e#5069#5070#0" expanded="true" />
+            <element signature="e#6012#6013#0" expanded="true" />
+            <element signature="e#6073#6074#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Spell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Warlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3237">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+          <folding>
+            <element signature="e#4787#4788#0" expanded="true" />
+            <element signature="e#4814#4815#0" expanded="true" />
+            <element signature="e#5217#5218#0" expanded="true" />
+            <element signature="e#5241#5242#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Wizard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1387">
+          <caret line="218" column="5" selection-start-line="218" selection-start-column="5" selection-end-line="218" selection-end-column="5" />
+          <folding>
+            <element signature="e#4192#4193#0" expanded="true" />
+            <element signature="e#4219#4220#0" expanded="true" />
+            <element signature="e#4622#4623#0" expanded="true" />
+            <element signature="e#4646#4647#0" expanded="true" />
+            <element signature="e#6278#6279#0" expanded="true" />
+            <element signature="e#6302#6303#0" expanded="true" />
+            <element signature="e#6357#6358#0" expanded="true" />
+            <element signature="e#6381#6382#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

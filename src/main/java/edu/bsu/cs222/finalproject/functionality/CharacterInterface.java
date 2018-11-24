@@ -35,8 +35,6 @@ public interface CharacterInterface {
 
     void setEquipment();
 
-    int getSpellcastingAbility();
-
     int setSpellcastingAbility(int ability);
 
     int setSpellSaveDC(int dc);

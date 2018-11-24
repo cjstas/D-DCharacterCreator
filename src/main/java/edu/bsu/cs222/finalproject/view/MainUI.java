@@ -11,6 +11,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
+import java.lang.Character;
+
 
 public class MainUI extends Application {
 

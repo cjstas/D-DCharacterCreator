@@ -1,5 +1,4 @@
 package edu.bsu.cs222.finalproject.functionality;
-
 import java.util.*;
 
 @SuppressWarnings({"WeakerAccess", "CanBeFinal"})
@@ -8,6 +7,7 @@ public abstract class Character implements CharacterInterface {
     String CharacterName, classtype, race, background, alignment, playerName;
     int level, experience, strength, dexterity, constitution, intelligence, wisdom, charisma;
     int speed, health, experiencePoints, proficiencyBonus, initiative, totalHealth, spellAbility, dc;
+    int subrace;
 
     public boolean inspiration;
     public int ac = 10;
@@ -44,7 +44,7 @@ public abstract class Character implements CharacterInterface {
     public int spellSlot8=0;
     public int spellSlot9=0;
 
-    private static final Map<Integer, Integer> modMap = createModMap();
+    static final Map<Integer, Integer> modMap = createModMap();
     private static Map<Integer, Integer> createModMap() {
         Map<Integer, Integer> myMap = new HashMap<>();
         myMap.put(1, -5);
@@ -116,7 +116,7 @@ public abstract class Character implements CharacterInterface {
         this.level = level;
         this.race = race;
         this.background = background;
-        this.alignment = allignment;
+        this.alignment = alignment;
         this.playerName=playerName;
         this.experience = experience;
         this.strength = strength;
@@ -222,7 +222,7 @@ public abstract class Character implements CharacterInterface {
     public void setRaceBonus(int subrace){
         switch(this.race){
             case "Dwarf":
-                setConstitution(getConstitution()+2);
+                this.constitution= this.constitution+2;
                 setSpeed(25);
                 language.add("Common");
                 language.add("Dwarvish");
@@ -232,36 +232,36 @@ public abstract class Character implements CharacterInterface {
                 abilities.add("Stonecunning");
                 if (subrace == 0){
                     setRace("Hill Dwarf");
-                    setWisdom(getWisdom()+1);
+                    this.wisdom=this.wisdom+1;
                     abilities.add("Dwarven Toughness");
                 } if (subrace == 1){
                     setRace("Mountain Dwarf");
-                    setStrength(getStrength()+2);
+                    this.strength=this.strength+2;
                     abilities.add("Dwarven Armour Training");
                 }
                 break;
             case "Elf":
-                setDexterity(getDexterity()+2);
+                this.dexterity=this.dexterity+2;
                 setSpeed(30);
                 abilities.add("Darkvision");
                 abilities.add("Keen Senses");
                 abilities.add("Fey Ancestry");
                 abilities.add("Trance");
                 if (subrace==0){
-                    setIntelligence(getIntelligence()+1);
+                    this.intelligence=this.intelligence+1;
                     abilities.add("Elf Weapon Training");
                     setRace("High Elf");
                 }
                 if (subrace==1){
                     setRace("Wood Elf");
-                    setWisdom(getWisdom()+1);
+                    this.wisdom=this.wisdom+1;
                     abilities.add("Elf Weapon Proficiency");
                     abilities.add("Fleet of Foot");
                     setSpeed(35);
                     abilities.add("Mask of the Wild");
                 } if(subrace==2){
                     setRace("Drow Elf");
-                    setCharisma(getCharisma()+1);
+                    this.charisma=this.charisma+1;
                     abilities.add("Superior Darkvision");
                     abilities.add("Sunlight Sensitivity");
                     abilities.add("Drow Magic");
@@ -269,7 +269,7 @@ public abstract class Character implements CharacterInterface {
                 }
                 break;
             case "Halfling":
-                setDexterity(getDexterity()+2);
+                this.dexterity=this.dexterity+2;
                 setSpeed(25);
                 abilities.add("Lucky");
                 abilities.add("Brave");
@@ -278,28 +278,28 @@ public abstract class Character implements CharacterInterface {
                 language.add("Halfling");
                 if (subrace==0){
                     setRace("Lightfoot Halfling");
-                    setCharisma(getCharisma()+1);
+                    this.charisma=this.charisma+1;
                     abilities.add("Naturally Stealthy");
                 }
                 if (subrace==1){
                     setRace("Stout Halfling");
-                    setConstitution(getConstitution()+1);
+                    this.constitution=this.constitution+1;
                     abilities.add("Stout Resilience");
                 }
                 break;
             case "Human":
-                setStrength(getStrength()+1);
-                setDexterity(getDexterity()+1);
-                setConstitution(getConstitution()+1);
-                setIntelligence(getIntelligence()+1);
-                setWisdom(getWisdom()+1);
-                setCharisma(getCharisma()+1);
+                this.strength=this.strength+1;
+                this.dexterity=this.dexterity+1;
+                this.constitution=this.constitution+1;
+                this.intelligence=this.intelligence+1;
+                this.wisdom=this.wisdom+1;
+                this.charisma=this.charisma+1;
                 setSpeed(30);
                 language.add("Common");
                 break;
             case "Dragonborn":
-                setStrength(getStrength()+2);
-                setCharisma(getCharisma()+1);
+                this.strength=this.strength+2;
+                this.charisma=this.charisma+1;
                 setSpeed(30);
                 abilities.add("Draconic Ancestry");
                 abilities.add("Breath Weapon");
@@ -308,7 +308,7 @@ public abstract class Character implements CharacterInterface {
                 language.add("Draconic");
                 break;
             case "Gnome":
-                setIntelligence(getIntelligence()+2);
+                this.intelligence=this.intelligence+2;
                 setSpeed(25);
                 abilities.add("Darkvision");
                 abilities.add("Gnome Cunning");
@@ -316,19 +316,19 @@ public abstract class Character implements CharacterInterface {
                 language.add("Gnomish");
                 if (subrace==0){
                     setRace("Forest Gnome");
-                    setDexterity(getDexterity()+1);
+                    this.dexterity=this.dexterity+1;
                     abilities.add("Natural Illusionist");
                     abilities.add("Speak with Small Beasts");
                 }
                 if (subrace==1){
                     setRace("Rock Gnome");
-                    setConstitution(getConstitution()+1);
+                    this.constitution=this.constitution+1;
                     abilities.add("Artificer's Lore");
                     abilities.add("Tinker");
                 }
                 break;
             case "Half-elf":
-                setCharisma(getCharisma()+2);
+                this.charisma=this.charisma+2;
                 setSpeed(30);
                 abilities.add("Darkvision");
                 abilities.add("Fey ancestry");
@@ -337,8 +337,8 @@ public abstract class Character implements CharacterInterface {
                 language.add("Elvish");
                 break;
             case "Half-orc":
-                setStrength(getStrength()+2);
-                setConstitution(getConstitution()+1);
+                this.strength=this.strength+2;
+                this.constitution=this.constitution+1;
                 setSpeed(30);
                 abilities.add("Darkvision");
                 abilities.add("Menacing");
@@ -348,8 +348,8 @@ public abstract class Character implements CharacterInterface {
                 language.add("Orc");
                 break;
             case "Tiefling":
-                setIntelligence(getIntelligence()+1);
-                setCharisma(getCharisma()+2);
+                this.intelligence=this.intelligence+1;
+                this.charisma=this.charisma+2;
                 setSpeed(30);
                 abilities.add("Darkvision");
                 abilities.add("Hellish Resistance");

@@ -35,6 +35,11 @@ public class Barbarian extends Character {
             knownSkills.add(skill);
         }
 
+        equipment.add("Greataxe or Martial melee weapon");
+        equipment.add("Two handaxes or any simple weapon");
+        equipment.add("4 Javelins");
+        items.add("Explorer's Pack");
+
         proficiency.add("Light Armour");
         proficiency.add("Medium Armour");
         proficiency.add("Shields");
@@ -125,6 +130,46 @@ public class Barbarian extends Character {
     }
 
     @Override
+    public String getBackground() {
+        return null;
+    }
+
+    @Override
+    public void setBackground(String background) {
+
+    }
+
+    @Override
+    public void setClassType(String classType) {
+
+    }
+
+    @Override
+    public void setPlayerName(String playerName) {
+
+    }
+
+    @Override
+    public void setRace(String race) {
+
+    }
+
+    @Override
+    public void setAlignment(String alignment) {
+
+    }
+
+    @Override
+    public int getProficiencyBonus() {
+        return 0;
+    }
+
+    @Override
+    public void setProficiencyBonus(int proficiencyBonus) {
+
+    }
+
+    @Override
     public void setSpeed(int speed) {
     }
 
@@ -146,38 +191,24 @@ public class Barbarian extends Character {
     }
 
     @Override
-    public int getStats() {
+    public int setHealth(int health, int level) {
         return 0;
     }
 
-    @Override
-    public void setStats(int str, int dex, int con, int intel, int wis, int cha) {
-    }
-
-    @Override
-    public int setHealth) {
+    public int setHealth(){
         int i = 0;
-        this.health=health+12+getMod(getConstitution());
+        this.health=health+12+modMap.get(this.constitution);
         if (level > 1){
             while  (i<= level){
-                health=health+DiceRoll.D12()+getMod(this.constitution);
+                health=health+DiceRoll.D12()+modMap.get(this.constitution);
                 i++;
             }
         }
-        return health;
+        return totalHealth;
     }
 
     @Override
     public void setEquipment() {
-        equipment.add("Greataxe or Martial melee weapon");
-        equipment.add("Two handaxes or any simple weapon");
-        equipment.add("4 Javelins");
-        items.add("Explorer's Pack");
-    }
-
-    @Override
-    public int getSpellcastingAbility() {
-        return 0;
     }
 
     @Override
@@ -188,6 +219,5 @@ public class Barbarian extends Character {
     @Override
     public int setSpellSaveDC(int dc) {
         return Integer.parseInt(null);
-    }
     }
 }
