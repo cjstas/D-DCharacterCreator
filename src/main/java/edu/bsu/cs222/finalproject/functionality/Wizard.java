@@ -13,7 +13,7 @@ public class Wizard extends Character {
         intelST=true;
         wisST=true;
 
-        sa=setSpellcastingAbility(intel);
+        spellAbility=setSpellcastingAbility(intel);
         dc=setSpellSaveDC(intel);
         totalHealth=setHealth(totalHealth,level);
 
@@ -127,8 +127,43 @@ public class Wizard extends Character {
     }
 
     @Override
-    public int getSpeed() {
+    public String getBackground() {
+        return null;
+    }
+
+    @Override
+    public void setBackground(String background) {
+
+    }
+
+    @Override
+    public void setClassType(String classType) {
+
+    }
+
+    @Override
+    public void setPlayerName(String playerName) {
+
+    }
+
+    @Override
+    public void setRace(String race) {
+
+    }
+
+    @Override
+    public void setAlignment(String alignment) {
+
+    }
+
+    @Override
+    public int getProficiencyBonus() {
         return 0;
+    }
+
+    @Override
+    public void setProficiencyBonus(int proficiencyBonus) {
+
     }
 
     @Override
@@ -137,18 +172,8 @@ public class Wizard extends Character {
     }
 
     @Override
-    public String getPersonalityTrait() {
-        return null;
-    }
-
-    @Override
     public void setPersonalityTrait(String personalityTrait) {
 
-    }
-
-    @Override
-    public String getIdeals() {
-        return null;
     }
 
     @Override
@@ -157,18 +182,8 @@ public class Wizard extends Character {
     }
 
     @Override
-    public String getBonds() {
-        return null;
-    }
-
-    @Override
     public void setBonds(String bonds) {
 
-    }
-
-    @Override
-    public String getFlaws() {
-        return null;
     }
 
     @Override
@@ -176,46 +191,16 @@ public class Wizard extends Character {
 
     }
 
-    @Override
-    public int getStats() {
-        return 0;
-    }
-
-    @Override
-    public void setStats(int str, int dex, int con, int intel, int wis, int cha) {
-
-    }
-
-    @Override
-    public int getHealth() {
-        return 0;
-    }
-
     public int setHealth(int health, int level) {
         int i = 0;
-        health=health+6+getMod(getConstitution());
+        health=health+6+modMap.get(this.constitution);
         if (level > 1){
             while  (i<= level){
-                health=health+DiceRoll.D6()+getMod(getConstitution());
+                health=health+DiceRoll.D6()+modMap.get(this.constitution);
                 i++;
             }
         }
         return health;
-    }
-
-    @Override
-    public String getLanguages() {
-        return null;
-    }
-
-    @Override
-    public void setLanguages(String languages) {
-
-    }
-
-    @Override
-    public String getEquipment() {
-        return null;
     }
 
     @Override
@@ -224,37 +209,12 @@ public class Wizard extends Character {
     }
 
     @Override
-    public String getEquippedArmour() {
-        return null;
-    }
-
-    @Override
-    public void setEquippedArmour(String armour) {
-
-    }
-
-    @Override
-    public String getFeatsAndTraits() {
-        return null;
-    }
-
-    @Override
-    public void setFeatsAndTraits(String feats, String traits) {
-
-    }
-
-    @Override
-    public int getSpellcastingAbility() {
+    public int setSpellcastingAbility(int ability) {
         return 0;
     }
 
     @Override
-    public int getSpellAttackBonus() {
+    public int setSpellSaveDC(int dc) {
         return 0;
-    }
-
-    @Override
-    public void setSpellAttackBonus(int bonus) {
-
     }
 }
