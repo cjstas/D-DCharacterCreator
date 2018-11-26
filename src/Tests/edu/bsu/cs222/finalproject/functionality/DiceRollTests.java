@@ -1,15 +1,14 @@
 package edu.bsu.cs222.finalproject.functionality;
 
-import edu.bsu.cs222.finalproject.functionality.DiceRoll;
 import org.junit.Assert;
 import org.junit.Test;
+
 
 public class DiceRollTests {
 
     @Test
     public void TestRollD100WithinRange() {
-        DiceRoll roll = new DiceRoll();
-        int value = roll.D100();
+        int value = DiceRoll.D100();
         boolean assertion = false;
         if (value <=100 && value>0) {
             assertion = true;
@@ -18,8 +17,7 @@ public class DiceRollTests {
     }
     @Test
     public void TestRollD20WithinRange() {
-        DiceRoll roll = new DiceRoll();
-        int value = roll.D20();
+        int value = DiceRoll.D20();
         boolean assertion = false;
         if (value <=20 && value>0) {
             assertion = true;
@@ -28,8 +26,7 @@ public class DiceRollTests {
     }
     @Test
     public void TestRollD10WithinRange() {
-        DiceRoll roll = new DiceRoll();
-        int value = roll.D10();
+        int value = DiceRoll.D10();
         boolean assertion = false;
         if (value <=10 && value>0) {
             assertion = true;
@@ -37,9 +34,26 @@ public class DiceRollTests {
         Assert.assertTrue(assertion);
     }
     @Test
+    public void TestRollD12WithinRange() {
+        int value = DiceRoll.D12();
+        boolean assertion = false;
+        if (value <=12 && value>0) {
+            assertion = true;
+        }
+        Assert.assertTrue(assertion);
+    }
+    @Test
+    public void TestRollD8WithinRange() {
+        int value = DiceRoll.D8();
+        boolean assertion = false;
+        if (value <=8 && value>0) {
+            assertion = true;
+        }
+        Assert.assertTrue(assertion);
+    }
+    @Test
     public void TestRollD6WithinRange() {
-        DiceRoll roll = new DiceRoll();
-        int value = roll.D6();
+        int value = DiceRoll.D6();
         boolean assertion = false;
         if (value <=6 && value>0) {
             assertion = true;
@@ -48,8 +62,7 @@ public class DiceRollTests {
     }
     @Test
     public void TestRollD4WithinRange() {
-        DiceRoll roll = new DiceRoll();
-        int value = roll.D4();
+        int value = DiceRoll.D4();
         boolean assertion = false;
         if (value <=4 && value>0) {
             assertion = true;

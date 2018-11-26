@@ -2,7 +2,7 @@ package edu.bsu.cs222.finalproject.functionality;
 import java.util.*;
 
 @SuppressWarnings({"WeakerAccess", "CanBeFinal"})
-public abstract class Character implements CharacterInterface {
+public abstract class Character{
 
     public String CharacterName;
     public String classType;
@@ -31,7 +31,7 @@ public abstract class Character implements CharacterInterface {
     public boolean inspiration;
     public int ac = 10;
 
-    public String bg, sTrait, personalityTrait, bond, ideal, flaw;
+    public String sTrait, personalityTrait, bond, ideal, flaw;
 
     public List<String> language = new ArrayList<>();
     public List<String> abilities = new ArrayList<>();
@@ -98,7 +98,7 @@ public abstract class Character implements CharacterInterface {
         myMap.put(30,10);
         return myMap;
     }
-    
+
     private static final Map<Integer, Integer> pbMap = createPBMap();
     private static Map<Integer, Integer> createPBMap() {
         Map<Integer, Integer> myMap = new HashMap<>();
@@ -129,7 +129,7 @@ public abstract class Character implements CharacterInterface {
 
     }
 
-    public Character(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha){
+    public Character(String CharacterName, String classtype, int level, String race, String background, String alignment, String playerName, int experience, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma){
         this.CharacterName = CharacterName;
         this.classType = classtype;
         this.level = level;
@@ -144,6 +144,8 @@ public abstract class Character implements CharacterInterface {
         this.intelligence = intelligence;
         this.wisdom = wisdom;
         this.charisma = charisma;
+
+        setRaceBonus();
     }
 
     public void setBackgroundTrait(String background) {
@@ -239,11 +241,10 @@ public abstract class Character implements CharacterInterface {
     }
 
     public void setRaceBonus(){
-        setSubrace();
         switch(this.race){
             case "Dwarf":
-                this.constitution= this.constitution+2;
-                setSpeed(25);
+                this.constitution += 2;
+                this.speed = 25;
                 language.add("Common");
                 language.add("Dwarvish");
                 abilities.add("Dwarven Resilience");
@@ -251,76 +252,76 @@ public abstract class Character implements CharacterInterface {
                 abilities.add("Tool Proficiency");
                 abilities.add("Stonecunning");
                 if (subrace == 0){
-                    setRace("Hill Dwarf");
-                    this.wisdom=this.wisdom+1;
+                    this.race = "Hill Dwarf";
+                    this.wisdom +=1;
                     abilities.add("Dwarven Toughness");
-                } if (subrace == 1){
-                    setRace("Mountain Dwarf");
-                    this.strength=this.strength+2;
-                    abilities.add("Dwarven Armour Training");
-                }
+                } if (subrace== 1){
+                this.race="Mountain Dwarf";
+                this.strength +=2;
+                abilities.add("Dwarven Armour Training");
+            }
                 break;
             case "Elf":
-                this.dexterity=this.dexterity+2;
-                setSpeed(30);
+                this.dexterity+=2;
+                this.speed=30;
                 abilities.add("Darkvision");
                 abilities.add("Keen Senses");
                 abilities.add("Fey Ancestry");
                 abilities.add("Trance");
                 if (subrace==0){
-                    this.intelligence=this.intelligence+1;
+                    this.intelligence+=1;
                     abilities.add("Elf Weapon Training");
-                    setRace("High Elf");
+                    this.race = "High Elf";
                 }
                 if (subrace==1){
-                    setRace("Wood Elf");
-                    this.wisdom=this.wisdom+1;
+                    this.race = "Wood Elf";
+                    this.wisdom+=1;
                     abilities.add("Elf Weapon Proficiency");
                     abilities.add("Fleet of Foot");
-                    setSpeed(35);
+                    this.speed=35;
                     abilities.add("Mask of the Wild");
                 } if(subrace==2){
-                    setRace("Drow Elf");
-                    this.charisma=this.charisma+1;
-                    abilities.add("Superior Darkvision");
-                    abilities.add("Sunlight Sensitivity");
-                    abilities.add("Drow Magic");
-                    abilities.add("Drow Weapon Training");
-                }
+                this.race ="Drow Elf";
+                this.charisma+=1;
+                abilities.add("Superior Darkvision");
+                abilities.add("Sunlight Sensitivity");
+                abilities.add("Drow Magic");
+                abilities.add("Drow Weapon Training");
+            }
                 break;
             case "Halfling":
-                this.dexterity=this.dexterity+2;
-                setSpeed(25);
+                this.dexterity+=2;
+                this.speed=25;
                 abilities.add("Lucky");
                 abilities.add("Brave");
                 abilities.add("Halfling Nimbleness");
                 language.add("Common");
                 language.add("Halfling");
                 if (subrace==0){
-                    setRace("Lightfoot Halfling");
-                    this.charisma=this.charisma+1;
+                    this.race ="Lightfoot Halfling";
+                    this.charisma+=1;
                     abilities.add("Naturally Stealthy");
                 }
                 if (subrace==1){
-                    setRace("Stout Halfling");
-                    this.constitution=this.constitution+1;
+                    this.race = "Stout Halfling";
+                    this.constitution +=1;
                     abilities.add("Stout Resilience");
                 }
                 break;
             case "Human":
-                this.strength=this.strength+1;
-                this.dexterity=this.dexterity+1;
-                this.constitution=this.constitution+1;
-                this.intelligence=this.intelligence+1;
-                this.wisdom=this.wisdom+1;
-                this.charisma=this.charisma+1;
-                setSpeed(30);
+                this.strength+=1;
+                this.dexterity+=1;
+                this.constitution+=1;
+                this.intelligence+=1;
+                this.wisdom+=1;
+                this.charisma+=1;
+                this.speed = 30;
                 language.add("Common");
                 break;
             case "Dragonborn":
-                this.strength=this.strength+2;
-                this.charisma=this.charisma+1;
-                setSpeed(30);
+                this.strength+=2;
+                this.charisma+=1;
+                this.speed=30;
                 abilities.add("Draconic Ancestry");
                 abilities.add("Breath Weapon");
                 abilities.add("Damage Resistance");
@@ -328,28 +329,28 @@ public abstract class Character implements CharacterInterface {
                 language.add("Draconic");
                 break;
             case "Gnome":
-                this.intelligence=this.intelligence+2;
-                setSpeed(25);
+                this.intelligence+=2;
+                this.speed=25;
                 abilities.add("Darkvision");
                 abilities.add("Gnome Cunning");
                 language.add("Common");
                 language.add("Gnomish");
                 if (subrace==0){
-                    setRace("Forest Gnome");
-                    this.dexterity=this.dexterity+1;
+                    this.race="Forest Gnome";
+                    this.dexterity+=1;
                     abilities.add("Natural Illusionist");
                     abilities.add("Speak with Small Beasts");
                 }
                 if (subrace==1){
-                    setRace("Rock Gnome");
-                    this.constitution=this.constitution+1;
+                    this.race ="Rock Gnome";
+                    this.constitution+=1;
                     abilities.add("Artificer's Lore");
                     abilities.add("Tinker");
                 }
                 break;
             case "Half-elf":
-                this.charisma=this.charisma+2;
-                setSpeed(30);
+                this.charisma+=2;
+                this.speed=30;
                 abilities.add("Darkvision");
                 abilities.add("Fey ancestry");
                 abilities.add("Skill versatility");
@@ -357,9 +358,9 @@ public abstract class Character implements CharacterInterface {
                 language.add("Elvish");
                 break;
             case "Half-orc":
-                this.strength=this.strength+2;
-                this.constitution=this.constitution+1;
-                setSpeed(30);
+                this.strength+=2;
+                this.constitution+=2;
+                this.speed=30;
                 abilities.add("Darkvision");
                 abilities.add("Menacing");
                 abilities.add("Relentless endurance");
@@ -368,9 +369,9 @@ public abstract class Character implements CharacterInterface {
                 language.add("Orc");
                 break;
             case "Tiefling":
-                this.intelligence=this.intelligence+1;
-                this.charisma=this.charisma+2;
-                setSpeed(30);
+                this.intelligence+=1;
+                this.charisma+=2;
+                this.speed=30;
                 abilities.add("Darkvision");
                 abilities.add("Hellish Resistance");
                 abilities.add("Infernal Legacy");
@@ -443,5 +444,83 @@ public abstract class Character implements CharacterInterface {
                 this.race = "Custom";
                 break;
         }
+    }
+
+    public int returnSpellAttackBonus(String Ability) {
+        int abilityLevel = 0;
+        switch (Ability) {
+            case "Strength":
+                abilityLevel= this.strength;
+                break;
+            case "Dexterity":
+                abilityLevel=this.dexterity;
+                break;
+            case "Constitution":
+                abilityLevel=this.constitution;
+                break;
+            case "Intelligence":
+                abilityLevel=this.intelligence;
+                break;
+            case "Wisdom":
+                abilityLevel=this.wisdom;
+                break;
+            case "Charisma":
+                abilityLevel=this.charisma;
+                break;
+        }
+
+        return ((abilityLevel-10)/2)+proficiencyBonus;
+    }
+
+    public int returnSpellCastingModifier(String Ability) {
+        int abilityLevel= 0;
+        switch (Ability) {
+            case "Strength":
+                abilityLevel= this.strength;
+                break;
+            case "Dexterity":
+                abilityLevel=this.dexterity;
+                break;
+            case "Constitution":
+                abilityLevel=this.constitution;
+                break;
+            case "Intelligence":
+                abilityLevel=this.intelligence;
+                break;
+            case "Wisdom":
+                abilityLevel=this.wisdom;
+                break;
+            case "Charisma":
+                abilityLevel=this.charisma;
+                break;
+        }
+
+        return (abilityLevel-10)/2;
+    }
+
+    public int returnSpellSaveDC(String Ability) {
+        int abilityLevel= 0;
+        switch (Ability) {
+            case "Strength":
+                abilityLevel= this.strength;
+                break;
+            case "Dexterity":
+                abilityLevel=this.dexterity;
+                break;
+            case "Constitution":
+                abilityLevel=this.constitution;
+                break;
+            case "Intelligence":
+                abilityLevel=this.intelligence;
+                break;
+            case "Wisdom":
+                abilityLevel=this.wisdom;
+                break;
+            case "Charisma":
+                abilityLevel=this.charisma;
+                break;
+        }
+
+        return ((abilityLevel-10)/2)+8+ this.proficiencyBonus;
     }
 }

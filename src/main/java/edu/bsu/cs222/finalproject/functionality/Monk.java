@@ -9,8 +9,8 @@ import static java.lang.Boolean.parseBoolean;
 
 public class Monk extends Character {
 
-    public Monk(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
-        super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
+    public Monk(String CharacterName, String classtype, int level, String race, String background, String alignment, String playerName, int experience, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
+        super(CharacterName, classtype,level, race, background, alignment, playerName,experience,strength,dexterity,constitution, intelligence,wisdom, charisma);
         strST=true;
         dexST=true;
 
@@ -131,71 +131,6 @@ public class Monk extends Character {
 
     }
 
-    @Override
-    public String getBackground() {
-        return null;
-    }
-
-    @Override
-    public void setBackground(String background) {
-
-    }
-
-    @Override
-    public void setClassType(String classType) {
-
-    }
-
-    @Override
-    public void setPlayerName(String playerName) {
-
-    }
-
-    @Override
-    public void setRace(String race) {
-
-    }
-
-    @Override
-    public void setAlignment(String alignment) {
-
-    }
-
-    @Override
-    public int getProficiencyBonus() {
-        return 0;
-    }
-
-    @Override
-    public void setProficiencyBonus(int proficiencyBonus) {
-
-    }
-
-    @Override
-    public void setSpeed(int speed) {
-
-    }
-
-    @Override
-    public void setPersonalityTrait(String personalityTrait) {
-
-    }
-
-    @Override
-    public void setIdeals(String ideals) {
-
-    }
-
-    @Override
-    public void setBonds(String bonds) {
-
-    }
-
-    @Override
-    public void setFlaws(String flaws) {
-
-    }
-
     public int setHealth(int health, int level) {
         int i = 0;
         health=health+8+modMap.get(this.constitution);
@@ -207,20 +142,4 @@ public class Monk extends Character {
         }
         return health;
     }
-
-    @Override
-    public void setEquipment() {
-
-    }
-
-    @Override
-    public int setSpellcastingAbility(int ability) {
-        return 0;
-    }
-
-    @Override
-    public int setSpellSaveDC(int dc) {
-        return 0;
-    }
-
 }
