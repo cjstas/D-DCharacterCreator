@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class MainUI extends Application {
 
     private CharacterSheets sheets;
-    private String sheetNumber, styleSheet;
+    private String sheetNumber;
     private BorderPane mainLayout;
     private Character player;
     private Button createMultiClass, submit, buildStartSheetButton;
@@ -42,12 +42,10 @@ public class MainUI extends Application {
         to5eBuilder.setOnAction(e ->{
             primaryStage.setScene(new Scene(presetupPane()));
             sheetNumber = "5";
-            styleSheet = "SheetFive.css";
         });
         to35eBuilder.setOnAction(e->{
             primaryStage.setScene(new Scene(presetupPane()));
             sheetNumber = "3.5";
-            styleSheet = "SheetTreeFive.css";
         });
         toNPCCreation.setOnAction(e -> primaryStage.setScene(
                 new Scene(new HBox(
@@ -133,7 +131,7 @@ public class MainUI extends Application {
                 player.setRace(races.getValue());
                 player.setClassType(classes.getValue());
                 player.setAlignment(alignmentL_U.getValue() + " " + alignmentG_E.getValue());
-                primaryStage.setScene(setScene());
+                primaryStage.setScene(setSheetScene());
             }
         });
 
@@ -182,16 +180,15 @@ public class MainUI extends Application {
         }
     }
 
-    private Scene setScene() {
+    private Scene setSheetScene() {
         mainLayout = new BorderPane();
-        this.sheets  = new CharacterSheets();
+        sheets  = new CharacterSheets();
         mainLayout.setCenter(sheets.setSheet(sheetNumber));
         mainLayout.setTop(basicInfo());
-//      sheets.populateSheet(sheetNumber, player);
         Scene sheetScene = new Scene(mainLayout);
         mainLayout.setLeft(setOptionPane());
         sheetScene.getStylesheets().clear();
-        sheetScene.getStylesheets().add(styleSheet);
+        sheetScene.getStylesheets().add("SheetFive.css");
         this.primaryStage.setMaxWidth(1200);
 
         return sheetScene;
@@ -248,28 +245,24 @@ public class MainUI extends Application {
             player.intelligence=stats[3];
             player.wisdom=stats[4];
             player.charisma=stats[5];
-            player.setRaceBonus();
             sheets.populateSheet(sheetNumber, player);
         });
         standardArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.standardArray );
             this.player = statPop.returnPlayer();
             mainLayout.setCenter(sheets.setSheet(sheetNumber));
-            player.setRaceBonus();
             sheets.populateSheet(sheetNumber, player);
         });
         eliteArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.eliteArray);
             this.player = statPop.returnPlayer();
             mainLayout.setCenter(sheets.setSheet(sheetNumber));
-            player.setRaceBonus();
             sheets.populateSheet(sheetNumber, player);
         });
         dunceArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.dunceArray);
             this.player = statPop.returnPlayer();
             mainLayout.setCenter(sheets.setSheet(sheetNumber));
-            player.setRaceBonus();
             sheets.populateSheet(sheetNumber, player);
         });
 
