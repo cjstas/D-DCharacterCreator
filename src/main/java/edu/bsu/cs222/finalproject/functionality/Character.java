@@ -238,7 +238,8 @@ public abstract class Character implements CharacterInterface {
         }
     }
 
-    public void setRaceBonus(int subrace){
+    public void setRaceBonus(){
+        setSubrace();
         switch(this.race){
             case "Dwarf":
                 this.constitution= this.constitution+2;

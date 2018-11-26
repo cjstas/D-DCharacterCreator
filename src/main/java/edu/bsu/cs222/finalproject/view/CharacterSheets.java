@@ -299,6 +299,7 @@ public class CharacterSheets extends Application {
 
     public void populateSheet(String sheetNumber, Character player) {
         if("5".equals(sheetNumber)){
+            player.setRaceBonus();
             str.setText(player.strength+"");
             dex.setText(player.dexterity+"");
             cons.setText(player.constitution+"");
@@ -382,8 +383,6 @@ public class CharacterSheets extends Application {
     @Override
     public void start(Stage primaryStage){
         Scene sheetVeiw = new Scene(sheet5e());
-        sheetVeiw.getStylesheets().clear();
-        sheetVeiw.getStylesheets().add("SheetFive.css");
         primaryStage.setMinWidth(970);
         primaryStage.setMaxWidth(970);
         primaryStage.setScene(sheetVeiw);

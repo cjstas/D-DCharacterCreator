@@ -42,37 +42,37 @@ public class StatArrayPopulater {
 
         strList.setItems(listOfOptions);
         strSubmit.setOnAction(event ->{
-            emptyPlayer.setStrength(strList.getValue());
+            emptyPlayer.strength = strList.getValue();
             listOfOptions.remove(strList.getValue());
             dexList.setItems(listOfOptions);
             stage.setScene(new Scene(layouts.get(1)));
         });
         dexSubmit.setOnAction(event -> {
-            emptyPlayer.setDexterity(dexList.getValue());
+            emptyPlayer.dexterity = dexList.getValue();
             listOfOptions.remove(dexList.getValue());
             consList.setItems(listOfOptions);
             stage.setScene(new Scene(layouts.get(2)));
         });
         consSubmit.setOnAction(event -> {
-            emptyPlayer.setConstitution(consList.getValue());
+            emptyPlayer.constitution = consList.getValue();
             listOfOptions.remove(consList.getValue());
             intelList.setItems(listOfOptions);
             stage.setScene(new Scene(layouts.get(3)));
         });
         intelSubmit.setOnAction(event -> {
-            emptyPlayer.setIntelligence(intelList.getValue());
+            emptyPlayer.intelligence = intelList.getValue();
             listOfOptions.remove(intelList.getValue());
             wisList.setItems(listOfOptions);
             stage.setScene(new Scene(layouts.get(4)));
         });
         wisSubmit.setOnAction(event -> {
-            emptyPlayer.setWisdom(wisList.getValue());
+            emptyPlayer.wisdom = wisList.getValue();
             listOfOptions.remove(wisList.getValue());
             chaList.setItems(listOfOptions);
             stage.setScene(new Scene(layouts.get(5)));
         });
         submit.setOnAction(event -> {
-            emptyPlayer.setCharisma(chaList.getValue());
+            emptyPlayer.charisma = chaList.getValue();
             stage.close();
         });
 
