@@ -15,7 +15,7 @@ Dungeons and Dragons Character Creator
 + the array population only will populate stats if you switch from the Character Sheet to the spell sheet and back to the Character Sheet
 
 
-##Build Instructions
+## Build Instructions
 Pull this project into intellij and assign sdk 10.0.2 to the project.
 Next a popup should show in the bottom right corner asking you to import maven dependencies, do so.
 Next build and run the program (if you have issues continue reading)
