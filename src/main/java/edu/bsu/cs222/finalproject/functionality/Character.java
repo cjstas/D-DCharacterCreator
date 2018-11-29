@@ -145,7 +145,9 @@ public abstract class Character{
         this.wisdom = wisdom;
         this.charisma = charisma;
 
+        setBackgroundTrait(background);
         setRaceBonus();
+        setSubrace();
     }
 
     public void setBackgroundTrait(String background) {
