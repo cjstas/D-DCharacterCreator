@@ -15,11 +15,11 @@ import javafx.stage.Stage;
 public class MainUI extends Application {
 
     private CharacterSheets sheets;
-    private String sheetNumber;
     private BorderPane mainLayout;
     private Character player;
-    private Button createMultiClass, submit, buildStartSheetButton;
+    private Button buildStartSheetButton;
     private Stage primaryStage;
+    private String preferedFileLocation;
 
     public static void main(String[] args){
         launch(args);
@@ -28,103 +28,40 @@ public class MainUI extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        Scene root = new Scene(startUpScreen());
+        Scene root = new Scene(presetupPane());
         this.primaryStage.setScene(root);
         this.primaryStage.show();
 
     }
 
-    private VBox startUpScreen(){
-        Button to35eBuilder = new Button("Build A 3.5 Character");
-        Button to5eBuilder = new Button("Build a 5e Character");
-        Button toNPCCreation = new Button("Random Character");
-
-        to5eBuilder.setOnAction(e ->{
-            primaryStage.setScene(new Scene(presetupPane()));
-            sheetNumber = "5";
-        });
-        to35eBuilder.setOnAction(e->{
-            primaryStage.setScene(new Scene(presetupPane()));
-            sheetNumber = "3.5";
-        });
-        toNPCCreation.setOnAction(e -> primaryStage.setScene(
-                new Scene(new HBox(
-                        new Label("Sorry for the Inconvenience," +
-                                "\nBut the NPC Creation section is under Construction" +
-                                "\nHappy Rolling!!")))));
-        return new VBox(to35eBuilder, to5eBuilder, toNPCCreation);
-    }
-
     private VBox presetupPane(){
         VBox presetup = new VBox();
 
-        ToggleButton isMulticlassed = new RadioButton("Multiclassed");
-        TextField name = new TextFieldCustom();
+        TextField name = new TextField();
         ChoiceBox<String> races = new ChoiceBox();
         races.setItems(InfoHolding.racesArray());
         ChoiceBox<String> classes = new ChoiceBox();
         classes.setItems(InfoHolding.classesArray());
-        TextField level = new TextFieldCustom();
+        TextField level = new TextField();
         ChoiceBox<String> alignmentG_E = new ChoiceBox();
         alignmentG_E.setItems(InfoHolding.alignmentG_EArray());
         ChoiceBox<String> alignmentL_U = new ChoiceBox();
         alignmentL_U.setItems(InfoHolding.alignmentL_UArray());
-        TextField age = new TextFieldCustom();
+        TextField age = new TextField();
         age.setPrefColumnCount(4);
+        Label warn = new Label("Please don't leave any field empty");
 
-        ChoiceBox<String> classes2 = new ChoiceBox();
-        classes2.setItems(InfoHolding.classesArray());
-        TextField level2 = new TextFieldCustom();
-        TextField numOfMultiClasses = new TextFieldCustom();
-        VBox multi = new VBox();
-        Label warn = new Label("Please don't leave field empty");
-        Label lv2 = new Label("lvl.");
-        Label class2 = new Label("2nd Class");
-        createMultiClass = new Button();
         buildStartSheetButton = new Button("Build Sheet");
-        submit = new Button("submit");
-
         presetup.getChildren().addAll(
                 new HBox(new Label("Name"), name),
                 new HBox(new Label("Age"), age),
                 new HBox(new Label("Race"), races),
                 new HBox(new Label("Class"), classes),
-                new HBox(new Label("Multi-class"), isMulticlassed),
                 new HBox(new Label("Level"), level),
-                multi,
                 new Label("Alignment"),
                 new HBox(alignmentL_U, alignmentG_E),
                 buildStartSheetButton);
-
-        isMulticlassed.setOnAction(event -> {
-            if(isMulticlassed.isSelected()) {
-                multi.getChildren().addAll(new Label("Number of Classes"),new HBox(numOfMultiClasses, submit));
-            }else{
-                if(presetup.getChildren().contains(level2)){
-                    multi.getChildren().clear();
-                }
-            }
-        });
-        submit.setOnAction(event-> {
-            if(!((TextFieldCustom) numOfMultiClasses).isEmpty()){
-                int numOfMC = Integer.parseInt(numOfMultiClasses.getText());
-                for(int i = 0; i< numOfMC; i++){
-                    multi.getChildren().addAll(new HBox(new Label("class"),class2),new HBox(new Label("level "),level2));
-                }
-                multi.getChildren().add(createMultiClass);
-            }else{
-                multi.getChildren().add(warn);
-            }
-        });
-        createMultiClass.setOnAction(event -> {
-            /*code that creates a multiclass character
-             */
-        });
-
-        buildStartSheetButton.setOnAction(event ->{
-            if(((TextFieldCustom) name).isEmpty()|| ((TextFieldCustom) level).isEmpty()||((TextFieldCustom)age).isEmpty()){
-                presetup.getChildren().add(warn);
-            }else {
+        buildStartSheetButton.setOnAction(event -> {
                 initPlayer(classes.getValue());
                 player.CharacterName=name.getText();
                 player.level=Integer.parseInt(level.getText());
@@ -133,9 +70,19 @@ public class MainUI extends Application {
                 player.alignment = alignmentL_U.getValue() + " " + alignmentG_E.getValue();
                 primaryStage.setScene(setSheetScene());
             }
+
         });
 
         return presetup;
+    }
+
+    private int checkLevel(int level) {
+        if(level>20){
+            level = 20;
+        } else if(level<1){
+            level = 1;
+        }
+        return level;
     }
 
     private void initPlayer(String classType) {
@@ -183,7 +130,7 @@ public class MainUI extends Application {
     private Scene setSheetScene() {
         mainLayout = new BorderPane();
         sheets  = new CharacterSheets();
-        mainLayout.setCenter(sheets.setSheet(sheetNumber));
+        mainLayout.setCenter(sheets.setSheet());
         mainLayout.setTop(basicInfo());
         Scene sheetScene = new Scene(mainLayout);
         mainLayout.setLeft(setOptionPane());
@@ -217,6 +164,7 @@ public class MainUI extends Application {
         Button homeBrewSearch = new Button("Home Brew search");
         Button generateBackground = new Button("Generate Background");
         Button editSpellSheet = new Button("Edit Spell\nSheet");
+        Button toPDF = new Button("create PDF");
 
 
 
@@ -226,8 +174,8 @@ public class MainUI extends Application {
         StatArrayPopulater statPop = new StatArrayPopulater(player);
 
         returnToCharacterSheet.setOnAction(event -> {
-            mainLayout.setCenter(sheets.setSheet(sheetNumber));
-            sheets.populateSheet(sheetNumber, player);
+            mainLayout.setCenter(sheets.setSheet());
+            sheets.populateSheet(player);
             controlLayout.getChildren().add(6, editSpellSheet);
             controlLayout.getChildren().remove(returnToCharacterSheet);
         });
@@ -245,25 +193,25 @@ public class MainUI extends Application {
             player.intelligence=stats[3];
             player.wisdom=stats[4];
             player.charisma=stats[5];
-            sheets.populateSheet(sheetNumber, player);
+            sheets.populateSheet(player);
         });
         standardArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.standardArray );
             this.player = statPop.returnPlayer();
-            mainLayout.setCenter(sheets.setSheet(sheetNumber));
-            sheets.populateSheet(sheetNumber, player);
+            mainLayout.setCenter(sheets.setSheet());
+            sheets.populateSheet(player);
         });
         eliteArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.eliteArray);
             this.player = statPop.returnPlayer();
-            mainLayout.setCenter(sheets.setSheet(sheetNumber));
-            sheets.populateSheet(sheetNumber, player);
+            mainLayout.setCenter(sheets.setSheet());
+            sheets.populateSheet(player);
         });
         dunceArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.dunceArray);
             this.player = statPop.returnPlayer();
-            mainLayout.setCenter(sheets.setSheet(sheetNumber));
-            sheets.populateSheet(sheetNumber, player);
+            mainLayout.setCenter(sheets.setSheet());
+            sheets.populateSheet(player);
         });
 
         spellSearch.setOnAction(event -> webview(URLDeterminer("spell")));
@@ -277,35 +225,21 @@ public class MainUI extends Application {
     }
 
     private String URLDeterminer(String key) {
-
-        if(sheetNumber.equals("5")){
-            switch(key){
-                case "spell":
-                    return "http://5e.d20srd.org/indexes/spells.htm";
-                case "wikia":
-                    return "https://www.dandwiki.com/wiki/5e_Homebrew";
-                case "monsters":
-                    return "https://www.dandwiki.com/wiki/5e_SRD:Monsters";
-                case "srd":
-                    return "http://5e.d20srd.org/";
-                case"selected":
-                    return "http://5e.d20srd.org/srd/spellLists/"+player.classType.toLowerCase()+"Spells.htm";
-            }
-        }else{
-            switch(key){
-                case "spell":
-                    return "http://www.d20srd.org/indexes/spells.htm";
-                case "wikia":
-                    return "https://www.dandwiki.com/wiki/3.5e_Homebrew";
-                case "monsters":
-                    return "https://www.dandwiki.com/wiki/SRD:Creatures";
-                case "srd":
-                    return "http://www.d20srd.org/index.htm";
-                case"selected":
-                    return "http://www.d20srd.org/srd/spellLists/"+player.classType.toLowerCase()+"Spells.htm";
-            }
+        switch (key) {
+          case "spell":
+            return "http://5e.d20srd.org/indexes/spells.htm";
+          case "wikia":
+            return "https://www.dandwiki.com/wiki/5e_Homebrew";
+          case "monsters":
+            return "https://www.dandwiki.com/wiki/5e_SRD:Monsters";
+          case "srd":
+            return "http://5e.d20srd.org/";
+          case "selected":
+            return "http://5e.d20srd.org/srd/spellLists/"
+                + player.classType.toLowerCase()
+                + "Spells.htm";
         }
-        return null;
+        return key;
     }
 
     private void webview(String siteToDisplay) {
@@ -328,6 +262,11 @@ public class MainUI extends Application {
         webStage.setTitle(webPage.getEngine().getTitle());
         webStage.setScene(new Scene(holder));
         webStage.show();
+    }
+
+    private void toFinalPdf(){
+        PDFCreation pdf = new PDFCreation(player, preferedFileLocation);
+        pdf.fillEmptySheet();
     }
 
 }
