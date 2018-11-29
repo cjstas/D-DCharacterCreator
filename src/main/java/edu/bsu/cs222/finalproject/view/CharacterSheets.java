@@ -3,11 +3,15 @@ package edu.bsu.cs222.finalproject.view;
 import edu.bsu.cs222.finalproject.functionality.Character;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 
 public class CharacterSheets extends Application {
 
@@ -22,19 +26,10 @@ public class CharacterSheets extends Application {
     private RadioButton acrRb, aniHandRb, arcanRb, athlRb, decRb, histRb, insRb, intimRb, invesRb, medRb, natRb,
             percepRb, performRb, persRb, relgRb, sliOfHandRb, stealRb, survRb;
 
-    public Pane setSheet(String sheet) {
-        if(sheet.equals("3.5")){
-            return sheet35();
-        }else{
+    public Pane setSheet() {
             return sheet5e();
-        }
     }
 
-    private Pane sheet35() {
-        Pane sheet35 = new BorderPane();
-        sheet35.getStyleClass().add("SheetThreeFive.css");
-        return sheet35;
-    }
 
     private Pane sheet5e() {
         Pane sheet5e = new BorderPane();
@@ -297,8 +292,7 @@ public class CharacterSheets extends Application {
         cp.setPrefColumnCount(4);
     }
 
-    public void populateSheet(String sheetNumber, Character player) {
-        if("5".equals(sheetNumber)){
+    public void populateSheet(Character player) {
             player.setRaceBonus();
             str.setText(player.strength+"");
             dex.setText(player.dexterity+"");
@@ -345,11 +339,6 @@ public class CharacterSheets extends Application {
             flaw.setText(player.flaw);
             bon.setText(player.bond);
 
-        }else{
-            /*
-            todo 3.5 variable set up
-             */
-        }
     }
 
     public BorderPane getSpellSheet(){
@@ -370,10 +359,6 @@ public class CharacterSheets extends Application {
         spellSheet.setCenter(new VBox(spellLv3, spellLv4, spellLv5));
         spellSheet.setLeft(new VBox(spellLv6, spellLv7, spellLv8, spellLv9));
         return spellSheet;
-    }
-
-    public ArrayList<String> toPrint(){
-        return null;
     }
 
     public static void main(String[] args){
