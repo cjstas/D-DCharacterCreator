@@ -12,13 +12,13 @@ public class Barbarian extends Character {
     public void Barbarian(){
     }
 
-    public Barbarian(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
-        super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
+    public Barbarian(String CharacterName, String classtype, int level, String race, String background, String alignment, String playerName, int experience, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
+        super(CharacterName, classtype,level, race, background, alignment, playerName,experience,strength,dexterity,constitution, intelligence,wisdom, charisma);
         strST=true;
         conST=true;
 
         boolean spellcaster = false;
-        setHealth(totalHealth,level);
+        setHealth();
 
         ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("animalHandling");
@@ -129,72 +129,6 @@ public class Barbarian extends Character {
         }
     }
 
-    @Override
-    public String getBackground() {
-        return null;
-    }
-
-    @Override
-    public void setBackground(String background) {
-
-    }
-
-    @Override
-    public void setClassType(String classType) {
-
-    }
-
-    @Override
-    public void setPlayerName(String playerName) {
-
-    }
-
-    @Override
-    public void setRace(String race) {
-
-    }
-
-    @Override
-    public void setAlignment(String alignment) {
-
-    }
-
-    @Override
-    public int getProficiencyBonus() {
-        return 0;
-    }
-
-    @Override
-    public void setProficiencyBonus(int proficiencyBonus) {
-
-    }
-
-    @Override
-    public void setSpeed(int speed) {
-    }
-
-    @Override
-    public void setPersonalityTrait(String personalityTrait) {
-    }
-
-    @Override
-    public void setIdeals(String ideals) {
-    }
-
-    @Override
-    public void setBonds(String bonds) {
-
-    }
-
-    @Override
-    public void setFlaws(String flaws) {
-    }
-
-    @Override
-    public int setHealth(int health, int level) {
-        return 0;
-    }
-
     public int setHealth(){
         int i = 0;
         this.health=health+12+modMap.get(this.constitution);
@@ -205,19 +139,5 @@ public class Barbarian extends Character {
             }
         }
         return totalHealth;
-    }
-
-    @Override
-    public void setEquipment() {
-    }
-
-    @Override
-    public int setSpellcastingAbility(int ability) {
-        return Integer.parseInt(null);
-    }
-
-    @Override
-    public int setSpellSaveDC(int dc) {
-        return Integer.parseInt(null);
     }
 }

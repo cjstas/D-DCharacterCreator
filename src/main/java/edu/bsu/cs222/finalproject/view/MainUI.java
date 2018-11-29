@@ -128,9 +128,9 @@ public class MainUI extends Application {
                 initPlayer(classes.getValue());
                 player.CharacterName=name.getText();
                 player.level=Integer.parseInt(level.getText());
-                player.setRace(races.getValue());
-                player.setClassType(classes.getValue());
-                player.setAlignment(alignmentL_U.getValue() + " " + alignmentG_E.getValue());
+                player.race = races.getValue();
+                player.classType = classes.getValue();
+                player.alignment = alignmentL_U.getValue() + " " + alignmentG_E.getValue();
                 primaryStage.setScene(setSheetScene());
             }
         });

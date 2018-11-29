@@ -6,13 +6,14 @@ import java.util.Random;
 
 public class Warlock extends Character {
 
-    public Warlock(String cName, String classtype, int level, String r, String bg, String align, String pName, int exp, int str, int dex, int con, int intel, int wis, int cha) {
-        super(cName, classtype, level, r, bg, align, pName, exp, str, dex, con, intel, wis, cha);
+    public Warlock(String CharacterName, String classtype, int level, String race, String background, String alignment, String playerName, int experience, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
+        super(CharacterName, classtype,level, race, background, alignment, playerName,experience,strength,dexterity,constitution, intelligence,wisdom, charisma);
         wisST=true;
         chaST=true;
 
-        spellAbility=setSpellcastingAbility(cha);
-        dc=setSpellSaveDC(cha);
+        int spellAttackBonus = returnSpellAttackBonus("Charisma");
+        int spellSaveDC = returnSpellSaveDC("Charisma");
+        int spellCastingModifier = returnSpellCastingModifier("Charisma");
         totalHealth=setHealth(totalHealth,level);
 
         ArrayList<String> validSkills= new ArrayList<>();
@@ -155,72 +156,6 @@ public class Warlock extends Character {
     public Warlock() {
 
     }
-
-    @Override
-    public String getBackground() {
-        return null;
-    }
-
-    @Override
-    public void setBackground(String background) {
-
-    }
-
-    @Override
-    public void setClassType(String classType) {
-
-    }
-
-    @Override
-    public void setPlayerName(String playerName) {
-
-    }
-
-    @Override
-    public void setRace(String race) {
-
-    }
-
-    @Override
-    public void setAlignment(String alignment) {
-
-    }
-
-    @Override
-    public int getProficiencyBonus() {
-        return 0;
-    }
-
-    @Override
-    public void setProficiencyBonus(int proficiencyBonus) {
-
-    }
-
-    @Override
-    public void setSpeed(int speed) {
-
-    }
-
-    @Override
-    public void setPersonalityTrait(String personalityTrait) {
-
-    }
-
-    @Override
-    public void setIdeals(String ideals) {
-
-    }
-
-    @Override
-    public void setBonds(String bonds) {
-
-    }
-
-    @Override
-    public void setFlaws(String flaws) {
-
-    }
-
     public int setHealth(int health, int level) {
         int i = 0;
         health=health+8+modMap.get(this.constitution);
@@ -232,21 +167,12 @@ public class Warlock extends Character {
         }
         return health;
     }
-
-    @Override
-    public void setEquipment() {
-
-    }
-
-
-    @Override
     public int setSpellcastingAbility(int ability) {
-        return getProficiencyBonus()+modMap.get(ability);
+        return this.proficiencyBonus+modMap.get(ability);
     }
 
-    @Override
     public int setSpellSaveDC(int dc) {
-        return 8+getProficiencyBonus()+modMap.get(dc);
+        return 8+this.proficiencyBonus+modMap.get(dc);
     }
 
 }

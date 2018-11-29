@@ -1,6 +1,5 @@
 package edu.bsu.cs222.finalproject.functionality;
 
-import edu.bsu.cs222.finalproject.functionality.Spell;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,44 +25,44 @@ public class SpellTests {
     @Test
     public void TestSpell1IsCastableByCleric() {
         fillTestObjects();
-       // Assert.assertTrue(testSpell1.isCastableBy("Cleric"));
+        Assert.assertTrue(testSpell1.isCastableBy("Cleric"));
     }
 
     @Test
     public void TestSpell2IsNotCastableByCleric() {
         fillTestObjects();
-        //Assert.assertFalse(testSpell2.isCastableBy("Cleric"));
+        Assert.assertFalse(testSpell2.isCastableBy("Cleric"));
     }
 
     @Test
     public void TestSpell2IsCastableByWarlock() {
         fillTestObjects();
-        //Assert.assertTrue(testSpell2.isCastableBy("Warlock"));
+        Assert.assertTrue(testSpell2.isCastableBy("Warlock"));
     }
 
     @Test
     public void TestSpell1IsNotCasableByWarlock() {
         fillTestObjects();
-        //Assert.assertFalse(testSpell1.isCastableBy("Warlock"));
+        Assert.assertFalse(testSpell1.isCastableBy("Warlock"));
     }
     @Test
     public void TestSpell1IsCasableByWizard() {
         fillTestObjects();
-        //Assert.assertTrue(testSpell1.isCastableBy("Wizard"));
+        Assert.assertTrue(testSpell1.isCastableBy("Wizard"));
     }
     @Test
     public void TestSpell2IsCasableByWizard() {
         fillTestObjects();
-        //Assert.assertTrue(testSpell2.isCastableBy("Wizard"));
+        Assert.assertTrue(testSpell2.isCastableBy("Wizard"));
     }
     @Test
     public void TestSpell1IsNotCasableByDruid() {
         fillTestObjects();
-       // Assert.assertFalse(testSpell1.isCastableBy("Druid"));
+       Assert.assertFalse(testSpell1.isCastableBy("Druid"));
     }
     @Test
     public void TestSpell2IsNotCasableByDruid() {
         fillTestObjects();
-        //Assert.assertFalse(testSpell2.isCastableBy("Druid"));
+        Assert.assertFalse(testSpell2.isCastableBy("Druid"));
     }
 }
