@@ -13,7 +13,7 @@ public class Spell {
         this.spellSlotLevel = spellSlotLevel;
     }
 
-    public boolean isUseableBy(String name) {
+    public boolean isCastableBy(String name) {
         boolean result = false;
         for(String names : useableBy) {
             if(names.equals(name)) {

@@ -61,16 +61,16 @@ public class MainUI extends Application {
                 new Label("Alignment"),
                 new HBox(alignmentL_U, alignmentG_E),
                 buildStartSheetButton);
-
         buildStartSheetButton.setOnAction(event -> {
-            initPlayer(classes.getValue());
-            player.CharacterName = name.getText();
-            int safeLevel = checkLevel(Integer.parseInt(level.getText().trim()));
-            player.level = safeLevel;
-            player.setRace(races.getValue());
-            player.setClassType(classes.getValue());
-            player.setAlignment(alignmentL_U.getValue() + " " + alignmentG_E.getValue());
-            primaryStage.setScene(setSheetScene());
+                initPlayer(classes.getValue());
+                player.CharacterName=name.getText();
+                player.level=Integer.parseInt(level.getText());
+                player.race = races.getValue();
+                player.classType = classes.getValue();
+                player.alignment = alignmentL_U.getValue() + " " + alignmentG_E.getValue();
+                primaryStage.setScene(setSheetScene());
+            }
+
         });
 
         return presetup;
