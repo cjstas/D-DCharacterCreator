@@ -23,7 +23,6 @@ public abstract class Character{
     int experiencePoints;
     int proficiencyBonus;
     int initiative;
-    int totalHealth;
     int spellAbility;
     int dc;
     int subrace;
@@ -35,7 +34,7 @@ public abstract class Character{
 
     public List<String> language = new ArrayList<>();
     public List<String> abilities = new ArrayList<>();
-    public List<String> spellsFromRace = new ArrayList<String>();
+    public List<String> spellsFromRace = new ArrayList<>();
     public List<String> equipment = new ArrayList<>();
     public List<String> items = new ArrayList<>();
     public List<String> classAbilities = new ArrayList<>();
@@ -147,7 +146,6 @@ public abstract class Character{
 
         setBackgroundTrait(background);
         setRaceBonus();
-        setSubrace();
     }
 
     public void setBackgroundTrait(String background) {
@@ -243,9 +241,7 @@ public abstract class Character{
     }
 
     public void setRaceBonus(){
-        ArrayList<ArrayList<Spell>> spellsByClass = ListMaker.returnClassArrays();
-        ArrayList<Spell> tempCantripList = new ArrayList<>();
-        Random randomize = new Random();
+        setSubrace();
         switch(this.race){
             case "Dwarf":
                 this.constitution += 2;
@@ -277,14 +273,6 @@ public abstract class Character{
                     this.intelligence+=1;
                     abilities.add("Elf Weapon Training");
                     this.race = "High Elf";
-                    for (ArrayList<Spell> list : spellsByClass) {
-                        for(Spell spell : list) {
-                            if(spell.spellSlotLevel == 0) {
-                                tempCantripList.add(spell);
-                            }
-                        }
-                    }
-                    spellsFromRace.add(tempCantripList.get(randomize.nextInt(tempCantripList.size())).toString());
                 }
                 if (subrace==1){
                     this.race = "Wood Elf";
@@ -299,7 +287,6 @@ public abstract class Character{
                 abilities.add("Superior Darkvision");
                 abilities.add("Sunlight Sensitivity");
                 abilities.add("Drow Magic");
-                spellsFromRace.add("Dancing Lights");
                 abilities.add("Drow Weapon Training");
             }
                 break;
@@ -353,7 +340,6 @@ public abstract class Character{
                     this.race="Forest Gnome";
                     this.dexterity+=1;
                     abilities.add("Natural Illusionist");
-                    spellsFromRace.add("minor illusion");
                     abilities.add("Speak with Small Beasts");
                 }
                 if (subrace==1){
@@ -390,7 +376,6 @@ public abstract class Character{
                 abilities.add("Darkvision");
                 abilities.add("Hellish Resistance");
                 abilities.add("Infernal Legacy");
-                spellsFromRace.add("thamaturgy");
                 language.add("Common");
                 language.add("Infernal");
                 break;
@@ -464,58 +449,27 @@ public abstract class Character{
 
     public int returnSpellAttackBonus(String Ability) {
         int abilityLevel = 0;
-        switch (Ability) {
-            case "Strength":
-                abilityLevel= this.strength;
-                break;
-            case "Dexterity":
-                abilityLevel=this.dexterity;
-                break;
-            case "Constitution":
-                abilityLevel=this.constitution;
-                break;
-            case "Intelligence":
-                abilityLevel=this.intelligence;
-                break;
-            case "Wisdom":
-                abilityLevel=this.wisdom;
-                break;
-            case "Charisma":
-                abilityLevel=this.charisma;
-                break;
-        }
+        abilityLevel = getAbilityLevel(Ability);
 
         return ((abilityLevel-10)/2)+proficiencyBonus;
     }
 
     public int returnSpellCastingModifier(String Ability) {
         int abilityLevel= 0;
-        switch (Ability) {
-            case "Strength":
-                abilityLevel= this.strength;
-                break;
-            case "Dexterity":
-                abilityLevel=this.dexterity;
-                break;
-            case "Constitution":
-                abilityLevel=this.constitution;
-                break;
-            case "Intelligence":
-                abilityLevel=this.intelligence;
-                break;
-            case "Wisdom":
-                abilityLevel=this.wisdom;
-                break;
-            case "Charisma":
-                abilityLevel=this.charisma;
-                break;
-        }
+        abilityLevel = getAbilityLevel(Ability);
 
         return (abilityLevel-10)/2;
     }
 
     public int returnSpellSaveDC(String Ability) {
         int abilityLevel= 0;
+        abilityLevel = getAbilityLevel(Ability);
+
+        return ((abilityLevel-10)/2)+8+ this.proficiencyBonus;
+    }
+
+    private int getAbilityLevel(String Ability) {
+        int abilityLevel = 0;
         switch (Ability) {
             case "Strength":
                 abilityLevel= this.strength;
@@ -536,7 +490,8 @@ public abstract class Character{
                 abilityLevel=this.charisma;
                 break;
         }
-
-        return ((abilityLevel-10)/2)+8+ this.proficiencyBonus;
+        return abilityLevel;
     }
+
+    public abstract int setHealth();
 }

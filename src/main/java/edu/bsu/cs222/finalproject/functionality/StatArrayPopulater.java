@@ -95,10 +95,6 @@ public class StatArrayPopulater {
         stage.show();
     }
 
-    public Character returnPlayer(){
-        return emptyPlayer;
-    }
-
     public int[] rollRandomStat() {
         int[] randomStat = new int[6];
         for(int i=0; i<randomStat.length; i++){
@@ -110,6 +106,10 @@ public class StatArrayPopulater {
 
     private int statRoll() {
         return DiceRoll.D6()+ DiceRoll.D6()+ DiceRoll.D6();
+    }
+
+    public Character returnPlayer(){
+        return emptyPlayer;
     }
 
 }

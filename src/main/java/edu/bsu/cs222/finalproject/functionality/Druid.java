@@ -1,10 +1,7 @@
 package edu.bsu.cs222.finalproject.functionality;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-
-import static java.lang.Boolean.parseBoolean;
 
 public class Druid extends Character {
 
@@ -27,7 +24,7 @@ public class Druid extends Character {
         int spellAttackBonus = returnSpellAttackBonus("Wisdom");
         int spellSaveDC = returnSpellSaveDC("Wisdom");
         int spellCastingModifier = returnSpellCastingModifier("Wisdom");
-        totalHealth=setHealth(totalHealth,level);
+        health=setHealth();
 
         Random randomize = new Random();
         for (int i = 0; i < 2 ; i++) {
@@ -135,7 +132,7 @@ public class Druid extends Character {
 
     }
 
-    public int setHealth(int health, int level) {
+    public int setHealth() {
         int i = 0;
         health=health+8+modMap.get(this.constitution);
         if (level > 1){

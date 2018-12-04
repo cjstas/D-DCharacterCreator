@@ -14,7 +14,7 @@ public class Warlock extends Character {
         int spellAttackBonus = returnSpellAttackBonus("Charisma");
         int spellSaveDC = returnSpellSaveDC("Charisma");
         int spellCastingModifier = returnSpellCastingModifier("Charisma");
-        totalHealth=setHealth(totalHealth,level);
+        health=setHealth();
 
         ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("arcana");
@@ -156,7 +156,7 @@ public class Warlock extends Character {
     public Warlock() {
 
     }
-    public int setHealth(int health, int level) {
+    public int setHealth() {
         int i = 0;
         health=health+8+modMap.get(this.constitution);
         if (level > 1){

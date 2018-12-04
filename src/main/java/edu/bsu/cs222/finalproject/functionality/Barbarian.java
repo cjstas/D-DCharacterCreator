@@ -18,7 +18,7 @@ public class Barbarian extends Character {
         conST=true;
 
         boolean spellcaster = false;
-        setHealth();
+        health = setHealth();
 
         ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("animalHandling");
@@ -138,6 +138,6 @@ public class Barbarian extends Character {
                 i++;
             }
         }
-        return totalHealth;
+        return health;
     }
 }
