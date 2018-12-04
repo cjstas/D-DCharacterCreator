@@ -1,10 +1,7 @@
 package edu.bsu.cs222.finalproject.functionality;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-
-import static java.lang.Boolean.parseBoolean;
 
 public class Rogue extends Character {
     public Rogue(String CharacterName, String classtype, int level, String race, String background, String alignment, String playerName, int experience, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
@@ -15,7 +12,7 @@ public class Rogue extends Character {
         int spellAttackBonus = returnSpellAttackBonus("Intelligence");
         int spellSaveDC = returnSpellSaveDC("Intelligence");
         int spellCastingModifier = returnSpellCastingModifier("Intelligence");
-        totalHealth=setHealth(totalHealth,level);
+        health=setHealth();
 
         ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("acrobatics");
@@ -152,7 +149,7 @@ public class Rogue extends Character {
 
     }
 
-    public int setHealth(int health, int level) {
+    public int setHealth() {
         int i = 0;
         health=health+8+modMap.get(this.constitution);
         if (level > 1){

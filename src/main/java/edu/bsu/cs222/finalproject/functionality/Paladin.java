@@ -1,10 +1,7 @@
 package edu.bsu.cs222.finalproject.functionality;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-
-import static java.lang.Boolean.parseBoolean;
 
 public class Paladin extends Character {
 
@@ -12,7 +9,7 @@ public class Paladin extends Character {
         super(CharacterName, classtype,level, race, background, alignment, playerName,experience,strength,dexterity,constitution, intelligence,wisdom, charisma);
         wisST=true;
         chaST=true;
-        totalHealth=setHealth(totalHealth,level);
+        health=setHealth();
 
         ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("athletics");
@@ -119,7 +116,7 @@ public class Paladin extends Character {
 
     public Paladin() {
     }
-    public int setHealth(int health, int level) {
+    public int setHealth() {
         int i = 0;
         health=health+10+modMap.get(this.constitution);
         if (level > 1){

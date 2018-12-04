@@ -1,10 +1,7 @@
 package edu.bsu.cs222.finalproject.functionality;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-
-import static java.lang.Boolean.parseBoolean;
 
 
 public class Monk extends Character {
@@ -14,7 +11,7 @@ public class Monk extends Character {
         strST=true;
         dexST=true;
 
-        totalHealth=setHealth(totalHealth,level);
+        health=setHealth();
 
         ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("acrobatics");
@@ -131,7 +128,7 @@ public class Monk extends Character {
 
     }
 
-    public int setHealth(int health, int level) {
+    public int setHealth() {
         int i = 0;
         health=health+8+modMap.get(this.constitution);
         if (level > 1){
