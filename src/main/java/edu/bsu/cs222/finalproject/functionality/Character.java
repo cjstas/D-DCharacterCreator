@@ -353,6 +353,7 @@ public abstract class Character{
                     this.race="Forest Gnome";
                     this.dexterity+=1;
                     abilities.add("Natural Illusionist");
+                    spellsFromRace.add("minor illusion");
                     abilities.add("Speak with Small Beasts");
                 }
                 if (subrace==1){
@@ -389,6 +390,7 @@ public abstract class Character{
                 abilities.add("Darkvision");
                 abilities.add("Hellish Resistance");
                 abilities.add("Infernal Legacy");
+                spellsFromRace.add("thamaturgy");
                 language.add("Common");
                 language.add("Infernal");
                 break;
