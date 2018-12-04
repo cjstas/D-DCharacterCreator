@@ -1,6 +1,9 @@
 package edu.bsu.cs222.finalproject.view;
 
 import edu.bsu.cs222.finalproject.functionality.Character;
+import edu.bsu.cs222.finalproject.functionality.ListMaker;
+import edu.bsu.cs222.finalproject.functionality.PDFCreation;
+import edu.bsu.cs222.finalproject.functionality.Spell;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -12,6 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class CharacterSheets extends Application {
 
@@ -29,7 +34,6 @@ public class CharacterSheets extends Application {
     public Pane setSheet() {
             return sheet5e();
     }
-
 
     private Pane sheet5e() {
         Pane sheet5e = new BorderPane();
@@ -294,6 +298,9 @@ public class CharacterSheets extends Application {
 
     public void populateSheet(Character player) {
             player.setRaceBonus();
+            if(player.health==0)
+                player.setHealth();
+
             str.setText(player.strength+"");
             dex.setText(player.dexterity+"");
             cons.setText(player.constitution+"");
@@ -309,25 +316,40 @@ public class CharacterSheets extends Application {
             chaMod.setText(""+player.modMap.get(player.charisma));
 
             passWis.setText(""+(player.modMap.get(player.wisdom)+10));
+
             if(player.strST) {
-                strSav.setText("" + (player.modMap.get(player.strength) + 10));
+                strSav.setText("" + (Integer.parseInt(strMod.getText())+ 10));
             }
-            if(player.dexST)
-                dexSav.setText(""+(player.modMap.get(player.dexterity)+10));
-            if(player.conST)
-                consSav.setText(""+(player.modMap.get(player.constitution)+10));
-            if(player.wisST)
-                wisSav.setText(""+(player.modMap.get(player.wisdom)+10));
-            if(player.intelST)
-                intelSav.setText(""+(player.modMap.get(player.intelligence)+10));
-            if(player.chaST)
-                chaSav.setText(""+(player.modMap.get(player.charisma)+10));
+            if (player.dexST) {
+                dexSav.setText("" + (Integer.parseInt(dexMod.getText()) + 10));
+            }
+            if (player.conST) {
+                consSav.setText("" + (Integer.parseInt(consMod.getText()) + 10));
+            }
+            if (player.wisST) {
+                wisSav.setText("" + (Integer.parseInt(wisMod.getText()) + 10));
+            }
+            if (player.intelST) {
+                intelSav.setText("" + (Integer.parseInt(intelMod.getText()) + 10));
+            }
+            if(player.chaST){
+                chaSav.setText(""+(Integer.parseInt(chaMod.getText())+10));
+            }
 
+            for(String skill: player.knownSkills){
+                fillSkills(skill);
+            }
 
+            ideal.setText(player.ideal);
+            equip.setText("");
+            for(String item: player.equipment){
+                equip.appendText(item.concat("\n"));
+            }
+            featAndTraits.setText("");
             for(String ability: player.abilities) {
                 featAndTraits.appendText(ability.concat("\n"));
             }
-
+            languages.setText("");
             for(String language: player.language){
                 this.languages.appendText(language.concat("\n"));
             }
@@ -338,7 +360,85 @@ public class CharacterSheets extends Application {
             hitMax.setText(""+player.health);
             flaw.setText(player.flaw);
             bon.setText(player.bond);
+            pers.setText(player.personalityTrait);
 
+    }
+
+    private void fillSkills(String skill) {
+        switch(skill){
+            case "acrobatics":
+                acrRb.setSelected(true);
+                acrF.setText(dexMod.getText());
+                break;
+            case "animalHandling":
+                aniHandRb.setSelected(true);
+                aniHandF.setText(wisMod.getText());
+                break;
+            case "arcana":
+                arcanRb.setSelected(true);
+                arcanF.setText(intelMod.getText());
+                break;
+            case "athletics":
+                athlRb.setSelected(true);
+                athlF.setText(strMod.getText());
+                break;
+            case "deception":
+                decRb.setSelected(true);
+                decF.setText(chaMod.getText());
+                break;
+            case "history":
+                histRb.setSelected(true);
+                histF.setText(intelMod.getText());
+                break;
+            case "insight":
+                insRb.setSelected(true);
+                insF.setText(wisMod.getText());
+                break;
+            case "intimidation":
+                intimRb.setSelected(true);
+                intimF.setText(chaMod.getText());
+                break;
+            case "investigation":
+                invesRb.setSelected(true);
+                invesF.setText(intelMod.getText());
+                break;
+            case "medicine":
+                medRb.setSelected(true);
+                medF.setText(wisMod.getText());
+                break;
+            case "nature":
+                natRb.setSelected(true);
+                natF.setText(intelMod.getText());
+                break;
+            case "perception":
+                percepRb.setSelected(true);
+                percepF.setText(wisMod.getText());
+                break;
+            case "perfomance":
+                performRb.setSelected(true);
+                performF.setText(chaMod.getText());
+                break;
+            case "persuasion":
+                persRb.setSelected(true);
+                persF.setText(chaMod.getText());
+                break;
+            case "religion":
+                relgRb.setSelected(true);
+                relgF.setText(intel.getText());
+                break;
+            case "slightOfHand":
+                sliOfHandRb.setSelected(true);
+                sliOfHandF.setText(dexMod.getText());
+                break;
+            case "stealth":
+                stealRb.setSelected(true);
+                stealF.setText(dexMod.getText());
+                break;
+            case "survival":
+                survRb.setSelected(true);
+                survF.setText(wisMod.getText());
+                break;
+        }
     }
 
     public BorderPane getSpellSheet(){
@@ -355,10 +455,86 @@ public class CharacterSheets extends Application {
         spellLv8.setPrefRowCount(7);
         spellLv9.setPrefRowCount(7);
 
-        spellSheet.setLeft(new VBox(cantrips,spellLv1,spellLv2));
-        spellSheet.setCenter(new VBox(spellLv3, spellLv4, spellLv5));
-        spellSheet.setLeft(new VBox(spellLv6, spellLv7, spellLv8, spellLv9));
+        spellSheet.setLeft(new VBox(
+                new Label("Cantrips"),cantrips,
+                new Label("Level 1 spells"),spellLv1,
+                new Label("Level 2 spells"),spellLv2));
+        spellSheet.setCenter(new VBox(
+                new Label("Level 3 spells"),spellLv3,
+                new Label("Level 4 spells"),spellLv4,
+                new Label("Level 5 spells"),spellLv5));
+        spellSheet.setLeft(new VBox(
+                new Label("Level 6 spells"),spellLv6,
+                new Label("Level 7 spells"),spellLv7,
+                new Label("Level 8 spells"),spellLv8,
+                new Label("Level 9 spells"),spellLv9));
         return spellSheet;
+    }
+
+    public void populateSpells(Character player) {
+        ArrayList<String> raceSet = (ArrayList<String>) player.spellsFromRace;
+        for(String  spell: raceSet){
+            locationDeterminer(spell);
+        }
+
+    }
+
+    private void locationDeterminer(String spell) {
+        ListMaker lister = new ListMaker();
+        ArrayList<Spell> spellList = lister.returnSpellsArrayList5e();
+        for(Spell spells: spellList){
+            if(spells.name.equals(spell)){
+                switch(spells.spellSlotLevel){
+                    case 0:
+                        cantrips.appendText(spell);
+                        break;
+                    case 1:
+                        spellLv1.appendText(spell);
+                        break;
+                    case 2:
+                        spellLv2.appendText(spell);
+                        break;
+                    case 3:
+                        spellLv3.appendText(spell);
+                        break;
+                    case 4:
+                        spellLv4.appendText(spell);
+                        break;
+                    case 5:
+                        spellLv5.appendText(spell);
+                        break;
+                    case 6:
+                        spellLv6.appendText(spell);
+                        break;
+                    case 7:
+                        spellLv7.appendText(spell);
+                        break;
+                    case 8:
+                        spellLv8.appendText(spell);
+                        break;
+                    case 9:
+                        spellLv9.appendText(spell);
+                        break;
+                }
+            }
+        }
+    }
+
+    public void toFinalPdf(PDFCreation pdf){
+        pdf.fillEmptySheet();
+    }
+
+    public void grabSpells() {
+
+    }
+
+    public int[] grabEnteredStats() {
+        int[] stats = new int[6];
+        String[] statsString = {str.getText(), dex.getText(), cons.getText(), intel.getText(), wis.getText(), cha.getText()};
+        for(int i = 0; i<statsString.length; i++){
+            stats[i] = Integer.parseInt(statsString[i]);
+        }
+        return stats;
     }
 
     public static void main(String[] args){
@@ -373,4 +549,5 @@ public class CharacterSheets extends Application {
         primaryStage.setScene(sheetVeiw);
         primaryStage.show();
     }
+
 }

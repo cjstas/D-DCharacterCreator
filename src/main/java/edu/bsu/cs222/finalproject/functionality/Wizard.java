@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static java.lang.Boolean.parseBoolean;
-
 public class Wizard extends Character {
 
     public Wizard(String CharacterName, String classtype, int level, String race, String background, String alignment, String playerName, int experience, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
@@ -16,7 +14,7 @@ public class Wizard extends Character {
         int spellAttackBonus = returnSpellAttackBonus("Intelligence");
         int spellSaveDC = returnSpellSaveDC("Intelligence");
         int spellCastingModifier = returnSpellCastingModifier("Intelligence");
-        totalHealth=setHealth(totalHealth,level);
+        health=setHealth();
 
         ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("arcana");
@@ -127,7 +125,7 @@ public class Wizard extends Character {
 
     }
 
-    public int setHealth(int health, int level) {
+    public int setHealth() {
         int i = 0;
         health=health+6+modMap.get(this.constitution);
         if (level > 1){

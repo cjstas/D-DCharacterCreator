@@ -4,7 +4,10 @@ import edu.bsu.cs222.finalproject.functionality.*;
 import edu.bsu.cs222.finalproject.functionality.Character;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -17,9 +20,7 @@ public class MainUI extends Application {
     private CharacterSheets sheets;
     private BorderPane mainLayout;
     private Character player;
-    private Button buildStartSheetButton;
     private Stage primaryStage;
-    private String preferedFileLocation;
 
     public static void main(String[] args){
         launch(args);
@@ -49,9 +50,9 @@ public class MainUI extends Application {
         alignmentL_U.setItems(InfoHolding.alignmentL_UArray());
         TextField age = new TextField();
         age.setPrefColumnCount(4);
-        Label warn = new Label("Please don't leave any field empty");
+        Button buildStartSheetButton = new Button("Build Sheet");
+        Button buildRandomCharacter = new Button("Random Character");
 
-        buildStartSheetButton = new Button("Build Sheet");
         presetup.getChildren().addAll(
                 new HBox(new Label("Name"), name),
                 new HBox(new Label("Age"), age),
@@ -60,20 +61,27 @@ public class MainUI extends Application {
                 new HBox(new Label("Level"), level),
                 new Label("Alignment"),
                 new HBox(alignmentL_U, alignmentG_E),
-                buildStartSheetButton);
+                new HBox(buildStartSheetButton, buildRandomCharacter));
+
+        buildRandomCharacter.setOnAction(event ->primaryStage.setScene(NPCSetupScreen()));
+
         buildStartSheetButton.setOnAction(event -> {
                 initPlayer(classes.getValue());
                 player.CharacterName=name.getText();
-                player.level=Integer.parseInt(level.getText());
+                player.level= checkLevel(Integer.parseInt(level.getText()));
                 player.race = races.getValue();
                 player.classType = classes.getValue();
                 player.alignment = alignmentL_U.getValue() + " " + alignmentG_E.getValue();
+                player.setBackgroundTrait(InfoHolding.backgroundFinder(player.classType.toLowerCase()));
                 primaryStage.setScene(setSheetScene());
-            }
-
         });
 
         return presetup;
+    }
+
+    private Scene NPCSetupScreen() {
+        BorderPane layout = new BorderPane();
+        return new Scene(layout);
     }
 
     private int checkLevel(int level) {
@@ -142,7 +150,6 @@ public class MainUI extends Application {
     }
 
     private HBox basicInfo() {
-        //todo make readable
         return new HBox(new Label("Name: "),new Label(player.CharacterName+"  "),
                 new Label("Race: "),new Label(player.race+"  "),
                 /*new Label("age "),new Label(),*/
@@ -162,25 +169,30 @@ public class MainUI extends Application {
         Button ruleSearch = new Button("Basic Rules");
         Button monsterSearch = new Button("Official Moster Search");
         Button homeBrewSearch = new Button("Home Brew search");
-        Button generateBackground = new Button("Generate Background");
         Button editSpellSheet = new Button("Edit Spell\nSheet");
         Button toPDF = new Button("create PDF");
-
-
+        Button playerFill = new Button("Enter in Stats");
 
         /*todo make the array populator function properly
          * currently - failing to fill with out screen rewrite
          * working means it will out put on the sheet in the scores section*/
         StatArrayPopulater statPop = new StatArrayPopulater(player);
 
+        playerFill.setOnAction(event ->{
+            int[] statsArray = sheets.grabEnteredStats();
+        });
+
         returnToCharacterSheet.setOnAction(event -> {
             mainLayout.setCenter(sheets.setSheet());
             sheets.populateSheet(player);
+            sheets.grabSpells();
             controlLayout.getChildren().add(6, editSpellSheet);
             controlLayout.getChildren().remove(returnToCharacterSheet);
         });
+
         editSpellSheet.setOnAction(event -> {
             mainLayout.setCenter(sheets.getSpellSheet());
+            sheets.populateSpells(player);
             controlLayout.getChildren().add(6, returnToCharacterSheet);
             controlLayout.getChildren().remove(editSpellSheet);
         });
@@ -218,9 +230,25 @@ public class MainUI extends Application {
         ruleSearch.setOnAction(event -> webview(URLDeterminer("srd")));
         homeBrewSearch.setOnAction(event -> webview(URLDeterminer("wikia")));
         monsterSearch.setOnAction(event -> webview(URLDeterminer("monsters")));
+        toPDF.setOnAction(event ->{
+            PDFCreation pdf = new PDFCreation(player);
+            sheets.toFinalPdf(pdf);
+        });
 
-        controlLayout.getChildren().addAll(new Label("Sheet Control buttons"),randomStatsButt,standardArrayButt,eliteArrayButt,dunceArrayButt,editSpellSheet);
-        controlLayout.getChildren().addAll(new Label("Searching Buttons"), spellSearch, ruleSearch, homeBrewSearch, monsterSearch);
+        controlLayout.getChildren().addAll(
+                new Label("Sheet Control buttons"),
+                randomStatsButt,
+                standardArrayButt,
+                eliteArrayButt,
+                dunceArrayButt,
+                editSpellSheet);
+        controlLayout.getChildren().addAll(
+                new Label("Searching Buttons"),
+                spellSearch,
+                ruleSearch,
+                homeBrewSearch,
+                monsterSearch,
+                toPDF);
         return controlLayout;
     }
 
@@ -262,11 +290,6 @@ public class MainUI extends Application {
         webStage.setTitle(webPage.getEngine().getTitle());
         webStage.setScene(new Scene(holder));
         webStage.show();
-    }
-
-    private void toFinalPdf(){
-        PDFCreation pdf = new PDFCreation(player, preferedFileLocation);
-        pdf.fillEmptySheet();
     }
 
 }
