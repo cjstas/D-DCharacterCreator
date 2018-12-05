@@ -298,8 +298,7 @@ public class CharacterSheets extends Application {
 
     public void populateSheet(Character player) {
             player.setRaceBonus();
-            if(player.health==0)
-                player.setHealth();
+            player.setHealth();
 
             str.setText(player.strength+"");
             dex.setText(player.dexterity+"");
@@ -317,30 +316,33 @@ public class CharacterSheets extends Application {
 
             passWis.setText(""+(player.modMap.get(player.wisdom)+10));
 
-            if(player.strST) {
+            if(player.setSavingThrows()[0]) {
                 strSav.setText("" + (Integer.parseInt(strMod.getText())+ 10));
             }
-            if (player.dexST) {
+            if (player.setSavingThrows()[1]) {
                 dexSav.setText("" + (Integer.parseInt(dexMod.getText()) + 10));
             }
-            if (player.conST) {
+            if (player.setSavingThrows()[2]) {
                 consSav.setText("" + (Integer.parseInt(consMod.getText()) + 10));
             }
-            if (player.wisST) {
+            if (player.setSavingThrows()[3]) {
                 wisSav.setText("" + (Integer.parseInt(wisMod.getText()) + 10));
             }
-            if (player.intelST) {
+            if (player.setSavingThrows()[4]) {
                 intelSav.setText("" + (Integer.parseInt(intelMod.getText()) + 10));
             }
-            if(player.chaST){
+            if(player.setSavingThrows()[5]){
                 chaSav.setText(""+(Integer.parseInt(chaMod.getText())+10));
             }
-
-            for(String skill: player.knownSkills){
-                fillSkills(skill);
+            if(filledPreviously()){
+                for(String skill: player.getSkills()){
+                    fillSkills(skill);
+                }
             }
 
+            ideal.setText("");
             ideal.setText(player.ideal);
+
             equip.setText("");
             for(String item: player.equipment){
                 equip.appendText(item.concat("\n"));
@@ -362,6 +364,32 @@ public class CharacterSheets extends Application {
             bon.setText(player.bond);
             pers.setText(player.personalityTrait);
 
+
+    }
+
+    private boolean filledPreviously() {
+
+        if(aniHandRb.isSelected()){return false;}
+        if(athlRb.isSelected()){return false;}
+        if(acrRb.isSelected()){return false;}
+        if(arcanRb.isSelected()){return false;}
+        if(decRb.isSelected()){return false;}
+        if(histRb.isSelected()){return false;}
+        if(insRb.isSelected()){return false;}
+        if(intimRb.isSelected()){return false;}
+        if(invesRb.isSelected()){return false;}
+        if(medRb.isSelected()){return false;}
+        if(natRb.isSelected()){return false;}
+        if(percepRb.isSelected()){return false;}
+        if(performRb.isSelected()){return false;}
+        if(persRb.isSelected()){return false;}
+        if(relgRb.isSelected()){return false;}
+        if(sliOfHandRb.isSelected()){return false;}
+        if(stealRb.isSelected()){return false;}
+        if(survRb.isSelected()){return false;}
+
+
+        return true;
     }
 
     private void fillSkills(String skill) {
@@ -463,7 +491,7 @@ public class CharacterSheets extends Application {
                 new Label("Level 3 spells"),spellLv3,
                 new Label("Level 4 spells"),spellLv4,
                 new Label("Level 5 spells"),spellLv5));
-        spellSheet.setLeft(new VBox(
+        spellSheet.setRight(new VBox(
                 new Label("Level 6 spells"),spellLv6,
                 new Label("Level 7 spells"),spellLv7,
                 new Label("Level 8 spells"),spellLv8,
@@ -475,6 +503,39 @@ public class CharacterSheets extends Application {
         ArrayList<String> raceSet = (ArrayList<String>) player.spellsFromRace;
         for(String  spell: raceSet){
             locationDeterminer(spell);
+        }
+        for(int i= 0; i < player.knownSpells.size(); i++){
+            if(i>player.cantripKnown-1){
+                cantrips.setText(player.knownSpells.get(i));
+            }
+            if(i>player.spellSlot1-1){
+                spellLv1.setText(player.knownSpells.get(i));
+            }
+            if(i>player.spellSlot2-1){
+                spellLv2.setText(player.knownSpells.get(i));
+            }
+            if(i>player.spellSlot3-1){
+                spellLv3.setText(player.knownSpells.get(i));
+            }
+            if(i>player.spellSlot4-1){
+                spellLv4.setText(player.knownSpells.get(i));
+            }
+            if(i>player.spellSlot5-1){
+                spellLv5.setText(player.knownSpells.get(i));
+            }
+            if(i>player.spellSlot6-1){
+                spellLv6.setText(player.knownSpells.get(i));
+            }
+            if(i>player.spellSlot7-1){
+                spellLv7.setText(player.knownSpells.get(i));
+            }
+            if(i>player.spellSlot8-1){
+                spellLv8.setText(player.knownSpells.get(i));
+            }
+            if(i>player.spellSlot9-1){
+                spellLv9.setText(player.knownSpells.get(i));
+            }
+
         }
 
     }
@@ -524,8 +585,30 @@ public class CharacterSheets extends Application {
         pdf.fillEmptySheet();
     }
 
-    public void grabSpells() {
+    public Character grabSpells(Character player) {
 
+        for(String e: cantrips.getText().split("\n"))
+            player.knownSpells.add(e);
+        for(String e: spellLv1.getText().split("\n"))
+            player.knownSpells.add(e);
+        for(String e: spellLv2.getText().split("\n"))
+            player.knownSpells.add(e);
+        for(String e: spellLv3.getText().split("\n"))
+            player.knownSpells.add(e);
+        for(String e: spellLv4.getText().split("\n"))
+            player.knownSpells.add(e);
+        for(String e: spellLv5.getText().split("\n"))
+            player.knownSpells.add(e);
+        for(String e: spellLv6.getText().split("\n"))
+            player.knownSpells.add(e);
+        for(String e: spellLv7.getText().split("\n"))
+            player.knownSpells.add(e);
+        for(String e: spellLv8.getText().split("\n"))
+            player.knownSpells.add(e);
+        for(String e: spellLv9.getText().split("\n"))
+            player.knownSpells.add(e);
+
+        return player;
     }
 
     public int[] grabEnteredStats() {

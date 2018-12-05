@@ -5,13 +5,6 @@ import java.util.Random;
 
 public class Barbarian extends Character {
 
-    public Barbarian() {
-
-    }
-
-    public void Barbarian(){
-    }
-
     public Barbarian(String CharacterName, String classtype, int level, String race, String background, String alignment, String playerName, int experience, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
         super(CharacterName, classtype,level, race, background, alignment, playerName,experience,strength,dexterity,constitution, intelligence,wisdom, charisma);
         strST=true;
@@ -20,7 +13,6 @@ public class Barbarian extends Character {
         boolean spellcaster = false;
         health = setHealth();
 
-        ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("animalHandling");
         validSkills.add("athletics");
         validSkills.add("intimidation");
@@ -49,6 +41,57 @@ public class Barbarian extends Character {
         classAbilities.add("Rage");
         classAbilities.add("Unarmored Defense");
 
+        setLevelAbilities();
+
+    }
+
+    public Barbarian() {
+        strST=true;
+        conST=true;
+
+        validSkills.add("animalHandling");
+        validSkills.add("athletics");
+        validSkills.add("intimidation");
+        validSkills.add("nature");
+        validSkills.add("perception");
+        validSkills.add("survival");
+
+        equipment.add("Greataxe or Martial melee weapon");
+        equipment.add("Two handaxes or any simple weapon");
+        equipment.add("4 Javelins");
+        items.add("Explorer's Pack");
+
+        proficiency.add("Light Armour");
+        proficiency.add("Medium Armour");
+        proficiency.add("Shields");
+        proficiency.add("Simple Weapons");
+        proficiency.add("Martial Weapons");
+
+        classAbilities.add("Rage");
+        classAbilities.add("Unarmored Defense");
+
+        setLevelAbilities();
+
+    }
+
+    public int setHealth(){
+        int i = 0;
+        this.health=health+12+modMap.get(this.constitution);
+        if (level > 1){
+            while  (i<= level){
+                int healthAdd = DiceRoll.D12()+modMap.get(this.constitution);
+                if (healthAdd <0){
+                    healthAdd = 0;
+                }
+                health=health+healthAdd;
+                i++;
+            }
+        }
+        return health;
+    }
+
+    @Override
+    public void setLevelAbilities() {
         if (level>=2){
             classAbilities.add("Reckless Attack");
             classAbilities.add("Danger Sense");
@@ -129,19 +172,18 @@ public class Barbarian extends Character {
         }
     }
 
-    public int setHealth(){
-        int i = 0;
-        this.health=health+12+modMap.get(this.constitution);
-        if (level > 1){
-            while  (i<= level){
-                int healthAdd = DiceRoll.D12()+modMap.get(this.constitution);
-                if (healthAdd <0){
-                    healthAdd = 0;
-                }
-                health=health+healthAdd;
-                i++;
-            }
+    @Override
+    public ArrayList<String> getSkills() {
+        for (int i = 0; i < 2; i++) {
+            String skill = validSkills.get(new Random().nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        return health;
+        return (ArrayList<String>) knownSkills;
+    }
+
+    @Override
+    public boolean[] setSavingThrows() {
+        return new boolean[]{strST, dexST, conST, intelST, wisST, chaST};
     }
 }

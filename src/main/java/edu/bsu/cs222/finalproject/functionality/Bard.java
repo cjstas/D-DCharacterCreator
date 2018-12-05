@@ -8,6 +8,45 @@ public class Bard extends Character {
 
     public Bard() {
 
+        dexST = true;
+        chaST = true;
+
+        validSkills.add("acrobatics");
+        validSkills.add("animalHandeling");
+        validSkills.add("arcana");
+        validSkills.add("athletics");
+        validSkills.add("deception");
+        validSkills.add("history");
+        validSkills.add("insight");
+        validSkills.add("intimidation");
+        validSkills.add("investigation");
+        validSkills.add("medicine");
+        validSkills.add("nature");
+        validSkills.add("perception");
+        validSkills.add("performance");
+        validSkills.add("persuasion");
+        validSkills.add("religion");
+        validSkills.add("sleightofHand");
+        validSkills.add("stealth");
+        validSkills.add("survival");
+
+        proficiency.add("Light armor");
+        proficiency.add("Simple weapons");
+        proficiency.add("Hand crossbows");
+
+        equipment.add("Choose one: Rapier, Longsword, Any simple weapon");
+        equipment.add("Choose one: Diplomat's pack or Entertainer's pack");
+        equipment.add("Choose one: A Lute or any other musical instrument");
+        equipment.add("Leather Armour");
+        equipment.add("Dagger");
+
+        classAbilities.add("Spellcasting");
+        classAbilities.add("Bardic Inspiration (D6)");
+
+        cantripKnown = 2;
+        spellsKnown = 4;
+        spellSlot1 = 2;
+        setLevelAbilities();
     }
 
     public Bard(String CharacterName, String classtype, int level, String race, String background, String alignment, String playerName, int experience, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
@@ -21,7 +60,7 @@ public class Bard extends Character {
         int spellCastingModifier = returnSpellCastingModifier("Charisma");
         health = setHealth();
 
-        ArrayList<String> validSkills = new ArrayList<>();
+
         validSkills.add("acrobatics");
         validSkills.add("animalHandeling");
         validSkills.add("arcana");
@@ -65,7 +104,27 @@ public class Bard extends Character {
         cantripKnown = 2;
         spellsKnown = 4;
         spellSlot1 = 2;
+        setLevelAbilities();
+    }
 
+    public int setHealth() {
+        int i = 0;
+        health = health + 8 + modMap.get(this.constitution);
+        if (level > 1) {
+            while (i <= level) {
+                int healthAdd = DiceRoll.D8()+modMap.get(this.constitution);
+                if (healthAdd <0){
+                    healthAdd = 0;
+                }
+                health = health + healthAdd;
+                i++;
+            }
+        }
+        return health;
+    }
+
+    @Override
+    public void setLevelAbilities() {
         if (level >= 2) {
             classAbilities.add("Jack of all Trades");
             classAbilities.add("Song of Rest (D6)");
@@ -165,19 +224,18 @@ public class Bard extends Character {
         }
     }
 
-    public int setHealth() {
-        int i = 0;
-        health = health + 8 + modMap.get(this.constitution);
-        if (level > 1) {
-            while (i <= level) {
-                int healthAdd = DiceRoll.D8()+modMap.get(this.constitution);
-                if (healthAdd <0){
-                    healthAdd = 0;
-                }
-                health = health + healthAdd;
-                i++;
-            }
+    @Override
+    public ArrayList<String> getSkills() {
+        for (int i = 0; i < 2; i++) {
+            String skill = validSkills.get(new Random().nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        return health;
+        return (ArrayList<String>) knownSkills;
+    }
+
+    @Override
+    public boolean[] setSavingThrows() {
+        return new boolean[]{strST, dexST, conST, intelST, wisST, chaST};
     }
 }

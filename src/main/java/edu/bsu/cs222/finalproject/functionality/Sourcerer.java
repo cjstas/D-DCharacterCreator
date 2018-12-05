@@ -15,7 +15,6 @@ public class Sourcerer extends Character {
         int spellCastingModifier = returnSpellCastingModifier("Charisma");
         health=setHealth();
 
-        ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("arcana");
         validSkills.add("deception");
         validSkills.add("insight");
@@ -48,6 +47,60 @@ public class Sourcerer extends Character {
         spellsKnown=2;
         spellSlot1=2;
 
+        setLevelAbilities();
+
+    }
+
+    public Sourcerer() {
+        conST=true;
+        chaST=true;
+
+        validSkills.add("arcana");
+        validSkills.add("deception");
+        validSkills.add("insight");
+        validSkills.add("intimidation");
+        validSkills.add("persuasion");
+        validSkills.add("religion");
+
+        proficiency.add("Daggers");
+        proficiency.add("Darts");
+        proficiency.add("Slings");
+        proficiency.add("Quarterstaffs");
+        proficiency.add("Light crossbows");
+
+        equipment.add("Choose one: a light crossbow and 20 bolts or any simple weapon");
+        items.add("Choose one: a component pouch or an arcane focus");
+        items.add("Choose one: a dungeoneer's pack or explorer;s pack");
+        equipment.add("Two daggers");
+
+        classAbilities.add("Spellcasting");
+        classAbilities.add("Sorcerous Origin");
+
+        cantripKnown=4;
+        spellsKnown=2;
+        spellSlot1=2;
+
+        setLevelAbilities();
+    }
+
+    public int setHealth() {
+        int i = 0;
+        health=health+6+modMap.get(this.constitution);
+        if (level > 1){
+            while  (i<= level){
+                int healthAdd = DiceRoll.D6()+modMap.get(this.constitution);
+                if (healthAdd <0){
+                    healthAdd = 0;
+                }
+                health=health+healthAdd;
+                i++;
+            }
+        }
+        return health;
+    }
+
+    @Override
+    public void setLevelAbilities() {
         if (level>=2){
             classAbilities.add("Font of Magic");
             spellsKnown=3;
@@ -134,24 +187,19 @@ public class Sourcerer extends Character {
         }
     }
 
-    public Sourcerer() {
-
+    @Override
+    public ArrayList<String> getSkills() {
+        for (int i = 0; i < 2; i++) {
+            String skill = validSkills.get(new Random().nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
+        }
+        return (ArrayList<String>) knownSkills;
     }
 
-    public int setHealth() {
-        int i = 0;
-        health=health+6+modMap.get(this.constitution);
-        if (level > 1){
-            while  (i<= level){
-                int healthAdd = DiceRoll.D6()+modMap.get(this.constitution);
-                if (healthAdd <0){
-                    healthAdd = 0;
-                }
-                health=health+healthAdd;
-                i++;
-            }
-        }
-        return health;
+    @Override
+    public boolean[] setSavingThrows() {
+        return new boolean[]{strST, dexST, conST, intelST, wisST, chaST};
     }
 
     public int returnSpellcastingAbility(int ability) {

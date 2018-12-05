@@ -1,5 +1,6 @@
 package edu.bsu.cs222.finalproject.functionality;
 
+import edu.bsu.cs222.finalproject.view.CharacterSheets;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -110,6 +111,11 @@ public class StatArrayPopulater {
 
     public Character returnPlayer(){
         return emptyPlayer;
+    }
+
+    public CharacterSheets returnEditedSheet(CharacterSheets sheet){
+        sheet.populateSheet(emptyPlayer);
+        return sheet;
     }
 
 }

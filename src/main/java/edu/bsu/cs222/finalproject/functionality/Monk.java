@@ -13,7 +13,6 @@ public class Monk extends Character {
 
         health=setHealth();
 
-        ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("acrobatics");
         validSkills.add("athletics");
         validSkills.add("history");
@@ -39,7 +38,53 @@ public class Monk extends Character {
         classAbilities.add("Unarmored Defense");
         classAbilities.add("Martial Arts");
 
+        setLevelAbilities();
+    }
 
+    public Monk() {
+        strST=true;
+        dexST=true;
+
+        validSkills.add("acrobatics");
+        validSkills.add("athletics");
+        validSkills.add("history");
+        validSkills.add("insight");
+        validSkills.add("religion");
+        validSkills.add("stealth");
+
+        proficiency.add("Simple Weapons");
+        proficiency.add("Shortswords");
+        proficiency.add("Choose one type of artisan's tool or one musical instrument");
+
+        equipment.add("Choose one: Shortsword or simple weapon.");
+        equipment.add("10 darts");
+        items.add("Choose one: Dungeoneer's pack or an Explorer's Pack");
+
+        classAbilities.add("Unarmored Defense");
+        classAbilities.add("Martial Arts");
+
+        setLevelAbilities();
+
+    }
+
+    public int setHealth() {
+        int i = 0;
+        health=health+8+modMap.get(this.constitution);
+        if (level > 1){
+            while  (i<= level){
+                int healthAdd = DiceRoll.D8()+modMap.get(this.constitution);
+                if (healthAdd <0){
+                    healthAdd = 0;
+                }
+                health=health+healthAdd;
+                i++;
+            }
+        }
+        return health;
+    }
+
+    @Override
+    public void setLevelAbilities() {
         if (level>=2){
             classAbilities.add("Ki");
             classAbilities.add("Unarmored Movement");
@@ -124,23 +169,18 @@ public class Monk extends Character {
         }
     }
 
-    public Monk() {
-
+    @Override
+    public ArrayList<String> getSkills() {
+        for (int i = 0; i < 2; i++) {
+            String skill = validSkills.get(new Random().nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
+        }
+        return (ArrayList<String>) knownSkills;
     }
 
-    public int setHealth() {
-        int i = 0;
-        health=health+8+modMap.get(this.constitution);
-        if (level > 1){
-            while  (i<= level){
-                int healthAdd = DiceRoll.D8()+modMap.get(this.constitution);
-                if (healthAdd <0){
-                    healthAdd = 0;
-                }
-                health=health+healthAdd;
-                i++;
-            }
-        }
-        return health;
+    @Override
+    public boolean[] setSavingThrows() {
+        return new boolean[]{strST, dexST, conST, intelST, wisST, chaST};
     }
 }

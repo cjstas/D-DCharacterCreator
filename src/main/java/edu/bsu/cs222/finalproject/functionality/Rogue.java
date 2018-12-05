@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Rogue extends Character {
+
     public Rogue(String CharacterName, String classtype, int level, String race, String background, String alignment, String playerName, int experience, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
         super(CharacterName, classtype,level, race, background, alignment, playerName,experience,strength,dexterity,constitution, intelligence,wisdom, charisma);
         dexST=true;
@@ -14,7 +15,6 @@ public class Rogue extends Character {
         int spellCastingModifier = returnSpellCastingModifier("Intelligence");
         health=setHealth();
 
-        ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("acrobatics");
         validSkills.add("athletics");
         validSkills.add("deception");
@@ -46,7 +46,58 @@ public class Rogue extends Character {
         classAbilities.add("Sneak Attack");
         language.add("Thieves' Cant");
 
+        setLevelAbilities();
+    }
 
+    public Rogue() {
+        dexST=true;
+        intelST=true;
+
+        validSkills.add("acrobatics");
+        validSkills.add("athletics");
+        validSkills.add("deception");
+        validSkills.add("insight");
+        validSkills.add("intimidation");
+        validSkills.add("investigation");
+        validSkills.add("perception");
+        validSkills.add("performance");
+        validSkills.add("persuasion");
+        validSkills.add("sleightofHand");
+        validSkills.add("stealth");
+
+        proficiency.add("Light Armour");
+        proficiency.add("Simple Weapons");
+        proficiency.add("Hand Crossbow");
+        proficiency.add("Longsword");
+        proficiency.add("Rapier");
+        proficiency.add("Shortsword");
+        proficiency.add("Thieve's Tools");
+
+        classAbilities.add("Expertise");
+        classAbilities.add("Sneak Attack");
+        language.add("Thieves' Cant");
+
+        setLevelAbilities();
+    }
+
+    public int setHealth() {
+        int i = 0;
+        health=health+8+modMap.get(this.constitution);
+        if (level > 1){
+            while  (i<= level){
+                int healthAdd = DiceRoll.D8()+modMap.get(this.constitution);
+                if (healthAdd <0){
+                    healthAdd = 0;
+                }
+                health=health+healthAdd;
+                i++;
+            }
+        }
+        return health;
+    }
+
+    @Override
+    public void setLevelAbilities(){
         if (level>=2){
             classAbilities.add("Cunning Action");
         }
@@ -145,23 +196,18 @@ public class Rogue extends Character {
         }
     }
 
-    public Rogue() {
-
+    @Override
+    public ArrayList<String> getSkills() {
+        for (int i = 0; i < 2; i++) {
+            String skill = validSkills.get(new Random().nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
+        }
+        return (ArrayList<String>) knownSkills;
     }
 
-    public int setHealth() {
-        int i = 0;
-        health=health+8+modMap.get(this.constitution);
-        if (level > 1){
-            while  (i<= level){
-                int healthAdd = DiceRoll.D8()+modMap.get(this.constitution);
-                if (healthAdd <0){
-                    healthAdd = 0;
-                }
-                health=health+healthAdd;
-                i++;
-            }
-        }
-        return health;
+    @Override
+    public boolean[] setSavingThrows() {
+        return new boolean[]{strST, dexST, conST, intelST, wisST, chaST};
     }
 }
