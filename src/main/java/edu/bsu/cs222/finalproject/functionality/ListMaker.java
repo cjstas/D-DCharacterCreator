@@ -10,7 +10,7 @@ import java.util.Collections;
 
 public class ListMaker {
 
-    public ArrayList<Spell> returnSpellsArrayList5e() {
+    public static ArrayList<Spell> returnSpellsArrayList5e() {
         ArrayList<Spell> output = new ArrayList<>();
 
         File spells = new File("src/resources/SpellData.txt");
@@ -40,7 +40,7 @@ public class ListMaker {
         return output;
     }
 
-    public ArrayList<ArrayList<Spell>> returnClassArrays() {
+    public static ArrayList<ArrayList<Spell>> returnClassArrays() {
         ArrayList<Spell> AllSpells = returnSpellsArrayList5e();
         ArrayList<Spell> WizardSpells = new ArrayList<>();
         ArrayList<Spell> BardSpells = new ArrayList<>();

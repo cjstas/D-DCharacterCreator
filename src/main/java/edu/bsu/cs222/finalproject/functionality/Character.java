@@ -34,11 +34,11 @@ public abstract class Character{
 
     public List<String> language = new ArrayList<>();
     public List<String> abilities = new ArrayList<>();
-    public List<String> spellsFromRace = new ArrayList<>();
     public List<String> equipment = new ArrayList<>();
     public List<String> items = new ArrayList<>();
     public List<String> classAbilities = new ArrayList<>();
     public List<String> proficiency = new ArrayList<>();
+    public List<String> spellsFromRace = new ArrayList<String>();
 
 
     public boolean strST;
@@ -242,6 +242,9 @@ public abstract class Character{
 
     public void setRaceBonus(){
         setSubrace();
+        ArrayList<ArrayList<Spell>> spellsByClass = ListMaker.returnClassArrays();
+        ArrayList<Spell> tempCantripList = new ArrayList<>();
+        Random randomize = new Random();
         switch(this.race){
             case "Dwarf":
                 this.constitution += 2;
@@ -273,6 +276,14 @@ public abstract class Character{
                     this.intelligence+=1;
                     abilities.add("Elf Weapon Training");
                     this.race = "High Elf";
+                    for (ArrayList<Spell> list : spellsByClass) {
+                        for(Spell spell : list) {
+                            if(spell.spellSlotLevel == 0) {
+                                tempCantripList.add(spell);
+                            }
+                        }
+                    }
+                    spellsFromRace.add(tempCantripList.get(randomize.nextInt(tempCantripList.size())).toString());
                 }
                 if (subrace==1){
                     this.race = "Wood Elf";
@@ -287,6 +298,7 @@ public abstract class Character{
                 abilities.add("Superior Darkvision");
                 abilities.add("Sunlight Sensitivity");
                 abilities.add("Drow Magic");
+                spellsFromRace.add("Dancing Lights");
                 abilities.add("Drow Weapon Training");
             }
                 break;
@@ -340,6 +352,7 @@ public abstract class Character{
                     this.race="Forest Gnome";
                     this.dexterity+=1;
                     abilities.add("Natural Illusionist");
+                    spellsFromRace.add("minor illusion");
                     abilities.add("Speak with Small Beasts");
                 }
                 if (subrace==1){
@@ -376,6 +389,7 @@ public abstract class Character{
                 abilities.add("Darkvision");
                 abilities.add("Hellish Resistance");
                 abilities.add("Infernal Legacy");
+                spellsFromRace.add("thamaturgy");
                 language.add("Common");
                 language.add("Infernal");
                 break;

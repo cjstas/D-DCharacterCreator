@@ -142,7 +142,11 @@ public class Ranger extends Character {
         health=health+10+modMap.get(this.constitution);
         if (level > 1){
             while  (i<= level){
-                health=health+DiceRoll.D10()+modMap.get(this.constitution);
+                int healthAdd = DiceRoll.D10()+modMap.get(this.constitution);
+                if (healthAdd <0){
+                    healthAdd = 0;
+                }
+                health=health+healthAdd;
                 i++;
             }
         }
