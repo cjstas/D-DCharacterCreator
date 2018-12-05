@@ -16,7 +16,6 @@ public class Wizard extends Character {
         int spellCastingModifier = returnSpellCastingModifier("Intelligence");
         health=setHealth();
 
-        ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("arcana");
         validSkills.add("history");
         validSkills.add("insight");
@@ -31,7 +30,6 @@ public class Wizard extends Character {
             knownSkills.add(skill);
         }
 
-        List<String> proficiency = new ArrayList<>();
         proficiency.add("Daggers");
         proficiency.add("Darts");
         proficiency.add("Slings");
@@ -43,13 +41,58 @@ public class Wizard extends Character {
         items.add("Choose one: a component pouch or arcane focus");
         items.add("Choose one: a scholar's pack or explorer's pack");
 
-        List<String> classAbilities = new ArrayList<>();
+        classAbilities.add("Spellcasting");
+        classAbilities.add("Arcane Recovery");
+
+        cantripKnown=3;
+        spellSlot1=2;
+        setLevelAbilities();
+
+    }
+
+    public Wizard() {
+        intelST=true;
+        wisST=true;
+
+        validSkills.add("arcana");
+        validSkills.add("history");
+        validSkills.add("insight");
+        validSkills.add("investigation");
+        validSkills.add("medicine");
+        validSkills.add("religion");
+
+        equipment.add("Choose one: A quarterstaff or dagger");
+        equipment.add("Spellbook");
+        items.add("Choose one: a component pouch or arcane focus");
+        items.add("Choose one: a scholar's pack or explorer's pack");
+
         classAbilities.add("Spellcasting");
         classAbilities.add("Arcane Recovery");
 
         cantripKnown=3;
         spellSlot1=2;
 
+        setLevelAbilities();
+    }
+
+    public int setHealth() {
+        int i = 0;
+        health=health+6+modMap.get(this.constitution);
+        if (level > 1){
+            while  (i<= level){
+                int healthAdd = DiceRoll.D6()+modMap.get(this.constitution);
+                if (healthAdd <0){
+                    healthAdd = 0;
+                }
+                health=health+healthAdd;
+                i++;
+            }
+        }
+        return health;
+    }
+
+    @Override
+    public void setLevelAbilities() {
         if (level>=2){
             classAbilities.add("Arcane Tradition");
             spellSlot1=3;
@@ -121,23 +164,18 @@ public class Wizard extends Character {
         }
     }
 
-    public Wizard() {
-
+    @Override
+    public ArrayList<String> getSkills() {
+        for (int i = 0; i < 2; i++) {
+            String skill = validSkills.get(new Random().nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
+        }
+        return (ArrayList<String>) knownSkills;
     }
 
-    public int setHealth() {
-        int i = 0;
-        health=health+6+modMap.get(this.constitution);
-        if (level > 1){
-            while  (i<= level){
-                int healthAdd = DiceRoll.D6()+modMap.get(this.constitution);
-                if (healthAdd <0){
-                    healthAdd = 0;
-                }
-                health=health+healthAdd;
-                i++;
-            }
-        }
-        return health;
+    @Override
+    public boolean[] setSavingThrows() {
+        return new boolean[]{strST, dexST, conST, intelST, wisST, chaST};
     }
 }

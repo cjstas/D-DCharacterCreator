@@ -11,7 +11,7 @@ public class Druid extends Character {
         wisST=true;
         intelST=true;
 
-        ArrayList<String> validSkills= new ArrayList<>();
+
         validSkills.add("animalHandeling");
         validSkills.add("arcana");
         validSkills.add("insight");
@@ -53,6 +53,32 @@ public class Druid extends Character {
         cantripKnown=2;
         spellSlot1=2;
 
+        setLevelAbilities();
+
+    }
+
+    public Druid() {
+
+    }
+
+    public int setHealth() {
+        int i = 0;
+        health=health+8+modMap.get(this.constitution);
+        if (level > 1){
+            while  (i<= level){
+                int healthAdd = DiceRoll.D8()+modMap.get(this.constitution);
+                if (healthAdd <0){
+                    healthAdd = 0;
+                }
+                health=health+healthAdd;
+                i++;
+            }
+        }
+        return health;
+    }
+
+    @Override
+    public void setLevelAbilities() {
         if (level>=2){
             classAbilities.add("Wild Shape");
             classAbilities.add("Druid Circle");
@@ -128,24 +154,19 @@ public class Druid extends Character {
         }
     }
 
-    public Druid() {
-
+    @Override
+    public ArrayList<String> getSkills() {
+        for (int i = 0; i < 2; i++) {
+            String skill = validSkills.get(new Random().nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
+        }
+        return (ArrayList<String>) knownSkills;
     }
 
-    public int setHealth() {
-        int i = 0;
-        health=health+8+modMap.get(this.constitution);
-        if (level > 1){
-            while  (i<= level){
-                int healthAdd = DiceRoll.D8()+modMap.get(this.constitution);
-                if (healthAdd <0){
-                    healthAdd = 0;
-                }
-                health=health+healthAdd;
-                i++;
-            }
-        }
-        return health;
+    @Override
+    public boolean[] setSavingThrows() {
+        return new boolean[]{strST, dexST, conST, intelST, wisST, chaST};
     }
 
     public int returnSpellcastingAbility(int ability) {

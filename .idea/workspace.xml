@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1f450ca-d401-4cf3-b36b-59b607118e86" name="Default Changelist" comment="~Character.java&#10;  -Removed dependency on interface&#10;  +added some functions for spellcasters and such&#10;~[All of the extended files from Character]&#10;   -removed all unnecessary functions leftover from the interface&#10;   ~Changed how some functions call updates&#10;~CharacterTests.java&#10;   -Removed all previous tests&#10;   +Added a new example test for future use in the new Character system&#10;~DiceRollTests.java&#10;   +Added tests for the new DiceRolls&#10;~Spell.java&#10;   +ReAdded support for useableBy()&#10;~SpellTests.java&#10;   +~Uncommented tests so that they pass but actuially test something&#10;+~+~+~+~&#10;Made general changes to make the program be more self-dependent&#10;NOTE: I did not touch the UI stuff, and current bugs known are racebonuses are not loading (likely from the way that a particular class character Object is being implimented is not actuially making a class Object, but is rather remaining a Character object which does not update things properly) (Other causes are that the race is not set before racebonuses are calculated (easy fix).">
+    <list default="true" id="a1f450ca-d401-4cf3-b36b-59b607118e86" name="Default Changelist" comment="Done a a lot of stuff &#10;+ MainUI fills out&#10;+ Character has alot added to it">
       <change afterPath="$PROJECT_DIR$/target/classes/ItemData.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/SheetFive.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/SheetThreeFive.css" afterDir="false" />
@@ -26,17 +26,13 @@
       <change afterPath="$PROJECT_DIR$/target/test-classes/edu/bsu/cs222/finalproject/functionality/PromptArrayFill.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/test-classes/edu/bsu/cs222/finalproject/functionality/SpellTests.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/test-classes/resources/SpellData.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TeamF222.3New.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TeamF222.3New.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Barbarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Barbarian.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Cleric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Cleric.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Druid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Druid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Fighter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Fighter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/ListMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/ListMaker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Monk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Monk.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Paladin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Paladin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Ranger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Ranger.java" afterDir="false" />
@@ -88,6 +84,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="1785" />
+          <entry key="PLAIN_TEXT" value="149" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -99,7 +96,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/CharacterSheets.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-272">
@@ -166,7 +163,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/PDFCreation.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-50">
@@ -194,6 +191,11 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="CaKellum &lt;42648546+cakellum@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -306,7 +308,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544049166587" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544049277447" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -557,10 +559,18 @@
       <option name="presentableId" value="Default" />
       <updated>1543252503497</updated>
     </task>
+    <task id="LOCAL-00001" summary="Done a a lot of stuff &#10;+ MainUI fills out&#10;+ Character has alot added to it">
+      <created>1544049542331</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1544049542331</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12771000" />
+    <option name="totallyTimeSpent" value="13459000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -636,7 +646,8 @@
     <MESSAGE value="refactored the setHealth mehtod&#10;added to population of pdf &#10;added to population of MainUI&#10;added a saveFolder with a welcome Text" />
     <MESSAGE value="shit" />
     <MESSAGE value="the Fixing" />
-    <option name="LAST_COMMIT_MESSAGE" value="the Fixing" />
+    <MESSAGE value="Done a a lot of stuff &#10;+ MainUI fills out&#10;+ Character has alot added to it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done a a lot of stuff &#10;+ MainUI fills out&#10;+ Character has alot added to it" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -854,12 +865,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/PDFCreation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        <state relative-caret-position="202">
+          <caret line="522" column="28" selection-start-line="522" selection-start-column="28" selection-end-line="522" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#19224#19225#0" expanded="true" />
+            <element signature="e#19250#19251#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/CharacterSheets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-272">
+          <caret line="300" column="12" selection-start-line="300" selection-start-column="12" selection-end-line="300" selection-end-column="12" />
+          <folding>
+            <element signature="e#1635#3051#0" />
+            <element signature="e#3057#3548#0" />
+            <element signature="e#3554#3989#0" />
+            <element signature="e#3995#5388#0" />
+            <element signature="e#5394#5615#0" />
+            <element signature="e#5621#5997#0" />
+            <element signature="e#6003#11508#0" />
+            <element signature="e#14214#16919#0" />
+            <element signature="e#16925#18071#0" />
+            <element signature="e#18077#18295#0" />
+            <element signature="e#18301#19749#0" />
+            <element signature="e#19837#19955#0" />
+            <element signature="e#19876#20215#0" />
+            <element signature="e#20294#20549#0" />
           </folding>
         </state>
       </provider>
@@ -902,36 +937,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/PDFCreation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="522" column="28" selection-start-line="522" selection-start-column="28" selection-end-line="522" selection-end-column="28" />
+        <state relative-caret-position="-50">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
           <folding>
-            <element signature="e#19224#19225#0" expanded="true" />
-            <element signature="e#19250#19251#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/view/CharacterSheets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-272">
-          <caret line="300" column="12" selection-start-line="300" selection-start-column="12" selection-end-line="300" selection-end-column="12" />
-          <folding>
-            <element signature="e#1635#3051#0" />
-            <element signature="e#3057#3548#0" />
-            <element signature="e#3554#3989#0" />
-            <element signature="e#3995#5388#0" />
-            <element signature="e#5394#5615#0" />
-            <element signature="e#5621#5997#0" />
-            <element signature="e#6003#11508#0" />
-            <element signature="e#14214#16919#0" />
-            <element signature="e#16925#18071#0" />
-            <element signature="e#18077#18295#0" />
-            <element signature="e#18301#19749#0" />
-            <element signature="e#19837#19955#0" />
-            <element signature="e#19876#20215#0" />
-            <element signature="e#20294#20549#0" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

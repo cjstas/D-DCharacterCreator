@@ -10,7 +10,6 @@ public class Cleric extends Character{
         wisST=true;
         chaST=true;
 
-        ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("history");
         validSkills.add("insight");
         validSkills.add("medicine");
@@ -48,6 +47,60 @@ public class Cleric extends Character{
         cantripKnown=3;
         spellSlot1=2;
 
+        setLevelAbilities();
+
+    }
+
+    public Cleric() {
+        wisST=true;
+        chaST=true;
+
+        validSkills.add("history");
+        validSkills.add("insight");
+        validSkills.add("medicine");
+        validSkills.add("persuasion");
+        validSkills.add("religion");
+
+        proficiency.add("Light armor");
+        proficiency.add("Medium Armour");
+        proficiency.add("Shields");
+        proficiency.add("Simple weapons");
+
+        equipment.add("Choose one: Mace or warhammer (if proficient in Martial weapons)");
+        equipment.add("Choose one: Scale mail, Leather armour, or chain mail (if proficient in Heavy armour)");
+        equipment.add("Choose one: a light crossbow and 20 bolts or any simple weapon");
+        equipment.add("Shield");
+        items.add("Choose one: A priest pack or an explorer pack");
+        items.add("Holy symbol");
+
+        classAbilities.add("Spellcasting");
+        classAbilities.add("Divine domain");
+
+        cantripKnown=3;
+        spellSlot1=2;
+
+        setLevelAbilities();
+
+    }
+
+    public int setHealth() {
+        int i = 0;
+        health=health+8+modMap.get(this.constitution);
+        if (level > 1){
+            while  (i<= level){
+                int healthAdd = DiceRoll.D8()+modMap.get(this.constitution);
+                if (healthAdd <0){
+                    healthAdd = 0;
+                }
+                health=health+healthAdd;
+                i++;
+            }
+        }
+        return health;
+    }
+
+    @Override
+    public void setLevelAbilities() {
         if (level>=2){
             classAbilities.add("Channel Divinity (1/rest)");
             classAbilities.add("Divine domain feature lvl 2");
@@ -128,24 +181,19 @@ public class Cleric extends Character{
         }
     }
 
-    public Cleric() {
-
+    @Override
+    public ArrayList<String> getSkills() {
+        for (int i = 0; i < 2; i++) {
+          String skill = validSkills.get(new Random().nextInt(validSkills.size()));
+          validSkills.remove(skill);
+          knownSkills.add(skill);
+        }
+        return (ArrayList<String>) knownSkills;
     }
 
-    public int setHealth() {
-        int i = 0;
-        health=health+8+modMap.get(this.constitution);
-        if (level > 1){
-            while  (i<= level){
-                int healthAdd = DiceRoll.D8()+modMap.get(this.constitution);
-                if (healthAdd <0){
-                    healthAdd = 0;
-                }
-                health=health+healthAdd;
-                i++;
-            }
-        }
-        return health;
+    @Override
+    public boolean[] setSavingThrows() {
+        return new boolean[]{strST, dexST, conST, intelST, wisST, chaST};
     }
 
     public int returnSpellSaveDC() {

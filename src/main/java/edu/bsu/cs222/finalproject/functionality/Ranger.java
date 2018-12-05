@@ -15,7 +15,6 @@ public class Ranger extends Character {
         int spellCastingModifier = returnSpellCastingModifier("Wisdom");
         health=setHealth();
 
-        ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("animalHandeling");
         validSkills.add("athletics");
         validSkills.add("insight");
@@ -47,6 +46,59 @@ public class Ranger extends Character {
         classAbilities.add("Favored Enemy");
         classAbilities.add("Natural Explorer");
 
+        setLevelAbilities();
+    }
+
+    public Ranger() {
+        dexST=true;
+        strST=true;
+
+        validSkills.add("animalHandeling");
+        validSkills.add("athletics");
+        validSkills.add("insight");
+        validSkills.add("investigation");
+        validSkills.add("nature");
+        validSkills.add("perception");
+        validSkills.add("stealth");
+        validSkills.add("survival");
+
+        proficiency.add("Light armor");
+        proficiency.add("Medium armor");
+        proficiency.add("Shields");
+        proficiency.add("Simple weapons");
+        proficiency.add("Martial weapons");
+
+        equipment.add("Choose one: Scale mail or Leather Armor");
+        equipment.add("Choose one: two shortswords or two simple weapons");
+        equipment.add("A longbow");
+        equipment.add("20 arrows");
+        items.add("Choose one: a dungeoneer's pack or an explorer's pack");
+
+        classAbilities.add("Favored Enemy");
+        classAbilities.add("Natural Explorer");
+
+        setLevelAbilities();
+
+    }
+
+    public int setHealth() {
+        int i = 0;
+        health=health+10+modMap.get(this.constitution);
+        if (level > 1){
+            while  (i<= level){
+                int healthAdd = DiceRoll.D10()+modMap.get(this.constitution);
+                if (healthAdd <0){
+                    healthAdd = 0;
+                }
+                health=health+healthAdd;
+                i++;
+            }
+        }
+        return health;
+    }
+
+    @Override
+    public void setLevelAbilities() {
         if (level>=2){
             classAbilities.add("Fighting Style");
             classAbilities.add("Spellcasting");
@@ -133,24 +185,19 @@ public class Ranger extends Character {
         }
     }
 
-    public Ranger() {
-
+    @Override
+    public ArrayList<String> getSkills() {
+        for (int i = 0; i < 2; i++) {
+            String skill = validSkills.get(new Random().nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
+        }
+        return (ArrayList<String>) knownSkills;
     }
 
-    public int setHealth() {
-        int i = 0;
-        health=health+10+modMap.get(this.constitution);
-        if (level > 1){
-            while  (i<= level){
-                int healthAdd = DiceRoll.D10()+modMap.get(this.constitution);
-                if (healthAdd <0){
-                    healthAdd = 0;
-                }
-                health=health+healthAdd;
-                i++;
-            }
-        }
-        return health;
+    @Override
+    public boolean[] setSavingThrows() {
+        return new boolean[]{strST, dexST, conST, intelST, wisST, chaST};
     }
 
     public int returnSpellcastingAbility(int ability) {

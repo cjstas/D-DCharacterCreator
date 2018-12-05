@@ -14,6 +14,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
+import java.io.InputStream;
+import java.net.URL;
+
 
 public class MainUI extends Application {
 
@@ -173,19 +176,12 @@ public class MainUI extends Application {
         Button toPDF = new Button("create PDF");
         Button playerFill = new Button("Enter in Stats");
 
-        /*todo make the array populator function properly
-         * currently - failing to fill with out screen rewrite
-         * working means it will out put on the sheet in the scores section*/
         StatArrayPopulater statPop = new StatArrayPopulater(player);
-
-        playerFill.setOnAction(event ->{
-            int[] statsArray = sheets.grabEnteredStats();
-        });
 
         returnToCharacterSheet.setOnAction(event -> {
             mainLayout.setCenter(sheets.setSheet());
             sheets.populateSheet(player);
-            sheets.grabSpells();
+            player = sheets.grabSpells(player);
             controlLayout.getChildren().add(6, editSpellSheet);
             controlLayout.getChildren().remove(returnToCharacterSheet);
         });
@@ -197,6 +193,16 @@ public class MainUI extends Application {
             controlLayout.getChildren().remove(editSpellSheet);
         });
 
+        playerFill.setOnAction(event ->{
+            int[] statsArray = sheets.grabEnteredStats();
+            player.strength = statsArray[0];
+            player.dexterity = statsArray[1];
+            player.constitution = statsArray[2];
+            player.intelligence = statsArray[3];
+            player.wisdom = statsArray[4];
+            player.charisma = statsArray[5];
+            sheets.populateSheet(player);
+        });
         randomStatsButt.setOnAction(event-> {
             int[] stats = statPop.rollRandomStat();
             player.strength=stats[0];
@@ -210,20 +216,20 @@ public class MainUI extends Application {
         standardArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.standardArray );
             this.player = statPop.returnPlayer();
-            mainLayout.setCenter(sheets.setSheet());
             sheets.populateSheet(player);
+            mainLayout.setCenter(sheets.setSheet());
         });
         eliteArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.eliteArray);
             this.player = statPop.returnPlayer();
-            mainLayout.setCenter(sheets.setSheet());
             sheets.populateSheet(player);
+            mainLayout.setCenter(sheets.setSheet());
         });
         dunceArrayButt.setOnAction(event -> {
             statPop.arrayFillPromt(InfoHolding.dunceArray);
             this.player = statPop.returnPlayer();
-            mainLayout.setCenter(sheets.setSheet());
             sheets.populateSheet(player);
+            mainLayout.setCenter(sheets.setSheet());
         });
 
         spellSearch.setOnAction(event -> webview(URLDeterminer("spell")));
@@ -241,6 +247,7 @@ public class MainUI extends Application {
                 standardArrayButt,
                 eliteArrayButt,
                 dunceArrayButt,
+                playerFill,
                 editSpellSheet);
         controlLayout.getChildren().addAll(
                 new Label("Searching Buttons"),
@@ -271,6 +278,7 @@ public class MainUI extends Application {
     }
 
     private void webview(String siteToDisplay) {
+
         Stage webStage = new Stage();
         WebView webPage = new WebView();
         Button spellByClass = new Button("sorted by Class");
@@ -279,17 +287,38 @@ public class MainUI extends Application {
         webPage.getEngine().load(siteToDisplay);
         holder.setCenter(webPage);
 
-        if(siteToDisplay.equals("http://5e.d20srd.org/indexes/spells.htm") || siteToDisplay.equals("http://www.d20srd.org/indexes/spells.htm")){
+        if(siteToDisplay.equals("http://5e.d20srd.org/indexes/spells.htm")){
             holder.setBottom(spellByClass);
         }
 
-        spellByClass.setOnAction(event -> {
-            webview(URLDeterminer("selected"));
+    spellByClass.setOnAction(
+        event -> {
+          String url = URLDeterminer("selected");
+          if (CheckURL(url)) {
+            webview(url);
             webStage.close();
+          } else {
+              noSpeelForClass(player.classType);
+          }
         });
+
         webStage.setTitle(webPage.getEngine().getTitle());
         webStage.setScene(new Scene(holder));
         webStage.show();
     }
 
+    private void noSpeelForClass(String classType) {
+
+    }
+
+    private boolean CheckURL(String selected) {
+      try {
+          URL testURL = new URL(selected);
+          InputStream testIn = testURL.openStream();
+      } catch (Exception e) {
+          return false;
+      }
+
+      return true;
+  }
 }

@@ -11,7 +11,7 @@ public class Paladin extends Character {
         chaST=true;
         health=setHealth();
 
-        ArrayList<String> validSkills= new ArrayList<>();
+
         validSkills.add("athletics");
         validSkills.add("insight");
         validSkills.add("intimidation");
@@ -43,6 +43,54 @@ public class Paladin extends Character {
         classAbilities.add("Divine sense");
         classAbilities.add("Lay on Hands");
 
+        setLevelAbilities();
+    }
+
+    public Paladin() {
+        wisST=true;
+        chaST=true;
+
+        validSkills.add("athletics");
+        validSkills.add("insight");
+        validSkills.add("intimidation");
+        validSkills.add("medicine");
+        validSkills.add("persuasion");
+        validSkills.add("religion");
+
+        proficiency.add("All Armour");
+        proficiency.add("Shields");
+        proficiency.add("Simple and Martial Weapons");
+
+        equipment.add("Choose one: A martial weapon and shield or two martial weapons");
+        equipment.add("Choose one: Five javelins or any simple melee weapon");
+        equipment.add("Chain mail");
+        items.add("A Priest's pack or an Explorer's pack");
+        items.add("Holy symbol");
+
+        classAbilities.add("Divine sense");
+        classAbilities.add("Lay on Hands");
+
+        setLevelAbilities();
+    }
+
+    public int setHealth() {
+        int i = 0;
+        health=health+10+modMap.get(this.constitution);
+        if (level > 1){
+            while  (i<= level){
+                int healthAdd = DiceRoll.D10()+modMap.get(this.constitution);
+                if (healthAdd <0){
+                    healthAdd = 0;
+                }
+                health=health+healthAdd;
+                i++;
+            }
+        }
+        return health;
+    }
+
+    @Override
+    public void setLevelAbilities() {
         if (level>=2){
             classAbilities.add("Spellcasting");
             classAbilities.add("Fighting Style");
@@ -114,21 +162,18 @@ public class Paladin extends Character {
         }
     }
 
-    public Paladin() {
-    }
-    public int setHealth() {
-        int i = 0;
-        health=health+10+modMap.get(this.constitution);
-        if (level > 1){
-            while  (i<= level){
-                int healthAdd = DiceRoll.D10()+modMap.get(this.constitution);
-                if (healthAdd <0){
-                    healthAdd = 0;
-                }
-                health=health+healthAdd;
-                i++;
-            }
+    @Override
+    public ArrayList<String> getSkills() {
+        for (int i = 0; i < 2; i++) {
+            String skill = validSkills.get(new Random().nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        return health;
+        return (ArrayList<String>) knownSkills;
+    }
+
+    @Override
+    public boolean[] setSavingThrows() {
+        return new boolean[]{strST, dexST, conST, intelST, wisST, chaST};
     }
 }

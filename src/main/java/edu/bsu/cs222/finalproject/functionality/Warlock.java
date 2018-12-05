@@ -16,7 +16,6 @@ public class Warlock extends Character {
         int spellCastingModifier = returnSpellCastingModifier("Charisma");
         health=setHealth();
 
-        ArrayList<String> validSkills= new ArrayList<>();
         validSkills.add("arcana");
         validSkills.add("deception");
         validSkills.add("history");
@@ -48,9 +47,63 @@ public class Warlock extends Character {
 
         cantripKnown=2;
         spellsKnown=2;
-        int spellSlots=1;
-        int spellSlotLvl=1;
+        spellSlots=1;
+        spellSlotLvl=1;
 
+       setLevelAbilities();
+    }
+
+    public Warlock() {
+
+        wisST=true;
+        chaST=true;
+
+        validSkills.add("arcana");
+        validSkills.add("deception");
+        validSkills.add("history");
+        validSkills.add("intimidation");
+        validSkills.add("investigation");
+        validSkills.add("nature");
+        validSkills.add("religion");
+
+        proficiency.add("Light Armor");
+        proficiency.add("Simple Weapons");
+
+        equipment.add("Choose one: A light crossbow and 20 bolts or any simple weapon");
+        equipment.add("Leather armor");
+        equipment.add("any simple weapon");
+        equipment.add("two daggers");
+        items.add("a scholar's pack or a dungeoneer's pack");
+        items.add("a component pouch or an arcane focus");
+
+        classAbilities.add("Otherworldly Patron");
+        classAbilities.add("Pact Magic");
+
+        cantripKnown=2;
+        spellsKnown=2;
+        spellSlots=1;
+        spellSlotLvl=1;
+
+        setLevelAbilities();
+    }
+    public int setHealth() {
+        int i = 0;
+        health=health+8+modMap.get(this.constitution);
+        if (level > 1){
+            while  (i<= level){
+                int healthAdd = DiceRoll.D8()+modMap.get(this.constitution);
+                if (healthAdd <0){
+                    healthAdd = 0;
+                }
+                health=health+healthAdd;
+                i++;
+            }
+        }
+        return health;
+    }
+
+    @Override
+    public void setLevelAbilities() {
         if (level>=2){
             classAbilities.add("Eldritch Invocation 1");
             classAbilities.add("Invocation 2");
@@ -153,24 +206,21 @@ public class Warlock extends Character {
         }
     }
 
-    public Warlock() {
-
-    }
-    public int setHealth() {
-        int i = 0;
-        health=health+8+modMap.get(this.constitution);
-        if (level > 1){
-            while  (i<= level){
-                int healthAdd = DiceRoll.D8()+modMap.get(this.constitution);
-                if (healthAdd <0){
-                    healthAdd = 0;
-                }
-                health=health+healthAdd;
-                i++;
-            }
+    @Override
+    public ArrayList<String> getSkills() {
+        for (int i = 0; i < 2; i++) {
+            String skill = validSkills.get(new Random().nextInt(validSkills.size()));
+            validSkills.remove(skill);
+            knownSkills.add(skill);
         }
-        return health;
+        return (ArrayList<String>) knownSkills;
     }
+
+    @Override
+    public boolean[] setSavingThrows() {
+        return new boolean[]{strST, dexST, conST, intelST, wisST, chaST};
+    }
+
     public int setSpellcastingAbility(int ability) {
         return this.proficiencyBonus+modMap.get(ability);
     }

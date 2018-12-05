@@ -48,8 +48,12 @@ public abstract class Character{
     public boolean wisST;
     public boolean chaST;
 
-    public List<String> knownSkills = new ArrayList<>();
+    public List<String> validSkills= new ArrayList<String>();
+    public List<String> knownSkills = new ArrayList<String>();
+    public List<String> knownSpells = new ArrayList<>();
 
+    public int spellSlots;
+    int spellSlotLvl;
     public int cantripKnown=0;
     public int spellsKnown=0;
     public int spellSlot1=0;
@@ -508,4 +512,14 @@ public abstract class Character{
     }
 
     public abstract int setHealth();
+
+    public abstract void setLevelAbilities();
+
+    public abstract ArrayList<String> getSkills();
+
+    public abstract boolean[] setSavingThrows();
+
+    public void clearSkill(){
+        knownSkills.clear();
+    };
 }
