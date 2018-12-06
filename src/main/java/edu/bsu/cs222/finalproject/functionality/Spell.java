@@ -3,9 +3,9 @@ package edu.bsu.cs222.finalproject.functionality;
 import java.util.ArrayList;
 
 public class Spell {
-    public String name;
-    public ArrayList<String> useableBy;
-    public int spellSlotLevel;
+    public final String name;
+    public final ArrayList<String> useableBy;
+    public final int spellSlotLevel;
 
     Spell(String name,ArrayList<String> useableBy, int spellSlotLevel) {
         this.name = name;

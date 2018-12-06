@@ -81,6 +81,7 @@ public class Ranger extends Character {
 
     }
 
+    @SuppressWarnings("Duplicates")
     public int setHealth() {
         int i = 0;
         health=health+10+modMap.get(this.constitution);

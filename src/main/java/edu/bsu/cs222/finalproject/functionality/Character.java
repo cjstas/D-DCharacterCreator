@@ -1,7 +1,7 @@
 package edu.bsu.cs222.finalproject.functionality;
 import java.util.*;
 
-@SuppressWarnings({"WeakerAccess", "CanBeFinal"})
+@SuppressWarnings({"WeakerAccess", "CanBeFinal", "unused"})
 public abstract class Character{
 
     public String CharacterName;
@@ -20,14 +20,17 @@ public abstract class Character{
     public int charisma;
     public int speed;
     public int health;
+    int experiencePoints;
     int proficiencyBonus;
     int initiative;
+    int spellAbility;
     int dc;
     int subrace;
     int spellAttackBonus;
     int spellSaveDC;
     int spellCastingModifier;
 
+    public boolean inspiration;
     public int ac = 10;
 
     public String sTrait, personalityTrait, bond, ideal, flaw;
@@ -461,22 +464,19 @@ public abstract class Character{
     }
 
     public int returnSpellAttackBonus(String Ability) {
-        int abilityLevel;
-        abilityLevel = getAbilityLevel(Ability);
+        int abilityLevel = getAbilityLevel(Ability);
 
         return ((abilityLevel-10)/2)+proficiencyBonus;
     }
 
     public int returnSpellCastingModifier(String Ability) {
-        int abilityLevel;
-        abilityLevel = getAbilityLevel(Ability);
+        int abilityLevel = getAbilityLevel(Ability);
 
         return (abilityLevel-10)/2;
     }
 
     public int returnSpellSaveDC(String Ability) {
-        int abilityLevel;
-        abilityLevel = getAbilityLevel(Ability);
+        int abilityLevel = getAbilityLevel(Ability);
 
         return ((abilityLevel-10)/2)+8+ this.proficiencyBonus;
     }
@@ -500,7 +500,7 @@ public abstract class Character{
                 abilityLevel=this.wisdom;
                 break;
             case "Charisma":
-                abilityLevel=charisma;
+                abilityLevel=this.charisma;
                 break;
         }
         return abilityLevel;

@@ -1,6 +1,5 @@
 package edu.bsu.cs222.finalproject.functionality;
 
-import edu.bsu.cs222.finalproject.view.CharacterSheets;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -9,16 +8,44 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Random;
 
 
 public class StatArrayPopulater {
 
-    private Character emptyPlayer;
+    private final Character emptyPlayer;
 
     public StatArrayPopulater(Character player) {
         this.emptyPlayer = player;
     }
+
+    public int[] randomOrder(String arrayName){
+        int[] use = getArrayByName(arrayName);
+        Random rand = new Random();
+        for(int i = Objects.requireNonNull(use).length -1; i>0; i--){
+            int newIndex = rand.nextInt(i+1);
+            int tempStat = use[newIndex];
+            use[newIndex] = use[i];
+            use[i] = tempStat;
+        }
+        return use;
+    }
+
+    private int[] getArrayByName(String arrayName) {
+        switch(arrayName){
+            case "standardArray":
+                return InfoHolding.standardArray;
+            case "dunceArray":
+                return InfoHolding.dunceArray;
+            case "eliteArray":
+                return InfoHolding.eliteArray;
+        }
+        return null;
+    }
+
 
     public void arrayFillPromt(int[] useThisArray){
         ObservableList<Integer> listOfOptions = FXCollections.observableArrayList();
@@ -26,10 +53,10 @@ public class StatArrayPopulater {
                 consSubmit= new Button("submit"), intelSubmit= new Button("submit"), wisSubmit= new Button("submit"),
                 submit = new Button("Submit");
         Label str = new Label(), dex = new Label(), cons = new Label(), intel = new Label(), wis = new Label(), cha = new Label();
-        ChoiceBox<Integer> strList = new ChoiceBox<Integer>(), dexList = new ChoiceBox<Integer>(), consList = new ChoiceBox<Integer>(),
-                intelList = new ChoiceBox<Integer>(), wisList = new ChoiceBox<Integer>(), chaList = new ChoiceBox<Integer>();
+        ChoiceBox<Integer> strList = new ChoiceBox<>(), dexList = new ChoiceBox<>(), consList = new ChoiceBox<>(),
+                intelList = new ChoiceBox<>(), wisList = new ChoiceBox<>(), chaList = new ChoiceBox<>();
         Stage stage = new Stage();
-        ArrayList<HBox> layouts = new ArrayList<HBox>();
+        ArrayList<HBox> layouts = new ArrayList<>();
         for(int integer: useThisArray){
             listOfOptions.add(integer);
         }
@@ -106,16 +133,20 @@ public class StatArrayPopulater {
     }
 
     private int statRoll() {
-        return DiceRoll.D6()+ DiceRoll.D6()+ DiceRoll.D6();
+        int stat =0;
+
+        for(int i =0; i<3; i++){
+            int temp =0;
+         while(temp<3){
+             temp = DiceRoll.D6();
+         }
+         stat+=temp;
+        }
+        return stat;
     }
 
     public Character returnPlayer(){
         return emptyPlayer;
-    }
-
-    public CharacterSheets returnEditedSheet(CharacterSheets sheet){
-        sheet.populateSheet(emptyPlayer);
-        return sheet;
     }
 
 }

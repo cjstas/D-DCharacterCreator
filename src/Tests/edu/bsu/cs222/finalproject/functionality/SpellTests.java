@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class SpellTests {
 
-    private ArrayList<String> testSpell1Users = new ArrayList<>();
-    private ArrayList<String> testSpell2Users = new ArrayList<>();
+    private final ArrayList<String> testSpell1Users = new ArrayList<>();
+    private final ArrayList<String> testSpell2Users = new ArrayList<>();
     private Spell testSpell1;
     private Spell testSpell2;
 

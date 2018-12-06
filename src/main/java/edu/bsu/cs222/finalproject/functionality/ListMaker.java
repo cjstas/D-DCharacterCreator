@@ -3,7 +3,6 @@ package edu.bsu.cs222.finalproject.functionality;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -40,6 +39,7 @@ public class ListMaker {
         return output;
     }
 
+    @SuppressWarnings("ConstantConditions")
     static ArrayList<ArrayList<Spell>> returnClassArrays() {
         ArrayList<Spell> AllSpells = returnSpellsArrayList5e();
         ArrayList<Spell> WizardSpells = new ArrayList<>();
