@@ -186,7 +186,7 @@ public class Cleric extends Character{
     public ArrayList<String> getSkills() {
         for (int i = 0; i < 2; i++) {
           String skill = validSkills.get(new Random().nextInt(validSkills.size()));
-          validSkills.remove(skill);
+            validSkills.remove(skill);
           knownSkills.add(skill);
         }
         return (ArrayList<String>) knownSkills;

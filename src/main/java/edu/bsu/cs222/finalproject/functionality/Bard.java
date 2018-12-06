@@ -97,6 +97,7 @@ public class Bard extends Character {
         equipment.add("Leather Armour");
         equipment.add("Dagger");
 
+        //noinspection MismatchedQueryAndUpdateOfCollection
         List<String> classAbilities = new ArrayList<>();
         classAbilities.add("Spellcasting");
         classAbilities.add("Bardic Inspiration (D6)");
