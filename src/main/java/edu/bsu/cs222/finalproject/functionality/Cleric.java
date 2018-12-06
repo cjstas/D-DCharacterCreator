@@ -84,6 +84,7 @@ public class Cleric extends Character{
 
     }
 
+    @SuppressWarnings("Duplicates")
     public int setHealth() {
         int i = 0;
         health=health+8+modMap.get(this.constitution);

@@ -4,11 +4,9 @@ import edu.bsu.cs222.finalproject.functionality.*;
 import edu.bsu.cs222.finalproject.functionality.Character;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
@@ -42,23 +40,20 @@ public class MainUI extends Application {
         VBox presetup = new VBox();
 
         TextField name = new TextField();
-        ChoiceBox<String> races = new ChoiceBox();
+        ChoiceBox<String> races = new ChoiceBox<>();
         races.setItems(InfoHolding.racesArray());
-        ChoiceBox<String> classes = new ChoiceBox();
+        ChoiceBox<String> classes = new ChoiceBox<>();
         classes.setItems(InfoHolding.classesArray());
         TextField level = new TextField();
-        ChoiceBox<String> alignmentG_E = new ChoiceBox();
+        ChoiceBox<String> alignmentG_E = new ChoiceBox<>();
         alignmentG_E.setItems(InfoHolding.alignmentG_EArray());
-        ChoiceBox<String> alignmentL_U = new ChoiceBox();
+        ChoiceBox<String> alignmentL_U = new ChoiceBox<>();
         alignmentL_U.setItems(InfoHolding.alignmentL_UArray());
-        TextField age = new TextField();
-        age.setPrefColumnCount(4);
         Button buildStartSheetButton = new Button("Build Sheet");
         Button buildRandomCharacter = new Button("Random Character");
 
         presetup.getChildren().addAll(
                 new HBox(new Label("Name"), name),
-                new HBox(new Label("Age"), age),
                 new HBox(new Label("Race"), races),
                 new HBox(new Label("Class"), classes),
                 new HBox(new Label("Level"), level),
@@ -83,7 +78,129 @@ public class MainUI extends Application {
     }
 
     private Scene NPCSetupScreen() {
-        BorderPane layout = new BorderPane();
+        GridPane center = new GridPane();
+        Label name = new Label("set Name"),
+                race = new Label("set race"),
+                classType = new Label("set class"),
+                level = new Label("set level"),
+                alignment = new Label("set alignment"),
+                stats = new Label("stat Array");
+        CheckBox randoRace = new CheckBox("random"),
+                randoClassType = new CheckBox("random"),
+                randoLevel  = new CheckBox("random"),
+                randoAlignmment = new CheckBox("random"),
+                randoStat = new CheckBox("random"),
+                randoAll = new CheckBox("randomize everything");
+        ChoiceBox<String> classes = new ChoiceBox<>();
+        classes.setItems(InfoHolding.classesArray());
+        ChoiceBox<String> races = new ChoiceBox<>();
+        races.setItems(InfoHolding.racesArray());
+        ChoiceBox<String> alignmentG_E = new ChoiceBox<>();
+        alignmentG_E.setItems(InfoHolding.alignmentG_EArray());
+        ChoiceBox<String> alignmentL_U = new ChoiceBox<>();
+        alignmentL_U.setItems(InfoHolding.alignmentL_UArray());
+        ChoiceBox<String> statArrays = new ChoiceBox<>();
+        statArrays.setItems(InfoHolding.statArrayArray());
+        TextField levelField = new TextField(), nameFeild = new TextField();
+        Button createCharacter = new Button("To The Sheet");
+
+        randoAll.setOnAction(event -> {
+            if(randoAll.isSelected()){
+                randoClassType.setSelected(true);
+                randoRace.setSelected(true);
+                randoAlignmment.setSelected(true);
+                randoLevel.setSelected(true);
+                randoStat.setSelected(true);
+            }else{
+                randoClassType.setSelected(false);
+                randoRace.setSelected(false);
+                randoAlignmment.setSelected(false);
+                randoLevel.setSelected(false);
+                randoStat.setSelected(false);
+            }
+        });
+
+        randoAlignmment.setOnAction(event ->{
+            if(!randoAlignmment.isSelected()){
+                randoAll.setSelected(false);
+            }
+        });
+        randoClassType.setOnAction(event -> {
+            if(!randoClassType.isSelected()){
+                randoAll.setSelected(false);
+            }
+        });
+        randoLevel.setOnAction(event -> {
+            if(!randoLevel.isSelected()){
+                randoAll.setSelected(false);
+            }
+        });
+        randoStat.setOnAction(event -> {
+            if(!randoStat.isSelected()){
+                randoAll.setSelected(false);
+            }
+        });
+        randoRace.setOnAction(event ->{
+            if(!randoRace.isSelected()){
+                randoAll.setSelected(false);
+            }
+        });
+
+        createCharacter.setOnAction(event -> {
+
+            if(randoClassType.isSelected()){
+                String hold =InfoHolding.giveRandomOption(InfoHolding.classesArray());
+                initPlayer(hold);
+                player.classType = hold;
+            }else{
+                initPlayer(classes.getValue());
+                player.classType = classes.getValue();
+            }
+            player.CharacterName = nameFeild.getText();
+            if(randoRace.isSelected()){
+                player.race = InfoHolding.giveRandomOption(InfoHolding.racesArray());
+            }else{
+                player.race = races.getValue();
+            }
+            if(randoLevel.isSelected()){
+                player.level = DiceRoll.D20();
+            }else{
+                player.level= checkLevel(Integer.parseInt(levelField.getText()));
+            }
+            if(randoAlignmment.isSelected()){
+                player.alignment = InfoHolding.giveRandomOption(InfoHolding.alignmentL_UArray())+" "+InfoHolding.giveRandomOption(InfoHolding.alignmentG_EArray());
+            }else{
+                player.alignment = alignmentL_U.getValue() + " " + alignmentG_E.getValue();
+            }
+            StatArrayPopulater statPop = new StatArrayPopulater(player);
+            if(randoStat.isSelected()){
+                int[] randStats = statPop.rollRandomStat();
+                player.strength=randStats[0];
+                player.dexterity=randStats[1];
+                player.constitution=randStats[2];
+                player.intelligence=randStats[3];
+                player.wisdom=randStats[4];
+                player.charisma=randStats[5];
+            }else{
+                int [] randStats = statPop.randomOrder(statArrays.getValue());
+                player.strength=randStats[0];
+                player.dexterity=randStats[1];
+                player.constitution=randStats[2];
+                player.intelligence=randStats[3];
+                player.wisdom=randStats[4];
+                player.charisma=randStats[5];
+            }
+
+            player.setBackgroundTrait(InfoHolding.backgroundFinder(player.classType.toLowerCase()));
+            primaryStage.setScene(setSheetScene());
+
+        });
+        center.addColumn(0,new Label(), name, race, classType, level, alignment, stats);//label
+        center.addColumn(1, randoAll, new Label(" "),randoRace, randoClassType, randoLevel, randoAlignmment, randoStat);//checkBox
+        center.addColumn(2, new Label(),nameFeild,races, classes, levelField, new HBox(alignmentL_U, alignmentG_E), statArrays);//enteredData
+
+        BorderPane layout = new BorderPane(center);
+        layout.setBottom(createCharacter);
         return new Scene(layout);
     }
 
@@ -142,9 +259,10 @@ public class MainUI extends Application {
         mainLayout = new BorderPane();
         sheets  = new CharacterSheets();
         mainLayout.setCenter(sheets.setSheet());
+        sheets.populateSheet(player);
         mainLayout.setTop(basicInfo());
-        Scene sheetScene = new Scene(mainLayout);
         mainLayout.setLeft(setOptionPane());
+        Scene sheetScene = new Scene(mainLayout);
         sheetScene.getStylesheets().clear();
         sheetScene.getStylesheets().add("SheetFive.css");
         this.primaryStage.setMaxWidth(1200);
@@ -298,7 +416,7 @@ public class MainUI extends Application {
             webview(url);
             webStage.close();
           } else {
-              noSpeelForClass(player.classType);
+              noSpellForClass(player.classType);
           }
         });
 
@@ -307,8 +425,10 @@ public class MainUI extends Application {
         webStage.show();
     }
 
-    private void noSpeelForClass(String classType) {
-
+    private void noSpellForClass(String classType) {
+        Stage warningStage = new Stage();
+        warningStage.setScene(new Scene(new VBox(new Label(
+                "Sorry the "+classType+" class \ndoesn't have any Spell casting ability"))));
     }
 
     private boolean CheckURL(String selected) {

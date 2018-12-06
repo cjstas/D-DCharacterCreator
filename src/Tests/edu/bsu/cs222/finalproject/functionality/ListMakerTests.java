@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class ListMakerTests {
 
-    private ArrayList<Spell> spells = ListMaker.returnSpellsArrayList5e();
-    private ArrayList<String> items = ListMaker.returnItemsArrayList5e();
+    private final ArrayList<Spell> spells = ListMaker.returnSpellsArrayList5e();
+    private final ArrayList<String> items = ListMaker.returnItemsArrayList5e();
 
     @Test
     public void testSpell0Name() {

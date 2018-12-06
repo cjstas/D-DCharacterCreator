@@ -3,20 +3,21 @@ package edu.bsu.cs222.finalproject.functionality;
 import org.junit.Assert;
 import org.junit.Test;
 
+@SuppressWarnings({"ALL", "CanBeFinal"})
 public class CharacterTests {
 
-    private static Barbarian Barbarian = new Barbarian("Barbarian", "Barbarian", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
-    private static Bard Bard = new Bard("Bard", "Bard", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
-    private static Cleric Cleric = new Cleric("Cleric", "Cleric", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
-    private static Druid Druid = new Druid("Druid", "Druid", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
-    private static Fighter Fighter = new Fighter("Fighter", "Fighter", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
-    private static Monk Monk = new Monk("Monk", "Monk", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
-    private static Paladin Paladin = new Paladin("Paladin", "Paladin", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
-    private static Ranger Ranger = new Ranger("Ranter", "Ranger", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
-    private static Rogue Rogue = new Rogue("Rogue", "Rogue", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
-    private static Sourcerer Sourcerer = new Sourcerer("Sourcerer", "Sourcerer", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
-    private static Warlock Warlock = new Warlock("Warlock", "Warlock", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
-    private static Wizard Wizard = new Wizard("Wizard", "Wizard", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
+    private static final Barbarian Barbarian = new Barbarian("Barbarian", "Barbarian", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
+    private static final Bard Bard = new Bard("Bard", "Bard", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
+    private static final Cleric Cleric = new Cleric("Cleric", "Cleric", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
+    private static final Druid Druid = new Druid("Druid", "Druid", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
+    private static final Fighter Fighter = new Fighter("Fighter", "Fighter", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
+    private static final Monk Monk = new Monk("Monk", "Monk", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
+    private static final Paladin Paladin = new Paladin("Paladin", "Paladin", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
+    private static final Ranger Ranger = new Ranger("Ranter", "Ranger", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
+    private static final Rogue Rogue = new Rogue("Rogue", "Rogue", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
+    private static final Sourcerer Sourcerer = new Sourcerer("Sourcerer", "Sourcerer", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
+    private static final Warlock Warlock = new Warlock("Warlock", "Warlock", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
+    private static final Wizard Wizard = new Wizard("Wizard", "Wizard", 1, "Dwarf", "acolyte", "Chaotic Neutral", "Christo", 3000, 1, 2, 3,4,5,6);
 
     @Test
     public void testRaceBonusSetSpeed() {

@@ -1,7 +1,6 @@
 package edu.bsu.cs222.finalproject.functionality;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Wizard extends Character {
@@ -75,6 +74,7 @@ public class Wizard extends Character {
         setLevelAbilities();
     }
 
+    @SuppressWarnings("Duplicates")
     public int setHealth() {
         int i = 0;
         health=health+6+modMap.get(this.constitution);

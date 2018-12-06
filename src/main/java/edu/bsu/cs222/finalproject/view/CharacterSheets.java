@@ -4,8 +4,6 @@ import edu.bsu.cs222.finalproject.functionality.Character;
 import edu.bsu.cs222.finalproject.functionality.ListMaker;
 import edu.bsu.cs222.finalproject.functionality.PDFCreation;
 import edu.bsu.cs222.finalproject.functionality.Spell;
-import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -14,11 +12,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class CharacterSheets extends Application {
+class CharacterSheets {
 
     private TextField str, dex, cons, intel, wis, cha, passWis,
             strMod, dexMod, consMod, intelMod, wisMod, chaMod,
@@ -31,12 +29,12 @@ public class CharacterSheets extends Application {
     private RadioButton acrRb, aniHandRb, arcanRb, athlRb, decRb, histRb, insRb, intimRb, invesRb, medRb, natRb,
             percepRb, performRb, persRb, relgRb, sliOfHandRb, stealRb, survRb;
 
-    public Pane setSheet() {
+    Pane setSheet() {
             return sheet5e();
     }
 
     private Pane sheet5e() {
-        Pane sheet5e = new BorderPane();
+        BorderPane sheet5e = new BorderPane();
         setUpPaneControls();
         VBox skillsAndSaves = new VBox(
                 new HBox(insp,new Label("Inspiration")),
@@ -66,9 +64,9 @@ public class CharacterSheets extends Application {
                 new Label("Flaws"), flaw,
                 new Label("Feature and Traits"), featAndTraits
         );
-        ((BorderPane) sheet5e).setRight(right);
-        ((BorderPane) sheet5e).setCenter(center);
-        ((BorderPane) sheet5e).setLeft(left);
+        sheet5e.setRight(right);
+        sheet5e.setCenter(center);
+        sheet5e.setLeft(left);
         return sheet5e;
     }
 
@@ -93,7 +91,8 @@ public class CharacterSheets extends Application {
     }
 
     private VBox skillBox() {
-        VBox skillBox = new VBox(
+
+        return new VBox(
                 new HBox(acrRb, acrF, new Label("Acrobatics(dex)")),
                 new HBox(aniHandRb, aniHandF, new Label("Animal Handling(wis)")),
                 new HBox(arcanRb, arcanF, new Label("Arcana(int)")),
@@ -113,8 +112,6 @@ public class CharacterSheets extends Application {
                 new HBox(stealRb, stealF, new Label("Stealth(dex)")),
                 new HBox(survRb, survF, new Label("Survival(wis)"))
         );
-
-        return skillBox;
     }
 
     private HBox acBox(){
@@ -296,7 +293,7 @@ public class CharacterSheets extends Application {
         cp.setPrefColumnCount(4);
     }
 
-    public void populateSheet(Character player) {
+    void populateSheet(Character player) {
             player.setRaceBonus();
             player.setHealth();
 
@@ -307,14 +304,14 @@ public class CharacterSheets extends Application {
             wis.setText(player.wisdom+"");
             cha.setText(player.charisma+"");
 
-            strMod.setText(""+player.modMap.get(player.strength));
-            dexMod.setText(""+player.modMap.get(player.dexterity));
-            consMod.setText(""+player.modMap.get(player.constitution));
-            intelMod.setText(""+player.modMap.get(player.intelligence));
-            wisMod.setText(""+player.modMap.get(player.wisdom));
-            chaMod.setText(""+player.modMap.get(player.charisma));
+            strMod.setText(""+ Character.modMap.get(player.strength));
+            dexMod.setText(""+ Character.modMap.get(player.dexterity));
+            consMod.setText(""+ Character.modMap.get(player.constitution));
+            intelMod.setText(""+ Character.modMap.get(player.intelligence));
+            wisMod.setText(""+ Character.modMap.get(player.wisdom));
+            chaMod.setText(""+ Character.modMap.get(player.charisma));
 
-            passWis.setText(""+(player.modMap.get(player.wisdom)+10));
+            passWis.setText(""+(Character.modMap.get(player.wisdom)+10));
 
             if(player.setSavingThrows()[0]) {
                 strSav.setText("" + (Integer.parseInt(strMod.getText())+ 10));
@@ -367,6 +364,7 @@ public class CharacterSheets extends Application {
 
     }
 
+    @SuppressWarnings("RedundantIfStatement")
     private boolean filledPreviously() {
 
         if(aniHandRb.isSelected()){return false;}
@@ -469,7 +467,7 @@ public class CharacterSheets extends Application {
         }
     }
 
-    public BorderPane getSpellSheet(){
+    BorderPane getSpellSheet(){
         BorderPane spellSheet = new BorderPane();
 
         cantrips.setPrefRowCount(8);
@@ -499,7 +497,7 @@ public class CharacterSheets extends Application {
         return spellSheet;
     }
 
-    public void populateSpells(Character player) {
+    void populateSpells(Character player) {
         ArrayList<String> raceSet = (ArrayList<String>) player.spellsFromRace;
         for(String  spell: raceSet){
             locationDeterminer(spell);
@@ -541,8 +539,7 @@ public class CharacterSheets extends Application {
     }
 
     private void locationDeterminer(String spell) {
-        ListMaker lister = new ListMaker();
-        ArrayList<Spell> spellList = lister.returnSpellsArrayList5e();
+        ArrayList<Spell> spellList = ListMaker.returnSpellsArrayList5e();
         for(Spell spells: spellList){
             if(spells.name.equals(spell)){
                 switch(spells.spellSlotLevel){
@@ -581,37 +578,27 @@ public class CharacterSheets extends Application {
         }
     }
 
-    public void toFinalPdf(PDFCreation pdf){
+    void toFinalPdf(PDFCreation pdf){
         pdf.fillEmptySheet();
     }
 
-    public Character grabSpells(Character player) {
+    Character grabSpells(Character player) {
 
-        for(String e: cantrips.getText().split("\n"))
-            player.knownSpells.add(e);
-        for(String e: spellLv1.getText().split("\n"))
-            player.knownSpells.add(e);
-        for(String e: spellLv2.getText().split("\n"))
-            player.knownSpells.add(e);
-        for(String e: spellLv3.getText().split("\n"))
-            player.knownSpells.add(e);
-        for(String e: spellLv4.getText().split("\n"))
-            player.knownSpells.add(e);
-        for(String e: spellLv5.getText().split("\n"))
-            player.knownSpells.add(e);
-        for(String e: spellLv6.getText().split("\n"))
-            player.knownSpells.add(e);
-        for(String e: spellLv7.getText().split("\n"))
-            player.knownSpells.add(e);
-        for(String e: spellLv8.getText().split("\n"))
-            player.knownSpells.add(e);
-        for(String e: spellLv9.getText().split("\n"))
-            player.knownSpells.add(e);
+        Collections.addAll(player.knownSpells, cantrips.getText().split("\n"));
+        Collections.addAll(player.knownSpells, spellLv1.getText().split("\n"));
+        Collections.addAll(player.knownSpells, spellLv2.getText().split("\n"));
+        Collections.addAll(player.knownSpells, spellLv3.getText().split("\n"));
+        Collections.addAll(player.knownSpells, spellLv4.getText().split("\n"));
+        Collections.addAll(player.knownSpells, spellLv5.getText().split("\n"));
+        Collections.addAll(player.knownSpells, spellLv6.getText().split("\n"));
+        Collections.addAll(player.knownSpells, spellLv7.getText().split("\n"));
+        Collections.addAll(player.knownSpells, spellLv8.getText().split("\n"));
+        Collections.addAll(player.knownSpells, spellLv9.getText().split("\n"));
 
         return player;
     }
 
-    public int[] grabEnteredStats() {
+    int[] grabEnteredStats() {
         int[] stats = new int[6];
         String[] statsString = {str.getText(), dex.getText(), cons.getText(), intel.getText(), wis.getText(), cha.getText()};
         for(int i = 0; i<statsString.length; i++){
@@ -619,18 +606,4 @@ public class CharacterSheets extends Application {
         }
         return stats;
     }
-
-    public static void main(String[] args){
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage){
-        Scene sheetVeiw = new Scene(sheet5e());
-        primaryStage.setMinWidth(970);
-        primaryStage.setMaxWidth(970);
-        primaryStage.setScene(sheetVeiw);
-        primaryStage.show();
-    }
-
 }

@@ -83,6 +83,7 @@ public class Sourcerer extends Character {
         setLevelAbilities();
     }
 
+    @SuppressWarnings("Duplicates")
     public int setHealth() {
         int i = 0;
         health=health+6+modMap.get(this.constitution);

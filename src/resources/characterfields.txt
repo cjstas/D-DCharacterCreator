@@ -19,7 +19,7 @@ ClassLevel
 Background
 PlayerName
 CharacterName
-Race 
+Race
 Alignment
 XP
 Inspiration
@@ -28,14 +28,14 @@ ProfBonus
 AC
 Initiative
 Speed
-PersonalityTraits 
+PersonalityTraits
 STRmod
 HPMax
 ST Strength
 DEX
 HPCurrent
 Ideals
-DEXmod 
+DEXmod
 HPTemp
 Bonds
 CON
@@ -75,13 +75,13 @@ INTmod
 Wpn Name 2
 Wpn2 AtkBonus 
 Wpn2 Damage 
-Investigation 
+Investigation
 WIS
 Wpn Name 3
 Wpn3 AtkBonus  
 Arcana
 Wpn3 Damage 
-Perception 
+Perception
 WISmod
 CHA
 Nature
