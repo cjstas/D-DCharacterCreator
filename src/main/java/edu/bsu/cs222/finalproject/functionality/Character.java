@@ -500,7 +500,7 @@ public abstract class Character{
                 abilityLevel=this.wisdom;
                 break;
             case "Charisma":
-                abilityLevel=this.charisma;
+                abilityLevel=charisma;
                 break;
         }
         return abilityLevel;
