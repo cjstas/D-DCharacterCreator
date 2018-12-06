@@ -11,4 +11,6 @@ public class CharacterTests {
         character1.subrace = 0;
         Assert.assertEquals(25, character1.speed);
     }
+
+
 }

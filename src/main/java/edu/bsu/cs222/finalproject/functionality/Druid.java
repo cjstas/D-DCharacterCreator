@@ -21,9 +21,9 @@ public class Druid extends Character {
         validSkills.add("religion");
         validSkills.add("survival");
 
-        int spellAttackBonus = returnSpellAttackBonus("Wisdom");
-        int spellSaveDC = returnSpellSaveDC("Wisdom");
-        int spellCastingModifier = returnSpellCastingModifier("Wisdom");
+        spellAttackBonus = returnSpellAttackBonus("Wisdom");
+        spellSaveDC = returnSpellSaveDC("Wisdom");
+        spellCastingModifier = returnSpellCastingModifier("Wisdom");
         health=setHealth();
 
         Random randomize = new Random();

@@ -11,9 +11,9 @@ public class Fighter extends Character {
         strST=true;
         conST=true;
 
-        int spellAttackBonus = returnSpellAttackBonus("Intelligence");
-        int spellSaveDC = returnSpellSaveDC("Intelligence");
-        int spellCastingModifier = returnSpellCastingModifier("Intelligence");
+        spellAttackBonus = returnSpellAttackBonus("Intelligence");
+        spellSaveDC = returnSpellSaveDC("Intelligence");
+        spellCastingModifier = returnSpellCastingModifier("Intelligence");
         health=setHealth();
 
         validSkills.add("acrobatics");

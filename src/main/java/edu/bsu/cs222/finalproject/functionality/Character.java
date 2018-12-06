@@ -20,14 +20,14 @@ public abstract class Character{
     public int charisma;
     public int speed;
     public int health;
-    int experiencePoints;
     int proficiencyBonus;
     int initiative;
-    int spellAbility;
     int dc;
     int subrace;
+    int spellAttackBonus;
+    int spellSaveDC;
+    int spellCastingModifier;
 
-    public boolean inspiration;
     public int ac = 10;
 
     public String sTrait, personalityTrait, bond, ideal, flaw;
@@ -38,7 +38,7 @@ public abstract class Character{
     public List<String> items = new ArrayList<>();
     public List<String> classAbilities = new ArrayList<>();
     public List<String> proficiency = new ArrayList<>();
-    public List<String> spellsFromRace = new ArrayList<String>();
+    public List<String> spellsFromRace = new ArrayList<>();
 
 
     public boolean strST;
@@ -48,8 +48,8 @@ public abstract class Character{
     public boolean wisST;
     public boolean chaST;
 
-    public List<String> validSkills= new ArrayList<String>();
-    public List<String> knownSkills = new ArrayList<String>();
+    public List<String> validSkills= new ArrayList<>();
+    public List<String> knownSkills = new ArrayList<>();
     public List<String> knownSpells = new ArrayList<>();
 
     public int spellSlots;
@@ -432,11 +432,9 @@ public abstract class Character{
                 break;
             case "Human":
                 subrace = 0;
-                this.race = "Human";
                 break;
             case "Dragonborn":
                 subrace = 0;
-                this.race = "Dragonborn";
                 break;
             case "Rock Gnome":
                 subrace = 0;
@@ -448,15 +446,12 @@ public abstract class Character{
                 break;
             case "Half-Elf":
                 subrace = 0;
-                this.race = "Half-Elf";
                 break;
             case "Half-Orc":
                 subrace = 0;
-                this.race = "Half-Orc";
                 break;
             case "Tiefling":
                 subrace = 0;
-                this.race = "Tiefling";
                 break;
             case "Homebrew":
                 subrace = 0;
@@ -466,21 +461,21 @@ public abstract class Character{
     }
 
     public int returnSpellAttackBonus(String Ability) {
-        int abilityLevel = 0;
+        int abilityLevel;
         abilityLevel = getAbilityLevel(Ability);
 
         return ((abilityLevel-10)/2)+proficiencyBonus;
     }
 
     public int returnSpellCastingModifier(String Ability) {
-        int abilityLevel= 0;
+        int abilityLevel;
         abilityLevel = getAbilityLevel(Ability);
 
         return (abilityLevel-10)/2;
     }
 
     public int returnSpellSaveDC(String Ability) {
-        int abilityLevel= 0;
+        int abilityLevel;
         abilityLevel = getAbilityLevel(Ability);
 
         return ((abilityLevel-10)/2)+8+ this.proficiencyBonus;
@@ -519,7 +514,4 @@ public abstract class Character{
 
     public abstract boolean[] setSavingThrows();
 
-    public void clearSkill(){
-        knownSkills.clear();
-    };
 }

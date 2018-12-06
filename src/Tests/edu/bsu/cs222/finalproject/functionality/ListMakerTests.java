@@ -7,9 +7,8 @@ import java.util.ArrayList;
 
 public class ListMakerTests {
 
-    private ListMaker make = new ListMaker();
-    private ArrayList<Spell> spells = make.returnSpellsArrayList5e();
-    private ArrayList<String> items = make.returnItemsArrayList5e();
+    private ArrayList<Spell> spells = ListMaker.returnSpellsArrayList5e();
+    private ArrayList<String> items = ListMaker.returnItemsArrayList5e();
 
     @Test
     public void testSpell0Name() {
@@ -23,7 +22,7 @@ public class ListMakerTests {
 
     @Test
     public void testSpell0UsableBy() {
-        Assert.assertEquals(spells.get(0).useableBy.contains("Wizard"),true);
+        Assert.assertTrue(spells.get(0).useableBy.contains("Wizard"));
     }
 
     @Test
@@ -38,12 +37,12 @@ public class ListMakerTests {
 
     @Test
     public void testSpell243UsableBy() {
-        Assert.assertEquals(spells.get(243).useableBy.contains("Wizard"), true);
+        Assert.assertTrue(spells.get(243).useableBy.contains("Wizard"));
     }
 
     @Test
     public void testItem0() {
-        Assert.assertEquals(items.get(0), "Club");
+        Assert.assertEquals(items.get(0), "Club 1D4 B");
     }
 
     @Test
@@ -53,6 +52,6 @@ public class ListMakerTests {
 
     @Test
     public void testItem10() {
-        Assert.assertEquals(items.get(10), "Crossbow, light");
+        Assert.assertEquals(items.get(10), "Crossbow, light 1D8 P");
     }
 }

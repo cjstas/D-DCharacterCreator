@@ -10,9 +10,9 @@ public class Sourcerer extends Character {
         conST=true;
         chaST=true;
 
-        int spellAttackBonus = returnSpellAttackBonus("Charisma");
-        int spellSaveDC = returnSpellSaveDC("Charisma");
-        int spellCastingModifier = returnSpellCastingModifier("Charisma");
+        spellAttackBonus = returnSpellAttackBonus("Charisma");
+        spellSaveDC = returnSpellSaveDC("Charisma");
+        spellCastingModifier = returnSpellCastingModifier("Charisma");
         health=setHealth();
 
         validSkills.add("arcana");
