@@ -1,25 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1f450ca-d401-4cf3-b36b-59b607118e86" name="Default Changelist" comment="Refactored Character.java to have spell variables declared&#10;ALSO: removed unused variables&#10;Refactored Classes with spells to use the new Character.java spell variables&#10;&#10;Changed ListMakers to make some methods static. (General Cleanup)">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
+    <list default="true" id="a1f450ca-d401-4cf3-b36b-59b607118e86" name="Default Changelist" comment="Got rid of gitignore, readded xmls to be uploaded to my branch for testing and making sure I can pull everything">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/TeamFFinalProject.iml" afterPath="$PROJECT_DIR$/TeamFFinalProject.iml" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/edu/bsu/cs222/finalproject/functionality/CharacterTests.java" afterPath="$PROJECT_DIR$/src/Tests/edu/bsu/cs222/finalproject/functionality/CharacterTests.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Bard.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Cleric.java" afterPath="$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Cleric.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ItemData.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SheetFive.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SheetThreeFive.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SpellData.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/bsu/cs222/finalproject/functionality/Bard.class" afterPath="$PROJECT_DIR$/target/classes/edu/bsu/cs222/finalproject/functionality/Bard.class" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/bsu/cs222/finalproject/functionality/CharacterTests.class" afterPath="$PROJECT_DIR$/target/test-classes/edu/bsu/cs222/finalproject/functionality/CharacterTests.class" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/bsu/cs222/finalproject/functionality/PromptArrayFill.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -122,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="512" column="50" lean-forward="true" selection-start-line="512" selection-start-column="50" selection-end-line="512" selection-end-column="50" />
+              <caret line="512" column="50" lean-forward="false" selection-start-line="512" selection-start-column="50" selection-end-line="512" selection-end-column="50" />
               <folding>
                 <element signature="method#createPBMap#0;class#Character#0" expanded="false" />
                 <element signature="method#Character#1;class#Character#0" expanded="false" />
@@ -563,7 +547,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544049542331</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Got rid of gitignore, readded xmls to be uploaded to my branch for testing and making sure I can pull everything">
+      <created>1544127540871</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1544127540871</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -650,7 +641,8 @@
     <MESSAGE value="Done a a lot of stuff &#10;+ MainUI fills out&#10;+ Character has alot added to it" />
     <MESSAGE value="Refactored Character.java to have spell variables declared&#10;ALSO: removed unused variables&#10;Refactored Classes with spells to use the new Character.java spell variables" />
     <MESSAGE value="Refactored Character.java to have spell variables declared&#10;ALSO: removed unused variables&#10;Refactored Classes with spells to use the new Character.java spell variables&#10;&#10;Changed ListMakers to make some methods static. (General Cleanup)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored Character.java to have spell variables declared&#10;ALSO: removed unused variables&#10;Refactored Classes with spells to use the new Character.java spell variables&#10;&#10;Changed ListMakers to make some methods static. (General Cleanup)" />
+    <MESSAGE value="Got rid of gitignore, readded xmls to be uploaded to my branch for testing and making sure I can pull everything" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got rid of gitignore, readded xmls to be uploaded to my branch for testing and making sure I can pull everything" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -768,8 +760,8 @@
         <state relative-caret-position="221">
           <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
           <folding>
-            <element signature="e#211#212#0" expanded="true" />
-            <element signature="e#255#256#0" expanded="true" />
+            <element signature="e#211#212#0" expanded="false" />
+            <element signature="e#255#256#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -975,7 +967,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/bsu/cs222/finalproject/functionality/Character.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="512" column="50" lean-forward="true" selection-start-line="512" selection-start-column="50" selection-end-line="512" selection-end-column="50" />
+          <caret line="512" column="50" lean-forward="false" selection-start-line="512" selection-start-column="50" selection-end-line="512" selection-end-column="50" />
           <folding>
             <element signature="method#createPBMap#0;class#Character#0" expanded="false" />
             <element signature="method#Character#1;class#Character#0" expanded="false" />
