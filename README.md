@@ -27,3 +27,5 @@ If you have more problems look below.
 Next try to run our automated tests. You should be able to right click the tests directory in src, mark the directory as a test directory.
 Then you right click again and hit "Run All Tests."
 If any tests fail, please let us know. All release versions should have working tests
+
+NOTE: If tests do not run correctly, make sure that you have the "Use classpath of module:" field set to thecorrect path (Should say something like TeamFFinalProject)
