@@ -19,9 +19,9 @@ public class Paladin extends Character {
         validSkills.add("persuasion");
         validSkills.add("religion");
 
-        int spellAttackBonus = returnSpellAttackBonus("Charisma");
-        int spellSaveDC = returnSpellSaveDC("Charisma");
-        int spellCastingModifier = returnSpellCastingModifier("Charisma");
+        spellAttackBonus = returnSpellAttackBonus("Charisma");
+        spellSaveDC = returnSpellSaveDC("Charisma");
+        spellCastingModifier = returnSpellCastingModifier("Charisma");
 
         Random randomize = new Random();
         for (int i = 0; i < 2 ; i++) {

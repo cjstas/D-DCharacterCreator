@@ -40,7 +40,7 @@ public class ListMaker {
         return output;
     }
 
-    public static ArrayList<ArrayList<Spell>> returnClassArrays() {
+    static ArrayList<ArrayList<Spell>> returnClassArrays() {
         ArrayList<Spell> AllSpells = returnSpellsArrayList5e();
         ArrayList<Spell> WizardSpells = new ArrayList<>();
         ArrayList<Spell> BardSpells = new ArrayList<>();
@@ -201,7 +201,7 @@ public class ListMaker {
         };
     }
 
-    public ArrayList<String> returnItemsArrayList5e() {
+    static ArrayList<String> returnItemsArrayList5e() {
         File Items = new File("src/resources/ItemData.txt");
         String unSortedItems = "";
         try {

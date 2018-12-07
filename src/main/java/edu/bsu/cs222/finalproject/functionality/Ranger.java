@@ -10,9 +10,9 @@ public class Ranger extends Character {
         dexST=true;
         strST=true;
 
-        int spellAttackBonus = returnSpellAttackBonus("Wisdom");
-        int spellSaveDC = returnSpellSaveDC("Wisdom");
-        int spellCastingModifier = returnSpellCastingModifier("Wisdom");
+        spellAttackBonus = returnSpellAttackBonus("Wisdom");
+        spellSaveDC = returnSpellSaveDC("Wisdom");
+        spellCastingModifier = returnSpellCastingModifier("Wisdom");
         health=setHealth();
 
         validSkills.add("animalHandeling");

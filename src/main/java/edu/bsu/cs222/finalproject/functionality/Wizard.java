@@ -11,9 +11,9 @@ public class Wizard extends Character {
         intelST=true;
         wisST=true;
 
-        int spellAttackBonus = returnSpellAttackBonus("Intelligence");
-        int spellSaveDC = returnSpellSaveDC("Intelligence");
-        int spellCastingModifier = returnSpellCastingModifier("Intelligence");
+        spellAttackBonus = returnSpellAttackBonus("Intelligence");
+        spellSaveDC = returnSpellSaveDC("Intelligence");
+        spellCastingModifier = returnSpellCastingModifier("Intelligence");
         health=setHealth();
 
         validSkills.add("arcana");

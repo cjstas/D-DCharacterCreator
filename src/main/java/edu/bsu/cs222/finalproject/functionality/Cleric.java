@@ -16,9 +16,10 @@ public class Cleric extends Character{
         validSkills.add("persuasion");
         validSkills.add("religion");
 
-        int spellAttackBonus = returnSpellAttackBonus("Wisdom");
-        int spellSaveDC = returnSpellSaveDC("Wisdom");
-        int spellCastingModifier = returnSpellCastingModifier("Wisdom");
+
+        spellAttackBonus = returnSpellAttackBonus("Wisdom");
+        spellSaveDC = returnSpellSaveDC("Wisdom");
+        spellCastingModifier = returnSpellCastingModifier("Wisdom");
         health=setHealth();
 
 
